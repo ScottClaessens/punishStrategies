@@ -1,7 +1,7 @@
 # custom functions
 
 # simulate data
-simulateData <- function(n = 300, seed = 2113, probs) {
+simulateData <- function(n = 300, seed = 2113, errorRate = 0, probs) {
   # set simulation seed
   set.seed(seed)
   # n = number of participants
@@ -18,9 +18,9 @@ simulateData <- function(n = 300, seed = 2113, probs) {
   cheat1 <- c()
   for (i in 1:n) {
     if (strategies[i] %in% c(1, 3)) {
-      cheat1[i] <- 0
+      cheat1[i] <- rbinom(1, 1, prob = 0 + errorRate) # 0
     } else if (strategies[i] %in% c(2, 4)) {
-      cheat1[i] <- 1
+      cheat1[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
     } else if (strategies[i] == 5) {
       cheat1[i] <- rbinom(1, 1, prob = 0.5)
     }
@@ -29,7 +29,7 @@ simulateData <- function(n = 300, seed = 2113, probs) {
   cheat2 <- c()
   for (i in 1:n) {
     if (strategies[i] %in% 1:4) {
-      cheat2[i] <- 1
+      cheat2[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
     } else if (strategies[i] == 5) {
       cheat2[i] <- rbinom(1, 1, prob = 0.5)
     }
@@ -38,9 +38,9 @@ simulateData <- function(n = 300, seed = 2113, probs) {
   nocheat1 <- c()
   for (i in 1:n) {
     if (strategies[i] %in% c(1, 3, 4)) {
-      nocheat1[i] <- 0
+      nocheat1[i] <- rbinom(1, 1, prob = 0 + errorRate) # 0
     } else if (strategies[i] == 2) {
-      nocheat1[i] <- 1
+      nocheat1[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
     } else if (strategies[i] == 5) {
       nocheat1[i] <- rbinom(1, 1, prob = 0.5)
     }
@@ -49,9 +49,9 @@ simulateData <- function(n = 300, seed = 2113, probs) {
   nocheat2 <- c()
   for (i in 1:n) {
     if (strategies[i] %in% 1:3) {
-      nocheat2[i] <- 1
+      nocheat2[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
     } else if (strategies[i] == 4) {
-      nocheat2[i] <- 0
+      nocheat2[i] <- rbinom(1, 1, prob = 0 + errorRate) # 0
     } else if (strategies[i] == 5) {
       nocheat2[i] <- rbinom(1, 1, prob = 0.5)
     }
@@ -60,9 +60,9 @@ simulateData <- function(n = 300, seed = 2113, probs) {
   tppcheat <- c()
   for (i in 1:n) {
     if (strategies[i] %in% 1) {
-      tppcheat[i] <- 0
+      tppcheat[i] <- rbinom(1, 1, prob = 0 + errorRate) # 0
     } else if (strategies[i] %in% 2:4) {
-      tppcheat[i] <- 1
+      tppcheat[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
     } else if (strategies[i] == 5) {
       tppcheat[i] <- rbinom(1, 1, prob = 0.5)
     }
