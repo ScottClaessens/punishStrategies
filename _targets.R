@@ -8,7 +8,7 @@ tar_option_set(packages = c("ggridges", "rstan"))
 # full workflow
 list(
   # simulation
-  tar_target(simProbs, c(0.10, 0.40, 0.25, 0.25)),
+  tar_target(simProbs, c(0.20, 0.30, 0.35, 0.10, 0.05)),
   tar_target(dSim, simulateData(probs = simProbs, errorRate = 0.05)),
   # fit model
   tar_target(fileModel, "stan/punishStrat.stan", format = "file"),

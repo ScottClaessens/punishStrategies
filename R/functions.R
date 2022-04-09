@@ -5,18 +5,19 @@ simulateData <- function(n = 300, seed = 2113, errorRate = 0, probs) {
   # set simulation seed
   set.seed(seed)
   # n = number of participants
-  # assume that each participant follows a different punishment strategy (not necessarily true)
+  # assume that each participant follows a different punishment strategy
   # 1. Avoid DI (disadvantageous inequity to self)
   # 2. Competitive
   # 3. Egalitarian
   # 4. Retributive
-  strategies <- sample(1:4, size = n, replace = TRUE, prob = probs)
+  # 5. Never punish
+  strategies <- sample(1:5, size = n, replace = TRUE, prob = probs)
   # each participant plays a series of games developed to tease apart strategies
   # 0 = no punish, 1 = punish
   # cheat1 - cheating game with no disvantageous inequity
   cheat1 <- c()
   for (i in 1:n) {
-    if (strategies[i] %in% c(1, 3)) {
+    if (strategies[i] %in% c(1, 3, 5)) {
       cheat1[i] <- rbinom(1, 1, prob = 0 + errorRate) # 0
     } else if (strategies[i] %in% c(2, 4)) {
       cheat1[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
@@ -25,12 +26,16 @@ simulateData <- function(n = 300, seed = 2113, errorRate = 0, probs) {
   # cheat2 - cheating game with disadvantageous inequity
   cheat2 <- c()
   for (i in 1:n) {
-    cheat2[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
+    if (strategies[i] == 5) {
+      cheat2[i] <- rbinom(1, 1, prob = 0 + errorRate) # 0
+    } else if (strategies[i] %in% 1:4) {
+      cheat2[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
+    }
   }
   # nocheat1 - game without cheating or disadvantageous inequity
   nocheat1 <- c()
   for (i in 1:n) {
-    if (strategies[i] %in% c(1, 3, 4)) {
+    if (strategies[i] %in% c(1, 3, 4, 5)) {
       nocheat1[i] <- rbinom(1, 1, prob = 0 + errorRate) # 0
     } else if (strategies[i] == 2) {
       nocheat1[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
@@ -41,22 +46,22 @@ simulateData <- function(n = 300, seed = 2113, errorRate = 0, probs) {
   for (i in 1:n) {
     if (strategies[i] %in% 1:3) {
       nocheat2[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
-    } else if (strategies[i] == 4) {
+    } else if (strategies[i] %in% 4:5) {
       nocheat2[i] <- rbinom(1, 1, prob = 0 + errorRate) # 0
     }
   }
   # tppcheat - third party game with disadvantageous inequity
   tppcheat <- c()
   for (i in 1:n) {
-    if (strategies[i] %in% 1) {
+    if (strategies[i] %in% c(1, 5)) {
       tppcheat[i] <- rbinom(1, 1, prob = 0 + errorRate) # 0
     } else if (strategies[i] %in% 2:4) {
       tppcheat[i] <- rbinom(1, 1, prob = 1 - errorRate) # 1
     }
   }
   # put together final dataset
-  out <- tibble(id = 1:n, strategy = strategies, 
-                cheat1, cheat2, nocheat1, nocheat2, tppcheat)
+  out <- tibble(id = 1:n, strategies, cheat1, cheat2, 
+                nocheat1, nocheat2, tppcheat)
   return(out)
 }
 
@@ -80,11 +85,11 @@ fitModel <- function(dSim, compiledModel) {
 # plot simulation results
 plotSimResults <- function(simProbs, simPost) {
   # strategy vector
-  strategies <- c("Avoid DI", "Competitive", "Egalitarian", "Retributive")
+  strategies <- c("Avoid DI", "Competitive", "Egalitarian", "Retributive", "Never punish")
   # plot
   out <- 
     tibble(
-      p = c(simPost$p[,1], simPost$p[,2], simPost$p[,3], simPost$p[,4]),
+      p = c(simPost$p[,1], simPost$p[,2], simPost$p[,3], simPost$p[,4], simPost$p[,5]),
       strategy = rep(strategies, each = length(simPost$p[,1]))
     ) %>%
     mutate(strategy = factor(strategy, levels = strategies)) %>%
