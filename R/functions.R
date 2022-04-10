@@ -71,14 +71,16 @@ fitModel <- function(dSim, compiledModel) {
   dataList <-
     list(
       N = nrow(dSim),
+      id = dSim$id,
       cheat1 = dSim$cheat1,
       cheat2 = dSim$cheat2,
       nocheat1 = dSim$nocheat1, 
       nocheat2 = dSim$nocheat2,
-      tppcheat = dSim$tppcheat
+      tppcheat = dSim$tppcheat,
+      error = 0.05 # assumed error rate
     )
   # fit model
-  out <- sampling(compiledModel, data = dataList, cores = 4, seed = 2113)
+  out <- sampling(compiledModel, data = dataList, cores = 4, seed = 2113, init = "0")
   return(out)
 }
 

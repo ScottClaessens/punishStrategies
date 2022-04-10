@@ -3,7 +3,7 @@ library(tarchetypes)
 library(tidyverse)
 source("R/functions.R")
 options(tidyverse.quiet = TRUE)
-tar_option_set(packages = c("ggridges", "rstan"))
+tar_option_set(packages = c("ggridges", "rethinking", "rstan"))
 
 # full workflow
 list(

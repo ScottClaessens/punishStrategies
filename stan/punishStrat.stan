@@ -1,24 +1,34 @@
 data {
   int N;           // number of participants
+  int id[N];       // participant id vector
   int cheat1[N];   // cheat1 game
   int cheat2[N];   // cheat2 game
   int nocheat1[N]; // nocheat1 game
   int nocheat2[N]; // nocheat2 game
   int tppcheat[N]; // tppcheat game
+  real<lower=0,upper=1> error; // error rate (assumed)
 }
 parameters {
-  simplex[5] p; // probability of different strategies
-  real<lower=0,upper=1> alpha; // error rate
+  vector[5] alpha;           // population-level intercepts for probabilities of different strategies
+  matrix[5,N] z_id;          // participant varying intercepts
+  vector<lower=0>[5] sigma;  // sd for varying intercepts
+  cholesky_factor_corr[5] L; // Cholesky correlation matrix
+}
+transformed parameters {
+  // non-centered version of varying intercepts
+  matrix[5,N] z;
+  z = diag_pre_multiply(sigma, L) * z_id; 
 }
 model {
-  // vector to hold terms of sum
+  // vectors to hold terms of sum and probabilities
   vector[5] theta_j;
+  vector[5] p;
   
-  // prior on the probabilities
-  p ~ dirichlet( rep_vector(4,5) );
-  
-  // prior on the error rate
-  alpha ~ beta( 0.1, 10 );
+  // priors
+  alpha ~ normal(0, 1);
+  L ~ lkj_corr_cholesky(2);
+  sigma ~ exponential(2);
+  to_vector(z_id) ~ normal(0, 1);
   
   // loop over five behavioural tasks
   for (T in 1:5) {
@@ -56,16 +66,25 @@ model {
       if ( T==5 && tppcheat[i]==1 ) theta_j[4]=1; // retributive
       if ( T==5 && tppcheat[i]==0 ) theta_j[5]=1; // never punish
       
+      // calculate p vector for this case
+      p = softmax( alpha + col(z, id[i]) );
+      
       for (S in 1:5) {
           // add error
-          if ( theta_j[S]==0 ) theta_j[S] = 0 + alpha;
-          if ( theta_j[S]==1 ) theta_j[S] = 1 - alpha;
+          if ( theta_j[S]==0 ) theta_j[S] = 0 + error;
+          if ( theta_j[S]==1 ) theta_j[S] = 1 - error;
           // compute log( p_S * Pr(y_i|S) )
           theta_j[S] = log(p[S]) + log(theta_j[S]);
       }
-          
+      
       // compute average log-probability of data
       target += log_sum_exp( theta_j );
     }
   }
+}
+generated quantities {
+  vector[5] p;
+  matrix[5, 5] Rho;
+  p = softmax( alpha );
+  Rho = multiply_lower_tri_self_transpose(L);
 }
