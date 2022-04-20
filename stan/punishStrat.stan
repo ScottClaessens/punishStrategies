@@ -1,5 +1,6 @@
 data {
   int N;         // number of participants
+  real x[N];     // individual difference measure
   int pun1_1[N]; // punishment behaviour 1.1
   int pun1_2[N]; // punishment behaviour 1.2
   int pun2_1[N]; // punishment behaviour 2.1
@@ -12,6 +13,7 @@ data {
 }
 parameters {
   vector[9] alpha; // intercepts for probabilities of different strategies
+  vector[9] beta;  // slopes for probabilities of different strategies
 }
 model {
   // vectors to hold terms of sum and probabilities
@@ -20,6 +22,7 @@ model {
   
   // priors
   alpha ~ normal(0, 1);
+  beta ~ normal(0, 0.5);
   
   // loop over eight punishment behaviours
   for (B in 1:8) {
@@ -108,7 +111,7 @@ model {
       if ( B==8 && pun4_2[i]==0 ) theta_j[9]=1  ; // never punish
       
       // calculate p vector for this case
-      p = softmax( alpha );
+      p = softmax( alpha + beta*x[i] );
       
       for (S in 1:9) {
           // add error
