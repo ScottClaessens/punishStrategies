@@ -9,7 +9,7 @@ Using behavioural economic games to tease apart the strategies underlying punish
 To run this code, you will need to [install R](https://www.r-project.org/) and the following R packages:
 
 ```
-install.packages(c("ggridges",rstan"))
+install.packages(c("ggridges","rstan"))
 ```
 
 You will also need to install the `rethinking` package. See here for more details: [https://github.com/rmcelreath/rethinking](https://github.com/rmcelreath/rethinking)
