@@ -46,3 +46,9 @@ desktop.ini
 
 # targets folder
 _targets/
+
+# notes folder
+notes/
+
+# preregistration folder
+preregistration/

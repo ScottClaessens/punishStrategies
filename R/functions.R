@@ -1,28 +1,29 @@
 # custom functions
 
 # simulate data
-simulateData <- function(n = 300, seed = 2113, errorRate = 0, alphas, betas) {
+simulateData <- function(n = 500, seed = 2113, errorRate = 0, alphas, betas) {
   # set simulation seed
   set.seed(seed)
   # n = number of participants
   # each participant has a score on an individual difference measure: x
   x <- rnorm(n)
   # assume that each participant follows a different punishment strategy
-  # 1. Competitive
-  # 2. Avoid DI (self-referential)
-  # 3. Egalitarian
-  # 4. AI-seeking
-  # 5. Retributive (self-referential)
-  # 6. Norm-enforcer
-  # 7. Exclusively antisocial punishment
-  # 8. Random choice
-  # 9. Never punish
+  # 01. Competitive
+  # 02. Avoid disadvantageous inequality
+  # 03. Egalitarian
+  # 04. Seek advantageous inequality
+  # 05. Retributive
+  # 06. Deterrent
+  # 07. Norm-enforcing
+  # 08. Exclusively antisocial punishment
+  # 09. Random choice
+  # 10. Never punish
   # the punishment strategy is predicted by x
   strategies <- c()
   for (i in 1:n) {
     # predict probabilities with x
     probs <- softmax(alphas + betas*x[i])
-    strategies[i] <- sample(1:9, size = 1, replace = TRUE, prob = probs)
+    strategies[i] <- sample(1:10, size = 1, replace = TRUE, prob = probs)
   }
   # each participant plays a series of games developed to tease apart strategies
   # we measure punishment behaviours in these games
@@ -33,7 +34,7 @@ simulateData <- function(n = 300, seed = 2113, errorRate = 0, alphas, betas) {
     for (i in 1:n) {
       if (strategies[i] %in% punStrats) {
         out[i] <- rbinom(1, 1, prob = 1 - errorRate) # punish (with error)
-      } else if (strategies[i] == 8) {
+      } else if (strategies[i] == 9) {
         out[i] <- rbinom(1, 1, prob = 0.5)           # random choice
       } else if (!(strategies[i] %in% punStrats)) {
         out[i] <- rbinom(1, 1, prob = 0 + errorRate) # don't punish (with error)
@@ -41,21 +42,26 @@ simulateData <- function(n = 300, seed = 2113, errorRate = 0, alphas, betas) {
     }
     return(out)
   }
-  # game 1 - taking game (v1) with no disvantageous inequity
-  pun1_1 <- simulateBehaviour(punStrats = c(1, 5, 6))
-  pun1_2 <- simulateBehaviour(punStrats = c(1, 7))
-  # game 2 - taking game (v2) with no disadvantageous inequity
-  pun2_1 <- simulateBehaviour(punStrats = c(1, 4, 5, 6))
-  pun2_2 <- simulateBehaviour(punStrats = c(1, 7))
-  # game 3 - taking game (v3) with disadvantageous inequity
-  pun3_1 <- simulateBehaviour(punStrats = c(1, 2, 3, 4, 5, 6))
-  pun3_2 <- simulateBehaviour(punStrats = c(1, 7))
-  # game 4 - third party game with disadvantageous inequity
-  pun4_1 <- simulateBehaviour(punStrats = c(1, 3, 6))
-  pun4_2 <- simulateBehaviour(punStrats = c(1, 7))
+  # game 1 - No DI 1
+  pun1_1 <- simulateBehaviour(punStrats = c(1, 5, 6, 7))
+  pun1_2 <- simulateBehaviour(punStrats = c(1, 8))
+  # game 2 - No DI 2
+  pun2_1 <- simulateBehaviour(punStrats = c(1, 4, 5, 6, 7))
+  pun2_2 <- simulateBehaviour(punStrats = c(1, 8))
+  # game 3 - No DI 3 (Computer)
+  pun3_1 <- simulateBehaviour(punStrats = c(1, 4, 5))
+  pun3_2 <- simulateBehaviour(punStrats = c(1, 8))
+  # game 4 - DI
+  pun4_1 <- simulateBehaviour(punStrats = c(1, 2, 3, 4, 5, 6, 7))
+  pun4_2 <- simulateBehaviour(punStrats = c(1, 8))
+  # game 5 - 3PP
+  pun5_1 <- simulateBehaviour(punStrats = c(1, 3, 7))
+  pun5_2 <- simulateBehaviour(punStrats = c(1, 8))
   # put together final dataset
-  out <- tibble(id = 1:n, strategies, x, pun1_1, pun1_2, pun2_1, 
-                pun2_2, pun3_1, pun3_2, pun4_1, pun4_2)
+  out <- tibble(id = 1:n, strategies, x, 
+                pun1_1, pun1_2, pun2_1, pun2_2, 
+                pun3_1, pun3_2, pun4_1, pun4_2,
+                pun5_1, pun5_2)
   return(out)
 }
 
@@ -75,7 +81,9 @@ fitModel <- function(dSim, compiledModel) {
       pun3_2 = dSim$pun3_2,
       pun4_1 = dSim$pun4_1,
       pun4_2 = dSim$pun4_2,
-      error = 0.05 # assumed error rate
+      pun5_1 = dSim$pun5_1,
+      pun5_2 = dSim$pun5_2,
+      error = 0 # assumed error rate
     )
   # fit model
   out <- sampling(compiledModel, data = dataList, cores = 4, seed = 2113)
@@ -85,9 +93,9 @@ fitModel <- function(dSim, compiledModel) {
 # plot simulation results
 plotSimResults1 <- function(simAlphas, simPost) {
   # strategy vector
-  strategies <- c("Competitive", "Avoid-DI", "Egalitarian", "AI-seeking",
-                  "Retributive", "Norm-enforcer", "Antisocial", "Random", 
-                  "Never punish")
+  strategies <- c("Competitive", "Avoid DI", "Egalitarian", "Seek AI",
+                  "Retributive", "Deterrent", "Norm-enforcing", 
+                  "Antisocial", "Random choice", "Anti-punish")
   # get simulated probabilities (intercepts)
   simProbs <- softmax(simAlphas)
   # calculate probabilities
@@ -96,9 +104,8 @@ plotSimResults1 <- function(simAlphas, simPost) {
   # plot
   out <- 
     tibble(
-      p = c(P[,1], P[,2], P[,3],
-            P[,4], P[,5], P[,6],
-            P[,7], P[,8], P[,9]),
+      p = c(P[,1], P[,2], P[,3], P[,4], P[,5], 
+            P[,6], P[,7], P[,8], P[,9], P[,10]),
       strategy = rep(strategies, each = length(P[,1]))
     ) %>%
     mutate(strategy = factor(strategy, levels = strategies)) %>%
@@ -125,14 +132,14 @@ plotSimResults2 <- function(dSim, simPost) {
     # on probability scale
     for (j in 1:nrow(p)) p[j,] <- softmax(p[j,])
     # add to post
-    post <- bind_rows(post, tibble(x = x[i], strategy = 1:9, med = apply(p, 2, median),
+    post <- bind_rows(post, tibble(x = x[i], strategy = 1:10, med = apply(p, 2, median),
                                    lower = apply(p, 2, quantile, 0.025),
                                    upper = apply(p, 2, quantile, 0.975)))
   }
   # strategy vector
-  strategies <- c("Competitive", "Avoid-DI", "Egalitarian", "AI-seeking",
-                  "Retributive", "Norm-enforcer", "Antisocial", "Random", 
-                  "Never punish")
+  strategies <- c("Competitive", "Avoid DI", "Egalitarian", "Seek AI",
+                  "Retributive", "Deterrent", "Norm-enforcing", 
+                  "Antisocial", "Random choice", "Anti-punish")
   post$strategy <- strategies[post$strategy]
   post$strategy <- factor(post$strategy, levels = strategies)
   # plot
