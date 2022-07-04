@@ -51,17 +51,20 @@ simulateData <- function(n = 500, seed = 2113, errorRate = 0, alphas, betas) {
   # game 3 - No DI 3 (Computer)
   pun3_1 <- simulateBehaviour(punStrats = c(1, 4, 5))
   pun3_2 <- simulateBehaviour(punStrats = c(1, 8))
-  # game 4 - DI
-  pun4_1 <- simulateBehaviour(punStrats = c(1, 2, 3, 4, 5, 6, 7))
-  pun4_2 <- simulateBehaviour(punStrats = c(1, 8))
-  # game 5 - 3PP
-  pun5_1 <- simulateBehaviour(punStrats = c(1, 3, 7))
+  # game 4 - No DI 4 (1:1 Fee-Fine)
+  pun4_1 <- simulateBehaviour(punStrats = c(5, 6, 7))
+  pun4_2 <- simulateBehaviour(punStrats = c(8))
+  # game 5 - DI
+  pun5_1 <- simulateBehaviour(punStrats = c(1, 2, 3, 5, 6, 7))
   pun5_2 <- simulateBehaviour(punStrats = c(1, 8))
+  # game 6 - 3PP
+  pun6_1 <- simulateBehaviour(punStrats = c(1, 3, 7))
+  pun6_2 <- simulateBehaviour(punStrats = c(1, 8))
   # put together final dataset
   out <- tibble(id = 1:n, strategies, x, 
                 pun1_1, pun1_2, pun2_1, pun2_2, 
                 pun3_1, pun3_2, pun4_1, pun4_2,
-                pun5_1, pun5_2)
+                pun5_1, pun5_2, pun6_1, pun6_2)
   return(out)
 }
 
@@ -71,7 +74,6 @@ fitModel <- function(dSim, compiledModel) {
   dataList <-
     list(
       N = nrow(dSim),
-      id = dSim$id,
       x = dSim$x,
       pun1_1 = dSim$pun1_1,
       pun1_2 = dSim$pun1_2,
@@ -83,6 +85,8 @@ fitModel <- function(dSim, compiledModel) {
       pun4_2 = dSim$pun4_2,
       pun5_1 = dSim$pun5_1,
       pun5_2 = dSim$pun5_2,
+      pun6_1 = dSim$pun6_1,
+      pun6_2 = dSim$pun6_2,
       error = 0 # assumed error rate
     )
   # fit model

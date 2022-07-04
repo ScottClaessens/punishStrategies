@@ -7,10 +7,12 @@ data {
   int pun2_2[N]; // No DI 2 - No take
   int pun3_1[N]; // No DI 3 - Take
   int pun3_2[N]; // No DI 3 - No take
-  int pun4_1[N]; // DI - Take
-  int pun4_2[N]; // DI - No take
-  int pun5_1[N]; // 3PP - Take
-  int pun5_2[N]; // 3PP - No take
+  int pun4_1[N]; // No DI 4 - Take
+  int pun4_2[N]; // No DI 4 - No take
+  int pun5_1[N]; // DI - Take
+  int pun5_2[N]; // DI - No take
+  int pun6_1[N]; // 3PP - Take
+  int pun6_2[N]; // 3PP - No take
   real<lower=0,upper=1> error; // error rate (assumed)
 }
 parameters {
@@ -27,7 +29,7 @@ model {
   beta ~ normal(0, 0.5);
   
   // loop over ten punishment behaviours
-  for (B in 1:10) {
+  for (B in 1:12) {
     // probability of data
     for (i in 1:N ) {
       theta_j = rep_vector(0,10); // clear out the vector
@@ -97,19 +99,19 @@ model {
       if ( B==6  && pun3_2[i]==1 ) theta_j[ 8]=1  ; // antisocial
       if ( B==6                  ) theta_j[ 9]=0.5; // random choice
       if ( B==6  && pun3_2[i]==0 ) theta_j[10]=1  ; // never punish
-      // DI - Take
-      if ( B==7  && pun4_1[i]==1 ) theta_j[ 1]=1  ; // competitive
-      if ( B==7  && pun4_1[i]==1 ) theta_j[ 2]=1  ; // avoid DI
-      if ( B==7  && pun4_1[i]==1 ) theta_j[ 3]=1  ; // egalitarian
-      if ( B==7  && pun4_1[i]==1 ) theta_j[ 4]=1  ; // seek AI
+      // No DI 4 - Take
+      if ( B==7  && pun4_1[i]==0 ) theta_j[ 1]=1  ; // competitive
+      if ( B==7  && pun4_1[i]==0 ) theta_j[ 2]=1  ; // avoid DI
+      if ( B==7  && pun4_1[i]==0 ) theta_j[ 3]=1  ; // egalitarian
+      if ( B==7  && pun4_1[i]==0 ) theta_j[ 4]=1  ; // seek AI
       if ( B==7  && pun4_1[i]==1 ) theta_j[ 5]=1  ; // retributive
       if ( B==7  && pun4_1[i]==1 ) theta_j[ 6]=1  ; // deterrent
       if ( B==7  && pun4_1[i]==1 ) theta_j[ 7]=1  ; // norm-enforcing
       if ( B==7  && pun4_1[i]==0 ) theta_j[ 8]=1  ; // antisocial
       if ( B==7                  ) theta_j[ 9]=0.5; // random choice
       if ( B==7  && pun4_1[i]==0 ) theta_j[10]=1  ; // never punish
-      // DI - No take
-      if ( B==8  && pun4_2[i]==1 ) theta_j[ 1]=1  ; // competitive
+      // No DI 4 - No take
+      if ( B==8  && pun4_2[i]==0 ) theta_j[ 1]=1  ; // competitive
       if ( B==8  && pun4_2[i]==0 ) theta_j[ 2]=1  ; // avoid DI
       if ( B==8  && pun4_2[i]==0 ) theta_j[ 3]=1  ; // egalitarian
       if ( B==8  && pun4_2[i]==0 ) theta_j[ 4]=1  ; // seek AI
@@ -119,18 +121,18 @@ model {
       if ( B==8  && pun4_2[i]==1 ) theta_j[ 8]=1  ; // antisocial
       if ( B==8                  ) theta_j[ 9]=0.5; // random choice
       if ( B==8  && pun4_2[i]==0 ) theta_j[10]=1  ; // never punish
-      // 3PP - Take
+      // DI - Take
       if ( B==9  && pun5_1[i]==1 ) theta_j[ 1]=1  ; // competitive
-      if ( B==9  && pun5_1[i]==0 ) theta_j[ 2]=1  ; // avoid DI
+      if ( B==9  && pun5_1[i]==1 ) theta_j[ 2]=1  ; // avoid DI
       if ( B==9  && pun5_1[i]==1 ) theta_j[ 3]=1  ; // egalitarian
-      if ( B==9  && pun5_1[i]==0 ) theta_j[ 4]=1  ; // seek AI
-      if ( B==9  && pun5_1[i]==0 ) theta_j[ 5]=1  ; // retributive
-      if ( B==9  && pun5_1[i]==0 ) theta_j[ 6]=1  ; // deterrent
+      if ( B==9  && pun5_1[i]==1 ) theta_j[ 4]=1  ; // seek AI
+      if ( B==9  && pun5_1[i]==1 ) theta_j[ 5]=1  ; // retributive
+      if ( B==9  && pun5_1[i]==1 ) theta_j[ 6]=1  ; // deterrent
       if ( B==9  && pun5_1[i]==1 ) theta_j[ 7]=1  ; // norm-enforcing
       if ( B==9  && pun5_1[i]==0 ) theta_j[ 8]=1  ; // antisocial
       if ( B==9                  ) theta_j[ 9]=0.5; // random choice
       if ( B==9  && pun5_1[i]==0 ) theta_j[10]=1  ; // never punish
-      // 3PP - No take
+      // DI - No take
       if ( B==10 && pun5_2[i]==1 ) theta_j[ 1]=1  ; // competitive
       if ( B==10 && pun5_2[i]==0 ) theta_j[ 2]=1  ; // avoid DI
       if ( B==10 && pun5_2[i]==0 ) theta_j[ 3]=1  ; // egalitarian
@@ -141,6 +143,28 @@ model {
       if ( B==10 && pun5_2[i]==1 ) theta_j[ 8]=1  ; // antisocial
       if ( B==10                 ) theta_j[ 9]=0.5; // random choice
       if ( B==10 && pun5_2[i]==0 ) theta_j[10]=1  ; // never punish
+      // 3PP - Take
+      if ( B==11 && pun6_1[i]==1 ) theta_j[ 1]=1  ; // competitive
+      if ( B==11 && pun6_1[i]==0 ) theta_j[ 2]=1  ; // avoid DI
+      if ( B==11 && pun6_1[i]==1 ) theta_j[ 3]=1  ; // egalitarian
+      if ( B==11 && pun6_1[i]==0 ) theta_j[ 4]=1  ; // seek AI
+      if ( B==11 && pun6_1[i]==0 ) theta_j[ 5]=1  ; // retributive
+      if ( B==11 && pun6_1[i]==0 ) theta_j[ 6]=1  ; // deterrent
+      if ( B==11 && pun6_1[i]==1 ) theta_j[ 7]=1  ; // norm-enforcing
+      if ( B==11 && pun6_1[i]==0 ) theta_j[ 8]=1  ; // antisocial
+      if ( B==11                 ) theta_j[ 9]=0.5; // random choice
+      if ( B==11 && pun6_1[i]==0 ) theta_j[10]=1  ; // never punish
+      // 3PP - No take
+      if ( B==12 && pun6_2[i]==1 ) theta_j[ 1]=1  ; // competitive
+      if ( B==12 && pun6_2[i]==0 ) theta_j[ 2]=1  ; // avoid DI
+      if ( B==12 && pun6_2[i]==0 ) theta_j[ 3]=1  ; // egalitarian
+      if ( B==12 && pun6_2[i]==0 ) theta_j[ 4]=1  ; // seek AI
+      if ( B==12 && pun6_2[i]==0 ) theta_j[ 5]=1  ; // retributive
+      if ( B==12 && pun6_2[i]==0 ) theta_j[ 6]=1  ; // deterrent
+      if ( B==12 && pun6_2[i]==0 ) theta_j[ 7]=1  ; // norm-enforcing
+      if ( B==12 && pun6_2[i]==1 ) theta_j[ 8]=1  ; // antisocial
+      if ( B==12                 ) theta_j[ 9]=0.5; // random choice
+      if ( B==12 && pun6_2[i]==0 ) theta_j[10]=1  ; // never punish
       
       // calculate p vector for this case
       p = softmax( alpha + beta*x[i] );

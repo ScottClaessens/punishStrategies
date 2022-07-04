@@ -14,7 +14,7 @@ list(
   # simulation
   tar_target(simAlphas, c(0, -0.2, 1, -1, -1, -0.5, -0.1, -1, -0.5, 2)),
   tar_target(simBetas, c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)),
-  tar_target(dSim, simulateData(n = 500, errorRate = 0, 
+  tar_target(dSim, simulateData(n = 100, errorRate = 0, 
                                 alphas = simAlphas, betas = simBetas)),
   # fit model to simulated data
   tar_target(fitSimModel, fitModel(dSim, compiledModel)),
