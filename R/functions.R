@@ -70,29 +70,54 @@ simulateData <- function(n = 500, seed = 2113, errorRate = 0, alphas, betas) {
   return(out)
 }
 
-# fit stan model to simulated data
-fitModel <- function(dSim, compiledModel) {
+# fit stan model without predictor
+fitModel1 <- function(d, compiledModel1, error = 0) {
   # list for stan
   dataList <-
     list(
-      N = nrow(dSim),
-      x = dSim$x,
-      pun1_1 = dSim$pun1_1,
-      pun1_2 = dSim$pun1_2,
-      pun2_1 = dSim$pun2_1,
-      pun2_2 = dSim$pun2_2,
-      pun3_1 = dSim$pun3_1,
-      pun3_2 = dSim$pun3_2,
-      pun4_1 = dSim$pun4_1,
-      pun4_2 = dSim$pun4_2,
-      pun5_1 = dSim$pun5_1,
-      pun5_2 = dSim$pun5_2,
-      pun6_1 = dSim$pun6_1,
-      pun6_2 = dSim$pun6_2,
-      error = 0 # assumed error rate
+      N = nrow(d),
+      pun1_1 = d$pun1_1,
+      pun1_2 = d$pun1_2,
+      pun2_1 = d$pun2_1,
+      pun2_2 = d$pun2_2,
+      pun3_1 = d$pun3_1,
+      pun3_2 = d$pun3_2,
+      pun4_1 = d$pun4_1,
+      pun4_2 = d$pun4_2,
+      pun5_1 = d$pun5_1,
+      pun5_2 = d$pun5_2,
+      pun6_1 = d$pun6_1,
+      pun6_2 = d$pun6_2,
+      error = error # assumed error rate
     )
   # fit model
-  out <- sampling(compiledModel, data = dataList, cores = 4, seed = 2113)
+  out <- sampling(compiledModel1, data = dataList, cores = 4, seed = 2113)
+  return(out)
+}
+
+# fit stan model with predictor
+fitModel2 <- function(d, compiledModel2, error = 0) {
+  # list for stan
+  dataList <-
+    list(
+      N = nrow(d),
+      x = d$x,
+      pun1_1 = d$pun1_1,
+      pun1_2 = d$pun1_2,
+      pun2_1 = d$pun2_1,
+      pun2_2 = d$pun2_2,
+      pun3_1 = d$pun3_1,
+      pun3_2 = d$pun3_2,
+      pun4_1 = d$pun4_1,
+      pun4_2 = d$pun4_2,
+      pun5_1 = d$pun5_1,
+      pun5_2 = d$pun5_2,
+      pun6_1 = d$pun6_1,
+      pun6_2 = d$pun6_2,
+      error = error # assumed error rate
+    )
+  # fit model
+  out <- sampling(compiledModel2, data = dataList, cores = 4, seed = 2113)
   return(out)
 }
 
@@ -158,5 +183,75 @@ plotSimResults2 <- function(dSim, simPost) {
     theme_classic()
   # save plot
   ggsave(out, filename = "figures/simulationResults2.pdf", height = 6, width = 6)
+  return(out)
+}
+
+# load pilot data
+loadPilotData <- function(filePilotData) {
+  # load data
+  read_survey(filePilotData) %>%
+    # create variables
+    mutate(
+      # numeric punishment vars
+      pun1_1 = ifelse(str_starts(NoDI1_Take,    "Yes"), 1, 0),
+      pun1_2 = ifelse(str_starts(NoDI1_Nothing, "Yes"), 1, 0),
+      pun2_1 = ifelse(str_starts(NoDI2_Take,    "Yes"), 1, 0),
+      pun2_2 = ifelse(str_starts(NoDI2_Nothing, "Yes"), 1, 0),
+      pun3_1 = ifelse(str_starts(NoDI3_Take,    "Yes"), 1, 0),
+      pun3_2 = ifelse(str_starts(NoDI3_Nothing, "Yes"), 1, 0),
+      pun4_1 = ifelse(str_starts(NoDI4_Take,    "Yes"), 1, 0),
+      pun4_2 = ifelse(str_starts(NoDI4_NoTake,  "Yes"), 1, 0),
+      pun5_1 = ifelse(str_starts(DI_Take,       "Yes"), 1, 0),
+      pun5_2 = ifelse(str_starts(DI_Nothing,    "Yes"), 1, 0),
+      pun6_1 = ifelse(str_starts(`3PP_Take`,    "Yes"), 1, 0),
+      pun6_2 = ifelse(str_starts(`3PP_Nothing`, "Yes"), 1, 0),
+      # comprehension failures
+      fail1 = !is.na(NoDI1_TryAgain) & NoDI1_TryAgain != "I would have £0.40, Player 2 would have £0.00",
+      fail2 = !is.na(NoDI2_TryAgain) & NoDI2_TryAgain != "I would have £0.40, Player 2 would have £0.20",
+      fail3 = !is.na(NoDI3_TryAgain) & NoDI3_TryAgain != "I would have £0.40, Player 2 would have £0.20",
+      fail4 = !is.na(NODI4_TryAgain) & NODI4_TryAgain != "I would have £0.40, Player 2 would have £0.40",
+      fail5 = !is.na(DI_TryAgain)    & DI_TryAgain    != "I would have £0.40, Player 2 would have £0.40",
+      fail6 = !is.na(`3PP_TryAgain`) & `3PP_TryAgain` != "I would have £0.90, Player 1 would have £0.50, Player 2 would have £0.60"
+    ) %>%
+    # exclude data from comprehension failures
+    transmute(
+      pun1_1 = ifelse(fail1, -999, pun1_1),
+      pun1_2 = ifelse(fail1, -999, pun1_2),
+      pun2_1 = ifelse(fail2, -999, pun2_1),
+      pun2_2 = ifelse(fail2, -999, pun2_2),
+      pun3_1 = ifelse(fail3, -999, pun3_1),
+      pun3_2 = ifelse(fail3, -999, pun3_2),
+      pun4_1 = ifelse(fail4, -999, pun4_1),
+      pun4_2 = ifelse(fail4, -999, pun4_2),
+      pun5_1 = ifelse(fail5, -999, pun5_1),
+      pun5_2 = ifelse(fail5, -999, pun5_2),
+      pun6_1 = ifelse(fail6, -999, pun6_1),
+      pun6_2 = ifelse(fail6, -999, pun6_2)
+    )
+}
+
+# plot pilot results
+plotPilotResults <- function(pilotPost) {
+  # strategy vector
+  strategies <- c("Competitive", "Avoid DI", "Egalitarian", "Seek AI",
+                  "Retributive", "Deterrent", "Norm-enforcing", 
+                  "Antisocial", "Random choice", "Anti-punish")
+  # calculate posterior probabilities
+  P <- pilotPost$alpha
+  for (i in 1:nrow(P)) P[i,] <- softmax(P[i,])
+  # plot
+  out <- 
+    tibble(
+      p = c(P[,1], P[,2], P[,3], P[,4], P[,5], 
+            P[,6], P[,7], P[,8], P[,9], P[,10]),
+      strategy = rep(strategies, each = length(P[,1]))
+    ) %>%
+    mutate(strategy = factor(strategy, levels = strategies)) %>%
+    ggplot(aes(x = p, y = fct_rev(strategy))) +
+    stat_halfeye() +
+    labs(x = "Probability of using punishment strategy", y = NULL) +
+    theme_classic()
+  # save
+  ggsave(out, filename = "figures/pilotResults.pdf", height = 5, width = 6)
   return(out)
 }
