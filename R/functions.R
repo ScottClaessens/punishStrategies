@@ -39,6 +39,8 @@ simulateData <- function(n = 500, seed = 2113, errorRate = 0, alphas, betas) {
       } else if (!(strategies[i] %in% punStrats)) {
         out[i] <- rbinom(1, 1, prob = 0 + errorRate) # don't punish (with error)
       }
+      # small chance of failed comprehension and missing data
+      out[i] <- ifelse(rbinom(1, 1, prob = 0.01) == 0, out[i], -999)
     }
     return(out)
   }
