@@ -30,7 +30,7 @@ list(
   tar_target(dSim, simulateData(n = 50, errorRate = 0, 
                                 alphas = simAlphas, betas = simBetas)),
   # fit model to simulated data
-  tar_target(fitSimModel, fitModel2(dSim, compiledModel2)),
+  tar_target(fitSimModel, fitModel2(dSim, compiledModel2, predictor = "x")),
   tar_target(simPost, extract(fitSimModel)),
   # plot results
   tar_target(plotSim1, plotSimResults1(simAlphas, simPost)),
@@ -44,10 +44,15 @@ list(
   tar_target(filePilotData, "data/pilot/PILOT_PUN_BATTERY_GAMES_July+1,+2022_10.41.csv",
              format = "file"),
   tar_target(dPilot, loadPilotData(filePilotData)),
-  # fit model to pilot data
-  tar_target(fitPilotModel, fitModel1(dPilot, compiledModel1)),
-  tar_target(pilotPost, extract(fitPilotModel)),
+  # fit models to pilot data
+  tar_target(fitPilotModel1, fitModel1(dPilot, compiledModel1)),
+  tar_target(fitPilotModel2, fitModel2(dPilot %>% filter(!is.na(SelfRate_9_std)), 
+                                       compiledModel2, predictor = "SelfRate_9_std")),
+  tar_target(pilotPost1, extract(fitPilotModel1)),
+  tar_target(pilotPost2, extract(fitPilotModel2)),
   # plot results
-  tar_target(plotPilot1, plotPilotResults(pilotPost))
+  tar_target(plotPilot1, plotPilotResults1(pilotPost1)),
+  tar_target(plotPilot2, plotPilotResults2(dPilot, pilotPost2, predictor = "SelfRate_9_std",
+                                           xaxis = "Self-reported usage of anti-punish strategy (std)"))
   
 )

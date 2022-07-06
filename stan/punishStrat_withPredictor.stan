@@ -1,6 +1,6 @@
 data {
   int N;         // number of participants
-  real x[N];     // individual difference measure
+  real pred[N];  // predictor
   int pun1_1[N]; // No DI 1 - Take
   int pun1_2[N]; // No DI 1 - No take
   int pun2_1[N]; // No DI 2 - Take
@@ -209,7 +209,7 @@ model {
       // only if case observed
       if ( missing==0 ) {
         // calculate p vector for this case
-        p = softmax( alpha + beta*x[i] );
+        p = softmax( alpha + beta*pred[i] );
         // iterate over strategies
         for (S in 1:10) {
             // add error
