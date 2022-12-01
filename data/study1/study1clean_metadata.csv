@@ -1,0 +1,481 @@
+Variable,Description
+ID,Unique participant identifier
+ProlificApprovals,Data from Prolific
+FluentLanguages,Data from Prolific
+Age,Data from Prolific
+Gender,Data from Prolific
+Ethnicity,Data from Prolific
+CountryBirth,Data from Prolific
+CountryResidence,Data from Prolific
+Nationality,Data from Prolific
+Language,Data from Prolific
+Student,Data from Prolific
+Employment,Data from Prolific
+StartDate,Start Date
+EndDate,End Date
+Progress,Progress
+DurationSeconds,Duration (in seconds)
+Finished,Finished
+RecordedDate,Recorded Date
+Consent_1,I have read the information above and I consent to take part in this study.
+Consent_2,I understand that anonymous data that cannot be traced back to me individually may be used in academic publications and shared in accordance with open science guidelines and I consent to this.
+Consent_3,I understand that I can withdraw from the study at any time by closing my browser window but that I will not be paid for my time if I do this.
+Consent_4,I understand that once my data have been submitted it may be impossible for me to withdraw from the study.
+Consent_5,I understand that there are 2 parts to this study and that my participation is required for Part 2 on 5th December 2022. I consent to Social Evolution & Behaviour lab contacting me using my Prolific ID so that I can complete Part 2 of this study.
+Consent_6,I am aged 18 or over.
+Consent_7,I understand that if I fail an attention check or do not submit a completion code my submission will be rejected.
+NoDI1_Comp,"Game [Field-counter] of 7
+
+
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.10.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.30.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI1_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.10.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.30.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI1_Take,"Game [Field-counter] of 7
+
+
+
+
+
+Imagine that Player 2 TAKES £0.20 of your bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI1_Nothing,"Game [Field-counter] of 7
+
+
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI2_Comp,"Game [Field-counter] of 7
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.50.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI2_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from you. 
+You would then have £0.50 and Player 2 would have £0.50.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI2_Take,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 TAKES £0.20 of your bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI2_Nothing,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI3_Comp,"Game [Field-counter] of 7
+
+
+
+Before you decide how to respond to the computer's decision, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+ 
+
+In Stage 2, imagine that the computer takes £0.20 from you and gives it to Player 2.
+
+You would then have £0.50 and Player 2 would have £0.50.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI3_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+
+
+In Stage 2, imagine that the computer takes £0.20 from you and gives it to Player 2.
+
+You would then have £0.50 and Player 2 would have £0.50.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI3_Take,"Game [Field-counter] of 7
+
+
+
+Imagine that the computer TAKES £0.20 of your bonus in Stage 2 and gives it to Player 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI3_Nothing,"Game [Field-counter] of 7
+
+
+
+Imagine that the computer DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI4_Comp,"Game [Field-counter] of 7
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.50.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.10, what would the final bonuses for each player be?"
+NoDI4_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from you. 
+You would then have £0.50 and Player 2 would have £0.50.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.10, what would the final bonuses for each player be?"
+NoDI4_Take,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 TAKES £0.20 of your bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.10?"
+NoDI4_Nothing,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.10?"
+DI_Comp,"Game [Field-counter] of 7
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.50.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.70.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+DI_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.50.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.70.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+DI_Take,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 TAKES £0.20 of your bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+DI_Nothing,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+3PP_Comp,"Game [Field-counter] of 7
+
+
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £1.00, Player 1 has £0.70 and Player 2 has £0.70.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from Player 1.
+
+Player 1 would then have £0.50 and Player 2 would have £0.90.
+
+You would still have £1.00.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+3PP_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £1.00, Player 1 has £0.70 and and Player 2 has £0.70.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from Player 1. 
+Player 1 would then have £0.50 and Player 2 would have £0.90. 
+You would still have £1.00.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+3PP_Take,"Game [Field-counter] of 7
+
+
+
+
+
+Imagine that Player 2 TAKES £0.20 of Player 1's bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+3PP_Nothing,"Game [Field-counter] of 7
+
+
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+DaysWeek,How many days are there in a week?
+DaysWeek_TryAgain,"You answered the attention check question incorrectly. If you answer incorrectly again, you will be able to proceed in the task but your submission will be rejected.
+
+ 
+
+How many days are there in a week?"
+P2_Decision,"Game 7 of 7
+
+
+
+
+
+Player 1 has £0.70. You have £0.30.
+
+ 
+
+Do you want to take £0.20 of Player 1's bonus?"
+Explain,"In your own words, please explain: what was your main motivation for making the decisions you did in the games?"
+SelfRate_1,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to punish people who harmed others"
+SelfRate_2,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to have a higher final bonus than others"
+SelfRate_3,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to avoid having a lower final bonus than others"
+SelfRate_4,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted all players to have the same final bonus"
+SelfRate_5,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to stop others from cheating"
+SelfRate_6,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to show that I disapproved of others' actions"
+SelfRate_7,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I made decisions at random"
+SelfRate_8,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to punish people who DID NOT harm me or others"
+SelfRate_9,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I didn't want to reduce anyone's bonus, no matter what they did"
+SelfRate_10,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I didn't want to PAY to reduce anyone's bonus but I would have done so if it were free"
+SelfRate_11,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to punish people if they harmed me but not if they harmed others"
+DecisionConsequences,Did you believe that the decisions you made would have consequences for another person? - Selected Choice
+DecisionConsequences_Text,Did you believe that the decisions you made would have consequences for another person? - Other (please explain) - Text
