@@ -152,7 +152,7 @@ model {
         if ( pun5_1[i]==1 ) theta_j[ 1]=1  ; // competitive
         if ( pun5_1[i]==1 ) theta_j[ 2]=1  ; // avoid DI
         if ( pun5_1[i]==1 ) theta_j[ 3]=1  ; // egalitarian
-        if ( pun5_1[i]==1 ) theta_j[ 4]=1  ; // seek AI
+        if ( pun5_1[i]==0 ) theta_j[ 4]=1  ; // seek AI
         if ( pun5_1[i]==1 ) theta_j[ 5]=1  ; // retributive
         if ( pun5_1[i]==1 ) theta_j[ 6]=1  ; // deterrent
         if ( pun5_1[i]==1 ) theta_j[ 7]=1  ; // norm-enforcing

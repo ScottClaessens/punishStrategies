@@ -1,6 +1,7 @@
 data {
   int N;         // number of participants
-  real pred[N];  // predictor
+  int J;         // number of categories
+  int pred[N];   // predictor (int in range 1 - J)
   int pun1_1[N]; // No DI 1 - Take
   int pun1_2[N]; // No DI 1 - No take
   int pun2_1[N]; // No DI 2 - Take
@@ -16,8 +17,7 @@ data {
   real<lower=0,upper=1> error; // error rate (assumed)
 }
 parameters {
-  vector[10] alpha; // intercepts for probabilities of different strategies
-  vector[10] beta;  // slopes for probabilities of different strategies
+  matrix[J,10] alpha; // intercepts for probabilities of different strategies
 }
 model {
   // vectors to hold terms of sum and probabilities
@@ -28,8 +28,7 @@ model {
   int missing;
   
   // priors
-  alpha ~ normal(0, 1);
-  beta ~ normal(0, 0.5);
+  to_vector(alpha) ~ normal(0, 1);
   
   // loop over twelve punishment behaviours
   for (B in 1:12) {
@@ -209,7 +208,7 @@ model {
       // only if case observed
       if ( missing==0 ) {
         // calculate p vector for this case
-        p = softmax( alpha + beta*pred[i] );
+        p = softmax( to_vector(alpha[pred[i],]) );
         // iterate over strategies
         for (S in 1:10) {
             // add error
