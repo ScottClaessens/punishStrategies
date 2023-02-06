@@ -33,7 +33,8 @@ fitModel2 <- function(d, compiledModel2, predictor, error = 0) {
   dataList <-
     list(
       N = nrow(d),
-      pred = d %>% pull(predictor),
+      # standardise predictor for model fitting
+      pred = d %>% pull(predictor) %>% scale() %>% as.numeric(),
       pun1_1 = d$pun1_1,
       pun1_2 = d$pun1_2,
       pun2_1 = d$pun2_1,
@@ -58,7 +59,7 @@ fitModel3 <- function(d, compiledModel3, predictor, error = 0) {
   # listwise deletion for predictor
   d <- d[as.vector(!is.na(d[,predictor])),]
   # categorical predictor as numeric
-  d[[predictor]] <- as.numeric(d[[predictor]])
+  d[[predictor]] <- as.numeric(factor(d[[predictor]]))
   # list for stan
   dataList <-
     list(
@@ -81,5 +82,34 @@ fitModel3 <- function(d, compiledModel3, predictor, error = 0) {
     )
   # fit model
   out <- sampling(compiledModel3, data = dataList, cores = 4, seed = 2113)
+  return(out)
+}
+
+# fit stan model with ordinal predictor
+fitModel4 <- function(d, compiledModel4, predictor, nCuts, error = 0) {
+  # listwise deletion for predictor
+  d <- d[as.vector(!is.na(d[,predictor])),]
+  # list for stan
+  dataList <-
+    list(
+      N = nrow(d),
+      pred = pull(d, predictor) - 1,
+      nCuts = nCuts,
+      pun1_1 = d$pun1_1,
+      pun1_2 = d$pun1_2,
+      pun2_1 = d$pun2_1,
+      pun2_2 = d$pun2_2,
+      pun3_1 = d$pun3_1,
+      pun3_2 = d$pun3_2,
+      pun4_1 = d$pun4_1,
+      pun4_2 = d$pun4_2,
+      pun5_1 = d$pun5_1,
+      pun5_2 = d$pun5_2,
+      pun6_1 = d$pun6_1,
+      pun6_2 = d$pun6_2,
+      error = error # assumed error rate
+    )
+  # fit model
+  out <- sampling(compiledModel4, data = dataList, cores = 4, seed = 2113)
   return(out)
 }

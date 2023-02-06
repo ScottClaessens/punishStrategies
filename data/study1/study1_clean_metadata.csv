@@ -1,0 +1,1005 @@
+Variable,Description
+ID,Unique participant identifier
+ProlificApprovals,Data from Prolific
+FluentLanguages,Data from Prolific
+Age,Data from Prolific
+Gender,Data from Prolific
+Ethnicity,Data from Prolific
+CountryBirth,Data from Prolific
+CountryResidence,Data from Prolific
+Nationality,Data from Prolific
+Language,Data from Prolific
+Student,Data from Prolific
+Employment,Data from Prolific
+StartDate_Part1,Data from Qualtrics
+EndDate_Part1,Data from Qualtrics
+Progress_Part1,Data from Qualtrics
+DurationSeconds_Part1,Data from Qualtrics
+Finished_Part1,Data from Qualtrics
+RecordedDate_Part1,Data from Qualtrics
+Consent1_Part1,Consent
+Consent2_Part1,Consent
+Consent3_Part1,Consent
+Consent4_Part1,Consent
+Consent5_Part1,Consent
+Consent6_Part1,Consent
+Consent7_Part1,Consent
+NoDI1_Comp,"Game [Field-counter] of 7
+
+
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.10.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.30.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI1_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.10.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.30.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI1_Take,"Game [Field-counter] of 7
+
+
+
+
+
+Imagine that Player 2 TAKES £0.20 of your bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI1_Nothing,"Game [Field-counter] of 7
+
+
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI2_Comp,"Game [Field-counter] of 7
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.50.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI2_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from you. 
+You would then have £0.50 and Player 2 would have £0.50.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI2_Take,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 TAKES £0.20 of your bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI2_Nothing,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI3_Comp,"Game [Field-counter] of 7
+
+
+
+Before you decide how to respond to the computer's decision, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+ 
+
+In Stage 2, imagine that the computer takes £0.20 from you and gives it to Player 2.
+
+You would then have £0.50 and Player 2 would have £0.50.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI3_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+
+
+In Stage 2, imagine that the computer takes £0.20 from you and gives it to Player 2.
+
+You would then have £0.50 and Player 2 would have £0.50.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+NoDI3_Take,"Game [Field-counter] of 7
+
+
+
+Imagine that the computer TAKES £0.20 of your bonus in Stage 2 and gives it to Player 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI3_Nothing,"Game [Field-counter] of 7
+
+
+
+Imagine that the computer DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+NoDI4_Comp,"Game [Field-counter] of 7
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.50.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.10, what would the final bonuses for each player be?"
+NoDI4_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.30.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from you. 
+You would then have £0.50 and Player 2 would have £0.50.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.10, what would the final bonuses for each player be?"
+NoDI4_Take,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 TAKES £0.20 of your bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.10?"
+NoDI4_Nothing,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.10?"
+DI_Comp,"Game [Field-counter] of 7
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.50.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.70.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+DI_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £0.70 and Player 2 has £0.50.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from you.
+
+You would then have £0.50 and Player 2 would have £0.70.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+DI_Take,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 TAKES £0.20 of your bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+DI_Nothing,"Game [Field-counter] of 7
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+3PP_Comp,"Game [Field-counter] of 7
+
+
+
+
+
+Before you decide how to respond to Player 2's behaviour, we would like to check that you have understood the game.
+
+ 
+
+In Stage 1, you have £1.00, Player 1 has £0.70 and Player 2 has £0.70.
+
+ 
+
+In Stage 2, imagine that Player 2 takes £0.20 from Player 1.
+
+Player 1 would then have £0.50 and Player 2 would have £0.90.
+
+You would still have £1.00.
+
+ 
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+3PP_TryAgain,"You answered that question incorrectly. Please try again.
+
+ 
+
+ 
+
+In Stage 1, you have £1.00, Player 1 has £0.70 and and Player 2 has £0.70.
+
+
+
+In Stage 2, imagine that Player 2 takes £0.20 from Player 1. 
+Player 1 would then have £0.50 and Player 2 would have £0.90. 
+You would still have £1.00.
+
+
+
+In Stage 3, if you decided to pay £0.10 to reduce Player 2's bonus by £0.30, what would the final bonuses for each player be?"
+3PP_Take,"Game [Field-counter] of 7
+
+
+
+
+
+Imagine that Player 2 TAKES £0.20 of Player 1's bonus in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+3PP_Nothing,"Game [Field-counter] of 7
+
+
+
+
+
+Imagine that Player 2 DOES NOTHING in Stage 2.
+
+ 
+
+Do you want to pay £0.10 to reduce Player 2's bonus by £0.30?"
+DaysWeek,How many days are there in a week?
+DaysWeek_TryAgain,"You answered the attention check question incorrectly. If you answer incorrectly again, you will be able to proceed in the task but your submission will be rejected.
+
+ 
+
+How many days are there in a week?"
+P2_Decision,"Game 7 of 7
+
+
+
+
+
+Player 1 has £0.70. You have £0.30.
+
+ 
+
+Do you want to take £0.20 of Player 1's bonus?"
+Explain,"In your own words, please explain: what was your main motivation for making the decisions you did in the games?"
+SelfRate_1,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to punish people who harmed others"
+SelfRate_2,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to have a higher final bonus than others"
+SelfRate_3,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to avoid having a lower final bonus than others"
+SelfRate_4,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted all players to have the same final bonus"
+SelfRate_5,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to stop others from cheating"
+SelfRate_6,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to show that I disapproved of others' actions"
+SelfRate_7,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I made decisions at random"
+SelfRate_8,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to punish people who DID NOT harm me or others"
+SelfRate_9,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I didn't want to reduce anyone's bonus, no matter what they did"
+SelfRate_10,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I didn't want to PAY to reduce anyone's bonus but I would have done so if it were free"
+SelfRate_11,"We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to punish people if they harmed me but not if they harmed others"
+DecisionConsequences,Did you believe that the decisions you made would have consequences for another person? - Selected Choice
+DecisionConsequences_Text,Did you believe that the decisions you made would have consequences for another person? - Other (please explain) - Text
+StartDate_Part2,Data from Qualtrics
+EndDate_Part2,Data from Qualtrics
+Progress_Part2,Data from Qualtrics
+DurationSeconds_Part2,Data from Qualtrics
+Finished_Part2,Data from Qualtrics
+RecordedDate_Part2,Data from Qualtrics
+Consent1_Part2,Consent
+Consent2_Part2,Consent
+Consent3_Part2,Consent
+Consent4_Part2,Consent
+Consent5_Part2,Consent
+Consent6_Part2,Consent
+SDO_1,"Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - An ideal society requires some groups to be on top and others to be on the bottom."
+SDO_2,"Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - Some groups of people are simply inferior to other groups."
+SDO_3r,"Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - No one group should dominate in society."
+SDO_4r,"Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - Groups at the bottom are just as deserving as groups at the top."
+SDO_5,"Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - Group equality should not be our primary goal."
+SDO_6,"Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - It is unjust to try to make groups equal."
+SDO_7r,"Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - We should do what we can to equalize conditions for different groups."
+SDO_8r,"Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - We should work to give all groups an equal chance to succeed."
+SVO_01,"Task [Field-counter] of 8
+
+ 
+
+Please indicate below how you would like to distribute money between yourself and the other player
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_02,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_03,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_04,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_05,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_06,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_07,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_08,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_09,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_10,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_11,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_12,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_13,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_14,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+SVO_15,"Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives"
+Pers_E1,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am the life of the party"
+Pers_A1,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I sympathise with others' feelings"
+Pers_C1,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I get chores done right away"
+Pers_N1,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I have frequent mood swings"
+Pers_O1,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I have a vivid imagination"
+Pers_Narc1,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I feel entitled to more of everything"
+Pers_E2r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I don't talk a lot"
+Pers_A2r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am not interested in other people's problems"
+Pers_O2r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I have difficulty understanding abstract ideas"
+Pers_C2,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I like order"
+Pers_C3r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I make a mess of things"
+Pers_Narc2,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I deserve more things in life"
+Pers_O3r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I do not have a good imagination"
+Pers_A3,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I feel others' emotions"
+Pers_N2r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am relaxed most of the time"
+Pers_N3,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I get upset easily"
+Pers_N4r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I seldom feel blue"
+Pers_HonHum1r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I would like to be seen driving around in a very expensive car"
+Pers_E3r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I keep in the background"
+Pers_A4r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am not really interested in others"
+Pers_O4r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am not interested in abstract ideas"
+Pers_C4r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I often forget to put things back in their proper place"
+Pers_E4,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I talk to a lot of different people at parties"
+Pers_HonHum2r,"Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I would get a lot of pleasure from owning expensive luxury goods"
+GodControls,"Task [Field-counter] of 8
+
+ 
+
+Please rate the extent to which you agree with the following statement:
+
+It is likely that God, or some other type of spiritual non-human entity, controls the events in the world"
+HowReligious,How religious are you?
+RWA_1r,"Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - It's great that many young people today are prepared to defy authority."
+RWA_2,"Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - What our country needs most is discipline, with everyone following our leaders in unity."
+RWA_3,"Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - God's laws about abortion, pornography, and marriage must be strictly followed before it is too late."
+RWA_4r,"Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - There is nothing wrong with premarital sexual intercourse."
+RWA_5r,"Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - Our society does NOT need tougher government and stricter laws."
+RWA_6,"Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - The facts on crime and the recent public disorders show we have to crack down harder on troublemakers, if we are going to preserve law and order."
+Education,"Task [Field-counter] of 8
+
+ 
+What is your highest level of education?"
+SES_1,"Task [Field-counter] of 8
+
+ 
+
+
+
+Think of the ladder below as representing where people stand in your country.
+At the top of the ladder are the people who are the best off - those who have the most money, the most education and the most respected jobs. At the bottom are the people who are the worst off - those who have the least money, the least education and the least respected jobs, or no job. The higher up you are on this ladder, the closer you are to the people at the very top; the lower you are on this ladder, the closer you are to the people at the very bottom.
+
+
+
+Where would you place yourself on this ladder? - Please indicate which number  on the rung best represents where you stand at this time in your life, relative to other people in your country."
+BringDown_1,"Task [Field-counter] of 8
+
+ 
+
+To what extent do you agree with the following statement? - I would like to bring the people above me on the ladder down a peg or two"
+BringUp_1,"Task [Field-counter] of 8
+
+
+
+To what extent do you agree with the following statement? - I would like to bring the people below me on the ladder up a peg or two"
+PolSlider_19,"Task [Field-counter] of 8
+
+
+
+
+
+Political views are often organised on a single scale from left to right. For example, in the United States, the Democratic Party is described as more to the left and the Republican Party is described as more to the right. If you had to place your political views on this left-right scale, generally speaking, where would you put yourself? - Task ${e://Field/counter} of 8
+
+
+
+
+
+Political views are often organised on a single scale from left to right. For example, in the United States, the Democratic Party is described as more to the left and the Republican Party is described as more to the right. If you had to place your political views on this left-right scale, generally speaking, where would you put yourself?"
+WeeksYear,"This is an attention check - please answer correctly or your work may be rejected. 
+
+
+
+How many weeks are there in a year?"
+WeeksYear_TryAgain,"You answered the attention check incorrectly. Please try again.
+
+ 
+
+If you provide an incorrect answer again, you will be allowed to proceed with the rest of the study but your work may be rejected and you will not be paid.
+How many weeks are there in a year?"
+Breakfast,"This is an attention check - please answer the question or your work may be rejected. 
+
+
+
+What did you have for breakfast this morning?"
