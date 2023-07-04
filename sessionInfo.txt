@@ -1,57 +1,55 @@
-R version 4.2.1 (2022-06-23 ucrt)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 19044)
+R version 4.2.1 (2022-06-23)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: CentOS Linux 7 (Core)
 
 Matrix products: default
+BLAS/LAPACK: /scale_wlg_persistent/filesets/opt_nesi/CS400_centos7_bdw/imkl/2022.0.2/mkl/2022.0.2/lib/intel64/libmkl_gf_lp64.so.2
 
 locale:
-[1] LC_COLLATE=English_New Zealand.utf8  LC_CTYPE=English_New Zealand.utf8   
-[3] LC_MONETARY=English_New Zealand.utf8 LC_NUMERIC=C                        
-[5] LC_TIME=English_New Zealand.utf8    
+[1] C
 
 attached base packages:
 [1] parallel  stats     graphics  grDevices utils     datasets  methods  
 [8] base     
 
 other attached packages:
- [1] wordcloud_2.6       RColorBrewer_1.1-3  tidytext_0.3.4     
- [4] tidybayes_3.0.2     rethinking_2.21     cmdstanr_0.5.3     
- [7] rstan_2.26.13       StanHeaders_2.26.13 ltm_1.2-0          
-[10] polycor_0.8-1       msm_1.7             MASS_7.3-58.1      
-[13] ggridges_0.5.3      ggcorrplot_0.1.4    cowplot_1.1.1      
-[16] forcats_0.5.2       stringr_1.4.1       dplyr_1.0.10       
-[19] purrr_0.3.4         readr_2.1.2         tidyr_1.2.1        
-[22] tibble_3.1.8        ggplot2_3.3.6       tidyverse_1.3.2    
-[25] tarchetypes_0.7.1   targets_0.13.5     
+ [1] wordcloud_2.6        RColorBrewer_1.1-3   tidytext_0.3.4      
+ [4] tidybayes_3.0.2      rethinking_2.21      cmdstanr_0.5.3      
+ [7] rstan_2.21.7         StanHeaders_2.21.0-7 ltm_1.2-0           
+[10] polycor_0.8-1        msm_1.7              MASS_7.3-58.1       
+[13] ggridges_0.5.4       ggcorrplot_0.1.4     cowplot_1.1.1       
+[16] forcats_0.5.1        stringr_1.4.0        dplyr_1.0.9         
+[19] purrr_0.3.4          readr_2.1.2          tidyr_1.2.0         
+[22] tibble_3.1.7         ggplot2_3.3.6        tidyverse_1.3.2     
+[25] tarchetypes_0.7.1    targets_0.13.1      
 
 loaded via a namespace (and not attached):
  [1] googledrive_2.0.0    colorspace_2.0-3     ellipsis_0.3.2      
- [4] fs_1.5.2             rstudioapi_0.14      farver_2.1.1        
- [7] SnowballC_0.7.0      svUnit_1.0.6         fansi_1.0.3         
-[10] mvtnorm_1.1-3        lubridate_1.8.0      xml2_1.3.3          
-[13] codetools_0.2-18     splines_4.2.1        knitr_1.40          
-[16] jsonlite_1.8.2       broom_1.0.1          dbplyr_2.2.1        
-[19] ggdist_3.2.0         compiler_4.2.1       httr_1.4.4          
-[22] backports_1.4.1      assertthat_0.2.1     Matrix_1.4-1        
-[25] gargle_1.2.0         cli_3.4.1            admisc_0.30         
-[28] prettyunits_1.1.1    tools_4.2.1          igraph_1.3.4        
-[31] coda_0.19-4          gtable_0.3.1         glue_1.6.2          
-[34] posterior_1.3.0      V8_4.2.1             Rcpp_1.0.9          
-[37] cellranger_1.1.0     vctrs_0.4.2          tensorA_0.36.2      
-[40] xfun_0.33            ps_1.7.1             rvest_1.0.3         
-[43] lifecycle_1.0.2      googlesheets4_1.0.1  scales_1.2.1        
-[46] hms_1.1.2            inline_0.3.19        expm_0.999-6        
-[49] yaml_2.3.5           curl_4.3.2           gridExtra_2.3       
-[52] loo_2.5.1            stringi_1.7.8        tokenizers_0.2.3    
-[55] checkmate_2.1.0      pkgbuild_1.3.1       shape_1.4.6         
-[58] rlang_1.0.6          pkgconfig_2.0.3      matrixStats_0.62.0  
-[61] distributional_0.3.0 lattice_0.20-45      processx_3.7.0      
-[64] tidyselect_1.1.2     plyr_1.8.7           magrittr_2.0.3      
-[67] R6_2.5.1             generics_0.1.3       base64url_1.4       
-[70] DBI_1.1.3            pillar_1.8.1         haven_2.5.1         
-[73] withr_2.5.0          survival_3.4-0       abind_1.4-5         
-[76] janeaustenr_1.0.0    modelr_0.1.9         crayon_1.5.1        
-[79] arrayhelpers_1.1-0   utf8_1.2.2           tzdb_0.3.0          
-[82] grid_4.2.1           readxl_1.4.1         data.table_1.14.2   
-[85] callr_3.7.2          reprex_2.0.2         digest_0.6.29       
-[88] RcppParallel_5.1.5   stats4_4.2.1         munsell_0.5.0       
+ [4] fs_1.5.2             farver_2.1.0         SnowballC_0.7.0     
+ [7] svUnit_1.0.6         fansi_1.0.3          mvtnorm_1.1-3       
+[10] lubridate_1.8.0      xml2_1.3.3           codetools_0.2-18    
+[13] splines_4.2.1        knitr_1.39           jsonlite_1.8.0      
+[16] broom_1.0.0          dbplyr_2.2.1         ggdist_3.2.0        
+[19] compiler_4.2.1       httr_1.4.3           backports_1.4.1     
+[22] assertthat_0.2.1     Matrix_1.5-1         gargle_1.2.0        
+[25] cli_3.4.1            admisc_0.30          prettyunits_1.1.1   
+[28] tools_4.2.1          igraph_1.3.2         coda_0.19-4         
+[31] gtable_0.3.0         glue_1.6.2           posterior_1.3.1     
+[34] Rcpp_1.0.8.3         cellranger_1.1.0     vctrs_0.4.1         
+[37] tensorA_0.36.2       xfun_0.31            ps_1.7.1            
+[40] rvest_1.0.3          lifecycle_1.0.1      googlesheets4_1.0.1 
+[43] scales_1.2.0         hms_1.1.1            inline_0.3.19       
+[46] expm_0.999-6         yaml_2.3.5           gridExtra_2.3       
+[49] loo_2.5.1            stringi_1.7.6        tokenizers_0.2.3    
+[52] checkmate_2.1.0      pkgbuild_1.3.1       shape_1.4.6         
+[55] rlang_1.0.5          pkgconfig_2.0.3      matrixStats_0.62.0  
+[58] distributional_0.3.1 lattice_0.20-45      processx_3.6.1      
+[61] tidyselect_1.1.2     magrittr_2.0.3       R6_2.5.1            
+[64] generics_0.1.2       base64url_1.4        DBI_1.1.3           
+[67] pillar_1.7.0         haven_2.5.1          withr_2.5.0         
+[70] survival_3.3-1       abind_1.4-5          janeaustenr_1.0.0   
+[73] modelr_0.1.9         crayon_1.5.1         arrayhelpers_1.1-0  
+[76] utf8_1.2.2           tzdb_0.3.0           grid_4.2.1          
+[79] readxl_1.4.1         clustermq_0.8.95.3   data.table_1.14.2   
+[82] callr_3.7.2          reprex_2.0.2         digest_0.6.29       
+[85] RcppParallel_5.1.5   stats4_4.2.1         munsell_0.5.0       

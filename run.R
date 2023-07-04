@@ -1,1 +1,1 @@
-targets::tar_make_clustermq(workers = 13L)
+targets::tar_make_clustermq(starts_with("power"), workers = 50L)

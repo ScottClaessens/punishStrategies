@@ -358,6 +358,65 @@ loadData1 <- function(fileStudy1) {
       )
 }
 
+# data exclusions from study 1
+excludeData1 <- function(d1) {
+  # labels for rwa scale
+  rwaLabels <- c(
+    "Very strongly disagree"     = 1,
+    "Strongly disagree"          = 2,
+    "Somewhat disagree"          = 3,
+    "Slightly disagree"          = 4,
+    "Neither agree nor disagree" = 5,
+    "Slightly agree"             = 6,
+    "Somewhat agree"             = 7,
+    "Strongly agree"             = 8,
+    "Very strongly agree"        = 9
+  )
+  # exclusions
+  # n = 1019
+  d1 %>%
+    # exclude participants who sped through surveys (criteria = 2 SDs below median duration)
+    filter(DurationSeconds_Part1 > median(DurationSeconds_Part1, na.rm = TRUE) - sd(DurationSeconds_Part1, na.rm = TRUE)*2) %>%
+    filter(ifelse(is.na(DurationSeconds_Part2), TRUE, 
+                  DurationSeconds_Part2 > median(DurationSeconds_Part2, na.rm = TRUE) - sd(DurationSeconds_Part2, na.rm = TRUE)*2)) %>%
+    # n = 1019
+    # exclude participants who failed "days of week" attention check
+    filter(is.na(DaysWeek_TryAgain) | DaysWeek_TryAgain == 7) %>%
+    # n = 1019
+    # exclude participants who failed "weeks in year" attention check
+    filter(is.na(WeeksYear_TryAgain) | WeeksYear_TryAgain == 52) %>%
+    # n = 1019
+    # exclude participants who provide nonsensical answer to breakfast question
+    slice(c(-21,-279,-335,-872,-912)) %>%
+    # n = 1014
+    # exclude participants who flatline (criteria = two or more matrix tables)
+    rowwise() %>%
+    mutate(
+      flatSDO   = sd(parse_number(c_across(starts_with("SDO_"))), na.rm = TRUE),
+      flatRWA   = sd(rwaLabels[c_across(starts_with("RWA_"))], na.rm = TRUE),
+      flatPers  = sd(parse_number(c_across(starts_with("Pers_"))), na.rm = TRUE),
+      flatTotal = sum(c(flatSDO == 0, flatRWA == 0, flatPers == 0), na.rm = TRUE)
+      ) %>%
+    ungroup() %>%
+    filter(!(flatTotal >= 2)) %>%
+    # n = 1014
+    # remove specific game data for participants who fail comprehension checks
+    mutate(
+      NoDI1_Take    = ifelse(fail1, NA, NoDI1_Take),
+      NoDI1_Nothing = ifelse(fail1, NA, NoDI1_Nothing),
+      NoDI2_Take    = ifelse(fail2, NA, NoDI2_Take),
+      NoDI2_Nothing = ifelse(fail2, NA, NoDI2_Nothing),
+      NoDI3_Take    = ifelse(fail3, NA, NoDI3_Take),
+      NoDI3_Nothing = ifelse(fail3, NA, NoDI3_Nothing),
+      NoDI4_Take    = ifelse(fail4, NA, NoDI4_Take),
+      NoDI4_Nothing = ifelse(fail4, NA, NoDI4_Nothing),
+      DI_Take       = ifelse(fail5, NA, DI_Take),
+      DI_Nothing    = ifelse(fail5, NA, DI_Nothing),
+      `3PP_Take`    = ifelse(fail6, NA, `3PP_Take`),
+      `3PP_Nothing` = ifelse(fail6, NA, `3PP_Nothing`)
+    )
+}
+
 # plot sample demographics
 plotSampleStudy1 <- function(d1) {
   # age
@@ -806,6 +865,10 @@ plotModelPredCat <- function(d, post, pred, xlab, file) {
   if (pred == "Gender")    postPred$predictor <- factor(postPred$predictor, levels = c("Male", "Female"))
   if (pred == "Ethnicity") postPred$predictor <- factor(postPred$predictor, levels = c("White", "Asian", "Black", "Mixed", "Other"))
   if (pred == "Student")   postPred$predictor <- factor(postPred$predictor, levels = c("Yes", "No"))
+  if (pred == "Education") {
+     postPred$predictor <- ifelse(postPred$predictor == "Diploma / other professional certificate", "Diploma", postPred$predictor)
+     postPred$predictor <- factor(postPred$predictor, levels = c("High School", "Diploma", "Completed university", "Masters degree", "PhD or equivalent"))
+  }
   # plot
   out <-
     ggplot(data = postPred, aes(x = predictor, y = med, ymin = lower, ymax = upper)) +
@@ -815,59 +878,6 @@ plotModelPredCat <- function(d, post, pred, xlab, file) {
     scale_x_discrete(name = xlab) +
     theme_classic() +
     theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
-  # save plot
-  ggsave(out, filename = file, height = 4, width = 7)
-  return(out)
-}
-
-# plot effect of ordinal predictor on strategy usage
-plotModelPredOrd <- function(d, post, pred, xlab, nLevels, file) {
-  # posterior predictions
-  postPred <- tibble()
-  # median and 95% CIs for plotting
-  for (i in 1:nLevels) {
-    # empty matrix for simplexes
-    sim <- matrix(NA, nrow = nrow(post$beta), ncol = ncol(post$beta))
-    # calculate incremental effect for current ordinal level from simplex
-    # iterating over strategies 1 - 10
-    for (j in 1:10) sim[,j] <- apply(post$sim[,j,], 1, function(x) ifelse(i == 1, 0, sum(x[1:(i - 1)])))
-    # on logit scale
-    p <- post$alpha + (post$beta * sim)
-    # on probability scale
-    for (j in 1:nrow(p)) p[j,] <- softmax(p[j,])
-    # add to post
-    postPred <- bind_rows(postPred, tibble(predictor = i, 
-                                           strategy = 1:10, 
-                                           med = apply(p, 2, median),
-                                           lower = apply(p, 2, quantile, 0.025),
-                                           upper = apply(p, 2, quantile, 0.975)))
-  }
-  # strategy vector
-  strategies <- c("Competitive", "Avoid DI", "Egalitarian", "Seek AI",
-                  "Retributive", "Deterrent", "Norm-enforcing", 
-                  "Antisocial", "Random choice", "Anti-punish")
-  postPred$strategy <- strategies[postPred$strategy]
-  postPred$strategy <- factor(postPred$strategy, levels = strategies)
-  # data for geom_text (slopes)
-  dataText <-
-    tibble(
-      strategy = factor(strategies, levels = strategies),
-      label = paste0(
-        "b = ", format(round(apply(post$beta, 2, median), 2), nsmall = 2),
-        ", 95% CI [", format(round(apply(post$beta, 2, quantile, 0.025), 2), nsmall = 2),
-        " ", format(round(apply(post$beta, 2, quantile, 0.975), 2), nsmall = 2), "]"
-      )
-    )
-  # plot
-  out <-
-    ggplot(data = postPred) +
-    geom_pointrange(aes(x = predictor, y = med, ymin = lower, ymax = upper), size = 0.3) +
-    geom_text(data = dataText, aes(x = -Inf, y = -Inf, label = label), 
-              hjust = -0.15, vjust = -27.5, size = 1.93) +
-    facet_wrap(. ~ strategy, nrow = 2) +
-    scale_y_continuous(name = "Probability of using strategy", limits = c(0, 1)) +
-    scale_x_continuous(name = xlab, breaks = 1:nLevels) +
-    theme_classic()
   # save plot
   ggsave(out, filename = file, height = 4, width = 7)
   return(out)

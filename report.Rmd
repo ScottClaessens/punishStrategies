@@ -126,21 +126,95 @@ tar_read(plot1)
 
 Taking advantage of all available data, the model suggests that "egalitarian" is the most common punishment strategy. All other strategies have median posterior probabilities less than 10%. In order of decreasing probability, the next most common punishment strategies are "norm-enforcing", "seek advantageous inequity", "deterrent", and "avoid disadvantageous inequity", although all are similarly likely. "Competitive" and "antisocial" punishment strategies are the most unlikely.
 
+\newpage
+
 # Predicting strategy usage
 
-We then fit a series of models predicting the usage of different strategies from a variety of predictors. In each plot that follows, we show the posterior predictions from a model that includes a single variable as a predictor of all ten strategies simultaneously. The plots show the median regression lines with shaded 95% credible intervals. The model-estimated slopes for each strategy are included in each panel.
+We then fit a series of models predicting the usage of different strategies from a variety of predictors. In each plot that follows, we show the posterior predictions from a model that includes a single variable as a predictor of all ten strategies simultaneously. The plots show the median regression lines with shaded 95% credible intervals. For continuous predictors, the model-estimated slopes for each strategy are included in each panel.
 
-```{r plot2, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
+## Demographics
+
+We find that several demographic factors predict usage of the "anti-punish" strategy. Specifically, people who are white, male, higher educated (PhD-level), and students are more likely to follow the anti-punish strategy. Age and socio-economic status are unrelated to all strategies.
+
+```{r plotPredDemographics, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
 tar_read(plot2_Age)
-tar_read(plot2_SelfRate_1)
-tar_read(plot2_SelfRate_2)
-tar_read(plot2_SelfRate_3)
-tar_read(plot2_SelfRate_4)
-tar_read(plot2_SelfRate_5)
-tar_read(plot2_SelfRate_6)
-tar_read(plot2_SelfRate_7)
-tar_read(plot2_SelfRate_8)
-tar_read(plot2_SelfRate_9)
-tar_read(plot2_SelfRate_10)
-tar_read(plot2_SelfRate_11)
+tar_read(plot3_Education)
+tar_read(plot3_Ethnicity)
+tar_read(plot3_Gender)
+tar_read(plot2_SES)
+tar_read(plot3_Student)
+```
+
+\newpage
+
+## Self-ratings
+
+Answers to the self-rating sliders were related to strategy usage in predictable ways. In general, citing any reason to punish tended to be negatively related to usage of the anti-punish strategy. People citing egalitarian, harm-reduction, or disapproval-signalling motivations were more likely to follow egalitarian and/or norm enforcing strategies. In addition:
+
+- people who wanted to _have a higher final bonus than others_ or _avoid having a lower final bonus than others_ were more likely to follow the antisocial strategy
+- people who admitted that they _decided at random_ were more likely to follow the random choice strategy
+- people who _punishing those who did NOT cause harm_ were less likely to follow the egalitarian strategy and more likely to follow the avoid DI and random choice strategies
+
+```{r plotPredSelfRate, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
+tar_read(plot2_SelfRate1)
+tar_read(plot2_SelfRate2)
+tar_read(plot2_SelfRate3)
+tar_read(plot2_SelfRate4)
+tar_read(plot2_SelfRate5)
+tar_read(plot2_SelfRate6)
+tar_read(plot2_SelfRate7)
+tar_read(plot2_SelfRate8)
+tar_read(plot2_SelfRate9)
+tar_read(plot2_SelfRate10)
+tar_read(plot2_SelfRate11)
+```
+
+\newpage
+
+# Big-6 personality
+
+Personality was largely unrelated to strategy usage. The only slopes with 95% credible intervals that excluded zero were for extraversion and honesty-humility. Extraversion negatively predicted usage of the anti-punish strategy, while honesty-humility positively predicted usage of the anti-punish strategy.
+
+```{r plotPredPersonality, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
+tar_read(plot2_Agree)
+tar_read(plot2_Consc)
+tar_read(plot2_Extra)
+tar_read(plot2_Honest)
+tar_read(plot2_Neur)
+tar_read(plot2_Open)
+```
+
+\newpage
+
+# Social value orientation
+
+We found that social value orientation angle positively predicted usage of the egalitarian and anti-punish strategies.
+
+```{r plotPredSVO, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
+tar_read(plot2_SVOangle)
+```
+
+\newpage
+
+# Political views
+
+Political ideology was largely unrelated to strategy usage. Unidimensional political ideology was unrelated to all strategies, while SDO and RWA negatively predicted usage of the anti-punish strategy. Wanting to bring people up or down a peg on the SES ladder was also unrelated to strategy usage.
+
+```{r plotPredPolIdeology, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
+tar_read(plot2_PolSlider)
+tar_read(plot2_SDO)
+tar_read(plot2_RWA)
+tar_read(plot2_BringDown)
+tar_read(plot2_BringUp)
+```
+
+\newpage
+
+# Religion
+
+Both religiosity items were unrelated to strategy usage.
+
+```{r plotPredReligion, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
+tar_read(plot2_Religiosity)
+tar_read(plot2_GodC)
 ```
