@@ -1,0 +1,89 @@
+StartDate,EndDate,Status,IPAddress,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,RecipientLastName,RecipientFirstName,RecipientEmail,ExternalReference,LocationLatitude,LocationLongitude,DistributionChannel,UserLanguage,Q1,RWA_1r,RWA_2,RWA_3,RWA_4r,RWA_5r,RWA_6
+Start Date,End Date,Response Type,IP Address,Progress,Duration (in seconds),Finished,Recorded Date,Response ID,Recipient Last Name,Recipient First Name,Recipient Email,External Data Reference,Location Latitude,Location Longitude,Distribution Channel,User Language,"So that we can match your responses here to the previous responses you gave,  enter your Prolific Participant ID here: 
+
+ 
+
+
+
+
+ 
+
+If we do not have your correct Prolific ID we will not be able to pay you.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - It's great that many young people today are prepared to defy authority.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - What our country needs most is discipline, with everyone following our leaders in unity.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - God's laws about abortion, pornography, and marriage must be strictly followed before it is too late.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - There is nothing wrong with premarital sexual intercourse.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - Our society does NOT need tougher government and stricter laws.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - The facts on crime and the recent public disorders show we have to crack down harder on troublemakers, if we are going to preserve law and order."
+"{""ImportId"":""startDate"",""timeZone"":""Europe/London""}","{""ImportId"":""endDate"",""timeZone"":""Europe/London""}","{""ImportId"":""status""}","{""ImportId"":""ipAddress""}","{""ImportId"":""progress""}","{""ImportId"":""duration""}","{""ImportId"":""finished""}","{""ImportId"":""recordedDate"",""timeZone"":""Europe/London""}","{""ImportId"":""_recordId""}","{""ImportId"":""recipientLastName""}","{""ImportId"":""recipientFirstName""}","{""ImportId"":""recipientEmail""}","{""ImportId"":""externalDataReference""}","{""ImportId"":""locationLatitude""}","{""ImportId"":""locationLongitude""}","{""ImportId"":""distributionChannel""}","{""ImportId"":""userLanguage""}","{""ImportId"":""QID1211044321_TEXT""}","{""ImportId"":""QID1211095027_1""}","{""ImportId"":""QID1211095027_2""}","{""ImportId"":""QID1211095027_3""}","{""ImportId"":""QID1211095027_4""}","{""ImportId"":""QID1211095027_5""}","{""ImportId"":""QID1211095027_6""}"
+2022-12-05 11:30:32,2022-12-05 11:31:04,IP Address,94.3.240.107,100,31,True,2022-12-05 11:31:04,R_AjQF6tWrTnGXF73,,,,,54.1667,-6.4833,anonymous,EN,5a46d551b77a5000014a8ce9,Very strongly agree,Very strongly disagree,Very strongly disagree,Very strongly agree,Strongly agree,Very strongly disagree
+2022-12-05 11:31:24,2022-12-05 11:31:51,IP Address,82.132.232.218,100,26,True,2022-12-05 11:31:51,R_2YywKJfrH9rSYp5,,,,,51.6263,-0.0981,anonymous,EN,5f744d89a37f7b1e74d264a2,Strongly agree,Somewhat disagree,Slightly disagree,Strongly agree,Somewhat agree,Slightly disagree
+2022-12-05 11:31:26,2022-12-05 11:32:01,IP Address,31.111.31.112,100,34,True,2022-12-05 11:32:01,R_3OcOnCyo1uRv6tR,,,,,51.3577,1.0638,anonymous,EN,5e5012ec47808406305d6a0d,Slightly agree,Slightly disagree,Slightly agree,Slightly agree,Very strongly agree,Slightly agree
+2022-12-05 11:30:27,2022-12-05 11:32:22,IP Address,82.36.144.25,100,115,True,2022-12-05 11:32:23,R_1QtrvjnFmPE141n,,,,,51.476,-0.4133,anonymous,EN,5a5b6255f6c5170001950ae0,Somewhat disagree,Slightly disagree,Very strongly disagree,Strongly agree,Slightly disagree,Somewhat agree
+2022-12-05 11:31:21,2022-12-05 11:32:23,IP Address,90.204.86.184,100,61,True,2022-12-05 11:32:23,R_1LLPREySRYYGlm9,,,,,51.4986,0.0441,anonymous,EN,5dfb7cbd01423f8a774d893b,Very strongly disagree,Neither agree nor disagree,Very strongly agree,Very strongly agree,Very strongly disagree,Strongly agree
+2022-12-05 11:31:23,2022-12-05 11:32:46,IP Address,146.90.51.113,100,82,True,2022-12-05 11:32:46,R_3shQ4NG0LjMVNeV,,,,,53.8531,-2.213,anonymous,EN,611578fe8cbea39bf4928b6d,Strongly disagree,Somewhat agree,Somewhat disagree,Somewhat agree,Somewhat disagree,Somewhat agree
+2022-12-05 11:32:13,2022-12-05 11:33:29,IP Address,80.44.119.208,100,76,True,2022-12-05 11:33:29,R_1JDYQj5K7QrTosK,,,,,50.8483,-0.4472,anonymous,EN,5e0b3d5dbf3d4e3868abc3ea,Very strongly agree,Strongly disagree,Strongly disagree,Very strongly agree,Slightly disagree,Somewhat disagree
+2022-12-05 11:32:14,2022-12-05 11:34:13,IP Address,217.33.179.245,100,118,True,2022-12-05 11:34:13,R_2S0m8yeOhpON24F,,,,,51.418,-0.1752,anonymous,EN,62c4590804317dc197ecbe8a,Somewhat disagree,Slightly disagree,Slightly disagree,Strongly agree,Slightly disagree,Strongly agree
+2022-12-05 11:35:21,2022-12-05 11:35:53,IP Address,109.155.16.195,100,31,True,2022-12-05 11:35:53,R_1roakLIojCpnlN0,,,,,54.7699,-1.559,anonymous,EN,5fc74458251f3e227721687f,Slightly disagree,Neither agree nor disagree,Very strongly disagree,Very strongly agree,Somewhat disagree,Slightly agree
+2022-12-05 11:35:49,2022-12-05 11:36:31,IP Address,86.155.35.146,100,42,True,2022-12-05 11:36:32,R_3QPDmR3bYbgGD9K,,,,,52.9095,-0.6456,anonymous,EN,6074005a76a53185a622be26,Slightly disagree,Slightly agree,Strongly disagree,Somewhat agree,Slightly disagree,Somewhat agree
+2022-12-05 11:36:02,2022-12-05 11:37:10,IP Address,78.150.87.16,100,68,True,2022-12-05 11:37:11,R_26eyqVriYGqkZLK,,,,,51.3059,-0.7124,anonymous,EN,56cf6e8d31a5bc0006e1cdf5,Slightly agree,Neither agree nor disagree,Somewhat disagree,Strongly agree,Slightly agree,Slightly agree
+2022-12-05 11:39:55,2022-12-05 11:40:49,IP Address,146.90.17.58,100,53,True,2022-12-05 11:40:49,R_3Mb7hgVJQ6fCibb,,,,,55.867,-4.2621,anonymous,EN,574da26c7f1e770007f42d11,Somewhat agree,Somewhat agree,Very strongly disagree,Slightly agree,Slightly disagree,Slightly agree
+2022-12-05 11:42:28,2022-12-05 11:43:23,IP Address,94.2.173.116,100,54,True,2022-12-05 11:43:23,R_2Pkawef75beEU8O,,,,,51.3537,0.5287,anonymous,EN,5ea95ba3b85a0604454c8624,Somewhat disagree,Slightly agree,Somewhat disagree,Very strongly agree,Strongly disagree,Very strongly agree
+2022-12-05 11:44:16,2022-12-05 11:45:41,IP Address,82.42.244.102,100,85,True,2022-12-05 11:45:41,R_2wjjcYBPaQys3ho,,,,,54.9684,-1.4002,anonymous,EN,62b2494a6b5643fdf0d4d52a,Somewhat agree,Strongly disagree,Strongly disagree,Very strongly agree,Strongly disagree,Somewhat agree
+2022-12-05 11:45:16,2022-12-05 11:45:54,IP Address,109.150.203.158,100,38,True,2022-12-05 11:45:55,R_22EMdH6JyyyfGIF,,,,,50.1158,-5.5429,anonymous,EN,6055d412f86bdc4c222b5afb,Somewhat agree,Strongly disagree,Very strongly disagree,Very strongly agree,Strongly agree,Neither agree nor disagree
+2022-12-05 11:47:11,2022-12-05 11:48:57,IP Address,213.205.210.162,100,106,True,2022-12-05 11:48:58,R_1kZHAdOPO57crKH,,,,,51.5415,-0.0601,anonymous,EN,5e204990b062543612e9a254,Neither agree nor disagree,Slightly disagree,Very strongly disagree,Very strongly agree,Neither agree nor disagree,Neither agree nor disagree
+2022-12-05 11:47:57,2022-12-05 11:50:27,IP Address,86.172.248.148,100,150,True,2022-12-05 11:50:28,R_1M40uDgV8TViMXd,,,,,51.5043,-0.2211,anonymous,EN,5f4b9740fdda0b04d86a533c,Slightly agree,Neither agree nor disagree,Somewhat disagree,Somewhat agree,Slightly agree,Slightly disagree
+2022-12-05 11:55:58,2022-12-05 11:56:46,IP Address,51.6.219.53,100,47,True,2022-12-05 11:56:46,R_27jN5RdJrAEpxYY,,,,,53.5051,-2.1619,anonymous,EN,5e3906b9a6df461259c0632f,Strongly disagree,Strongly agree,Slightly agree,Very strongly agree,Neither agree nor disagree,Very strongly agree
+2022-12-05 11:57:14,2022-12-05 11:57:57,IP Address,213.122.125.132,100,42,True,2022-12-05 11:57:58,R_r9B01H45QyTCnYt,,,,,55.981,-3.377,anonymous,EN,62a74469effba3901c2290ee,Somewhat agree,Very strongly disagree,Very strongly disagree,Very strongly agree,Slightly disagree,Somewhat disagree
+2022-12-05 11:56:26,2022-12-05 11:58:26,IP Address,81.156.55.199,100,119,True,2022-12-05 11:58:27,R_O8Lh6pPttBVEV4R,,,,,51.4703,-3.2811,anonymous,EN,5ac8a695e1099600016aaae4,Slightly disagree,Neither agree nor disagree,Very strongly disagree,Somewhat agree,Strongly disagree,Strongly agree
+2022-12-05 11:58:30,2022-12-05 12:00:25,IP Address,86.132.180.29,100,115,True,2022-12-05 12:00:25,R_3dYT8qFOGyrvlxz,,,,,53.7037,-1.639,anonymous,EN,5986038865326000012c1578,Slightly disagree,Strongly disagree,Very strongly disagree,Very strongly agree,Slightly agree,Slightly disagree
+2022-12-05 12:00:39,2022-12-05 12:01:32,IP Address,82.4.158.2,100,52,True,2022-12-05 12:01:33,R_2OPFCW46dG8LiYp,,,,,54.7493,-1.2973,anonymous,EN,5c27c724867f660001ae6785,Neither agree nor disagree,Neither agree nor disagree,Very strongly disagree,Strongly agree,Neither agree nor disagree,Somewhat agree
+2022-12-05 11:50:34,2022-12-05 12:03:22,IP Address,82.44.39.128,100,767,True,2022-12-05 12:03:22,R_bq4D1nqz3FSssed,,,,,52.4391,-1.5039,anonymous,EN,595f5d26b752840001ca4451,Very strongly disagree,Somewhat agree,Somewhat disagree,Neither agree nor disagree,Slightly disagree,Slightly agree
+2022-12-05 12:05:05,2022-12-05 12:05:41,IP Address,86.137.93.25,100,36,True,2022-12-05 12:05:42,R_3fZWFFBbr88eE69,,,,,51.0657,-0.7277,anonymous,EN,622a2acebc012eadf07416ce,Somewhat disagree,Slightly disagree,Strongly disagree,Somewhat agree,Somewhat disagree,Somewhat agree
+2022-12-05 12:08:22,2022-12-05 12:09:07,IP Address,90.216.69.254,100,44,True,2022-12-05 12:09:07,R_3Cs1k4QGyHotsGJ,,,,,52.7212,-2.7456,anonymous,EN,5ebdb2d48565890e4efe91d5,Very strongly disagree,Strongly agree,Very strongly agree,Very strongly disagree,Neither agree nor disagree,Very strongly agree
+2022-12-05 12:15:13,2022-12-05 12:16:33,IP Address,46.65.183.246,100,80,True,2022-12-05 12:16:33,R_2vjCwDAseWlzctG,,,,,53.3562,-1.2939,anonymous,EN,5d0ca909a37d8b0018913ca4,Somewhat disagree,Slightly agree,Slightly disagree,Somewhat agree,Somewhat disagree,Somewhat agree
+2022-12-05 12:15:36,2022-12-05 12:16:36,IP Address,91.110.68.192,100,59,True,2022-12-05 12:16:37,R_21G7asOk3vA6AiC,,,,,57.3843,-4.4083,anonymous,EN,6320cfe2d0cbd240bb5532d9,Somewhat disagree,Somewhat disagree,Strongly disagree,Very strongly agree,Somewhat agree,Somewhat disagree
+2022-12-05 12:23:09,2022-12-05 12:24:11,IP Address,94.10.244.194,100,61,True,2022-12-05 12:24:11,R_1I5yxNdKX3AqQZn,,,,,53.5181,-1.3228,anonymous,EN,5d6a49eba8567d001d3af564,Slightly disagree,Neither agree nor disagree,Somewhat agree,Slightly agree,Slightly disagree,Somewhat agree
+2022-12-05 12:25:20,2022-12-05 12:26:44,IP Address,81.78.231.99,100,84,True,2022-12-05 12:26:45,R_0xPUJ5xVP7msqdj,,,,,51.6449,-0.043,anonymous,EN,6303bcf97c4ee19d1dda9a4a,Slightly disagree,Strongly disagree,Very strongly disagree,Very strongly agree,Somewhat disagree,Slightly disagree
+2022-12-05 12:29:36,2022-12-05 12:31:05,IP Address,86.161.102.206,100,88,True,2022-12-05 12:31:05,R_3qagzepJeqVXwQn,,,,,53.6836,-1.9323,anonymous,EN,6235d96c087939dba5586d97,Slightly agree,Somewhat disagree,Strongly disagree,Strongly agree,Slightly agree,Neither agree nor disagree
+2022-12-05 12:37:37,2022-12-05 12:38:21,IP Address,92.1.71.91,100,44,True,2022-12-05 12:38:21,R_psbrhCy6bRtqMUh,,,,,50.7976,0.3029,anonymous,EN,61058112f3df928f979bb71a,Somewhat agree,Very strongly disagree,Very strongly disagree,Very strongly agree,Strongly agree,Strongly disagree
+2022-12-05 12:45:27,2022-12-05 12:46:28,IP Address,90.201.184.103,100,61,True,2022-12-05 12:46:29,R_1OvJWWCW7kh2XD9,,,,,51.5597,-0.0528,anonymous,EN,5aff33bae55f90000139f664,Somewhat agree,Strongly disagree,Very strongly disagree,Very strongly agree,Slightly agree,Somewhat disagree
+2022-12-05 12:55:45,2022-12-05 12:57:02,IP Address,5.67.4.158,100,77,True,2022-12-05 12:57:02,R_1IZAmn8klf2jj9I,,,,,53.3019,-1.744,anonymous,EN,63308fff81a6626dea7d173a,Strongly disagree,Somewhat disagree,Very strongly disagree,Very strongly agree,Slightly disagree,Somewhat agree
+2022-12-05 13:05:28,2022-12-05 13:06:24,IP Address,31.185.245.2,100,56,True,2022-12-05 13:06:24,R_2VyF21Gn9ytwHfp,,,,,52.4007,1.5362,anonymous,EN,5fcfb1fe79b8060e0662270a,Somewhat agree,Strongly disagree,Very strongly disagree,Very strongly agree,Somewhat agree,Strongly disagree
+2022-12-05 13:24:39,2022-12-05 13:25:25,IP Address,86.180.188.145,100,46,True,2022-12-05 13:25:26,R_3G2DKIpu5saXtFf,,,,,53.6257,-1.2978,anonymous,EN,6301185b6013d0487dcd3873,Slightly disagree,Somewhat agree,Strongly disagree,Somewhat agree,Somewhat agree,Somewhat agree
+2022-12-05 13:57:47,2022-12-05 13:58:32,IP Address,2.30.187.182,100,44,True,2022-12-05 13:58:32,R_1pSwKBnVjyLFT2i,,,,,53.9368,-1.7468,anonymous,EN,59957d9abf8bcf0001ab6a3c,Very strongly agree,Very strongly disagree,Very strongly disagree,Very strongly agree,Very strongly agree,Slightly disagree
+2022-12-05 13:58:24,2022-12-05 13:59:34,IP Address,143.159.19.178,100,69,True,2022-12-05 13:59:34,R_PYz9XGRo7TJ6zHb,,,,,56.2954,-3.2325,anonymous,EN,62a447d91e71bfacd2e8c006,Strongly disagree,Somewhat disagree,Very strongly disagree,Somewhat agree,Slightly disagree,Slightly agree
+2022-12-05 14:08:49,2022-12-05 14:09:43,IP Address,86.169.7.228,100,53,True,2022-12-05 14:09:44,R_3njylhHJ15S6h6a,,,,,53.4836,-2.2862,anonymous,EN,62ecf5e0f62cf8c5712b3433,Strongly agree,Strongly disagree,Very strongly disagree,Very strongly agree,Somewhat agree,Somewhat disagree
+2022-12-05 14:23:55,2022-12-05 14:25:22,IP Address,129.234.103.100,100,87,True,2022-12-05 14:25:22,R_2qeLKI2KnwGKAGs,,,,,54.7699,-1.559,anonymous,EN,6319fda77a0f1e8100fafe8d,Strongly disagree,Strongly disagree,Very strongly disagree,Very strongly agree,Somewhat agree,Slightly disagree
+2022-12-05 14:29:11,2022-12-05 14:29:57,IP Address,81.155.76.109,100,45,True,2022-12-05 14:29:57,R_yQiuZEHtdchQsGR,,,,,52.0045,-0.7823,anonymous,EN,56a8a39f7f2472000c9382f6,Neither agree nor disagree,Somewhat disagree,Very strongly disagree,Neither agree nor disagree,Neither agree nor disagree,Slightly agree
+2022-12-05 14:31:08,2022-12-05 14:31:46,IP Address,77.103.134.156,100,38,True,2022-12-05 14:31:47,R_12ijYuXdC5n6kig,,,,,50.5259,-3.6165,anonymous,EN,60dd27004a74c325f5b22e17,Somewhat agree,Strongly disagree,Very strongly disagree,Very strongly agree,Very strongly agree,Somewhat disagree
+2022-12-05 14:38:39,2022-12-05 14:39:30,IP Address,165.225.17.180,100,51,True,2022-12-05 14:39:30,R_2ZIfJtDa2bPVLTh,,,,,51.5164,-0.093,anonymous,EN,5bbd1d04df2fb80001733d30,Slightly agree,Very strongly disagree,Very strongly disagree,Very strongly agree,Very strongly agree,Somewhat disagree
+2022-12-05 15:04:26,2022-12-05 15:05:20,IP Address,80.42.3.189,100,53,True,2022-12-05 15:05:20,R_OqTpHXKI4HJZjDX,,,,,51.7335,-0.5875,anonymous,EN,634860ef5171c7cf3419f575,Neither agree nor disagree,Slightly agree,Somewhat disagree,Strongly agree,Somewhat disagree,Strongly disagree
+2022-12-05 17:35:37,2022-12-05 17:36:34,IP Address,86.129.167.207,100,57,True,2022-12-05 17:36:35,R_3G3ZAnJPzSvchiE,,,,,54.6784,-5.9695,anonymous,EN,5b91494498530500014c1fcd,Strongly disagree,Somewhat agree,Slightly disagree,Strongly agree,Strongly disagree,Strongly agree
+2022-12-05 18:42:03,2022-12-05 18:43:46,IP Address,31.125.46.124,100,102,True,2022-12-05 18:43:46,R_2qwqMRFfaHqYOAh,,,,,51.5975,-0.1915,anonymous,EN,5d39f0c9d08e29001a5e42f2,Slightly agree,Neither agree nor disagree,Slightly agree,Somewhat agree,Slightly agree,Somewhat agree
+2022-12-05 22:12:57,2022-12-05 22:14:14,IP Address,5.64.38.54,100,76,True,2022-12-05 22:14:14,R_2dRMdDXaW4lGiWx,,,,,55.9019,-4.4553,anonymous,EN,6346aea12dc3f3c3fc16eee6,Somewhat disagree,Somewhat disagree,Very strongly disagree,Very strongly agree,Somewhat disagree,Strongly agree
+2022-12-06 14:02:54,2022-12-06 14:04:33,IP Address,81.107.159.25,100,99,True,2022-12-06 14:04:34,R_2D6cjo5Li3a53ba,,,,,55.805,-4.2899,anonymous,EN,59e675a6c0d35a00012951ce,Slightly agree,Slightly disagree,Strongly disagree,Strongly agree,Strongly agree,Somewhat agree

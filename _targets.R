@@ -25,7 +25,7 @@ powerMap <-
     tar_target(powerSeed, 1:100),
     # simulate data for power analysis
     tar_target(dPower, simulateData(n = 1019, errorRate = 0, seed = powerSeed,
-                                    # use intercepts from m1 model
+                                    # use intercepts from m1 model (UK only)
                                     alphas = c(-1.48, -0.31, 1.43, 0.22, -0.39,
                                                -0.22, 0.22, -0.87, -0.47, 2.31),
                                     # detecting medium effect for one strategy

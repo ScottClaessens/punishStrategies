@@ -1,0 +1,516 @@
+StartDate,EndDate,Status,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,DistributionChannel,UserLanguage,Consent1,Consent2,Consent3,Consent4,Consent5,Consent6,ProlificID,SDO_1,SDO_2,SDO_3r,SDO_4r,SDO_5,SDO_6,SDO_7r,SDO_8r,SVO_01,SVO_02,SVO_03,SVO_04,SVO_05,SVO_06,SVO_07,SVO_08,SVO_09,SVO_10,SVO_11,SVO_12,SVO_13,SVO_14,SVO_15,Pers_E1,Pers_A1,Pers_C1,Pers_N1,Pers_O1,Pers_Narc1,Pers_E2r,Pers_A2r,Pers_O2r,Pers_C2,Pers_C3r,Pers_Narc2,Pers_O3r,Pers_A3,Pers_N2r,Pers_N3,Pers_N4r,Pers_HonHum1r,Pers_E3r,Pers_A4r,Pers_O4r,Pers_C4r,Pers_E4,Pers_HonHum2r,GodControls,HowReligious,RWA_1r,RWA_2,RWA_3,RWA_4r,RWA_5r,RWA_6,Education,SES_1,BringDown_1,BringUp_1,PolSlider_19,WeeksYear,WeeksYear_TryAgain,Breakfast,PROLIFIC_PID,counter
+Start Date,End Date,Response Type,Progress,Duration (in seconds),Finished,Recorded Date,Response ID,Distribution Channel,User Language,I have read the information above and I consent to take part in this study.,I understand that anonymous data that cannot be traced back to me individually may be used in academic publications and shared in accordance with open science guidelines and I consent to this.,I understand that I can withdraw from the study at any time by closing my browser window but that I will not be paid for my time if I do this.,I understand that once my data have been submitted it may be impossible for me to withdraw from the study.,I am aged 18 or over.,I understand that if I fail an attention check or do not submit a completion code my submission will be rejected.,"To begin, please enter your Prolific Participant ID here: 
+
+ 
+
+
+
+
+ 
+
+If we do not have your correct Prolific ID we will not be able to pay you.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - An ideal society requires some groups to be on top and others to be on the bottom.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - Some groups of people are simply inferior to other groups.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - No one group should dominate in society.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - Groups at the bottom are just as deserving as groups at the top.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - Group equality should not be our primary goal.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - It is unjust to try to make groups equal.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - We should do what we can to equalize conditions for different groups.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - We should work to give all groups an equal chance to succeed.","Task [Field-counter] of 8
+
+ 
+
+Please indicate below how you would like to distribute money between yourself and the other player
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+
+Please indicate how you would like to distribute money between yourself and the other player
+
+
+
+ 
+
+You Receive
+
+|
+
+|
+
+Other Receives","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am the life of the party","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I sympathise with others' feelings","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I get chores done right away","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I have frequent mood swings","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I have a vivid imagination","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I feel entitled to more of everything","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I don't talk a lot","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am not interested in other people's problems","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I have difficulty understanding abstract ideas","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I like order","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I make a mess of things","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I deserve more things in life","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I do not have a good imagination","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I feel others' emotions","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am relaxed most of the time","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I get upset easily","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I seldom feel blue","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I would like to be seen driving around in a very expensive car","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I keep in the background","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am not really interested in others","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I am not interested in abstract ideas","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I often forget to put things back in their proper place","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I talk to a lot of different people at parties","Task [Field-counter] of 8
+
+
+Please select the number that best represents how accurately each statement describes you. - I would get a lot of pleasure from owning expensive luxury goods","Task [Field-counter] of 8
+
+ 
+
+Please rate the extent to which you agree with the following statement:
+
+It is likely that God, or some other type of spiritual non-human entity, controls the events in the world",How religious are you?,"Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - It's great that many young people today are prepared to defy authority.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - What our country needs most is discipline, with everyone following our leaders in unity.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - God's laws about abortion, pornography, and marriage must be strictly followed before it is too late.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - There is nothing wrong with premarital sexual intercourse.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - Our society does NOT need tougher government and stricter laws.","Task [Field-counter] of 8
+
+
+
+ 
+Please indicate your agreement / disagreement with the following statements - The facts on crime and the recent public disorders show we have to crack down harder on troublemakers, if we are going to preserve law and order.","Task [Field-counter] of 8
+
+ 
+What is your highest level of education?","Task [Field-counter] of 8
+
+ 
+
+
+
+Think of the ladder below as representing where people stand in your country.
+At the top of the ladder are the people who are the best off - those who have the most money, the most education and the most respected jobs. At the bottom are the people who are the worst off - those who have the least money, the least education and the least respected jobs, or no job. The higher up you are on this ladder, the closer you are to the people at the very top; the lower you are on this ladder, the closer you are to the people at the very bottom.
+
+
+
+Where would you place yourself on this ladder? - Please indicate which number  on the rung best represents where you stand at this time in your life, relative to other people in your country.","Task [Field-counter] of 8
+
+ 
+
+To what extent do you agree with the following statement? - I would like to bring the people above me on the ladder down a peg or two","Task [Field-counter] of 8
+
+
+
+To what extent do you agree with the following statement? - I would like to bring the people below me on the ladder up a peg or two","Task [Field-counter] of 8
+
+
+
+
+
+Political views are often organised on a single scale from left to right. For example, in the United States, the Democratic Party is described as more to the left and the Republican Party is described as more to the right. If you had to place your political views on this left-right scale, generally speaking, where would you put yourself? - Task ${e://Field/counter} of 8
+
+
+
+
+
+Political views are often organised on a single scale from left to right. For example, in the United States, the Democratic Party is described as more to the left and the Republican Party is described as more to the right. If you had to place your political views on this left-right scale, generally speaking, where would you put yourself?","This is an attention check - please answer correctly or your work may be rejected. 
+
+
+
+How many weeks are there in a year?","You answered the attention check incorrectly. Please try again.
+
+ 
+
+If you provide an incorrect answer again, you will be allowed to proceed with the rest of the study but your work may be rejected and you will not be paid.
+How many weeks are there in a year?","This is an attention check - please answer the question or your work may be rejected. 
+
+
+
+What did you have for breakfast this morning?",PROLIFIC_PID,counter
+"{""ImportId"":""startDate"",""timeZone"":""Europe/London""}","{""ImportId"":""endDate"",""timeZone"":""Europe/London""}","{""ImportId"":""status""}","{""ImportId"":""progress""}","{""ImportId"":""duration""}","{""ImportId"":""finished""}","{""ImportId"":""recordedDate"",""timeZone"":""Europe/London""}","{""ImportId"":""_recordId""}","{""ImportId"":""distributionChannel""}","{""ImportId"":""userLanguage""}","{""ImportId"":""QID3""}","{""ImportId"":""QID14""}","{""ImportId"":""QID15""}","{""ImportId"":""QID16""}","{""ImportId"":""QID18""}","{""ImportId"":""QID50""}","{""ImportId"":""QID13_TEXT""}","{""ImportId"":""QID56_1""}","{""ImportId"":""QID56_2""}","{""ImportId"":""QID56_3""}","{""ImportId"":""QID56_4""}","{""ImportId"":""QID56_5""}","{""ImportId"":""QID56_6""}","{""ImportId"":""QID56_7""}","{""ImportId"":""QID56_8""}","{""ImportId"":""QID61""}","{""ImportId"":""QID103""}","{""ImportId"":""QID64""}","{""ImportId"":""QID65""}","{""ImportId"":""QID66""}","{""ImportId"":""QID67""}","{""ImportId"":""QID70""}","{""ImportId"":""QID71""}","{""ImportId"":""QID72""}","{""ImportId"":""QID73""}","{""ImportId"":""QID74""}","{""ImportId"":""QID75""}","{""ImportId"":""QID76""}","{""ImportId"":""QID77""}","{""ImportId"":""QID78""}","{""ImportId"":""QID69_1""}","{""ImportId"":""QID69_2""}","{""ImportId"":""QID69_3""}","{""ImportId"":""QID69_4""}","{""ImportId"":""QID69_5""}","{""ImportId"":""QID69_6""}","{""ImportId"":""QID69_7""}","{""ImportId"":""QID69_8""}","{""ImportId"":""QID69_9""}","{""ImportId"":""QID69_10""}","{""ImportId"":""QID69_11""}","{""ImportId"":""QID69_12""}","{""ImportId"":""QID69_13""}","{""ImportId"":""QID69_14""}","{""ImportId"":""QID69_15""}","{""ImportId"":""QID69_16""}","{""ImportId"":""QID69_17""}","{""ImportId"":""QID69_18""}","{""ImportId"":""QID69_19""}","{""ImportId"":""QID69_20""}","{""ImportId"":""QID69_21""}","{""ImportId"":""QID69_22""}","{""ImportId"":""QID69_23""}","{""ImportId"":""QID69_24""}","{""ImportId"":""QID98""}","{""ImportId"":""QID100""}","{""ImportId"":""QID99_1""}","{""ImportId"":""QID99_2""}","{""ImportId"":""QID99_3""}","{""ImportId"":""QID99_4""}","{""ImportId"":""QID99_5""}","{""ImportId"":""QID99_6""}","{""ImportId"":""QID53""}","{""ImportId"":""QID79_1""}","{""ImportId"":""QID80_4""}","{""ImportId"":""QID81_1""}","{""ImportId"":""QID21_19""}","{""ImportId"":""QID55""}","{""ImportId"":""QID105""}","{""ImportId"":""QID82_TEXT""}","{""ImportId"":""PROLIFIC_PID""}","{""ImportId"":""counter""}"
+2022-12-05 09:00:50,2022-12-05 16:23:19,IP Address,85,26549,False,,FS_81hideg2IKLiAdH,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,637f7d25be330a69e0a55365,4 - Neutral,2 - Somewhat oppose,4 - Neutral,6 - Somewhat favour,6 - Somewhat favour,4 - Neutral,6 - Somewhat favour,6 - Somewhat favour,"85
+|
+|
+85",100||50,"76
+|
+|
+89","63
+|
+|
+68","75
+|
+|
+75","85
+|
+|
+85","81
+|
+|
+81","95
+|
+|
+95","81
+|
+|
+81","93
+|
+|
+93","85
+|
+|
+85","94
+|
+|
+91","75
+|
+|
+75","93
+|
+|
+93","93
+|
+|
+88",,,,,,,,,,,,,,,,,,,,,,,,,Somewhat disagree,2,Very strongly disagree,Strongly agree,Somewhat disagree,Strongly agree,Strongly disagree,Strongly agree,,,,,,52,,nothing,637f7d25be330a69e0a55365,5
+2022-12-05 09:33:49,2022-12-05 09:34:50,IP Address,30,61,False,,FS_3lVNOKevmtlZk6H,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,6033e30df12f750facec1163,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6033e30df12f750facec1163,0
+2022-12-05 09:42:48,2022-12-05 09:44:48,IP Address,25,119,False,,FS_2thg6Lr0E0b889z,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,5b11562fe9270900013c2516,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5b11562fe9270900013c2516,0
+2022-12-05 10:09:35,2022-12-05 10:10:00,IP Address,22,24,False,,FS_bl4o7M6nVPseA9j,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,5c5721c7fcbb880001fcff31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5c5721c7fcbb880001fcff31,1
+2022-12-05 12:26:54,2022-12-05 12:28:10,IP Address,22,76,False,,FS_3e4Eq398CKoCnjB,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,5c79c84a54c5d600175fd005,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5c79c84a54c5d600175fd005,1
+2022-12-05 17:14:27,2022-12-05 17:15:10,IP Address,25,43,False,,FS_123bvQDGZ5CU204,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,62c5c868b981c6603455c18b,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,43,,,,62c5c868b981c6603455c18b,2
+2022-12-05 17:40:14,2022-12-06 07:56:06,IP Address,38,51352,False,,FS_2VEWc4tkKYT7cSq,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,5c7e33aa19b8d40017e6dd80,,,,,,,,,"85
+|
+|
+85",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,High School,,,,,52,,,5c7e33aa19b8d40017e6dd80,2
+2022-12-05 18:13:46,2022-12-05 18:14:21,IP Address,23,34,False,,FS_3qm7tHOnx70RFkJ,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,60b36a96346dd63678e6cfe6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,60b36a96346dd63678e6cfe6,0
+2022-12-05 19:58:21,2022-12-05 19:59:07,IP Address,22,45,False,,FS_31H2KPqxyxW3m0F,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,637f578a230103f965c0d70f,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,637f578a230103f965c0d70f,1
+2022-12-07 08:17:32,2022-12-07 08:18:45,IP Address,28,72,False,,FS_3mehbJFocc7GE8A,anonymous,EN,Yes,Yes,Yes,Yes,Yes,Yes,5eea5e9ee0d561140ff250a1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Neutral,1 - Not at all religious,,,,,,,,,,,,,,,5eea5e9ee0d561140ff250a1,1

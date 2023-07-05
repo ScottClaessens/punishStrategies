@@ -1,0 +1,104 @@
+StartDate,EndDate,Status,IPAddress,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,RecipientLastName,RecipientFirstName,RecipientEmail,ExternalReference,LocationLatitude,LocationLongitude,DistributionChannel,UserLanguage,Q2,Q3_1,Q3_2,Q3_3,Q3_4,Q3_5,Q3_6,Q3_7,Q3_8,Q3_9,Q3_10,Q3_11,Q4,Q4_3_TEXT,Q1
+Start Date,End Date,Response Type,IP Address,Progress,Duration (in seconds),Finished,Recorded Date,Response ID,Recipient Last Name,Recipient First Name,Recipient Email,External Data Reference,Location Latitude,Location Longitude,Distribution Channel,User Language,"In your own words, please explain: what was your main motivation for making the decisions you did in the games?","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to punish people who harmed others","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to have a higher final bonus than others","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to avoid having a lower final bonus than others","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted all players to have the same final bonus","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to stop others from cheating","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to show that I disapproved of others' actions","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I made decisions at random","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to punish people who DID NOT harm me or others","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I didn't want to reduce anyone's bonus, no matter what they did","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I didn't want to PAY to reduce anyone's bonus but I would have done so if it were free","We would now like you to answer a few questions about your main motivation in the games.
+
+ 
+
+Please answer truthfully - there is no right or wrong answer and your first answer is probably best.
+
+ 
+
+Please rate the extent to which the following statements apply to your decisions to reduce or not to reduce other players' bonuses in the games: - I wanted to punish people if they harmed me but not if they harmed others",Did you believe that the decisions you made would have consequences for another person? - Selected Choice,Did you believe that the decisions you made would have consequences for another person? - Other (please explain) - Text,"So that we can match your responses here to the previous responses you gave,  enter your Prolific Participant ID here: 
+
+ 
+
+
+
+
+ 
+
+If we do not have your correct Prolific ID we will not be able to pay you."
+"{""ImportId"":""startDate"",""timeZone"":""Europe/London""}","{""ImportId"":""endDate"",""timeZone"":""Europe/London""}","{""ImportId"":""status""}","{""ImportId"":""ipAddress""}","{""ImportId"":""progress""}","{""ImportId"":""duration""}","{""ImportId"":""finished""}","{""ImportId"":""recordedDate"",""timeZone"":""Europe/London""}","{""ImportId"":""_recordId""}","{""ImportId"":""recipientLastName""}","{""ImportId"":""recipientFirstName""}","{""ImportId"":""recipientEmail""}","{""ImportId"":""externalDataReference""}","{""ImportId"":""locationLatitude""}","{""ImportId"":""locationLongitude""}","{""ImportId"":""distributionChannel""}","{""ImportId"":""userLanguage""}","{""ImportId"":""QID1211044318_TEXT""}","{""ImportId"":""QID1211044319_1""}","{""ImportId"":""QID1211044319_2""}","{""ImportId"":""QID1211044319_3""}","{""ImportId"":""QID1211044319_4""}","{""ImportId"":""QID1211044319_5""}","{""ImportId"":""QID1211044319_6""}","{""ImportId"":""QID1211044319_7""}","{""ImportId"":""QID1211044319_8""}","{""ImportId"":""QID1211044319_9""}","{""ImportId"":""QID1211044319_10""}","{""ImportId"":""QID1211044319_11""}","{""ImportId"":""QID1211044320""}","{""ImportId"":""QID1211044320_3_TEXT""}","{""ImportId"":""QID1211044321_TEXT""}"
+28/11/2022 09:36,28/11/2022 09:37,IP Address,51.146.82.24,100,89,TRUE,28/11/2022 09:37,R_211lKvU0Z68HPOn,,,,,50.8963,-1.0463,anonymous,EN,Wanting to ensure no one took advantage and took away from me spitefully,85,58,73,64,68,90,0,9,17,41,33,Yes,,6320a0456c8a837509e58686
+28/11/2022 10:27,28/11/2022 10:33,IP Address,82.29.212.50,100,360,TRUE,28/11/2022 10:33,R_Dqs6jgtz4Ii5M3f,,,,,53.4344,-2.2664,anonymous,EN,"i wanted to be fair in the fund distribution, whilst not leaving myself short",49,84,92,93,72,72,59,38,82,87,61,Yes,,5fb25a7e5960a87fb627c12b
+28/11/2022 10:35,28/11/2022 10:36,IP Address,92.1.20.131,100,89,TRUE,28/11/2022 10:36,R_xb9NVDiWq0LJ4Xv,,,,,51.1147,-0.184,anonymous,EN,There was no benefit taking the money away from the other player,45,18,83,80,24,23,3,19,29,74,28,No,,6286800999a782f0e51954a5
+28/11/2022 11:04,28/11/2022 11:08,IP Address,46.65.183.246,100,242,TRUE,28/11/2022 11:08,R_2TSE3LDCN6VEhcD,,,,,53.4558,-1.3756,anonymous,EN,My decisions were based on what was the fairest outcome for each player and whether I thought the other player was being unduly greedy,10,4,24,38,44,12,0,0,7,4,2,Other (please explain),not sure as i was unsure if there was really another person, 5d0ca909a37d8b0018913ca4

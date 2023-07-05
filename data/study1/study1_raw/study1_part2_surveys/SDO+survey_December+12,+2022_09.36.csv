@@ -1,0 +1,113 @@
+StartDate,EndDate,Status,IPAddress,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,RecipientLastName,RecipientFirstName,RecipientEmail,ExternalReference,LocationLatitude,LocationLongitude,DistributionChannel,UserLanguage,Q1,SDO_1,SDO_2,SDO_3r,SDO_4r,SDO_5,SDO_6,SDO_7r,SDO_8r
+Start Date,End Date,Response Type,IP Address,Progress,Duration (in seconds),Finished,Recorded Date,Response ID,Recipient Last Name,Recipient First Name,Recipient Email,External Data Reference,Location Latitude,Location Longitude,Distribution Channel,User Language,"So that we can match your responses here to the previous responses you gave,  enter your Prolific Participant ID here: 
+
+ 
+
+
+
+
+ 
+
+If we do not have your correct Prolific ID we will not be able to pay you.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - An ideal society requires some groups to be on top and others to be on the bottom.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - Some groups of people are simply inferior to other groups.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - No one group should dominate in society.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - Groups at the bottom are just as deserving as groups at the top.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - Group equality should not be our primary goal.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - It is unjust to try to make groups equal.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - We should do what we can to equalize conditions for different groups.","Task [Field-counter] of 8
+ 
+
+Show how much you favour or oppose each idea below by selecting a number from 1 to 7 on the scale below.
+
+ 
+
+You can work quickly; your first feeling is generally best. - We should work to give all groups an equal chance to succeed."
+"{""ImportId"":""startDate"",""timeZone"":""Europe/London""}","{""ImportId"":""endDate"",""timeZone"":""Europe/London""}","{""ImportId"":""status""}","{""ImportId"":""ipAddress""}","{""ImportId"":""progress""}","{""ImportId"":""duration""}","{""ImportId"":""finished""}","{""ImportId"":""recordedDate"",""timeZone"":""Europe/London""}","{""ImportId"":""_recordId""}","{""ImportId"":""recipientLastName""}","{""ImportId"":""recipientFirstName""}","{""ImportId"":""recipientEmail""}","{""ImportId"":""externalDataReference""}","{""ImportId"":""locationLatitude""}","{""ImportId"":""locationLongitude""}","{""ImportId"":""distributionChannel""}","{""ImportId"":""userLanguage""}","{""ImportId"":""QID1211044321_TEXT""}","{""ImportId"":""QID1211094685_1""}","{""ImportId"":""QID1211094685_2""}","{""ImportId"":""QID1211094685_3""}","{""ImportId"":""QID1211094685_4""}","{""ImportId"":""QID1211094685_5""}","{""ImportId"":""QID1211094685_6""}","{""ImportId"":""QID1211094685_7""}","{""ImportId"":""QID1211094685_8""}"
+2022-12-05 11:14:39,2022-12-05 11:15:09,IP Address,87.75.80.3,100,30,True,2022-12-05 11:15:09,R_1myp9WqfZ3SaBAJ,,,,,53.8826,-2.0494,anonymous,EN,5d4310bbd8e961001b825ca4,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 11:14:38,2022-12-05 11:15:35,IP Address,78.145.103.102,100,56,True,2022-12-05 11:15:36,R_C3LfFlmQJIKYySB,,,,,53.5039,-2.1959,anonymous,EN,637f7b94e67e5f28b0233f44,3 - Slightly oppose,5 - Slightly favour,7 - Strongly favour,7 - Strongly favour,3 - Slightly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 11:14:55,2022-12-05 11:15:48,IP Address,94.11.140.78,100,53,True,2022-12-05 11:15:49,R_2pVnPPC3rp5M5KA,,,,,53.3376,-1.4771,anonymous,EN,5f75a669c9ebb3229be4a8db,6 - Somewhat favour,2 - Somewhat oppose,6 - Somewhat favour,6 - Somewhat favour,5 - Slightly favour,3 - Slightly oppose,6 - Somewhat favour,6 - Somewhat favour
+2022-12-05 11:15:17,2022-12-05 11:15:52,IP Address,79.79.217.246,100,35,True,2022-12-05 11:15:53,R_1ONVn4M9wlFic2Q,,,,,51.4643,-0.0119,anonymous,EN,5ea047d315537303f1e60ef9,4 - Neutral,3 - Slightly oppose,5 - Slightly favour,5 - Slightly favour,5 - Slightly favour,5 - Slightly favour,3 - Slightly oppose,5 - Slightly favour
+2022-12-05 11:15:02,2022-12-05 11:15:55,IP Address,86.189.228.108,100,52,True,2022-12-05 11:15:55,R_3p9e3wR6PzBxh4C,,,,,51.713,-1.8659,anonymous,EN,5b7bf6c98c721a00015d1feb,5 - Slightly favour,4 - Neutral,4 - Neutral,5 - Slightly favour,3 - Slightly oppose,4 - Neutral,4 - Neutral,4 - Neutral
+2022-12-05 11:15:25,2022-12-05 11:15:56,IP Address,94.0.50.65,100,31,True,2022-12-05 11:15:56,R_8IWTjO3n9lbePCx,,,,,52.5778,-2.0961,anonymous,EN,5ffb432901d8311622530a52,4 - Neutral,2 - Somewhat oppose,7 - Strongly favour,5 - Slightly favour,5 - Slightly favour,4 - Neutral,5 - Slightly favour,5 - Slightly favour
+2022-12-05 11:15:01,2022-12-05 11:16:00,IP Address,77.101.112.159,100,59,True,2022-12-05 11:16:01,R_217jJdaGnpQRVo5,,,,,51.8781,-2.3419,anonymous,EN,600a97750a20c621b3d6d358,4 - Neutral,4 - Neutral,5 - Slightly favour,4 - Neutral,6 - Somewhat favour,5 - Slightly favour,5 - Slightly favour,7 - Strongly favour
+2022-12-05 11:14:16,2022-12-05 11:16:07,IP Address,5.69.198.7,100,111,True,2022-12-05 11:16:08,R_2zTiifh0TCG5F92,,,,,52.3958,-1.4796,anonymous,EN,60dba539f83a896ab389fa7e,4 - Neutral,1 - Strongly oppose,4 - Neutral,7 - Strongly favour,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 11:14:25,2022-12-05 11:16:08,IP Address,85.255.236.172,100,102,True,2022-12-05 11:16:08,R_6f1iyWTjl6DbvEZ,,,,,51.4964,-0.1224,anonymous,EN,57ea425e5b88f5000106bb9f,5 - Slightly favour,5 - Slightly favour,6 - Somewhat favour,4 - Neutral,5 - Slightly favour,5 - Slightly favour,6 - Somewhat favour,7 - Strongly favour
+2022-12-05 11:15:34,2022-12-05 11:16:08,IP Address,80.43.69.82,100,34,True,2022-12-05 11:16:08,R_1Fu3GSrSpvihG3z,,,,,51.536,-0.0925,anonymous,EN,61446a1ecda939d3c22d9787,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 11:16:18,2022-12-05 11:17:05,IP Address,150.143.182.239,100,47,True,2022-12-05 11:17:06,R_5gqelaq4EHxyvL3,,,,,51.4964,-0.1224,anonymous,EN,60d4497712b0332d4ccb9c48,2 - Somewhat oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 11:16:19,2022-12-05 11:17:21,IP Address,82.12.252.156,100,61,True,2022-12-05 11:17:21,R_2c27WVNE40jntRv,,,,,51.9367,-0.51,anonymous,EN,587b38ec3962c30001276c81,5 - Slightly favour,4 - Neutral,7 - Strongly favour,6 - Somewhat favour,4 - Neutral,5 - Slightly favour,5 - Slightly favour,5 - Slightly favour
+2022-12-05 11:17:01,2022-12-05 11:17:24,IP Address,157.231.145.203,100,22,True,2022-12-05 11:17:24,R_2dRZqTTARTd8ntj,,,,,53.682,-2.9115,anonymous,EN,62a103f969f9ab4f9722da51,5 - Slightly favour,7 - Strongly favour,3 - Slightly oppose,3 - Slightly oppose,7 - Strongly favour,2 - Somewhat oppose,1 - Strongly oppose,5 - Slightly favour
+2022-12-05 11:16:51,2022-12-05 11:17:25,IP Address,5.150.103.67,100,34,True,2022-12-05 11:17:26,R_32LdFoGhDYcjxgF,,,,,51.5212,-0.2197,anonymous,EN,63483069e7c6931be7b56fe9,4 - Neutral,1 - Strongly oppose,5 - Slightly favour,5 - Slightly favour,6 - Somewhat favour,1 - Strongly oppose,5 - Slightly favour,6 - Somewhat favour
+2022-12-05 11:17:01,2022-12-05 11:17:36,IP Address,81.139.161.168,100,34,True,2022-12-05 11:17:37,R_2rvc4iJQfPRG9WM,,,,,51.3379,-0.4808,anonymous,EN,5cf6ee10d5478e0001da72bd,6 - Somewhat favour,4 - Neutral,6 - Somewhat favour,2 - Somewhat oppose,5 - Slightly favour,3 - Slightly oppose,3 - Slightly oppose,4 - Neutral
+2022-12-05 11:18:22,2022-12-05 11:21:04,IP Address,2.26.175.245,100,162,True,2022-12-05 11:21:05,R_3oI4AyLe18kU2L9,,,,,53.1969,-3.0352,anonymous,EN,5d0a775bccb8bb00179a04f1,6 - Somewhat favour,2 - Somewhat oppose,7 - Strongly favour,7 - Strongly favour,4 - Neutral,4 - Neutral,6 - Somewhat favour,7 - Strongly favour
+2022-12-05 11:20:24,2022-12-05 11:21:54,IP Address,90.248.54.76,100,90,True,2022-12-05 11:21:55,R_1mQqxiAqWD6o47x,,,,,52.1597,-0.4991,anonymous,EN,5d4551340196ac0001b914a5,5 - Slightly favour,1 - Strongly oppose,5 - Slightly favour,7 - Strongly favour,4 - Neutral,5 - Slightly favour,6 - Somewhat favour,7 - Strongly favour
+2022-12-05 11:21:11,2022-12-05 11:21:55,IP Address,81.159.112.57,100,43,True,2022-12-05 11:21:55,R_6WO5GLoGbGbAgpz,,,,,53.2402,-2.9088,anonymous,EN,615734b16b50355d4521f849,5 - Slightly favour,3 - Slightly oppose,4 - Neutral,5 - Slightly favour,4 - Neutral,4 - Neutral,4 - Neutral,5 - Slightly favour
+2022-12-05 11:21:41,2022-12-05 11:23:01,IP Address,150.143.86.53,100,80,True,2022-12-05 11:23:02,R_2xE4j9feuU7G4cM,,,,,51.4964,-0.1224,anonymous,EN,612f5beeadebe8b6969dc5a9,5 - Slightly favour,4 - Neutral,4 - Neutral,4 - Neutral,6 - Somewhat favour,5 - Slightly favour,5 - Slightly favour,5 - Slightly favour
+2022-12-05 11:22:33,2022-12-05 11:23:06,IP Address,81.111.251.81,100,32,True,2022-12-05 11:23:07,R_tE5moXWVj5JRru9,,,,,55.9139,-4.3311,anonymous,EN,542c323bfdf99b324ea3808d,3 - Slightly oppose,2 - Somewhat oppose,5 - Slightly favour,6 - Somewhat favour,4 - Neutral,2 - Somewhat oppose,6 - Somewhat favour,6 - Somewhat favour
+2022-12-05 11:24:17,2022-12-05 11:24:52,IP Address,90.254.128.184,100,34,True,2022-12-05 11:24:52,R_242ZOQAeuqNe1zv,,,,,51.4964,-0.1224,anonymous,EN,63653f3609755780043079a8,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,2 - Somewhat oppose,1 - Strongly oppose,6 - Somewhat favour,7 - Strongly favour
+2022-12-05 11:23:17,2022-12-05 11:25:34,IP Address,146.200.147.43,100,136,True,2022-12-05 11:25:35,R_2f7ZDnldpLjczoe,,,,,54.9742,-1.615,anonymous,EN,5e95d76c2d979101cf1120af,4 - Neutral,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,4 - Neutral,4 - Neutral,6 - Somewhat favour,5 - Slightly favour
+2022-12-05 11:25:42,2022-12-05 11:26:57,IP Address,94.2.115.1,100,75,True,2022-12-05 11:26:57,R_wMjXNrMz82Cr2nv,,,,,53.401,-3.123,anonymous,EN,6124d3c85b6ea8a350177dcc,4 - Neutral,1 - Strongly oppose,5 - Slightly favour,7 - Strongly favour,5 - Slightly favour,6 - Somewhat favour,7 - Strongly favour,7 - Strongly favour
+2022-12-05 11:30:59,2022-12-05 11:31:46,IP Address,94.1.203.146,100,47,True,2022-12-05 11:31:47,R_3OiRWzqUseJXGiF,,,,,52.6513,-1.0876,anonymous,EN,62ce9ed4011ec0c55fc13dd4,4 - Neutral,2 - Somewhat oppose,6 - Somewhat favour,6 - Somewhat favour,3 - Slightly oppose,3 - Slightly oppose,6 - Somewhat favour,7 - Strongly favour
+2022-12-05 11:31:27,2022-12-05 11:32:34,IP Address,147.12.250.255,100,66,True,2022-12-05 11:32:34,R_28OKGWljMAYix3E,,,,,51.5026,-0.066,anonymous,EN,6113baed20301957a13e9752,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,2 - Somewhat oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 11:36:29,2022-12-05 11:37:33,IP Address,92.23.214.158,100,63,True,2022-12-05 11:37:33,R_12Jxrhcu3AmwyQ8,,,,,51.5598,-0.0096,anonymous,EN,63658b4da2cc06a1cf53887c,6 - Somewhat favour,4 - Neutral,5 - Slightly favour,3 - Slightly oppose,3 - Slightly oppose,5 - Slightly favour,5 - Slightly favour,6 - Somewhat favour
+2022-12-05 11:37:20,2022-12-05 11:38:18,IP Address,86.29.114.216,100,57,True,2022-12-05 11:38:18,R_3kHOCdpZx1JPGh0,,,,,53.3919,-2.5737,anonymous,EN,60e18fc810d0837bef0f5873,6 - Somewhat favour,5 - Slightly favour,3 - Slightly oppose,6 - Somewhat favour,2 - Somewhat oppose,1 - Strongly oppose,6 - Somewhat favour,7 - Strongly favour
+2022-12-05 11:43:02,2022-12-05 11:44:05,IP Address,86.30.19.249,100,63,True,2022-12-05 11:44:06,R_1rj2UkWcowGjsKY,,,,,53.4174,-2.7093,anonymous,EN,5f1c74f81af38d514e2a50bb,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 11:45:36,2022-12-05 11:46:22,IP Address,86.7.60.81,100,46,True,2022-12-05 11:46:22,R_1157VuUmYpm8QOu,,,,,50.8612,-0.1194,anonymous,EN,62dad76aa77f5041d2808228,5 - Slightly favour,3 - Slightly oppose,3 - Slightly oppose,4 - Neutral,7 - Strongly favour,7 - Strongly favour,4 - Neutral,6 - Somewhat favour
+2022-12-05 11:46:31,2022-12-05 11:47:14,IP Address,94.11.69.126,100,42,True,2022-12-05 11:47:14,R_3p4i5lIdfazGvM6,,,,,51.3695,0.2809,anonymous,EN,5cb20f2d7c917b00172dfef5,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 12:01:08,2022-12-05 12:02:33,IP Address,78.150.5.22,100,84,True,2022-12-05 12:02:34,R_eG9N7egyp6e7757,,,,,50.9051,-1.3655,anonymous,EN,62a2548381f399e5f4f52746,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,4 - Neutral,5 - Slightly favour,6 - Somewhat favour,7 - Strongly favour
+2022-12-05 12:26:36,2022-12-05 12:27:05,IP Address,86.10.222.111,100,29,True,2022-12-05 12:27:05,R_2YteZhM06UqFhod,,,,,53.278,-2.9349,anonymous,EN,5cc9bc7031164b00011997fa,3 - Slightly oppose,2 - Somewhat oppose,6 - Somewhat favour,6 - Somewhat favour,3 - Slightly oppose,3 - Slightly oppose,6 - Somewhat favour,6 - Somewhat favour
+2022-12-05 12:28:11,2022-12-05 12:29:16,IP Address,90.200.32.241,100,65,True,2022-12-05 12:29:16,R_3s6qEtdHxQr1sO1,,,,,52.5062,-1.9425,anonymous,EN,5cd726aab1fa62001a8de584,3 - Slightly oppose,4 - Neutral,6 - Somewhat favour,6 - Somewhat favour,4 - Neutral,4 - Neutral,5 - Slightly favour,6 - Somewhat favour
+2022-12-05 12:32:27,2022-12-05 12:33:32,IP Address,92.16.51.254,100,65,True,2022-12-05 12:33:33,R_2BsqckWwoL1lYZm,,,,,51.5076,-2.6407,anonymous,EN,5f6b3e4a78292323bbafbb6f,5 - Slightly favour,2 - Somewhat oppose,7 - Strongly favour,7 - Strongly favour,4 - Neutral,4 - Neutral,6 - Somewhat favour,6 - Somewhat favour
+2022-12-05 12:37:56,2022-12-05 12:38:39,IP Address,80.192.219.78,100,42,True,2022-12-05 12:38:40,R_RenpXdZzPzvRK2B,,,,,51.8659,-2.2059,anonymous,EN,5eb463628b63a22bad15771c,3 - Slightly oppose,2 - Somewhat oppose,6 - Somewhat favour,6 - Somewhat favour,3 - Slightly oppose,3 - Slightly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 12:38:50,2022-12-05 12:39:45,IP Address,80.7.146.123,100,55,True,2022-12-05 12:39:46,R_2PaNBvebMzhBaRJ,,,,,55.6,-4.6167,anonymous,EN,5bf077098500d800010a99e0,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,3 - Slightly oppose,4 - Neutral,7 - Strongly favour,7 - Strongly favour
+2022-12-05 12:38:34,2022-12-05 12:40:33,IP Address,213.205.198.60,100,119,True,2022-12-05 12:40:34,R_3suEOZJO4eBt0qu,,,,,51.5259,-0.3229,anonymous,EN,5d826545e3ab4b00183cd4e5,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 13:32:52,2022-12-05 13:33:43,IP Address,5.61.127.65,100,51,True,2022-12-05 13:33:43,R_2dNkaeyTpnSN8Ud,,,,,51.394,-2.3227,anonymous,EN,6306710aa6766730321f1259,5 - Slightly favour,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,1 - Strongly oppose,2 - Somewhat oppose,7 - Strongly favour,7 - Strongly favour
+2022-12-05 13:52:30,2022-12-05 13:53:15,IP Address,193.60.95.242,100,45,True,2022-12-05 13:53:16,R_2e8uPDNs7H7XN1w,,,,,52.1929,0.1256,anonymous,EN,5c3e32cd9ef99e00016a6f59,1 - Strongly oppose,1 - Strongly oppose,7 - Strongly favour,7 - Strongly favour,2 - Somewhat oppose,2 - Somewhat oppose,7 - Strongly favour,6 - Somewhat favour
+2022-12-05 14:05:15,2022-12-05 14:07:55,IP Address,146.199.55.220,100,160,True,2022-12-05 14:07:56,R_2Bas46ckxnFS8pE,,,,,53.3536,-0.9723,anonymous,EN,55a13a6ffdf99b6ec83c23b8,1 - Strongly oppose,2 - Somewhat oppose,6 - Somewhat favour,6 - Somewhat favour,3 - Slightly oppose,2 - Somewhat oppose,6 - Somewhat favour,6 - Somewhat favour
+2022-12-05 15:05:55,2022-12-05 15:07:14,IP Address,80.6.174.12,100,78,True,2022-12-05 15:07:15,R_1eQKZnMKyX1HCys,,,,,53.4969,-2.7072,anonymous,EN,5edca29654fe059801608fc0,4 - Neutral,4 - Neutral,4 - Neutral,5 - Slightly favour,3 - Slightly oppose,4 - Neutral,6 - Somewhat favour,6 - Somewhat favour
+2022-12-05 15:09:06,2022-12-05 15:10:32,IP Address,86.140.202.173,100,85,True,2022-12-05 15:10:33,R_2SpKvHbya231liz,,,,,52.4192,0.1849,anonymous,EN,5ea00e67848a4300085fa5cd,2 - Somewhat oppose,2 - Somewhat oppose,7 - Strongly favour,6 - Somewhat favour,3 - Slightly oppose,2 - Somewhat oppose,6 - Somewhat favour,6 - Somewhat favour
+2022-12-05 15:46:44,2022-12-05 15:47:22,IP Address,92.237.186.131,100,37,True,2022-12-05 15:47:22,R_10PdcjrPMnXfouq,,,,,51.4535,-2.5917,anonymous,EN,616e7e985ce4bf701d9a50c1,2 - Somewhat oppose,3 - Slightly oppose,1 - Strongly oppose,3 - Slightly oppose,1 - Strongly oppose,3 - Slightly oppose,6 - Somewhat favour,7 - Strongly favour
+2022-12-06 08:22:08,2022-12-06 08:22:53,IP Address,128.243.2.4,100,44,True,2022-12-06 08:22:53,R_3qxSsOM8zH3nDyg,,,,,52.9538,-1.1571,anonymous,EN,62cbead0b6c2f51bcbb802d4,5 - Slightly favour,5 - Slightly favour,4 - Neutral,4 - Neutral,4 - Neutral,3 - Slightly oppose,4 - Neutral,5 - Slightly favour
+2022-12-06 09:37:24,2022-12-06 09:38:04,IP Address,161.76.22.46,100,40,True,2022-12-06 09:38:04,R_2CycLIGCgs0Wh9W,,,,,51.5329,-0.005,anonymous,EN,5f6b57f6b572cb02c30220f7,1 - Strongly oppose,1 - Strongly oppose,6 - Somewhat favour,6 - Somewhat favour,5 - Slightly favour,5 - Slightly favour,4 - Neutral,6 - Somewhat favour
