@@ -1,23 +1,25 @@
 data {
-  int N;         // number of participants
-  real pred[N];  // predictor
-  int pun1_1[N]; // No DI 1 - Take
-  int pun1_2[N]; // No DI 1 - No take
-  int pun2_1[N]; // No DI 2 - Take
-  int pun2_2[N]; // No DI 2 - No take
-  int pun3_1[N]; // No DI 3 - Take
-  int pun3_2[N]; // No DI 3 - No take
-  int pun4_1[N]; // No DI 4 - Take
-  int pun4_2[N]; // No DI 4 - No take
-  int pun5_1[N]; // DI - Take
-  int pun5_2[N]; // DI - No take
-  int pun6_1[N]; // 3PP - Take
-  int pun6_2[N]; // 3PP - No take
+  int N;            // number of participants
+  int Nc;           // number of countries
+  int countryID[N]; // country IDs (1 = UK, 2 = US)
+  real pred[N];     // predictor
+  int pun1_1[N];    // No DI 1 - Take
+  int pun1_2[N];    // No DI 1 - No take
+  int pun2_1[N];    // No DI 2 - Take
+  int pun2_2[N];    // No DI 2 - No take
+  int pun3_1[N];    // No DI 3 - Take
+  int pun3_2[N];    // No DI 3 - No take
+  int pun4_1[N];    // No DI 4 - Take
+  int pun4_2[N];    // No DI 4 - No take
+  int pun5_1[N];    // DI - Take
+  int pun5_2[N];    // DI - No take
+  int pun6_1[N];    // 3PP - Take
+  int pun6_2[N];    // 3PP - No take
   real<lower=0,upper=1> error; // error rate (assumed)
 }
 parameters {
-  vector[10] alpha; // intercepts for probabilities of different strategies
-  vector[10] beta;  // slopes for probabilities of different strategies
+  vector[10] alpha[Nc]; // intercepts for probabilities of different strategies
+  vector[10] beta[Nc];  // slopes for probabilities of different strategies
 }
 model {
   // vectors to hold terms of sum and probabilities
@@ -28,8 +30,10 @@ model {
   int missing;
   
   // priors
-  alpha ~ normal(0, 1);
-  beta ~ normal(0, 0.5);
+  for (i in 1:Nc) {
+    alpha[i] ~ normal(0, 1);
+    beta[i] ~ normal(0, 0.5);
+  }
   
   // loop over twelve punishment behaviours
   for (B in 1:12) {
@@ -209,7 +213,7 @@ model {
       // only if case observed
       if ( missing==0 ) {
         // calculate p vector for this case
-        p = softmax( alpha + beta*pred[i] );
+        p = softmax( alpha[countryID[i]] + beta[countryID[i]]*pred[i] );
         // iterate over strategies
         for (S in 1:10) {
             // add error
