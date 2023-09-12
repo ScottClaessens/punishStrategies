@@ -49,13 +49,15 @@ list(
   #### Load and compile Stan models ####
   
   # model files
-  tar_target(fileModel1, "stan/punishStrat_noPredictor.stan", format = "file"),
-  tar_target(fileModel2, "stan/punishStrat_withPredictor.stan", format = "file"),
-  tar_target(fileModel3, "stan/punishStrat_withCategoricalPredictor.stan", format = "file"),
+  tar_target(fileModel1, "stan/noTPP/punishStrat_noTPP_noPredictor.stan", format = "file"),
+  tar_target(fileModel2, "stan/noTPP/punishStrat_noTPP_withPredictor.stan", format = "file"),
+  tar_target(fileModel3, "stan/noTPP/punishStrat_noTPP_withCategoricalPredictor.stan", format = "file"),
+  tar_target(fileModel4, "stan/withTPP/punishStrat_withTPP_noPredictor.stan", format = "file"),
   # compile models
   tar_target(compiledModel1, stan_model(fileModel1), deployment = "worker"),
   tar_target(compiledModel2, stan_model(fileModel2), deployment = "worker"),
   tar_target(compiledModel3, stan_model(fileModel3), deployment = "worker"),
+  tar_target(compiledModel4, stan_model(fileModel4), deployment = "worker"),
     
   #### Simulation ####
   
@@ -207,6 +209,15 @@ list(
         )
       )
   ),
+  
+  #### Fit model of initial frequencies including TPP ####
+  
+  # model fitting
+  tar_target(m4, fitModel4(d, compiledModel4, error = 0.05), deployment = "worker"),
+  # posterior samples
+  tar_target(post4, extract(m4)),
+  # plot
+  tar_target(plot4, plotModel4(post4)),
   
   #### Render report ####
   

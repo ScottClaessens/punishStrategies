@@ -426,18 +426,28 @@ makePatternsTable <- function(d) {
 # plot splits graph of behavioural patterns
 plotSplitsGraph <- function(d) {
   d <-
-    d %>%
+    tar_read(d) %>%
     # subset to behavioural decisions
     dplyr::select(starts_with("pun"), strategy) %>%
+    # unite behavioural decisions
+    unite(
+      col = "pattern",
+      pun1_1:pun6_2,
+      sep = "",
+      remove = FALSE
+    ) %>%
     # reduce to unique behavioural patterns with counts
     group_by_at(vars(starts_with("pun"))) %>%
     summarise(
       count = n(),
-      strategy = unique(strategy),
+      pattern = unique(pattern),
+      strategy = unique(as.character(strategy)),
       .groups = "drop"
     ) %>%
-    # keep only behavioural patterns with more than 1 count
-    filter(count > 1)
+    # add tpp strategy
+    mutate(strategy = ifelse(pattern == "000000000010", "Third-party", strategy)) %>%
+    # keep only behavioural patterns with certain number of counts
+    filter(count >= 2)
   # n is number of unique patterns of behaviour
   n <- nrow(d)
   # calculate Hamming distance matrix for behavioural patterns
@@ -470,7 +480,8 @@ plotSplitsGraph <- function(d) {
       "Retributive"                    = "Retributive\n(101010101000)",
       "Deterrent"                      = "Deterrent\n(101000101000)",
       "Norm-enforcing"                 = "Norm-enforcing\n(101000101010)",
-      "Competitive"                    = "Competitive\n(111111001111)"
+      "Competitive"                    = "Competitive\n(111111001111)",
+      "Third-party"                    = "Third-party\n(000000000010)"
     )
   # additional data for plot (counts, labels)
   pd <- 

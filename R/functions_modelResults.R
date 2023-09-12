@@ -154,3 +154,39 @@ plotModelPredCat <- function(d, post, pred, xlab, file) {
   ggsave(out, filename = file, height = 4, width = 7.5)
   return(out)
 }
+
+# plot model results with third-party strategy
+plotModel4 <- function(post) {
+  # strategy vector
+  strategies <- c("Competitive", "Avoid DI", "Egalitarian", "Seek AI",
+                  "Retributive", "Deterrent", "Norm-enforcing", 
+                  "Antisocial", "Random choice", "No punish", "Third-party")
+  # calculate probabilities
+  P <- post$alpha
+  for (i in 1:nrow(P)) # iterations
+    for (j in 1:2)     # countries
+      P[i,j,] <- softmax(P[i,j,])
+  # plot
+  out <- 
+    tibble(
+      p = c(P[,1,1], P[,1,2], P[,1,3], P[,1,4], P[,1,5], 
+            P[,1,6], P[,1,7], P[,1,8], P[,1,9], P[,1,10], P[,1,11],
+            P[,2,1], P[,2,2], P[,2,3], P[,2,4], P[,2,5], 
+            P[,2,6], P[,2,7], P[,2,8], P[,2,9], P[,2,10], P[,2,11]),
+      strategy = rep(rep(strategies, each = length(P[,1,1])), times = 2),
+      Country = rep(c("United Kingdom", "United States"), each = length(P[,1,1]) * 11)
+    ) %>%
+    mutate(strategy = factor(strategy, levels = c(strategies[1:3], strategies[11], strategies[4:10]))) %>%
+    ggplot(aes(x = p, y = fct_rev(strategy), colour = Country)) +
+    #geom_density_ridges(rel_min_height = 0.02, colour = "white", scale = 1) +
+    stat_pointinterval(position = position_dodge(width = 0.5)) +
+    scale_x_continuous(name = "Probability of using punishment strategy",
+                       limits = c(0, 0.55), breaks = seq(0, 0.5, by = 0.1)) +
+    ylab(NULL) +
+    theme_classic()
+  # save
+  ggsave(out, filename = "figures/modelResults/model4.pdf", height = 5, width = 7)
+  return(out)
+}
+
+
