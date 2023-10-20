@@ -134,7 +134,7 @@ We can also look at the most common behavioural patterns across all six games (t
 kable(tar_read(tablePatterns), booktabs = TRUE)
 ```
 
-These behavioural patterns can be visualised, along with their frequency of usage, on a splits graph. This graph plots the distance between the difference strategies as proportional to the number of substitutions required to get from one to another. The top of the graph captures the less punitive strategies, and the strategies become more punitive towards the bottom of the graph. We only include behavioural patterns followed by at least two participants.
+These behavioural patterns can be visualised, along with their frequency of usage, on a splits graph. This graph plots the distance between the difference strategies as proportional to the number of substitutions required to get from one to another. The top of the graph captures the less punitive strategies, and the strategies become more punitive towards the bottom of the graph. We only include behavioural patterns followed by at least three participants.
 
 ```{r splitsGraph, fig.width=7, fig.height=7}
 tar_read(plotSplits)
@@ -145,7 +145,7 @@ tar_read(plotSplits)
 We can also estimate the frequencies of different strategies using a Bayesian approach. We construct a model that contains our _apriori_ predictions for the different punishment strategies, and the feed the model our raw data to estimate the relative probabilities of following each strategy. In the model, we assume that participants sometimes make errors in converting their strategy into behaviour (5% error rate), which could explain why many of the participants were unable to be classified into a strategy type in our raw counts and proportions above. The Bayesian model is fitted in the probabilistic programming language Stan.
 
 ```{r model1, message=FALSE, error=FALSE, warning=FALSE, out.width="100%"}
-tar_read(plot1)
+tar_read(plot1.1)
 ```
 
 The pattern is similar in both countries. Taking advantage of all available data, the model suggests that "anti-punish" is the most common strategy. Of the punishment strategies, "egalitarian" is the most common. All other strategies have median posterior probabilities less than 10%. "Competitive" and "antisocial" punishment strategies are the most unlikely.
@@ -154,181 +154,34 @@ Why is egalitarian the winner in this model, considering that it wasn't an obvio
 
 # Predicting strategy usage
 
-We then fit a series of models predicting the usage of different strategies from a variety of predictors. In each plot that follows, we show the posterior predictions from a model that includes a single variable as a predictor of all ten strategies and both countries simultaneously. The plots show the median regression lines with shaded 95% credible intervals.
+We then fit a series of models predicting the usage of different strategies from a variety of predictors. In each plot that follows, we show the posterior slopes from several models that include different variables as predictors of all ten strategies in both countries. Each predictor is included separately, apart from SDO and RWA where we include both in the model simultaneously to control for one another.
 
 ## Demographics
 
-Age, gender, and socio-economic status were unrelated to strategy usage. Higher education tended to predict the anti-punish strategy. In the United States, non-students and white/asian people were more likely to follow the anti-punish strategy.
-
-```{r plotPredDemographics, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_Age)
-tar_read(plot3_Education)
-tar_read(plot3_Ethnicity)
-tar_read(plot3_Gender)
-tar_read(plot2_SES)
-tar_read(plot3_Student)
+```{r echo=F}
+tar_read(plotDemsNoTPP)
 ```
 
 \newpage
 
 ## Self-ratings
 
-Participants in both countries who stated that they "punished those who harmed others" were more likely to follow egalitarian and norm-enforcing strategies and less likely to follow the anti-punish strategy. In the United States, this slider was additionally positively related to the seek advantageous inequity strategy.
-
-```{r plotPredSelfRate1, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate1)
-```
-
-Participants in both countries who stated that they wanted to "have a higher final bonus than others" were more likely to follow the seek advantageous inequity and antisocial strategies and less likely to follow the egalitarian and anti-punish strategies. In the United Kingdom, the slider was additionally related to the random choice strategy. In the United States, this slider was additionally related to the avoid disadvantageous inequity strategy.
-
-```{r plotPredSelfRate2, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate2)
-```
-
-Participants in both countries who stated that they wanted to "avoid having a lower final bonus than others" were less likely to follow the egalitarian and anti-punish strategies. In the United Kingdom, the slider was additionally related to the antisocial strategy. In the United States, this slider was additionally related to the avoid DI and seek AI strategies.
-
-```{r plotPredSelfRate3, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate3)
-```
-
-Participants in both countries who stated that they wanted "all players to have the same final bonus" were more likely to follow the egalitarian strategy. In the United Kingdom, the slider was additionally negatively related to the antisocial strategy and positively related to the anti-punish strategy. In the United States, this slider was additionally positively related to the avoid DI strategy and negatively related to the anti-punish strategy.
-
-```{r plotPredSelfRate4, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate4)
-```
-
-Participants in both countries who stated that they wanted to "stop others from cheating" were less likely to follow the anti-punish strategy. In the United Kingdom, the slider was additionally related to the egalitarian strategy. In the United States, this slider was additionally related to the random choice strategy.
-
-```{r plotPredSelfRate5, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate5)
-```
-
-Participants in both countries who stated that they wanted to "show that they disapproved of others' actions" were more likely to follow the egalitarian, seek AI, and norm-enforcing strategies and less likely to follow the anti-punish strategy.
-
-```{r plotPredSelfRate6, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate6)
-```
-
-Participants in both countries who stated that they "made decisions at random" were more likely to follow the random choice strategy and less likely to follow the egalitarian and anti-punish strategies. In the United Kingdom, the slider was additionally related to the avoid DI and seek AI strategies. In the United States, this slider was additionally related to the norm-enforcing strategy.
-
-```{r plotPredSelfRate7, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate7)
-```
-
-Participants in both countries who stated that they wanted to "punish people who DID NOT harm them or others" were more likely to follow the avoid DI and random choice strategies and less likely to follow the egalitarian and anti-punish strategies. In the United States, this slider was additionally negatively related to the deterrent strategy and positively related to the norm-enforcing strategy.
-
-```{r plotPredSelfRate8, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate8)
-```
-
-Participants in both countries who stated that they "didn't want to reduce anyone's bonus" were more likely to follow the anti-punish strategy and less likely to follow the seek AI strategy. In the United Kingdom, this slider was additionally negatively related to the antisocial strategy.
-
-```{r plotPredSelfRate9, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate9)
-```
-
-Participants in both countries who stated that they "didn't want to PAY to reduce bonus but would have if free" were less likely to follow the egalitarian strategy. In the United Kingdom, the slider was additionally positively related to the seek AI and antisocial strategies and negatively related to the anti-punish strategy. In the United States, this slider was additionally positively related to the anti-punish strategy.
-
-```{r plotPredSelfRate10, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate10)
-```
-
-Participants in both countries who stated that they wanted to "punish if players harmed them but not if they harmed others" were less likely to follow the anti-punish strategy. In the United States, this slider was additionally related to the random choice strategy.
-
-```{r plotPredSelfRate11, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SelfRate11)
+```{r echo=F}
+tar_read(plotSlidersNoTPP)
 ```
 
 \newpage
 
-## Big-6 personality
+## Big-6 personality and SVO
 
-In the United States, agreeableness positively predicts usage of the egalitarian strategy.
-
-```{r plotPredAgree, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_Agree)
-```
-
-Conscientiousness was unrelated to strategy usage in both countries.
-
-```{r plotPredConsc, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_Consc)
-```
-
-Extraversion negatively predicts usage of the anti-punish strategy in both countries. In the United States, extraversion positively predicts the avoid DI and seek AI strategies, and negatively predicts the egalitarian strategy.
-
-```{r plotPredExtra, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_Extra)
-```
-
-Honesty-humility positively predicts usage of the egalitarian and anti-punish strategies. In the United States, honesty-humility negatively predicts the random choice strategy.
-
-```{r plotPredHonest, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_Honest)
-```
-
-Neuroticism was unrelated to strategy usage in both countries.
-
-```{r plotPredNeur, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_Neur)
-```
-
-Openness to experience positively predicts usage of the anti-punish strategy in both countries. In the United States, openness positively predicts the egalitarian strategy.
-
-```{r plotPredOpen, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_Open)
+```{r echo=F}
+tar_read(plotPersNoTPP)
 ```
 
 \newpage
 
-## Social value orientation
+## Politics and religion
 
-In both countries, social value orientation angle positively predicted usage of the egalitarian and anti-punish strategies. In the United States, SVO angle also negatively predicted the random choice strategy.
-
-```{r plotPredSVO, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SVOangle)
-```
-
-\newpage
-
-## Political views
-
-In both countries, Social Dominance Orientation was positively related to the seek AI and antisocial strategies and negatively related to the egalitarian and anti-punish strategies. In the United States, SDO was also positively related to the avoid DI and norm-enforcing strategies and negatively related to the retributive and deterrent strategies.
-
-```{r plotPredSDO, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_SDO)
-```
-
-In both countries, Right Wing Authoritarianism was negatively related to the egalitarian and anti-punish strategies. In the United States, RWA was also positively related to the avoid DI, seek AI, antisocial, and random choice strategies.
-
-```{r plotPredRWA, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_RWA)
-```
-
-In the United States, agreement with the motivation to "bring people above me down a peg or two" was negatively related to the anti-punish strategy.
-
-```{r plotPredBringDown, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_BringDown)
-```
-
-In the United States, agreement with the motivation to "bring people below me up a peg or two" was positively related to the egalitarian and anti-punish strategies.
-
-```{r plotPredBringUp, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_BringUp)
-```
-
-\newpage
-
-## Religion
-
-In the United States, the religiosity item positively predicted the antisocial and random choice strategies and negatively predicted the egalitarian and anti-punish strategies.
-
-```{r plotPredReligiosity, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_Religiosity)
-```
-
-In both countries, agreeing with the statement "God controls the events in the world" negatively predicts the anti-punish strategy. In the United States, this item also positively predicts the random choice strategy and negatively predicts the egalitarian strategy.
-
-```{r plotPredGodC, fig.width=7, fig.height=4, fig.align='center', out.width="100%"}
-tar_read(plot2_GodC)
+```{r echo=F}
+tar_read(plotPolRelNoTPP)
 ```

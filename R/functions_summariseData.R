@@ -426,7 +426,7 @@ makePatternsTable <- function(d) {
 # plot splits graph of behavioural patterns
 plotSplitsGraph <- function(d) {
   d <-
-    tar_read(d) %>%
+    d %>%
     # subset to behavioural decisions
     dplyr::select(starts_with("pun"), strategy) %>%
     # unite behavioural decisions
@@ -445,9 +445,15 @@ plotSplitsGraph <- function(d) {
       .groups = "drop"
     ) %>%
     # add tpp strategy
-    mutate(strategy = ifelse(pattern == "000000000010", "Third-party", strategy)) %>%
-    # keep only behavioural patterns with certain number of counts
-    filter(count >= 2)
+    #mutate(strategy = ifelse(pattern == "000000000010", "Third-party", strategy)) %>%
+    # add antisocial strategy
+    bind_rows(
+      tibble(pun1_1 = 0, pun1_2 = 1, pun2_1 = 0, pun2_2 = 1, pun3_1 = 0, pun3_2 = 1,
+             pun4_1 = 0, pun4_2 = 1, pun5_1 = 0, pun5_2 = 1, pun6_1 = 0, pun6_2 = 1,
+             count = 0, pattern = "010101010101", strategy = "Antisocial")
+    ) %>%
+    # keep only other behavioural patterns with certain number of counts
+    filter(strategy != "N/A" | (strategy == "N/A" & count >= 3))
   # n is number of unique patterns of behaviour
   n <- nrow(d)
   # calculate Hamming distance matrix for behavioural patterns
@@ -467,7 +473,7 @@ plotSplitsGraph <- function(d) {
   p <- 
     ggsplitnet(
       net,
-      colour = "grey90",
+      colour = "grey70",
       linewidth = 0.05
     )
   # labels for strategies
@@ -481,7 +487,8 @@ plotSplitsGraph <- function(d) {
       "Deterrent"                      = "Deterrent\n(101000101000)",
       "Norm-enforcing"                 = "Norm-enforcing\n(101000101010)",
       "Competitive"                    = "Competitive\n(111111001111)",
-      "Third-party"                    = "Third-party\n(000000000010)"
+      #"Third-party"                    = "Third-party\n(000000000010)",
+      "Antisocial"                     = "Antisocial\n(010101010101)"
     )
   # additional data for plot (counts, labels)
   pd <- 
@@ -510,8 +517,9 @@ plotSplitsGraph <- function(d) {
       data = pd,
       aes(label = strategy),
       colour = "red",
-      size = 3.5,
-      seed = 1
+      size = 3,
+      seed = 1,
+      point.padding = unit(2, "cm")
     ) +
     scale_colour_discrete(type = c("black","red")) +
     scale_size_continuous(breaks = c(10, 100, 500)) +
@@ -520,4 +528,159 @@ plotSplitsGraph <- function(d) {
   # save plot
   ggsave(out, filename = "figures/dataSummaries/splitsGraph.pdf", width = 7, height = 7)
   return(out)
+}
+
+# make table of strategies and behavioural predictions
+makeStrategyTable <- function() {
+  tibble(
+    Function = c(
+      "Deterrent", "Norm-enforcing", "Retributive", 
+      "Avoid DI", "Egalitarian", "Seek AI", "Competitive",
+      "Antisocial", "Never punish"
+    ),
+    `Behavioural strategy` = c(
+      "Punish to deter another who has harmed you from harming you again in the future",
+      "Punish to enforce a shared anti-harm norm and encourage future norm compliance, even amongst third parties",
+      "Punish if doing so harms another who has harmed you",
+      "Punish if doing so avoids disadvantageous inequity for self",
+      "Punish if doing so makes payoffs for all more equal",
+      "Punish if doing so produces advantageous inequity for self",
+      "Punish if doing so improves your relative position",
+      "Punish exclusively those who do not cause harm",
+      "Never punish others"
+    ),
+    `\\thead{Take \\\\ 50-30}` = c(
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{No take \\\\ 70-10}` = c(
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{Take \\\\ 50-50}` = c(
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{No take \\\\ 70-30}` = c(
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{Take \\\\ 50-50}` = c(
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{No take \\\\ 70-30}` = c(
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{Take \\\\ 50-50}` = c(
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{No take \\\\ 70-30}` = c(
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{Take \\\\ 50-70}` = c(
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{No take \\\\ 70-50}` = c(
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{Take \\\\ 50-90 [100]}` = c(
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    `\\thead{No take \\\\ 70-70 [100]}` = c(
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
+      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    ),
+    .name_repair = "minimal"
+  )
 }

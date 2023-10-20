@@ -32,7 +32,7 @@ model {
   // priors
   for (i in 1:Nc) {
     alpha[i] ~ normal(0, 1);
-    beta[i] ~ normal(0, 0.5);
+    beta[i] ~ normal(0, 0.2);
   }
   
   // loop over twelve punishment behaviours

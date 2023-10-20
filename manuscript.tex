@@ -1,0 +1,570 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man,floatsintext]{apa6}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
+\keywords{x\newline\indent Word count: xxxx words}
+\usepackage{lineno}
+
+\linenumbers
+\usepackage{csquotes}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[normalem]{ulem}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{calc}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{makecell}
+\renewcommand\theadfont{}
+\raggedbottom
+\AtBeginEnvironment{tabular}{\singlespacing}
+\AtBeginEnvironment{lltable}{\singlespacing}
+\AtBeginEnvironment{tablenotes}{\doublespacing}
+\captionsetup[table]{font={stretch=1,small}}
+\captionsetup[figure]{font={stretch=1,small}}
+\nolinenumbers
+\note{\raggedright * Correspondence concerning this article should be addressed to Scott Claessens, Level 2, Building 302, 23 Symonds Street, Auckland, New Zealand. \text{E-mail:} \href{scott.claessens@gmail.com}{\nolinkurl{scott.claessens@gmail.com}} \par This working paper has not yet been peer-reviewed.}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Mapping the punishment strategy space},
+  pdfauthor={Scott Claessens*1, Quentin D. Atkinson1, \& Nichola Raihani1,2},
+  pdflang={en-EN},
+  pdfkeywords={x},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Mapping the punishment strategy space}
+\author{Scott Claessens\textsuperscript{*1}, Quentin D. Atkinson\textsuperscript{1}, \& Nichola Raihani\textsuperscript{1,2}}
+\date{}
+
+
+\shorttitle{Punishment strategies}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} \footnotesize School of Psychology, University of Auckland, Auckland, New Zealand\\\textsuperscript{2} \footnotesize Department of Experimental Psychology, University College London, London, United Kingdom}
+
+\abstract{%
+x
+}
+
+
+
+\begin{document}
+\maketitle
+
+\linenumbers
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Humans cooperate on a scale unparalleled in the animal kingdom. One mechanism thought to sustain this level of cooperation is costly punishment, whereby individuals harm others at a personal cost\textsuperscript{1}, ostensibly encouraging cooperative behaviour from the target (or bystanders\textsuperscript{2--4}) in the future. Punishment therefore offers a route to maintaining or increasing cooperation by changing the payoff structure of social interactions such that it no longer pays to cheat or exploit social partners\textsuperscript{1,5}.
+
+In humans, many studies of punishment have been carried out in laboratory settings using economic games\textsuperscript{6--15}. In these games, participants are usually given a sum of money that they can use to invest in collective action or to help others. Alternatively, participants can `cheat' by keeping the money for themselves or by exploiting the contributions of others. Punishment is introduced into such games by giving participants the option to pay a small `fee' to impose a greater `fine' on their co-players. Several lines of experimental evidence indicate that people use this punishment option\textsuperscript{12}, that they enjoy punishing\textsuperscript{16}, and that they frequently, though not always\textsuperscript{17}, punish cheating or exploitative co-players\textsuperscript{10,11}.
+
+Evidence from these experiments suggests that the threat of costly punishment plays an important role in promoting human cooperation. People tend to cooperate more in games where punishment is possible compared to those where it is not\textsuperscript{6,7,15}. The effect that the threat of punishment has on cooperation is also evident in the higher contributions typically observed in the Ultimatum Game (where punishment is possible) compared to the structurally-similar Dictator Game (where it is not)\textsuperscript{18}. This typical cooperation-enhancing effect of punishment has also been observed across societies\textsuperscript{7}, leading some to suggest that costly punishment has played a key role in the cultural evolution of cooperation in humans\textsuperscript{19--22}.
+
+Nevertheless, it remains unclear whether individuals playing economic games use punishment as a behaviour-change tool to enforce cooperation or as a means to achieve other ends. Some have argued that punishment is primarily used to shape future behaviour, either to deter personal harm\textsuperscript{3,9,23} or to uphold normative standards of cooperative behaviour\textsuperscript{20,21,24--27}. But while the \emph{threat} of punishment can have a cooperation-enhancing effect, the \emph{enactment} of this punishment seldom changes the future behaviour of deviant targets\textsuperscript{15}. This calls into question whether punishment primarily operates as a behaviour-change tool or whether it is used to achieve other goals.
+
+Beyond behaviour-shaping concerns, there are a host of other reasons that people may want to punish in economic games. Punishers might be motivated by a desire for retribution rather than deterrence, punishing in proportion to the amount of harm that was personally caused\textsuperscript{28}. Punishment might be driven by concerns about relative payoffs, such as disadvantageous inequity aversion (i.e., avoiding having less than others\textsuperscript{15,29}) and/or general egalitarian preferences (i.e., wanting all participants to receive the same payoffs\textsuperscript{30}). Such concerns about relative payoffs may be activated when participants earn less than cheats in economic games or when there are income disparities in these settings. People might also use punishment for competitive purposes, seeking advantageous inequity for themselves (i.e., having more than others) and/or improving their relative position\textsuperscript{15}.
+
+Common economic game designs have been unable to tease apart these different motives for punishment because participants who interact with cheats in these games experience both losses \emph{and} lower relative payoffs. The typical 1:3 fee-to-fine ratio of punishment in economic games compounds this issue. With this setup, people can simultaneously use punishment to reciprocate losses, to deter others from cheating, and to reduce or reverse disparities in payoffs between themselves and targets. To add to this complexity, it is evident that people use punishment in seemingly disparate ways: punishing when no behaviour change is possible, such as in one-shot games\textsuperscript{12,29,31,32} or in games where the target never learns about the punishment\textsuperscript{33}; punishing those who did not cheat or who over-contributed to collective action (antisocial punishment\textsuperscript{17,34}); punishing in scenarios where they were not personally harmed (third-party punishment\textsuperscript{35}); and punishing in scenarios where disparities in payoffs did not arise from participants' actions\textsuperscript{30,36,37}.
+
+The general conclusion from this research is that there is no one unifying function of costly punishment in humans. Instead, punishment should be thought of as a flexible behavioural tool that serves a variety of functions that are not mutually exclusive\textsuperscript{15}. Due to its multipurpose nature, we should therefore expect variation in punishment strategies in the population, much like the observed variation in social learning strategies\textsuperscript{38}. Some individuals may use punishment as a behaviour shaping tool, for example, while others may use it to reduce or reverse payoff differentials.
+
+This insight raises several underexplored questions. First, which punishment strategies are more frequent in human populations? Second, what traits predict adherence to a particular strategy? Previous work has reported that personality is related to cooperative behaviour\textsuperscript{39} and demographics, political ideology, and religiosity are related to punitive behaviour\textsuperscript{40}, but no research has related these variables to specific punishment strategies. Third, do people have insight into their own punishment strategy? Previous work has argued that people are often unaware of the underlying function of their punitive behaviour, yet they feel compelled to enact it anyway\textsuperscript{28,41}.
+
+Here, we aim to delineate the many possible punishment strategies by asking whether people punish in a manner consistent with a specific strategy and, if so, what other characteristics (personality, social preferences, political orientation) predict the use of different punishment strategies. Table \ref{tab:tableStrategies} summarises the potential functions for costly punishment in economic games and the behavioural strategies they predict. Note that we do not include reputational functions of punishment in this table, such as signalling trustworthiness\textsuperscript{4,42--45}, because our focus is on punishment strategies in anonymous economic games without reputational incentives (but see ref\textsuperscript{46}).
+
+
+
+\begin{lltable}
+
+\scriptsize{
+
+\begin{longtable}{p{1.7cm}p{3.3cm}cccccccccccc}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:tableStrategies}xxx}\\
+\toprule
+ &  & \multicolumn{2}{c}{\thead{No DI 1 \\ 70-10}} & \multicolumn{2}{c}{\thead{No DI 2 \\ 70-30}} & \multicolumn{2}{c}{\thead{No DI 3 \\ (Computer) \\ 70-30}} & \multicolumn{2}{c}{\thead{No DI 4 \\ (1:1 Fee-Fine) \\ 70-30}} & \multicolumn{2}{c}{\thead{DI \\ 70-50}} & \multicolumn{2}{c}{\thead{3PP \\ 70-70 [100]}} \\
+\cmidrule(r){3-4} \cmidrule(r){5-6} \cmidrule(r){7-8} \cmidrule(r){9-10} \cmidrule(r){11-12} \cmidrule(r){13-14}
+Function & \multicolumn{1}{c}{Behavioural strategy} & \multicolumn{1}{c}{\thead{Take \\ 50-30}} & \multicolumn{1}{c}{\thead{No take \\ 70-10}} & \multicolumn{1}{c}{\thead{Take \\ 50-50}} & \multicolumn{1}{c}{\thead{No take \\ 70-30}} & \multicolumn{1}{c}{\thead{Take \\ 50-50}} & \multicolumn{1}{c}{\thead{No take \\ 70-30}} & \multicolumn{1}{c}{\thead{Take \\ 50-50}} & \multicolumn{1}{c}{\thead{No take \\ 70-30}} & \multicolumn{1}{c}{\thead{Take \\ 50-70}} & \multicolumn{1}{c}{\thead{No take \\ 70-50}} & \multicolumn{1}{c}{\thead{Take \\ 50-90 [100]}} & \multicolumn{1}{c}{\thead{No take \\ 70-70 [100]}}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:tableStrategies} continued}}\\
+\toprule
+ &  & \multicolumn{2}{c}{\thead{No DI 1 \\ 70-10}} & \multicolumn{2}{c}{\thead{No DI 2 \\ 70-30}} & \multicolumn{2}{c}{\thead{No DI 3 \\ (Computer) \\ 70-30}} & \multicolumn{2}{c}{\thead{No DI 4 \\ (1:1 Fee-Fine) \\ 70-30}} & \multicolumn{2}{c}{\thead{DI \\ 70-50}} & \multicolumn{2}{c}{\thead{3PP \\ 70-70 [100]}} \\
+\cmidrule(r){3-4} \cmidrule(r){5-6} \cmidrule(r){7-8} \cmidrule(r){9-10} \cmidrule(r){11-12} \cmidrule(r){13-14}
+Function & \multicolumn{1}{c}{Behavioural strategy} & \multicolumn{1}{c}{\thead{Take \\ 50-30}} & \multicolumn{1}{c}{\thead{No take \\ 70-10}} & \multicolumn{1}{c}{\thead{Take \\ 50-50}} & \multicolumn{1}{c}{\thead{No take \\ 70-30}} & \multicolumn{1}{c}{\thead{Take \\ 50-50}} & \multicolumn{1}{c}{\thead{No take \\ 70-30}} & \multicolumn{1}{c}{\thead{Take \\ 50-50}} & \multicolumn{1}{c}{\thead{No take \\ 70-30}} & \multicolumn{1}{c}{\thead{Take \\ 50-70}} & \multicolumn{1}{c}{\thead{No take \\ 70-50}} & \multicolumn{1}{c}{\thead{Take \\ 50-90 [100]}} & \multicolumn{1}{c}{\thead{No take \\ 70-70 [100]}}\\
+\midrule
+\endhead
+Deterrent & Punish to deter another who has harmed you from harming you again in the future & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize\\
+Norm-enforcing & Punish to enforce a shared anti-harm norm and encourage future norm compliance, even amongst third parties & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize\\
+Retributive & Punish if doing so harms another who has harmed you & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize\\
+Avoid DI & Punish if doing so avoids disadvantageous inequity for self & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize\\
+Egalitarian & Punish if doing so makes payoffs for all more equal & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize\\
+Seek AI & Punish if doing so produces advantageous inequity for self & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize\\
+Competitive & Punish if doing so improves your relative position & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize\\
+Antisocial & Punish exclusively those who do not cause harm & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{green} \checkmark \normalcolor \scriptsize\\
+Never punish & Never punish others & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize & \Large \color{red}         x     \normalcolor \scriptsize\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+Building on previous designs\textsuperscript{29,31,47,48}, we employ a suite of one-shot economic games where individuals are given the opportunity to punish targets at a personal cost. We carefully designed this suite of games to tease apart the proposed punishment strategies in Table 1, such that each strategy predicts a different pattern of behaviour across all the games. We use the resulting behavioural patterns to discern which punishment strategy participants are employing. We then combine these behavioural patterns with data on demographics, personality, political ideology, religiosity, and self-reported strategy usage.
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+x
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+x
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+x
+
+\newpage
+\nolinenumbers
+
+\hypertarget{acknowledgements}{%
+\section{Acknowledgements}\label{acknowledgements}}
+
+x
+
+\hypertarget{author-contributions}{%
+\section{Author Contributions}\label{author-contributions}}
+
+x
+
+\hypertarget{competing-interests}{%
+\section{Competing Interests}\label{competing-interests}}
+
+The authors declare no competing interests.
+
+\hypertarget{data-availability}{%
+\section{Data Availability}\label{data-availability}}
+
+All data used in this study are publicly available on GitHub: \url{https://github.com/ScottClaessens/punishStrategies}
+
+\hypertarget{code-availability}{%
+\section{Code Availability}\label{code-availability}}
+
+All code to reproduce the analyses in this study are publicly available on GitHub: \url{https://github.com/ScottClaessens/punishStrategies}
+
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begingroup
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-CluttonBrock1995}{}}%
+\CSLLeftMargin{1. }%
+\CSLRightInline{Clutton-Brock, T. H. \& Parker, G. A. \href{https://doi.org/10.1038/373209a0}{Punishment in animal societies}. \emph{Nature} \textbf{373}, 209--216 (1995).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-DosSantos2011}{}}%
+\CSLLeftMargin{2. }%
+\CSLRightInline{dos Santos, M., Rankin, D. J. \& Wedekind, C. \href{https://doi.org/10.1098/rspb.2010.1275}{The evolution of punishment through reputation}. \emph{Proceedings of the Royal Society B: Biological Sciences} \textbf{278}, 371--377 (2011).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-DosSantos2013}{}}%
+\CSLLeftMargin{3. }%
+\CSLRightInline{dos Santos, M., Rankin, D. J. \& Wedekind, C. \href{https://www.jstor.org/stable/24032701}{Human cooperation based on punishment reputation}. \emph{Evolution} \textbf{67}, 2446--2450 (2013).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Raihani2015}{}}%
+\CSLLeftMargin{4. }%
+\CSLRightInline{Raihani, N. J. \& Bshary, R. \href{https://doi.org/10.1016/j.tree.2014.12.003}{The reputation of punishers}. \emph{Trends in Ecology \& Evolution} \textbf{30}, 98--103 (2015).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Ostrom1990}{}}%
+\CSLLeftMargin{5. }%
+\CSLRightInline{Ostrom, E. \emph{Governing the commons: The evolution of institutions for collective action}. (Cambridge University Press, 1990).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Balliet2011}{}}%
+\CSLLeftMargin{6. }%
+\CSLRightInline{Balliet, D., Mulder, L. B. \& Van Lange, P. A. M. \href{https://doi.org/10.1037/a0023489}{Reward, punishment, and cooperation: A meta-analysis}. \emph{Psychological Bulletin} \textbf{137}, 594--615 (2011).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Balliet2013}{}}%
+\CSLLeftMargin{7. }%
+\CSLRightInline{Balliet, D. \& Lange, P. A. M. V. \href{https://doi.org/10.1177/1745691613488533}{Trust, punishment, and cooperation across 18 societies: A meta-analysis}. \emph{Perspectives on Psychological Science} \textbf{8}, 363--379 (2013).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Chaudhuri2011}{}}%
+\CSLLeftMargin{8. }%
+\CSLRightInline{Chaudhuri, A. \href{https://doi.org/10.1007/s10683-010-9257-1}{Sustaining cooperation in laboratory public goods experiments: A selective survey of the literature}. \emph{Experimental Economics} \textbf{14}, 47--83 (2011).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Dreber2008}{}}%
+\CSLLeftMargin{9. }%
+\CSLRightInline{Dreber, A., Rand, D. G., Fudenberg, D. \& Nowak, M. A. \href{https://doi.org/10.1038/nature06723}{Winners don't punish}. \emph{Nature} \textbf{452}, 348--351 (2008).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Fehr2000}{}}%
+\CSLLeftMargin{10. }%
+\CSLRightInline{Fehr, E. \& Gächter, S. \href{https://www.jstor.org/stable/117319}{Cooperation and punishment in public goods experiments}. \emph{American Economic Review} \textbf{90}, 980--994 (2000).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Fehr2002}{}}%
+\CSLLeftMargin{11. }%
+\CSLRightInline{Fehr, E. \& Gächter, S. \href{https://doi.org/10.1038/415137a}{Altruistic punishment in humans}. \emph{Nature} \textbf{415}, 137--140 (2002).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Henrich2006}{}}%
+\CSLLeftMargin{12. }%
+\CSLRightInline{Henrich, J. \emph{et al.} \href{https://doi.org/10.1126/science.1127333}{Costly punishment across human societies}. \emph{Science} \textbf{312}, 1767--1770 (2006).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Nikiforakis2008}{}}%
+\CSLLeftMargin{13. }%
+\CSLRightInline{Nikiforakis, N. \& Normann, H.-T. A comparative statics analysis of punishment in public-good experiments. \emph{Experimental Economics} \textbf{11}, 358--369 (2008).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Raihani2012a}{}}%
+\CSLLeftMargin{14. }%
+\CSLRightInline{Raihani, N. J., Thornton, A. \& Bshary, R. \href{https://doi.org/10.1016/j.tree.2011.12.004}{Punishment and cooperation in nature}. \emph{Trends in Ecology \& Evolution} \textbf{27}, 288--295 (2012).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Raihani2019}{}}%
+\CSLLeftMargin{15. }%
+\CSLRightInline{Raihani, N. J. \& Bshary, R. \href{https://doi.org/10.1017/ehs.2019.12}{Punishment: One tool, many uses}. \emph{Evolutionary Human Sciences} \textbf{1}, e12 (2019).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-DeQuervain2004}{}}%
+\CSLLeftMargin{16. }%
+\CSLRightInline{de Quervain, D. J.-F. \emph{et al.} \href{https://doi.org/10.1126/science.1100735}{The neural basis of altruistic punishment}. \emph{Science} \textbf{305}, 1254--1258 (2004).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Herrmann2008}{}}%
+\CSLLeftMargin{17. }%
+\CSLRightInline{Herrmann, B., Thöni, C. \& Gächter, S. \href{https://doi.org/10.1126/science.1153808}{Antisocial punishment across societies}. \emph{Science} \textbf{319}, 1362--1367 (2008).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Camerer2003}{}}%
+\CSLLeftMargin{18. }%
+\CSLRightInline{Camerer, C. F. \emph{Behavioral game theory: Experiments in strategic interaction}. (Russell Sage Foundation, 2003).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Bowles2013}{}}%
+\CSLLeftMargin{19. }%
+\CSLRightInline{Bowles, S. \& Gintis, H. \emph{A cooperative species: Human reciprocity and its evolution}. (Princeton University Press, 2013).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Boyd2003}{}}%
+\CSLLeftMargin{20. }%
+\CSLRightInline{Boyd, R., Gintis, H., Bowles, S. \& Richerson, P. J. The evolution of altruistic punishment. \emph{Proceedings of the National Academy of Sciences} \textbf{100}, 3531--3535 (2003).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Chudek2011}{}}%
+\CSLLeftMargin{21. }%
+\CSLRightInline{Chudek, M. \& Henrich, J. \href{https://doi.org/10.1016/j.tics.2011.03.003}{Culture-gene coevolution, norm-psychology and the emergence of human prosociality}. \emph{Trends in Cognitive Sciences} \textbf{15}, 218--226 (2011).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Henrich2017}{}}%
+\CSLLeftMargin{22. }%
+\CSLRightInline{Henrich, J. \emph{The secret of our success: How culture is driving human evolution, domesticating our species, and making us smarter}. (Princeton University Press, 2017).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Delton2017}{}}%
+\CSLLeftMargin{23. }%
+\CSLRightInline{Delton, A. W. \& Krasnow, M. M. \href{https://doi.org/10.1016/j.evolhumbehav.2017.07.003}{The psychology of deterrence explains why group membership matters for third-party punishment}. \emph{Evolution and Human Behavior} \textbf{38}, 734--743 (2017).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Fehr2018}{}}%
+\CSLLeftMargin{24. }%
+\CSLRightInline{Fehr, E. \& Schurtenberger, I. \href{https://doi.org/10.1038/s41562-018-0385-5}{Normative foundations of human cooperation}. \emph{Nature Human Behaviour} \textbf{2}, 458--468 (2018).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Mathew2011}{}}%
+\CSLLeftMargin{25. }%
+\CSLRightInline{Mathew, S. \& Boyd, R. Punishment sustains large-scale cooperation in prestate warfare. \emph{Proceedings of the National Academy of Sciences} \textbf{108}, 11375--11380 (2011).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Mathew2014}{}}%
+\CSLLeftMargin{26. }%
+\CSLRightInline{Mathew, S. \& Boyd, R. \href{https://doi.org/10.1016/j.evolhumbehav.2013.10.001}{The cost of cowardice: Punitive sentiments towards free riders in {Turkana} raids}. \emph{Evolution and Human Behavior} \textbf{35}, 58--64 (2014).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Richerson2016}{}}%
+\CSLLeftMargin{27. }%
+\CSLRightInline{Richerson, P. \emph{et al.} \href{https://doi.org/10.1017/S0140525X1400106X}{Cultural group selection plays an essential role in explaining human cooperation: A sketch of the evidence}. \emph{Behavioral and Brain Sciences} \textbf{39}, e30 (2016).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Carlsmith2002}{}}%
+\CSLLeftMargin{28. }%
+\CSLRightInline{Carlsmith, K. M., Darley, J. M. \& Robinson, P. H. \href{https://doi.org/10.1037/0022-3514.83.2.284}{Why do we punish? Deterrence and just deserts as motives for punishment}. \emph{Journal of Personality and Social Psychology} \textbf{83}, 284--299 (2002).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Raihani2012b}{}}%
+\CSLLeftMargin{29. }%
+\CSLRightInline{Raihani, N. J. \& McAuliffe, K. \href{https://doi.org/10.1098/rsbl.2012.0470}{Human punishment is motivated by inequity aversion, not a desire for reciprocity}. \emph{Biology Letters} \textbf{8}, 802--804 (2012).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Dawes2007}{}}%
+\CSLLeftMargin{30. }%
+\CSLRightInline{Dawes, C. T., Fowler, J. H., Johnson, T., McElreath, R. \& Smirnov, O. Egalitarian motives in humans. \emph{Nature} \textbf{446}, 794--796 (2007).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Bone2015}{}}%
+\CSLLeftMargin{31. }%
+\CSLRightInline{Bone, J. E. \& Raihani, N. J. Human punishment is motivated by both a desire for revenge and a desire for equality. \emph{Evolution and Human Behavior} \textbf{36}, 323--330 (2015).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Walker2004}{}}%
+\CSLLeftMargin{32. }%
+\CSLRightInline{Walker, J. M. \& Halloran, M. A. Rewards and sanctions and the provision of public goods in one-shot settings. \emph{Experimental Economics} \textbf{7}, 235--247 (2004).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Crockett2014}{}}%
+\CSLLeftMargin{33. }%
+\CSLRightInline{Crockett, M. J., Özdemir, Y. \& Fehr, E. \href{https://doi.org/10.1037/xge0000018}{The value of vengeance and the demand for deterrence.} \emph{Journal of Experimental Psychology: General} \textbf{143}, 2279--2286 (2014).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Sylwester2013}{}}%
+\CSLLeftMargin{34. }%
+\CSLRightInline{Sylwester, K., Herrmann, B. \& Bryson, J. J. \href{https://doi.org/10.1037/npe0000009}{Homo homini lupus? Explaining antisocial punishment}. \emph{Journal of Neuroscience, Psychology, and Economics} \textbf{6}, 167--188 (2013).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Fehr2004}{}}%
+\CSLLeftMargin{35. }%
+\CSLRightInline{Fehr, E. \& Fischbacher, U. Third-party punishment and social norms. \emph{Evolution and Human Behavior} \textbf{25}, 63--87 (2004).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Johnson2009}{}}%
+\CSLLeftMargin{36. }%
+\CSLRightInline{Johnson, T., Dawes, C. T., Fowler, J. H., McElreath, R. \& Smirnov, O. \href{https://doi.org/10.1016/j.econlet.2009.01.003}{The role of egalitarian motives in altruistic punishment}. \emph{Economics Letters} \textbf{102}, 192--194 (2009).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Fowler2005}{}}%
+\CSLLeftMargin{37. }%
+\CSLRightInline{Fowler, J. H., Johnson, T. \& Smirnov, O. \href{https://doi.org/10.1038/nature03256}{Egalitarian motive and altruistic punishment}. \emph{Nature} \textbf{433}, E1 (2005).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Molleman2014}{}}%
+\CSLLeftMargin{38. }%
+\CSLRightInline{Molleman, L., Van den Berg, P. \& Weissing, F. J. \href{https://doi.org/10.1038/ncomms4570}{Consistent individual differences in human social learning strategies}. \emph{Nature Communications} \textbf{5}, 3570 (2014).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Thielmann2020}{}}%
+\CSLLeftMargin{39. }%
+\CSLRightInline{Thielmann, I., Spadaro, G. \& Balliet, D. \href{https://doi.org/10.1037/bul0000217}{Personality and prosocial behavior: A theoretical framework and meta-analysis.} \emph{Psychological Bulletin} \textbf{146}, 30--90 (2020).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Hofmann2018}{}}%
+\CSLLeftMargin{40. }%
+\CSLRightInline{Hofmann, W., Brandt, M. J., Wisneski, D. C., Rockenbach, B. \& Skitka, L. J. \href{https://doi.org/10.1177/0146167218775075}{Moral punishment in everyday life}. \emph{Personality and Social Psychology Bulletin} \textbf{44}, 1697--1711 (2018).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Nisbett1977}{}}%
+\CSLLeftMargin{41. }%
+\CSLRightInline{Nisbett, R. E. \& Wilson, T. D. \href{https://doi.org/10.1037/0033-295X.84.3.231}{Telling more than we can know: Verbal reports on mental processes}. \emph{Psychological Review} \textbf{84}, 231--259 (1977).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Barclay2006}{}}%
+\CSLLeftMargin{42. }%
+\CSLRightInline{Barclay, P. \href{https://doi.org/10.1016/j.evolhumbehav.2006.01.003}{Reputational benefits for altruistic punishment}. \emph{Evolution and Human Behavior} \textbf{27}, 325--344 (2006).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Batistoni2022}{}}%
+\CSLLeftMargin{43. }%
+\CSLRightInline{Batistoni, T., Barclay, P. \& Raihani, N. J. \href{https://doi.org/10.1098/rspb.2021.1773}{Third-party punishers do not compete to be chosen as partners in an experimental game}. \emph{Proceedings of the Royal Society B} \textbf{289}, 20211773 (2022).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Jordan2016}{}}%
+\CSLLeftMargin{44. }%
+\CSLRightInline{Jordan, J. J., Hoffman, M., Bloom, P. \& Rand, D. G. \href{https://doi.org/10.1038/nature16981}{Third-party punishment as a costly signal of trustworthiness}. \emph{Nature} \textbf{530}, 473--476 (2016).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Jordan2017}{}}%
+\CSLLeftMargin{45. }%
+\CSLRightInline{Jordan, J. J. \& Rand, D. G. Third-party punishment as a costly signal of high continuation probabilities in repeated games. \emph{Journal of Theoretical Biology} \textbf{421}, 189--202 (2017).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Jordan2020}{}}%
+\CSLLeftMargin{46. }%
+\CSLRightInline{Jordan, J. J. \& Rand, D. G. \href{https://doi.org/10.1037/pspi0000186}{Signaling when no one is watching: A reputation heuristics account of outrage and punishment in one-shot anonymous interactions}. \emph{Journal of Personality and Social Psychology} \textbf{118}, 57--88 (2020).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Deutchman2021}{}}%
+\CSLLeftMargin{47. }%
+\CSLRightInline{Deutchman, P., Bračič, M., Raihani, N. J. \& McAuliffe, K. \href{https://doi.org/10.1016/j.evolhumbehav.2020.06.001}{Punishment is strongly motivated by revenge and weakly motivated by inequity aversion}. \emph{Evolution and Human Behavior} \textbf{42}, 12--20 (2021).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Marczyk2017}{}}%
+\CSLLeftMargin{48. }%
+\CSLRightInline{Marczyk, J. \href{https://doi.org/10.1371/journal.pone.0171298}{Human punishment is not primarily motivated by inequality}. \emph{PLoS ONE} \textbf{12}, e0171298 (2017).}
+
+\end{CSLReferences}
+
+\endgroup
+
+\newpage
+\vspace*{60mm}
+
+\renewcommand{\figurename}{Supplementary Figure}
+\renewcommand{\tablename}{Supplementary Table}
+\renewcommand{\thefigure}{\arabic{figure}} \setcounter{figure}{0}
+\renewcommand{\thetable}{\arabic{table}} \setcounter{table}{0}
+\renewcommand{\theequation}{S\arabic{equation}} \setcounter{equation}{0}
+
+\hypertarget{supplementary-information}{%
+\section{\texorpdfstring{\textbf{Supplementary Information}}{Supplementary Information}}\label{supplementary-information}}
+
+\setcounter{page}{1}
+\centering
+
+\noindent \hspace*{10mm} \small Mapping the punishment strategy space \newline
+\hspace*{1cm} \small Scott Claessens\textsuperscript{1}, Quentin D. Atkinson\textsuperscript{1}, Nichola Raihani\textsuperscript{1,2} \newline
+
+\raggedright
+
+\noindent \footnotesize \textsuperscript{1} School of Psychology, University of Auckland, Auckland, New Zealand \newline
+\noindent \footnotesize \textsuperscript{2} Department of Experimental Psychology, University College London, London, United Kingdom \newline
+\normalsize
+\newpage
+
+\hypertarget{supplementary-figures}{%
+\subsection{Supplementary Figures}\label{supplementary-figures}}
+
+\hypertarget{supplementary-tables}{%
+\subsection{Supplementary Tables}\label{supplementary-tables}}
+
+\hypertarget{supplementary-references}{%
+\subsection{Supplementary References}\label{supplementary-references}}
+
+
+\end{document}

@@ -10,7 +10,7 @@ source("R/functions_summariseData.R")
 source("R/functions_modelResults.R")
 tar_option_set(
   packages = c("ape", "cowplot", "ggcorrplot", "ggrepel", 
-               "ggridges", "knitr", "ltm", "phangorn", 
+               "ggridges", "knitr", "ltm", "papaja", "phangorn", 
                "rethinking", "rstan", "tanggle", "tidybayes", 
                "tidytext", "tidyverse", "wordcloud"),
   deployment = "main"
@@ -49,26 +49,32 @@ list(
   #### Load and compile Stan models ####
   
   # model files
-  tar_target(fileModel1, "stan/noTPP/punishStrat_noTPP_noPredictor.stan", format = "file"),
-  tar_target(fileModel2, "stan/noTPP/punishStrat_noTPP_withPredictor.stan", format = "file"),
-  tar_target(fileModel3, "stan/noTPP/punishStrat_noTPP_withCategoricalPredictor.stan", format = "file"),
-  tar_target(fileModel4, "stan/withTPP/punishStrat_withTPP_noPredictor.stan", format = "file"),
+  tar_target(fileModel1.1, "stan/noTPP/punishStrat_noTPP_noPredictor.stan", format = "file"),
+  tar_target(fileModel2.1, "stan/noTPP/punishStrat_noTPP_withPredictor.stan", format = "file"),
+  tar_target(fileModel3.1, "stan/noTPP/punishStrat_noTPP_withTwoPredictors.stan", format = "file"),
+  tar_target(fileModel4.1, "stan/noTPP/punishStrat_noTPP_withCategoricalPredictor.stan", format = "file"),
+  tar_target(fileModel1.2, "stan/withTPP/punishStrat_withTPP_noPredictor.stan", format = "file"),
+  tar_target(fileModel2.2, "stan/withTPP/punishStrat_withTPP_withPredictor.stan", format = "file"),
+  tar_target(fileModel3.2, "stan/withTPP/punishStrat_withTPP_withTwoPredictors.stan", format = "file"),
+  tar_target(fileModel4.2, "stan/withTPP/punishStrat_withTPP_withCategoricalPredictor.stan", format = "file"),
   # compile models
-  tar_target(compiledModel1, stan_model(fileModel1), deployment = "worker"),
-  tar_target(compiledModel2, stan_model(fileModel2), deployment = "worker"),
-  tar_target(compiledModel3, stan_model(fileModel3), deployment = "worker"),
-  tar_target(compiledModel4, stan_model(fileModel4), deployment = "worker"),
-    
+  tar_target(compiledModel1.1, stan_model(fileModel1.1), deployment = "worker"),
+  tar_target(compiledModel2.1, stan_model(fileModel2.1), deployment = "worker"),
+  tar_target(compiledModel3.1, stan_model(fileModel3.1), deployment = "worker"),
+  tar_target(compiledModel4.1, stan_model(fileModel4.1), deployment = "worker"),
+  tar_target(compiledModel1.2, stan_model(fileModel1.2), deployment = "worker"),
+  tar_target(compiledModel2.2, stan_model(fileModel2.2), deployment = "worker"),
+  tar_target(compiledModel3.2, stan_model(fileModel3.2), deployment = "worker"),
+  tar_target(compiledModel4.2, stan_model(fileModel4.2), deployment = "worker"),
+  
   #### Simulation ####
   
   # simulate data
   tar_target(simAlphas, c(0, -0.2, 1.5, -1, -1, -0.5, -0.1, -1, -0.5, 2)),
   tar_target(simBetas, c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)),
-  tar_target(dSim, simulateData(n = 100, errorRate = 0, 
-                                alphas = simAlphas, betas = simBetas)),
+  tar_target(dSim, simulateData(n = 100, errorRate = 0, alphas = simAlphas, betas = simBetas)),
   # fit model to simulated data
-  tar_target(fitSimModel, fitModel2(dSim, compiledModel2, predictor = "x"),
-             deployment = "worker"),
+  tar_target(fitSimModel, fitModel2(dSim, compiledModel2.1, predictor = "x"), deployment = "worker"),
   tar_target(simPost, extract(fitSimModel)),
   # plot results
   tar_target(plotSim1, plotSimResults1(simAlphas, simPost)),
@@ -111,6 +117,8 @@ list(
   tar_target(plotSliders2, plotSliderRatings2(d)),
   # plot overall survey correlations
   tar_target(plotSurveyCor, plotSurveyCorrelations(d)),
+  # table of strategies
+  tar_target(tableStrategies, makeStrategyTable()),
   # tables of comprehension rates
   tar_target(tableComp, makeCompTable(d)),
   # tables of raw strategy counts
@@ -126,11 +134,14 @@ list(
   #### Fit model of initial frequencies ####
   
   # model fitting
-  tar_target(m1, fitModel1(d, compiledModel1, error = 0.05), deployment = "worker"),
+  tar_target(m1.1, fitModel1(d, compiledModel1.1, error = 0.05), deployment = "worker"),
+  tar_target(m1.2, fitModel1(d, compiledModel1.2, error = 0.05), deployment = "worker"),
   # posterior samples
-  tar_target(post1, extract(m1)),
+  tar_target(post1.1, extract(m1.1)),
+  tar_target(post1.2, extract(m1.2)),
   # plot
-  tar_target(plot1, plotModel1(post1)),
+  tar_target(plot1.1, plotModel1.1(post1.1)),
+  tar_target(plot1.2, plotModel1.2(post1.2)),
   
   #### Fit models with continuous predictor ####
   
@@ -173,18 +184,30 @@ list(
     ),
     names = "pred",
     # model fitting
-    tar_target(m2, fitModel2(d, compiledModel2, error = 0.05, predictor = pred),
-               deployment = "worker"),
+    tar_target(m2.1, fitModel2(d, compiledModel2.1, error = 0.05, predictor = pred), deployment = "worker"),
+    tar_target(m2.2, fitModel2(d, compiledModel2.2, error = 0.05, predictor = pred), deployment = "worker"),
     # posterior samples
-    tar_target(post2, extract(m2)),
+    tar_target(post2.1, extract(m2.1)),
+    tar_target(post2.2, extract(m2.2)),
     # plots
-    tar_target(
-      plot2, 
-      plotModelPred(
-        d, post2, pred, xlab, xBreaks,
-        file = paste0("figures/modelResults/model2_", pred, ".pdf")
-        )
-      )
+    tar_target(plot2.1, plotModel2.1(d, post2.1, pred, xlab, xBreaks, file = paste0("figures/modelResults/noTPP/model2_", pred, ".pdf"))),
+    tar_target(plot2.2, plotModel2.2(d, post2.2, pred, xlab, xBreaks, file = paste0("figures/modelResults/withTPP/model2_", pred, ".pdf")))
+  ),
+  
+  #### Fit models with two continuous predictors ####
+  
+  tar_map(
+    values = tibble(
+      pred1 = "RWA",
+      pred2 = "SDO"
+    ),
+    names = c("pred1","pred2"),
+    # model fitting
+    tar_target(m3.1, fitModel3(d, compiledModel3.1, error = 0.05, predictor1 = pred1, predictor2 = pred2), deployment = "worker"),
+    tar_target(m3.2, fitModel3(d, compiledModel3.2, error = 0.05, predictor1 = pred1, predictor2 = pred2), deployment = "worker"),
+    # posterior samples
+    tar_target(post3.1, extract(m3.1)),
+    tar_target(post3.2, extract(m3.2))
   ),
   
   #### Fit models with categorical predictor ####
@@ -196,32 +219,46 @@ list(
     ),
     names = "pred",
     # model fitting
-    tar_target(m3, fitModel3(d, compiledModel3, error = 0.05, predictor = pred),
-               deployment = "worker"),
+    tar_target(m4.1, fitModel4(d, compiledModel4.1, error = 0.05, predictor = pred), deployment = "worker"),
+    tar_target(m4.2, fitModel4(d, compiledModel4.2, error = 0.05, predictor = pred), deployment = "worker"),
     # posterior samples
-    tar_target(post3, extract(m3)),
+    tar_target(post4.1, extract(m4.1)),
+    tar_target(post4.2, extract(m4.2)),
     # plots
-    tar_target(
-      plot3,
-      plotModelPredCat(
-        d, post3, pred, xlab,
-        file = paste0("figures/modelResults/model3_", pred, ".pdf")
-        )
-      )
+    tar_target(plot4.1, plotModel4.1(d, post4.1, pred, xlab, file = paste0("figures/modelResults/noTPP/model3_", pred, ".pdf"))),
+    tar_target(plot4.2, plotModel4.2(d, post4.2, pred, xlab, file = paste0("figures/modelResults/withTPP/model3_", pred, ".pdf")))
   ),
   
-  #### Fit model of initial frequencies including TPP ####
+  #### Summary plots of model results ####
   
-  # model fitting
-  tar_target(m4, fitModel4(d, compiledModel4, error = 0.05), deployment = "worker"),
-  # posterior samples
-  tar_target(post4, extract(m4)),
-  # plot
-  tar_target(plot4, plotModel4(post4)),
+  ### no third-party strategy
+  tar_target(plotSlidersNoTPP, plotAllSlidersNoTPP(list(post2.1_SelfRate1, post2.1_SelfRate2, post2.1_SelfRate3,
+                                                        post2.1_SelfRate4, post2.1_SelfRate5, post2.1_SelfRate6,
+                                                        post2.1_SelfRate7, post2.1_SelfRate8, post2.1_SelfRate9,
+                                                        post2.1_SelfRate10, post2.1_SelfRate11))),
+  tar_target(plotPersNoTPP, plotAllPersNoTPP(list(post2.1_Agree, post2.1_Consc, post2.1_Extra, post2.1_Honest,
+                                                  post2.1_Neur, post2.1_Open, post2.1_SVOangle))),
+  tar_target(plotPolRelNoTPP, plotAllPolRelNoTPP(list(post2.1_PolSlider, post3.1_RWA_SDO, post2.1_BringUp,
+                                                      post2.1_BringDown, post2.1_Religiosity, post2.1_GodC))),
+  tar_target(plotDemsNoTPP, plotAllDemsNoTPP(list(post2.1_Age, post2.1_SES, post4.1_Gender, post4.1_Student))),
+  ### with third-party strategy
+  tar_target(plotSlidersWithTPP, plotAllSlidersWithTPP(list(post2.2_SelfRate1, post2.2_SelfRate2, post2.2_SelfRate3,
+                                                            post2.2_SelfRate4, post2.2_SelfRate5, post2.2_SelfRate6,
+                                                            post2.2_SelfRate7, post2.2_SelfRate8, post2.2_SelfRate9,
+                                                            post2.2_SelfRate10, post2.2_SelfRate11))),
+  tar_target(plotPersWithTPP, plotAllPersWithTPP(list(post2.2_Agree, post2.2_Consc, post2.2_Extra, post2.2_Honest,
+                                                      post2.2_Neur, post2.2_Open, post2.2_SVOangle))),
+  tar_target(plotPolRelWithTPP, plotAllPolRelWithTPP(list(post2.2_PolSlider, post3.2_RWA_SDO, post2.2_BringUp,
+                                                          post2.2_BringDown, post2.2_Religiosity, post2.2_GodC))),
+  tar_target(plotDemsWithTPP, plotAllDemsWithTPP(list(post2.2_Age, post2.2_SES, post4.2_Gender, post4.2_Student))),
   
   #### Render report ####
   
   tar_render(report, "report.Rmd"),
+  
+  #### Render manuscript ####
+  
+  tar_render(manuscript, "manuscript.Rmd"),
   
   #### Session info ####
   

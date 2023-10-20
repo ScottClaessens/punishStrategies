@@ -1,0 +1,162 @@
+---
+title             : "Mapping the punishment strategy space"
+shorttitle        : "Punishment strategies"
+
+author: 
+  - name          : "Scott Claessens"
+    affiliation   : "*1"
+  - name          : "Quentin D. Atkinson"
+    affiliation   : "1"
+  - name          : "Nichola Raihani"
+    affiliation   : "1,2"
+
+affiliation:
+  - id            : "1"
+    institution   : "\\footnotesize School of Psychology, University of Auckland, Auckland, New Zealand"
+  - id            : "2"
+    institution   : "\\footnotesize Department of Experimental Psychology, University College London, London, United Kingdom"
+
+abstract: |
+ x
+
+keywords          : "x"
+wordcount         : "xxxx words"
+bibliography      : ["r-references.bib"]
+floatsintext      : yes
+figurelist        : no
+figsintext        : yes
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+numbersections    : false
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+header-includes: 
+  - \usepackage{array}
+  - \usepackage{caption}
+  - \usepackage{graphicx}
+  - \usepackage{siunitx}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{colortbl}
+  - \usepackage{multirow}
+  - \usepackage{hhline}
+  - \usepackage{calc}
+  - \usepackage{tabularx}
+  - \usepackage{threeparttable}
+  - \usepackage{wrapfig}
+  - \usepackage{adjustbox}
+  - \usepackage{hyperref}
+  - \usepackage{setspace}
+  - \usepackage{amsmath}
+  - \usepackage{xcolor}
+  - \usepackage{makecell}
+  - \renewcommand\theadfont{}
+  - \raggedbottom
+  - \AtBeginEnvironment{tabular}{\singlespacing}
+  - \AtBeginEnvironment{lltable}{\singlespacing}
+  - \AtBeginEnvironment{tablenotes}{\doublespacing}
+  - \captionsetup[table]{font={stretch=1,small}}
+  - \captionsetup[figure]{font={stretch=1,small}}
+  - \nolinenumbers
+  - \note{\raggedright * Correspondence concerning this article should be addressed to Scott Claessens, Level 2, Building 302, 23 Symonds Street, Auckland, New Zealand. \text{E-mail:} \href{scott.claessens@gmail.com}{\nolinkurl{scott.claessens@gmail.com}} \par This working paper has not yet been peer-reviewed.}
+appendix          : "appendix.Rmd"
+csl               : nature.csl
+---
+
+\linenumbers
+
+# Introduction
+
+Humans cooperate on a scale unparalleled in the animal kingdom. One mechanism thought to sustain this level of cooperation is costly punishment, whereby individuals harm others at a personal cost[@CluttonBrock1995], ostensibly encouraging cooperative behaviour from the target (or bystanders[@DosSantos2011;@DosSantos2013;@Raihani2015]) in the future. Punishment therefore offers a route to maintaining or increasing cooperation by changing the payoff structure of social interactions such that it no longer pays to cheat or exploit social partners[@CluttonBrock1995;@Ostrom1990].
+
+In humans, many studies of punishment have been carried out in laboratory settings using economic games[@Balliet2011;@Balliet2013;@Chaudhuri2011;@Dreber2008;@Fehr2000;@Fehr2002;@Henrich2006;@Nikiforakis2008;@Raihani2012a;@Raihani2019]. In these games, participants are usually given a sum of money that they can use to invest in collective action or to help others. Alternatively, participants can 'cheat' by keeping the money for themselves or by exploiting the contributions of others. Punishment is introduced into such games by giving participants the option to pay a small 'fee' to impose a greater 'fine' on their co-players. Several lines of experimental evidence indicate that people use this punishment option[@Henrich2006], that they enjoy punishing[@DeQuervain2004], and that they frequently, though not always[@Herrmann2008], punish cheating or exploitative co-players[@Fehr2000;@Fehr2002].
+
+Evidence from these experiments suggests that the threat of costly punishment plays an important role in promoting human cooperation. People tend to cooperate more in games where punishment is possible compared to those where it is not[@Balliet2011;@Balliet2013;@Raihani2019]. The effect that the threat of punishment has on cooperation is also evident in the higher contributions typically observed in the Ultimatum Game (where punishment is possible) compared to the structurally-similar Dictator Game (where it is not)[@Camerer2003]. This typical cooperation-enhancing effect of punishment has also been observed across societies[@Balliet2013], leading some to suggest that costly punishment has played a key role in the cultural evolution of cooperation in humans[@Bowles2013;@Boyd2003;@Chudek2011;@Henrich2017].
+
+Nevertheless, it remains unclear whether individuals playing economic games use punishment as a behaviour-change tool to enforce cooperation or as a means to achieve other ends. Some have argued that punishment is primarily used to shape future behaviour, either to deter personal harm[@Delton2017;@Dreber2008;@DosSantos2013] or to uphold normative standards of cooperative behaviour[@Boyd2003;@Chudek2011;@Fehr2018;@Mathew2011;@Mathew2014;@Richerson2016]. But while the _threat_ of punishment can have a cooperation-enhancing effect, the _enactment_ of this punishment seldom changes the future behaviour of deviant targets[@Raihani2019]. This calls into question whether punishment primarily operates as a behaviour-change tool or whether it is used to achieve other goals.
+
+Beyond behaviour-shaping concerns, there are a host of other reasons that people may want to punish in economic games. Punishers might be motivated by a desire for retribution rather than deterrence, punishing in proportion to the amount of harm that was personally caused[@Carlsmith2002]. Punishment might be driven by concerns about relative payoffs, such as disadvantageous inequity aversion (i.e., avoiding having less than others[@Raihani2012b;@Raihani2019]) and/or general egalitarian preferences (i.e., wanting all participants to receive the same payoffs[@Dawes2007]). Such concerns about relative payoffs may be activated when participants earn less than cheats in economic games or when there are income disparities in these settings. People might also use punishment for competitive purposes, seeking advantageous inequity for themselves (i.e., having more than others) and/or improving their relative position[@Raihani2019].
+
+Common economic game designs have been unable to tease apart these different motives for punishment because participants who interact with cheats in these games experience both losses _and_ lower relative payoffs. The typical 1:3 fee-to-fine ratio of punishment in economic games compounds this issue. With this setup, people can simultaneously use punishment to reciprocate losses, to deter others from cheating, and to reduce or reverse disparities in payoffs between themselves and targets. To add to this complexity, it is evident that people use punishment in seemingly disparate ways: punishing when no behaviour change is possible, such as in one-shot games[@Bone2015;@Henrich2006;@Raihani2012b;@Walker2004] or in games where the target never learns about the punishment[@Crockett2014]; punishing those who did not cheat or who over-contributed to collective action (antisocial punishment[@Herrmann2008;@Sylwester2013]); punishing in scenarios where they were not personally harmed (third-party punishment[@Fehr2004]); and punishing in scenarios where disparities in payoffs did not arise from participants' actions[@Dawes2007;@Johnson2009;@Fowler2005].
+
+The general conclusion from this research is that there is no one unifying function of costly punishment in humans. Instead, punishment should be thought of as a flexible behavioural tool that serves a variety of functions that are not mutually exclusive[@Raihani2019]. Due to its multipurpose nature, we should therefore expect variation in punishment strategies in the population, much like the observed variation in social learning strategies[@Molleman2014]. Some individuals may use punishment as a behaviour shaping tool, for example, while others may use it to reduce or reverse payoff differentials.
+
+This insight raises several underexplored questions. First, which punishment strategies are more frequent in human populations? Second, what traits predict adherence to a particular strategy? Previous work has reported that personality is related to cooperative behaviour[@Thielmann2020] and demographics, political ideology, and religiosity are related to punitive behaviour[@Hofmann2018], but no research has related these variables to specific punishment strategies. Third, do people have insight into their own punishment strategy? Previous work has argued that people are often unaware of the underlying function of their punitive behaviour, yet they feel compelled to enact it anyway[@Carlsmith2002;@Nisbett1977].
+
+Here, we aim to delineate the many possible punishment strategies by asking whether people punish in a manner consistent with a specific strategy and, if so, what other characteristics (personality, social preferences, political orientation) predict the use of different punishment strategies. Table \@ref(tab:tableStrategies) summarises the potential functions for costly punishment in economic games and the behavioural strategies they predict. Note that we do not include reputational functions of punishment in this table, such as signalling trustworthiness[@Barclay2006;@Batistoni2022;@Jordan2016;@Jordan2017;@Raihani2015], because our focus is on punishment strategies in anonymous economic games without reputational incentives (but see ref[@Jordan2020]).
+
+(ref:tableStrategiesCaption) xxx
+
+```{r tableStrategies, echo=FALSE}
+apa_table(
+  tar_read(tableStrategies),
+  escape = FALSE,
+  landscape = TRUE,
+  align = c("p{1.7cm}", "p{3.3cm}", rep("c", 12)),
+  col_spanners = list(
+    "\\thead{No DI 1 \\\\ 70-10}"   = 3:4,
+    "\\thead{No DI 2 \\\\ 70-30}"   = 5:6,
+    "\\thead{No DI 3 \\\\ (Computer) \\\\ 70-30}"   = 7:8,
+    "\\thead{No DI 4 \\\\ (1:1 Fee-Fine) \\\\ 70-30}"   = 9:10,
+    "\\thead{DI \\\\ 70-50}"        = 11:12,
+    "\\thead{3PP \\\\ 70-70 [100]}" = 13:14
+    ),
+  caption = "(ref:tableStrategiesCaption)",
+  font_size = "scriptsize"
+)
+```
+
+Building on previous designs[@Bone2015;@Deutchman2021;@Marczyk2017;@Raihani2012b], we employ a suite of one-shot economic games where individuals are given the opportunity to punish targets at a personal cost. We carefully designed this suite of games to tease apart the proposed punishment strategies in Table 1, such that each strategy predicts a different pattern of behaviour across all the games. We use the resulting behavioural patterns to discern which punishment strategy participants are employing. We then combine these behavioural patterns with data on demographics, personality, political ideology, religiosity, and self-reported strategy usage.
+
+# Results
+
+x
+
+# Discussion
+
+x
+
+# Methods
+
+x
+
+\newpage
+\nolinenumbers
+
+# Acknowledgements
+
+x
+
+# Author Contributions
+
+x
+
+# Competing Interests
+
+The authors declare no competing interests.
+
+# Data Availability
+
+All data used in this study are publicly available on GitHub: https://github.com/ScottClaessens/punishStrategies
+
+# Code Availability
+
+All code to reproduce the analyses in this study are publicly available on GitHub: https://github.com/ScottClaessens/punishStrategies
+
+\newpage
+
+# References
+
+\begingroup
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
+
+\newpage
+\vspace*{60mm}
+
+```{r child = "appendix.Rmd"}
+```
