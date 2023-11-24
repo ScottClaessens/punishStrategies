@@ -1,4 +1,4 @@
-# Mapping out the punishment strategy space
+# Why do people punish? Evidence for a range of strategic concerns
 
 Using behavioural economic games to tease apart the strategies underlying punishment in humans.
 
@@ -9,7 +9,10 @@ Using behavioural economic games to tease apart the strategies underlying punish
 To run this code, you will need to [install R](https://www.r-project.org/) and the following R packages:
 
 ```
-install.packages(c("ggridges","rstan","tidybayes"))
+install.packages(c("ape", "cowplot", "ggcorrplot", "ggrepel", 
+                   "ggridges", "knitr", "lme4", "ltm", "papaja", 
+				   "phangorn", "rstan", "tanggle", "tidybayes", 
+				   "tidytext", "tidyverse", "wordcloud"))
 ```
 
 You will also need to install the `rethinking` package. See here for more details: [https://github.com/rmcelreath/rethinking](https://github.com/rmcelreath/rethinking)
@@ -18,7 +21,7 @@ You will also need to install the `rethinking` package. See here for more detail
 
 1. Set the working directory to this code repository `setwd("myPath/punishStrategies")`
 2. Load the `targets` package with `library(targets)`
-3. To run the code and model, run `tar_make()`
+3. To run the analysis pipeline, run `tar_make()`
 4. To load individual targets into your environment, run `tar_load(fitSimModel)` etc.
 
 ## Help
