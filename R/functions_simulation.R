@@ -67,6 +67,20 @@ simulateData <- function(n = 500, seed = 2113, errorRate = 0, alphas, betas) {
                 pun1_1, pun1_2, pun2_1, pun2_2, 
                 pun3_1, pun3_2, pun4_1, pun4_2,
                 pun5_1, pun5_2, pun6_1, pun6_2,
+                # empty strings for raw behaviours
+                # (necessary to avoid missing data deletion in model fitting function)
+                NoDI1_Take    = " ", 
+                NoDI1_Nothing = " ",
+                NoDI2_Take    = " ",
+                NoDI2_Nothing = " ",
+                NoDI3_Take    = " ",
+                NoDI3_Nothing = " ",
+                NoDI4_Take    = " ",
+                NoDI4_Nothing = " ",
+                DI_Take       = " ",
+                DI_Nothing    = " ",
+                `3PP_Take`    = " ",
+                `3PP_Nothing` = " ",
                 # country ID necessary for stan...
                 Country = "United Kingdom")
   return(out)

@@ -110,24 +110,6 @@ kable(tar_read(tableStrategyCounts), booktabs = TRUE)
 
 Many participants, denoted by N/A, were unable to be classified into a strategy (i.e. their pattern of behaviour across all games did not fit any of our strategy predictions). However, of the participants who could be classified, most followed the "anti-punish" strategy by never punishing. The next most common strategies were the "egalitarian" and "avoid disadvantageous inequity" strategies.
 
-We assume here that people are following a particular strategy exactly and are not comitting any errors or mistakes. However, it is possible that some participants intended to follow a particular strategy, but made a mistake on a particular decision. We repeat the counts and proportions in the table above, but include behavioural patterns that have one mistake from the exact strategy (note that the proportions will no longer sum to 1).
-
-```{r strategyCountsMistake1}
-kable(tar_read(tableStrategyCounts_Mistake1), booktabs = TRUE)
-```
-
-And including behavioural patterns that have one or two mistakes.
-
-```{r strategyCountsMistake2}
-kable(tar_read(tableStrategyCounts_Mistake2), booktabs = TRUE)
-```
-
-And finally, including behavioural patterns that have one, two, or three mistakes.
-
-```{r strategyCountsMistake3}
-kable(tar_read(tableStrategyCounts_Mistake3), booktabs = TRUE)
-```
-
 We can also look at the most common behavioural patterns across all six games (twelve punishment decisions in total). Below, we summarise the 25 most common patterns of behaviour as strings of twelve 0s and 1s, indicating whether participants did (1) or did not (0) punish in each game, with a brief explanation of this pattern and its frequency in the dataset.
 
 ```{r patternsUK}
@@ -159,7 +141,7 @@ We then fit a series of models predicting the usage of different strategies from
 ## Demographics
 
 ```{r echo=F}
-tar_read(plotDemsNoTPP)
+tar_read(plotAllDems2)
 ```
 
 \newpage
@@ -167,7 +149,7 @@ tar_read(plotDemsNoTPP)
 ## Self-ratings
 
 ```{r echo=F}
-tar_read(plotSlidersNoTPP)
+tar_read(plotAllSliders2)
 ```
 
 \newpage
@@ -175,7 +157,7 @@ tar_read(plotSlidersNoTPP)
 ## Big-6 personality and SVO
 
 ```{r echo=F}
-tar_read(plotPersNoTPP)
+tar_read(plotAllPers2)
 ```
 
 \newpage
@@ -183,5 +165,5 @@ tar_read(plotPersNoTPP)
 ## Politics and religion
 
 ```{r echo=F}
-tar_read(plotPolRelNoTPP)
+tar_read(plotAllPolRel2)
 ```

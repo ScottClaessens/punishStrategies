@@ -325,20 +325,18 @@ loadData <- function(fileStudy1, fileStudy2) {
                                             pun3_1 == 0, pun3_2 == 0, pun4_1 == 0, pun4_2 == 0,
                                             pun5_1 == 0, pun5_2 == 0, pun6_1 == 0, pun6_2 == 0)),
         # exact strategy classification (i.e. if any of the above == 1)
-        strategy = ifelse(propStrategy_Competitive   == 1, "Competitive",                       "N/A"),
-        strategy = ifelse(propStrategy_AvoidDI       == 1, "Avoid disadvantageous inequity",    strategy),
-        strategy = ifelse(propStrategy_Egalitarian   == 1, "Egalitarian",                       strategy),
-        strategy = ifelse(propStrategy_SeekAI        == 1, "Seek advantageous inequity",        strategy),
-        strategy = ifelse(propStrategy_Retributive   == 1, "Retributive",                       strategy),
-        strategy = ifelse(propStrategy_Deterrent     == 1, "Deterrent",                         strategy),
-        strategy = ifelse(propStrategy_NormEnforcing == 1, "Norm-enforcing",                    strategy),
-        strategy = ifelse(propStrategy_Antisocial    == 1, "Exclusively antisocial punishment", strategy),
-        strategy = ifelse(propStrategy_NoPunish      == 1, "Anti-punish",                       strategy),
-        strategy = factor(strategy, levels = c("Competitive", "Avoid disadvantageous inequity",
-                                               "Egalitarian", "Seek advantageous inequity",
-                                               "Retributive", "Deterrent", "Norm-enforcing",
-                                               "Exclusively antisocial punishment",
-                                               "Anti-punish", "N/A"))
+        strategy = ifelse(propStrategy_Competitive   == 1, "Competitive",    "N/A"),
+        strategy = ifelse(propStrategy_AvoidDI       == 1, "Avoid DI",       strategy),
+        strategy = ifelse(propStrategy_Egalitarian   == 1, "Egalitarian",    strategy),
+        strategy = ifelse(propStrategy_SeekAI        == 1, "Seek AI",        strategy),
+        strategy = ifelse(propStrategy_Retributive   == 1, "Retributive",    strategy),
+        strategy = ifelse(propStrategy_Deterrent     == 1, "Deterrent",      strategy),
+        strategy = ifelse(propStrategy_NormEnforcing == 1, "Norm-enforcing", strategy),
+        strategy = ifelse(propStrategy_Antisocial    == 1, "Antisocial",     strategy),
+        strategy = ifelse(propStrategy_NoPunish      == 1, "Never punish",   strategy),
+        strategy = factor(strategy, levels = c("Deterrent", "Norm-enforcing", "Retributive", 
+                                               "Avoid DI", "Egalitarian", "Seek AI", "Competitive", 
+                                               "Antisocial", "Never punish", "N/A"))
       ) %>%
       ungroup() %>%
       # rename some variables
@@ -409,19 +407,19 @@ excludeData <- function(d) {
     ungroup() %>%
     filter(!(flatTotal >= 2)) %>%
     # n = 2010
-    # remove specific game data for participants who fail comprehension checks
+    # if comprehension failure, exclude game data
     mutate(
-      NoDI1_Take    = ifelse(fail1, NA, NoDI1_Take),
+      NoDI1_Take    = ifelse(fail1, NA, NoDI1_Take   ),    
       NoDI1_Nothing = ifelse(fail1, NA, NoDI1_Nothing),
-      NoDI2_Take    = ifelse(fail2, NA, NoDI2_Take),
-      NoDI2_Nothing = ifelse(fail2, NA, NoDI2_Nothing),
-      NoDI3_Take    = ifelse(fail3, NA, NoDI3_Take),
-      NoDI3_Nothing = ifelse(fail3, NA, NoDI3_Nothing),
-      NoDI4_Take    = ifelse(fail4, NA, NoDI4_Take),
-      NoDI4_Nothing = ifelse(fail4, NA, NoDI4_Nothing),
-      DI_Take       = ifelse(fail5, NA, DI_Take),
-      DI_Nothing    = ifelse(fail5, NA, DI_Nothing),
-      `3PP_Take`    = ifelse(fail6, NA, `3PP_Take`),
-      `3PP_Nothing` = ifelse(fail6, NA, `3PP_Nothing`)
+      NoDI2_Take    = ifelse(fail1, NA, NoDI2_Take   ),  
+      NoDI2_Nothing = ifelse(fail1, NA, NoDI2_Nothing),
+      NoDI3_Take    = ifelse(fail1, NA, NoDI3_Take   ),  
+      NoDI3_Nothing = ifelse(fail1, NA, NoDI3_Nothing),
+      NoDI4_Take    = ifelse(fail1, NA, NoDI4_Take   ),    
+      NoDI4_Nothing = ifelse(fail1, NA, NoDI4_Nothing), 
+      DI_Take       = ifelse(fail1, NA, DI_Take      ),
+      DI_Nothing    = ifelse(fail1, NA, DI_Nothing   ),    
+      `3PP_Take`    = ifelse(fail1, NA, `3PP_Take`   ),    
+      `3PP_Nothing` = ifelse(fail1, NA, `3PP_Nothing`) 
     )
 }

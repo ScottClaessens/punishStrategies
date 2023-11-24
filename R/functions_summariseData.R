@@ -119,12 +119,12 @@ plotWordcloud <- function(d, country = "") {
 plotPunDecisions <- function(d) {
   # games vector
   games <- c(
-    "No Disadvantageous\nInequity 1",
-    "No Disadvantageous\nInequity 2",
-    "No Disadvantageous\nInequity 3 (Computer)",
-    "No Disadvantageous\nInequity 4 (1:1 Fee Fine)",
-    "Disadvantageous\nInequity",
-    "Third-Party"
+    "Game A\n(AI)",
+    "Game B\n(Equal)",
+    "Game C\n(Computer)",
+    "Game D\n(1:1 Fee Fine)",
+    "Game E\n(DI)",
+    "Game F\n(Third-Party)"
   )
   # plot
   out <-
@@ -148,13 +148,13 @@ plotPunDecisions <- function(d) {
       Game = ifelse(Game == "pun6", games[6], Game),
       Game = factor(Game, levels = games),
       # other labels
-      Other = factor(ifelse(Other == 1, "Take", "Do nothing"), levels = c("Take", "Do nothing")),
+      Other = factor(ifelse(Other == 1, "Steal", "No steal"), levels = c("Steal", "No steal")),
       # punishment
       Punishment = Punishment
     ) %>%
     # summarise
     group_by(Country, Game, Other) %>%
-    summarise(Punishment = mean(Punishment), .groups = "drop") %>%
+    summarise(Punishment = mean(Punishment, na.rm = TRUE), .groups = "drop") %>%
     # plot
     ggplot(aes(x = Game, y = Punishment, fill = Other)) +
     geom_col(position = "dodge") +
@@ -261,17 +261,17 @@ plotSurveyCorrelations <- function(d) {
   out <-
     d %>%
     transmute(
-      PolIdeology = PolSlider,
+      `Political ideology` = PolSlider,
       SDO = SDO,
       RWA = RWA,
       Religiosity = Religiosity,
-      OpennessToExperience = Open,
+      `Openness to experience` = Open,
       Conscientiousness = Consc,
       Extraversion = Extra,
       Agreeableness = Agree,
       Neuroticism = Neur,
-      HonestyHumility = Honest,
-      SVOAngle = SVOangle
+      `Honesty-humility` = Honest,
+      `SVO angle` = SVOangle
       ) %>%
     cor(
       method = "spearman",
@@ -291,12 +291,12 @@ plotSurveyCorrelations <- function(d) {
 makeCompTable <- function(d) {
   # games vector
   games <- c(
-    "No Disadvantageous Inequity 1",
-    "No Disadvantageous Inequity 2",
-    "No Disadvantageous Inequity 3 (Computer)",
-    "No Disadvantageous Inequity 4 (1:1 Fee Fine)",
-    "Disadvantageous Inequity",
-    "Third-Party"
+    "Game A (AI)",
+    "Game B (Equal)",
+    "Game C (Computer)",
+    "Game D (1:1 Fee-Fine)",
+    "Game E (DI)",
+    "Game F (Third-Party)"
   )
   # make table
   d %>%
@@ -327,82 +327,99 @@ makeCompTable <- function(d) {
 
 # table of raw strategy counts
 makeStrategyCountTable <- function(d) {
-  d %>%
+  out <-
+    d %>%
     rename(Strategy = strategy) %>%
-    group_by(Strategy) %>%
-    summarise(
-      N = n(),
-      Proportion = round(n() / nrow(d), 3),
-      .groups = "drop"
+    group_by(Strategy, Country) %>%
+    summarise(N = n(), .groups = "drop") %>%
+    mutate(
+      Prop = N / ifelse(Country == "United Kingdom", 
+                        nrow(d[d$Country == "United Kingdom",]),
+                        nrow(d[d$Country == "United States",]))
       ) %>%
-    arrange(desc(Proportion))
+    complete(Strategy, Country, fill = list(N = 0, Prop = 0)) %>%
+    mutate(Prop = format(round(Prop, digits = 3), nsmall = 3)) %>%
+    pivot_wider(names_from = Country, values_from = c(N, Prop)) %>%
+    dplyr::select(c(1,2,4,3,5))
+  colnames(out)[c(2,4)] <- "N"
+  colnames(out)[c(3,5)] <- "Prop"
+  return(out)
 }
 
-# table for raw strategy counts with mistakes
-makeStrategyCountTableWithMistakes <- function(d, nMistakes = 0) {
-  d %>%
-    rowwise() %>%
-    mutate(
-      # get hamming distance from all strategies
-      `subs_Competitive`    = sum(across(pun1_1:pun6_2) != c(1,1,1,1,1,1,0,0,1,1,1,1)),
-      `subs_Avoid DI`       = sum(across(pun1_1:pun6_2) != c(0,0,0,0,0,0,0,0,1,0,0,0)),
-      `subs_Egalitarian`    = sum(across(pun1_1:pun6_2) != c(0,0,0,0,0,0,0,0,1,0,1,0)),
-      `subs_Seek AI`        = sum(across(pun1_1:pun6_2) != c(0,0,1,0,1,0,0,0,0,0,0,0)),
-      `subs_Retributive`    = sum(across(pun1_1:pun6_2) != c(1,0,1,0,1,0,1,0,1,0,0,0)),
-      `subs_Deterrent`      = sum(across(pun1_1:pun6_2) != c(1,0,1,0,0,0,1,0,1,0,0,0)),
-      `subs_Norm-enforcing` = sum(across(pun1_1:pun6_2) != c(1,0,1,0,0,0,1,0,1,0,1,0)),
-      `subs_Antisocial`     = sum(across(pun1_1:pun6_2) != c(0,1,0,1,0,1,0,1,0,1,0,1)),
-      `subs_Anti-punish`    = sum(across(pun1_1:pun6_2) != c(0,0,0,0,0,0,0,0,0,0,0,0))
-    ) %>%
-    # count the strategies
-    pivot_longer(
-      cols = starts_with("subs"),
-      names_to = c(".value","Strategy"),
-      names_sep = "_"
-    ) %>%
-    dplyr::select(ID, Strategy, subs) %>%
-    # keep only instances where nMistakes or less were made
-    filter(subs <= nMistakes) %>%
-    group_by(Strategy) %>%
-    summarise(
-      N = n(),
-      Proportion = round(n() / nrow(d), 3),
-      .groups = "drop"
-    ) %>%
-    arrange(desc(Proportion))
-}
+## table for raw strategy counts with mistakes
+#makeStrategyCountTableWithMistakes <- function(d, nMistakes = 0) {
+#  d %>%
+#    rowwise() %>%
+#    mutate(
+#      # get hamming distance from all strategies
+#      `subs_Competitive`    = sum(across(pun1_1:pun6_2) != c(1,1,1,1,1,1,0,0,1,1,1,1)),
+#      `subs_Avoid DI`       = sum(across(pun1_1:pun6_2) != c(0,0,0,0,0,0,0,0,1,0,0,0)),
+#      `subs_Egalitarian`    = sum(across(pun1_1:pun6_2) != c(0,0,0,0,0,0,0,0,1,0,1,0)),
+#      `subs_Seek AI`        = sum(across(pun1_1:pun6_2) != c(0,0,1,0,1,0,0,0,0,0,0,0)),
+#      `subs_Retributive`    = sum(across(pun1_1:pun6_2) != c(1,0,1,0,1,0,1,0,1,0,0,0)),
+#      `subs_Deterrent`      = sum(across(pun1_1:pun6_2) != c(1,0,1,0,0,0,1,0,1,0,0,0)),
+#      `subs_Norm-enforcing` = sum(across(pun1_1:pun6_2) != c(1,0,1,0,0,0,1,0,1,0,1,0)),
+#      `subs_Antisocial`     = sum(across(pun1_1:pun6_2) != c(0,1,0,1,0,1,0,1,0,1,0,1)),
+#      `subs_Never punish`   = sum(across(pun1_1:pun6_2) != c(0,0,0,0,0,0,0,0,0,0,0,0))
+#    ) %>%
+#    # count the strategies
+#    pivot_longer(
+#      cols = starts_with("subs"),
+#      names_to = c(".value","Strategy"),
+#      names_sep = "_"
+#    ) %>%
+#    mutate(Strategy = factor(Strategy, levels = c("Deterrent", "Norm-enforcing",
+#                                                  "Retributive", "Avoid DI",
+#                                                  "Egalitarian", "Seek AI",
+#                                                  "Competitive", "Never punish"))) %>%
+#    dplyr::select(ID, Strategy, Country, subs) %>%
+#    # keep only instances where nMistakes or less were made
+#    filter(subs <= nMistakes) %>%
+#    group_by(Strategy, Country) %>%
+#    summarise(N = n(), .groups = "drop") %>%
+#    mutate(
+#      Proportion = N / ifelse(Country == "United Kingdom", 
+#                              nrow(d[d$Country == "United Kingdom",]),
+#                              nrow(d[d$Country == "United States",]))
+#    ) %>%
+#    complete(Strategy, Country, fill = list(N = 0, Proportion = 0)) %>%
+#    mutate(Proportion = format(round(Proportion, digits = 3), nsmall = 3)) %>%
+#    pivot_wider(names_from = Country, values_from = c(N, Proportion)) %>%
+#    dplyr::select(c(1,2,4,3,5))
+#}
 
 # table of behaviour patterns
 makePatternsTable <- function(d) {
   # vector of explanations for common strategies
   explanations <- c(
-    "000000000000" = "*Anti-punish strategy (exact)",
-    "000000001010" = "*Egalitarian strategy (exact)",
-    "000000001000" = "*Avoid DI strategy (exact)",
-    "000000000010" = "Punish when take in 3PP game",
-    "001000001010" = "Punish when take in No DI 2, DI, and 3PP games",
-    "001000001000" = "Punish when take in No DI 2 and DI games",
-    "101000101010" = "*Norm-enforcing strategy (exact)",
+    "000000000000" = "\\textit{Never punish strategy (exact)}",
+    "000000001000" = "\\textit{Avoid DI strategy (exact)}",
+    "000000001010" = "\\textit{Egalitarian strategy (exact)}",
+    "000000000010" = "Punish when take in Game F",
+    "001000001000" = "Punish when take in Games B and E",
+    "101000001010" = "Punish when take in Games A, B, E, and F",
+    "100000000000" = "Punish when take in Game A",
+    "000000100000" = "Punish when take in Game D",
+    "001000001010" = "Punish when take in Games B, E, and F",
+    "101000101000" = "\\textit{Deterrent strategy (exact)}",
     "101010101010" = "Punish when take in all games",
-    "111111111111" = "Punish when take AND nothing in all games",
-    "101000001010" = "Punish when take in No DI 1, No DI 2, DI, and 3PP games",
-    "101000101000" = "*Deterrent strategy (exact)",
-    "000000100000" = "Punish when take in No DI 4 game",
-    "101000001000" = "Punish when take in No DI 1, No DI 2, and DI games",
-    "100000000000" = "Punish when take in No DI 1 game",
-    "001000000000" = "Punish when take in No DI 2 game",
-    "100000001000" = "Punish when take in No DI 1 and DI games",
-    "101010101000" = "*Retributive strategy (exact)",
-    "001000101010" = "Punish when take in No DI 2, No DI 4, DI, and 3PP games",
-    "000000101000" = "Punish when take in DI and 3PP games",
-    "000000101010" = "Punish when take in No DI 4, DI, and 3PP games",
-    "101010001010" = "Punish when take in all games except No DI 4",
-    "001010101000" = "Punish when take in No DI 2, No DI 3, No DI 4, and DI games",
-    "100000001010" = "Punish when take in No DI 1, DI, and 3PP games",
-    "000010001010" = "Punish when take in No DI 3, DI, and 3PP games",
-    "001000101000" = "Punish when take in No DI 2, No DI 4, and DI games"
+    "101000101010" = "\\textit{Norm-enforcing strategy (exact)}",
+    "001000000000" = "Punish when take in Game B",
+    "001010101000" = "Punish when take in Games B, C, D, and E",
+    "100000001000" = "Punish when take in Games A and E",
+    "101000001000" = "Punish when take in Games A, B, and E",
+    "101010101000" = "\\textit{Retributive strategy (exact)}",
+    "111111111111" = "Always punish",
+    "000000101000" = "Punish when take in Games D and E",
+    "000000101010" = "Punish when take in Games D, E, and F",
+    "101010001010" = "Punish when take in all games except Game D",
+    "001000101000" = "Punish when take in Games B, D, and E",
+    "001000101010" = "Punish when take in Games B, D, E, and F",
+    "101000000000" = "Punish when take in Games A and B",
+    "101010001000" = "Punish when take in Games A, B, C, and E"
   )
-  d %>%
+  out <-
+    d %>%
     # concatenate patterns of behaviour into single string
     unite(
       col = "Pattern",
@@ -410,17 +427,30 @@ makePatternsTable <- function(d) {
       sep = ""
     ) %>%
     # get most common strings
-    group_by(Pattern) %>%
-    summarise(
-      N = n(),
-      Proportion = round(n() / nrow(.), 3)
+    group_by(Pattern, Country) %>%
+    summarise(N = n(), .groups = "drop") %>%
+    mutate(Prop = N / ifelse(Country == "United Kingdom",
+                             nrow(d[d$Country == "United Kingdom",]),
+                             nrow(d[d$Country == "United States",]))) %>%
+    # round proportions
+    mutate(Prop = format(round(Prop, digits = 3), nsmall = 3)) %>%
+    # pivot wider
+    pivot_wider(
+      names_from = Country,
+      values_from = c(N, Prop),
+      values_fill = list(N = 0, Prop = "0.000")
       ) %>%
-    arrange(desc(N)) %>%
+    # arrange table
+    arrange(desc(`N_United Kingdom`)) %>%
+    # top 25 rows
     slice(1:25) %>%
     # explain the most common strings
     mutate(Explanation = explanations[Pattern]) %>%
-    # organise columns for table
-    dplyr::select(Pattern, Explanation, N, Proportion)
+    # rearrange cols
+    dplyr::select(c(1,6,2,4,3,5))
+  colnames(out)[c(3,5)] <- "N"
+  colnames(out)[c(4,6)] <- "Prop"
+  return(out)
 }
 
 # plot splits graph of behavioural patterns
@@ -479,16 +509,15 @@ plotSplitsGraph <- function(d) {
   # labels for strategies
   labelStrategies <- 
     c(
-      "Anti-punish"                    = "Anti-punish\n(000000000000)",
-      "Seek advantageous inequity"     = "Seek AI\n(001010000000)",
-      "Egalitarian"                    = "Egalitarian\n(000000001010)",
-      "Avoid disadvantageous inequity" = "Avoid DI\n(000000001000)",
-      "Retributive"                    = "Retributive\n(101010101000)",
-      "Deterrent"                      = "Deterrent\n(101000101000)",
-      "Norm-enforcing"                 = "Norm-enforcing\n(101000101010)",
-      "Competitive"                    = "Competitive\n(111111001111)",
-      #"Third-party"                    = "Third-party\n(000000000010)",
-      "Antisocial"                     = "Antisocial\n(010101010101)"
+      "Never punish"   = "Never punish\n(000000000000)",
+      "Seek AI"        = "Seek AI\n(001010000000)",
+      "Egalitarian"    = "Egalitarian\n(000000001010)",
+      "Avoid DI"       = "Avoid DI\n(000000001000)",
+      "Retributive"    = "Retributive\n(101010101000)",
+      "Deterrent"      = "Deterrent\n(101000101000)",
+      "Norm-enforcing" = "Norm-enforcing\n(101000101010)",
+      "Competitive"    = "Competitive\n(111111001111)",
+      "Antisocial"     = "Antisocial\n(010101010101)"
     )
   # additional data for plot (counts, labels)
   pd <- 
@@ -549,7 +578,7 @@ makeStrategyTable <- function() {
       "Punish exclusively those who do not cause harm",
       "Never punish others"
     ),
-    `\\thead{Take \\\\ 50-30}` = c(
+    `\\thead{\\scriptsize Steal \\\\ 50-30}` = c(
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
@@ -560,7 +589,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{No take \\\\ 70-10}` = c(
+    `\\thead{\\scriptsize No steal \\\\ 70-10}` = c(
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
@@ -571,7 +600,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{Take \\\\ 50-50}` = c(
+    `\\thead{\\scriptsize Steal \\\\ 50-50}` = c(
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
@@ -582,7 +611,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{No take \\\\ 70-30}` = c(
+    `\\thead{\\scriptsize No steal \\\\ 70-30}` = c(
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
@@ -593,7 +622,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{Take \\\\ 50-50}` = c(
+    `\\thead{\\scriptsize Steal \\\\ 50-50}` = c(
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
@@ -604,7 +633,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{No take \\\\ 70-30}` = c(
+    `\\thead{\\scriptsize No steal \\\\ 70-30}` = c(
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
@@ -615,7 +644,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{Take \\\\ 50-50}` = c(
+    `\\thead{\\scriptsize Steal \\\\ 50-50}` = c(
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
@@ -626,7 +655,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{No take \\\\ 70-30}` = c(
+    `\\thead{\\scriptsize No steal \\\\ 70-30}` = c(
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
@@ -637,7 +666,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{Take \\\\ 50-70}` = c(
+    `\\thead{\\scriptsize Steal \\\\ 50-70}` = c(
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
@@ -648,7 +677,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{No take \\\\ 70-50}` = c(
+    `\\thead{\\scriptsize No steal \\\\ 70-50}` = c(
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
@@ -659,7 +688,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{Take \\\\ 50-90 [100]}` = c(
+    `\\thead{\\scriptsize Steal \\\\ 50-90 [100]}` = c(
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
@@ -670,7 +699,7 @@ makeStrategyTable <- function() {
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
-    `\\thead{No take \\\\ 70-70 [100]}` = c(
+    `\\thead{\\scriptsize No steal \\\\ 70-70 [100]}` = c(
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
@@ -682,5 +711,129 @@ makeStrategyTable <- function() {
       "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
     ),
     .name_repair = "minimal"
+  )
+}
+
+# make table of wordings for self-report sliders
+makeSliderWordingTable <- function() {
+  tibble(
+    Slider = 1:11,
+    Wording = c(
+      "I wanted to punish people who harmed others",
+      "I wanted to have a higher final bonus than others",
+      "I wanted to avoid having a lower final bonus than others",
+      "I wanted all players to have the same final bonus",
+      "I wanted to stop others from cheating",
+      "I wanted to show that I disapproved of others' actions",
+      "I made decisions at random",
+      "I wanted to punish people who DID NOT harm me or others",
+      "I didn't want to reduce anyone's bonus, no matter what they did",
+      "I didn't want to PAY to reduce anyone's bonus but I would have done so if it were free",
+      "I wanted to punish people if they harmed me but not if they harmed others"
+    )
+  )
+}
+
+# make table of wordings to survey questions
+makeSurveyWordingTable <- function() {
+  tibble(
+    Measure = c(
+      "Demographics", rep(" ", times = 2),
+      "Big 6 Extraversion", rep(" ", times = 3),
+      "Big 6 Agreeableness", rep(" ", times = 3),
+      "Big 6 Conscientiousness", rep(" ", times = 3),
+      "Big 6 Neuroticism", rep(" ", times = 3),
+      "Big 6 Openness to experience", rep(" ", times = 3),
+      "Big 6 Honesty-humility", rep(" ", times = 3),
+      "Social Value Orientation",
+      "Left-right political ideology",
+      "Social Dominance Orientation", rep(" ", times = 7),
+      "Right Wing Authoritarianism", rep(" ", times = 5),
+      "Views on social inequality", " ",
+      "Religious views", " "
+    ),
+    Wording = c(
+      # Demographics
+      "What is your highest level of education?",
+      paste0("Where would you place yourself on this ladder? Please indicate ",
+             "which number on the rung best represents where you stand at this ",
+             "time in your life, relative to other people in your country"),
+      paste0("Please could you tell us roughly how many years have you lived ",
+             "in your current country of residence?"),
+      # Extraversion
+      "I am the life of the party",
+      "I don't talk a lot (reversed)",
+      "I keep in the background (reversed)",
+      "I talk to a lot of different people at parties",
+      # Agreeableness
+      "I sympathise with others' feelings",
+      "I am not interested in other people's problems (reversed)",
+      "I feel others' emotions",
+      "I am not really interested in others (reversed)",
+      # Conscientiousness
+      "I get chores done right away",
+      "I like order",
+      "I make a mess of things (reversed)",
+      "I often forget to put things back in their proper place (reversed)",
+      # Neuroticism
+      "I have frequent mood swings",
+      "I am relaxed most of the time (reversed)",
+      "I get upset easily",
+      "I seldom feel blue (reversed)",
+      # Openness to experience
+      "I have a vivid imagination",
+      "I have difficulty understanding abstract ideas",
+      "I do not have a good imagination (reversed)",
+      "I am not interested in abstract ideas (reversed)",
+      # Honesty-humility
+      "I feel entitled to more of everything (reversed)",
+      "I deserve more things in life (reversed)",
+      "I would like to be seen driving around in a very expensive car (reversed)",
+      "I would get a lot of pleasure from owning expensive luxury goods (reversed)",
+      # SVO
+      "Please indicate how you would like to distribute money between yourself and the other player",
+      # Left-right political ideology
+      paste0("Political views are often organised on a single scale from left ",
+             "to right. For example, in the United States, the Democratic Party ",
+             "is described as more to the left and the Republican Party is described ",
+             "as more to the right. If you had to place your political views on ",
+             "this left-right scale, generally speaking, where would you put yourself?"),
+      # SDO
+      "An ideal society requires some groups to be on top and others to be on the bottom",
+      "Some groups of people are simply inferior to other groups",
+      "No one group should dominate in society (reversed)",
+      "Groups at the bottom are just as deserving as groups at the top (reversed)",
+      "Group equality should not be our primary goal",
+      "It is unjust to try to make groups equal",
+      "We should do what we can to equalize conditions for different groups (reversed)",
+      "We should work to give all groups an equal chance to succeed (reversed)",
+      # RWA
+      "It's great that many young people today are prepared to defy authority (reversed)",
+      "What our country needs most is discipline, with everyone following our leaders in unity",
+      "God's laws about abortion, pornography, and marriage must be strictly followed before it is too late",
+      "There is nothing wrong with premarital sexual intercourse (reversed)",
+      "Our society does NOT need tougher government and stricter laws (reversed)",
+      paste0("The facts on crime and the recent public disorders show we have ",
+             "to crack down harder on troublemakers, if we are going to preserve ",
+             "law and order"),
+      # Views on social inequality
+      "I would like to bring the people above me on the ladder down a peg or two",
+      "I would like to bring the people below me on the ladder up a peg or two",
+      # Religious views
+      "How religious are you?",
+      paste0("It is likely that God, or some other type of spiritual non-human ",
+             "entity, controls the events in the world")
+    ),
+    Scale = c(
+      rep(" ", times = 3),
+      rep("1-7", times = 24),
+      "9 choices",
+      "0-100 slider",
+      rep("1-7", times = 8),
+      rep("1-9", times = 6),
+      rep("1-7", times = 2),
+      "1-5",
+      "1-7"
+      )
   )
 }
