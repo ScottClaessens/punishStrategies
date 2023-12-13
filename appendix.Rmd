@@ -22,7 +22,8 @@
 different punishment strategies from the Bayesian latent state model fitted to
 the full dataset without pre-registered exclusions.* The model assumes an 
 implementation error rate of 5%. Points represent posterior medians, line ranges 
-represent 50% and 95% credible intervals.
+represent 50% and 95% credible intervals. AI = advantageous inequity, DI = 
+disadvantageous inequity.
 
 ```{r plotModel1a, fig.width=7, fig.height=5, fig.cap="(ref:plotModel1aCaption)", warning=FALSE}
 tar_read(plot1.1)
@@ -33,7 +34,8 @@ tar_read(plot1.1)
 (ref:plotAllDems2Caption) *Posterior slopes from models including age, 
 socio-economic status, gender, and student status, fitted to the subsetted 
 dataset with pre-registered exclusions.* Each row represents a separate model. 
-Points represent posterior medians, line ranges represent 95% credible intervals.
+Points represent posterior medians, line ranges represent 95% credible
+intervals. AI = advantageous inequity, DI = disadvantageous inequity.
 
 ```{r plotAllDems2, fig.width=7.5, fig.height=3, fig.cap="(ref:plotAllDems2Caption)", warning=FALSE}
 tar_read(plotAllDems2)
@@ -44,7 +46,8 @@ tar_read(plotAllDems2)
 (ref:plotAllDems1Caption) *Posterior slopes from models including age, 
 socio-economic status, gender, and student status, fitted to the full dataset 
 without pre-registered exclusions.* Each row represents a separate model. Points 
-represent posterior medians, line ranges represent 95% credible intervals.
+represent posterior medians, line ranges represent 95% credible intervals. AI = 
+advantageous inequity, DI = disadvantageous inequity.
 
 ```{r plotAllDems1, fig.width=7.5, fig.height=3, fig.cap="(ref:plotAllDems1Caption)", warning=FALSE}
 tar_read(plotAllDems1)
@@ -55,7 +58,8 @@ tar_read(plotAllDems1)
 (ref:plotAllPers1Caption) *Posterior slopes from models including Big-6 
 personality dimensions and Social Value Orientation, fitted to the full dataset 
 without pre-registered exclusions.* Each row represents a separate model. Points 
-represent posterior medians, line ranges represent 95% credible intervals.
+represent posterior medians, line ranges represent 95% credible intervals. AI = 
+advantageous inequity, DI = disadvantageous inequity.
 
 ```{r plotAllPers1, fig.width=7.5, fig.height=3.5, fig.cap="(ref:plotAllPers1Caption)", warning=FALSE}
 tar_read(plotAllPers1)
@@ -68,7 +72,8 @@ ideology, views about social inequality, and religiosity, fitted to the full
 dataset without pre-registered exclusions.* Each row represents a separate model 
 aside from Social Dominance Orientation and Right Wing Authoritarianism, which 
 control for one another within the same model. Points represent posterior 
-medians, line ranges represent 95% credible intervals.
+medians, line ranges represent 95% credible intervals. AI = advantageous 
+inequity, DI = disadvantageous inequity.
 
 ```{r plotAllPolRel1, fig.width=7.5, fig.height=3.5, fig.cap="(ref:plotAllPolRel1Caption)", warning=FALSE}
 tar_read(plotAllPolRel1)
@@ -103,7 +108,8 @@ exclusions.* Each row represents a separate model. Highlighted estimates
 represent combinations where the self-report slider matched the behavioural 
 strategy. Each strategy had an associated self-report slider except for the 
 competitive strategy. Points represent posterior medians, line ranges represent 
-95% credible intervals.
+95% credible intervals. AI = advantageous inequity, DI = disadvantageous 
+inequity.
 
 ```{r plotAllSliders1, fig.width=7.5, fig.height=4, fig.cap="(ref:plotAllSliders1Caption)", warning=FALSE}
 tar_read(plotAllSliders1)
@@ -127,6 +133,21 @@ tar_read(plotSample_US)
 
 \newpage
 
+(ref:plotModel5Caption) *Posterior estimates of the probabilities of following
+different punishment strategies from the Bayesian latent state model that
+estimates the implementation error rate as a free parameter.* The model
+estimated the implementation error rate to be `r printnum(median(error))`
+(95% CI [`r printnum(quantile(error, 0.025))`
+`r printnum(quantile(error, 0.975))`]). Points represent posterior medians, line 
+ranges represent 50% and 95% credible intervals. AI = advantageous inequity, DI
+= disadvantageous inequity.
+
+```{r plotModel5, fig.width=7, fig.height=5, fig.cap="(ref:plotModel5Caption)", warning=FALSE}
+tar_read(plot5)
+```
+
+\newpage
+
 (ref:plotTraceCaption) *Trace plots for parameter values from the Bayesian
 latent state model fitted to data with exclusions.*
 
@@ -139,7 +160,8 @@ tar_read(plotTrace1.2)
 (ref:plotSimCaption) *Results of Bayesian latent state model fitted to simulated
 data (n = 100) with known strategy frequencies in the population.* Blue points
 represent known strategy frequencies, grey densities represent posterior
-estimates of strategy frequencies.
+estimates of strategy frequencies. AI = advantageous inequity, DI = 
+disadvantageous inequity.
 
 ```{r plotSim, fig.width=6, fig.height=5, fig.cap="(ref:plotSimCaption)", warning=FALSE}
 tar_read(plotSim1)

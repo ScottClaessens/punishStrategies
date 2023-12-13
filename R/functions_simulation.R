@@ -91,7 +91,7 @@ plotSimResults1 <- function(simAlphas, simPost) {
   # strategy vector
   strategies <- c("Competitive", "Avoid DI", "Egalitarian", "Seek AI",
                   "Retributive", "Deterrent", "Norm-enforcing", 
-                  "Antisocial", "Random choice", "Anti-punish")
+                  "Antisocial", "Random choice", "Never punish")
   # get simulated probabilities (intercepts)
   simProbs <- softmax(simAlphas)
   # calculate probabilities
@@ -104,7 +104,10 @@ plotSimResults1 <- function(simAlphas, simPost) {
             P[,1,6], P[,1,7], P[,1,8], P[,1,9], P[,1,10]),
       strategy = rep(strategies, each = length(P[,1,1]))
     ) %>%
-    mutate(strategy = factor(strategy, levels = strategies)) %>%
+    mutate(strategy = factor(strategy, levels = c("Deterrent", "Norm-enforcing", "Retributive", 
+                                                  "Avoid DI", "Egalitarian", "Seek AI",
+                                                  "Competitive", "Antisocial", 
+                                                  "Never punish", "Random choice"))) %>%
     ggplot(aes(x = p, y = fct_rev(strategy))) +
     geom_density_ridges(rel_min_height = 0.01) +
     geom_point(data = tibble(strategy = strategies, p = simProbs), colour = "blue") +
@@ -120,7 +123,7 @@ plotSimResults2 <- function(dSim, simPost) {
   # strategy vector
   strategies <- c("Competitive", "Avoid DI", "Egalitarian", "Seek AI",
                   "Retributive", "Deterrent", "Norm-enforcing", 
-                  "Antisocial", "Random choice", "Anti-punish")
+                  "Antisocial", "Random choice", "Never punish")
   # x sequence
   x <- seq(min(dSim$x), max(dSim$x), length.out = 100)
   # post
@@ -137,7 +140,10 @@ plotSimResults2 <- function(dSim, simPost) {
         post, 
         tibble(
           x = x[i],
-          strategy = factor(strategies, levels = strategies),
+          strategy = factor(strategies, levels = c("Deterrent", "Norm-enforcing", "Retributive", 
+                                                   "Avoid DI", "Egalitarian", "Seek AI",
+                                                   "Competitive", "Antisocial", 
+                                                   "Never punish", "Random choice")),
           med = apply(p, 2, median),
           lower = apply(p, 2, quantile, 0.025),
           upper = apply(p, 2, quantile, 0.975)

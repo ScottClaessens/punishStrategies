@@ -11,8 +11,9 @@ To run this code, you will need to [install R](https://www.r-project.org/) and t
 ```
 install.packages(c("ape", "cowplot", "ggcorrplot", "ggrepel", 
                    "ggridges", "knitr", "lme4", "ltm", "papaja", 
-	           "phangorn", "rstan", "tanggle", "tidybayes",
-                   "tidytext", "tidyverse", "wordcloud"))
+                   "phangorn", "rstan", "tanggle", "targets", 
+                   "tarchetypes", "tidybayes", "tidytext",
+                   "tidyverse", "wordcloud"))
 ```
 
 You will also need to install the `rethinking` package. See here for more details: [https://github.com/rmcelreath/rethinking](https://github.com/rmcelreath/rethinking)

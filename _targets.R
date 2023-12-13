@@ -53,11 +53,13 @@ list(
   tar_target(fileModel2, "stan/punishStrat_withPredictor.stan", format = "file"),
   tar_target(fileModel3, "stan/punishStrat_withTwoPredictors.stan", format = "file"),
   tar_target(fileModel4, "stan/punishStrat_withCategoricalPredictor.stan", format = "file"),
+  tar_target(fileModel5, "stan/punishStrat_noPredictor_estimateError.stan", format = "file"),
   # compile models
   tar_target(compiledModel1, stan_model(fileModel1), deployment = "worker"),
   tar_target(compiledModel2, stan_model(fileModel2), deployment = "worker"),
   tar_target(compiledModel3, stan_model(fileModel3), deployment = "worker"),
   tar_target(compiledModel4, stan_model(fileModel4), deployment = "worker"),
+  tar_target(compiledModel5, stan_model(fileModel5), deployment = "worker"),
   
   #### Simulation ####
   
@@ -143,7 +145,6 @@ list(
   tar_target(plot1.2, plotModel1(post1.2, file = "figures/modelResults/withExclusions/model1.pdf")),
   # trace plot
   tar_target(plotTrace1.2, plotTraceMCMC(m1.2)),
-  
   
   #### Fit models with continuous predictor ####
   
@@ -236,6 +237,15 @@ list(
     tar_target(plot4.2, plotModel4(d, post4.2, pred, xlab, 
                                    file = paste0("figures/modelResults/withExclusions/model3_", pred, ".pdf")))
   ),
+  
+  #### Fit model of initial frequencies (with implementation error estimation) ####
+  
+  # model fitting
+  tar_target(m5, fitModel5(dExc, compiledModel5), deployment = "worker"),
+  # posterior samples
+  tar_target(post5, extract(m5)),
+  # plot
+  tar_target(plot5, plotModel1(post5, file = "figures/modelResults/withExclusions/model5.pdf")),
   
   #### Summary plots of model results ####
   

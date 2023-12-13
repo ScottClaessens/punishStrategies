@@ -197,3 +197,39 @@ fitMLM2 <- function(d) {
       family = binomial
     )
 }
+
+# fit stan model without predictor (estimate implementation error)
+fitModel5 <- function(d, compiledModel5,
+                      iter = 2000, warmup = 1000, chains = 4, cores = 4) {
+  # list for stan
+  dataList <-
+    list(
+      N = nrow(d),
+      Nc = length(unique(d$Country)),
+      countryID = ifelse(d$Country == "United Kingdom", 1L, 2L),
+      pun1_1 = ifelse(!is.na(d$NoDI1_Take),    d$pun1_1, -999),
+      pun1_2 = ifelse(!is.na(d$NoDI1_Nothing), d$pun1_2, -999),
+      pun2_1 = ifelse(!is.na(d$NoDI2_Take),    d$pun2_1, -999),
+      pun2_2 = ifelse(!is.na(d$NoDI2_Nothing), d$pun2_2, -999),
+      pun3_1 = ifelse(!is.na(d$NoDI3_Take),    d$pun3_1, -999),
+      pun3_2 = ifelse(!is.na(d$NoDI3_Nothing), d$pun3_2, -999),
+      pun4_1 = ifelse(!is.na(d$NoDI4_Take),    d$pun4_1, -999),
+      pun4_2 = ifelse(!is.na(d$NoDI4_Nothing), d$pun4_2, -999),
+      pun5_1 = ifelse(!is.na(d$DI_Take),       d$pun5_1, -999),
+      pun5_2 = ifelse(!is.na(d$DI_Nothing),    d$pun5_2, -999),
+      pun6_1 = ifelse(!is.na(d$`3PP_Take`),    d$pun6_1, -999),
+      pun6_2 = ifelse(!is.na(d$`3PP_Nothing`), d$pun6_2, -999)
+    )
+  # fit model
+  out <- 
+    sampling(
+      compiledModel5, 
+      data = dataList, 
+      iter = iter,
+      warmup = warmup,
+      chains = chains,
+      cores = cores,
+      seed = 2113
+    )
+  return(out)
+}
