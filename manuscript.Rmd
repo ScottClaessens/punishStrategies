@@ -20,7 +20,7 @@ abstract: |
  Costly punishment is thought to be a key mechanism sustaining human cooperation. However, the motives for punitive behaviour remain unclear. Although often assumed to be motivated by a desire to convert cheats into cooperators, punishment is also consistent with other functions, such as levelling payoffs or improving one’s relative position. We used six economic games to tease apart different motives for punishment and to explore whether different punishment strategies were associated with personality variables, political ideology, and religiosity. We used representative samples from the United Kingdom and the United States (N = 2010) to estimate the frequency of different punishment strategies in the population. The most common strategy was to never punish: prosocial individuals and those scoring high in honesty-humility were among the least punitive in our sample, while religious individuals and those scoring high for right-wing authoritarianism and social dominance orientation were more punitive. For people who did punish, strategy use was more consistent with egalitarian motives than behaviour-change motives. Nevertheless, different punishment strategies were also associated with personality, social preferences, political ideology, and religiosity. Self-reports of behaviour in the games suggested that people have some insight into their punishment strategy. These findings highlight the multipurpose nature of human punishment and show how the different motives underpinning punishment decisions are linked with core character traits.
 
 keywords          : "punishment; cooperation; economic games"
-wordcount         : "xxxx words"
+wordcount         : "5657 words"
 bibliography      : ["r-references.bib"]
 floatsintext      : yes
 figurelist        : no
@@ -69,7 +69,7 @@ csl               : nature.csl
 opts_chunk$set(echo = FALSE)
 ```
 
-\linenumbers
+\nolinenumbers
 
 # Introduction
 
