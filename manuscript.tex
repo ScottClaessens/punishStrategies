@@ -356,7 +356,7 @@ religiosity, and self-reported strategy usage.
 
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{images/games} \caption{\emph{Visual summary of the six economic games.} In all
+\includegraphics[width=1\linewidth]{images/games} \caption{\emph{Visual summary of the six economic games.} In the
 games, Player 2 either steals £0.20 from Player 1 (the focal player) or does
 nothing. Player 1 is then given the option to punish by paying a certain amount
 of money to remove money from Player 2 (this money is destroyed). The six games
@@ -366,6 +366,7 @@ the computer ``decides'' whether Player 2 steals, (D) the fee-fine ratio is 1:1,
 (E) Player 2 is better off after stealing, and (F) Player 2 steals instead from
 a third-party.}\label{fig:plotGames}
 \end{figure}
+
 
 
 
@@ -390,11 +391,12 @@ the games employed in the current study (see Methods for more details). In each
 of the six games, participants are given the opportunity to punish players who
 ``steal'' and those who do not, meaning that participants make twelve punishment
 decisions in total. Each behavioural strategy implies a unique pattern of
-punishment across all decisions. Green ticks reflect decisions to punish, red
-crosses reflect decisions to not punish. In column headers, payoffs at the first
-stage (above) and the second stage (below) are denoted as P1-P2 (or P2-P3 {[}P1{]}
-for Game F) where participants take the role of P1 and P2 is the target of
-punishment. AI = advantageous inequity, DI = disadvantageous inequity.}}\\
+punishment across all decisions (see Methods for detailed explanation of
+strategies). Green ticks reflect decisions to punish, red crosses reflect
+decisions to not punish. In column headers, payoffs at the first stage (above)
+and the second stage (below) are denoted as P1-P2 (or P2-P3 {[}P1{]} for Game F)
+where participants take the role of P1 and P2 is the target of punishment. AI =
+advantageous inequity, DI = disadvantageous inequity.}}\\
 \toprule
  &  & \multicolumn{2}{c}{\thead{\scriptsize Game A \\ (AI) \\ 70-10}} & \multicolumn{2}{c}{\thead{\scriptsize Game B \\ (Equal) \\ 70-30}} & \multicolumn{2}{c}{\thead{\scriptsize Game C \\ (Computer) \\ 70-30}} & \multicolumn{2}{c}{\thead{\scriptsize Game D \\ (1:1 Fee-Fine) \\ 70-30}} & \multicolumn{2}{c}{\thead{\scriptsize Game E \\ (DI) \\ 70-50}} & \multicolumn{2}{c}{\thead{\scriptsize Game F \\ (Third-Party) \\ 70-70 [100]}} \\
 \cmidrule(r){3-4} \cmidrule(r){5-6} \cmidrule(r){7-8} \cmidrule(r){9-10} \cmidrule(r){11-12} \cmidrule(r){13-14}
@@ -1407,7 +1409,7 @@ GitHub: \url{https://github.com/ScottClaessens/punishStrategies}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Laurin2012}{}}%
 \CSLLeftMargin{64. }%
-\CSLRightInline{Laurin, K., Shariff, A. F., Henrich, J. \& Kay, A. C. \href{https://doi.org/10.1098/rspb.2012.0615}{Outsourcing punishment to god: Beliefs in divine control reduce earthly punishment}. \emph{Proceedings of the Royal Society B: Biological Sciences} \textbf{279}, 3272--3281 (2012).}
+\CSLRightInline{Laurin, K., Shariff, A. F., Henrich, J. \& Kay, A. C. \href{https://doi.org/10.1098/rspb.2012.0615}{Outsourcing punishment to {God}: Beliefs in divine control reduce earthly punishment}. \emph{Proceedings of the Royal Society B: Biological Sciences} \textbf{279}, 3272--3281 (2012).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-McElreath2020}{}}%
 \CSLLeftMargin{65. }%
@@ -1457,17 +1459,25 @@ GitHub: \url{https://github.com/ScottClaessens/punishStrategies}
 \centering
 
 \noindent \hspace*{10mm} \small Why do people punish? Evidence for a range of strategic concerns \newline
-\hspace*{1cm} \small Scott Claessens\textsuperscript{1}, Quentin D. Atkinson\textsuperscript{1}, Nichola Raihani\textsuperscript{1,2} \newline
+\hspace*{1cm} \small Scott Claessens\textsuperscript{1}, Quentin D. Atkinson\textsuperscript{1}, \& Nichola Raihani\textsuperscript{1,2} \newline
 
 \raggedright
 
 \noindent \footnotesize \textsuperscript{1} School of Psychology, University of Auckland, Auckland, New Zealand \newline
 \noindent \footnotesize \textsuperscript{2} Department of Experimental Psychology, University College London, London, United Kingdom \newline
+
+\par
+
+\noindent{\bfseries{Contents}}
+\contentsline {subsection}{Supplementary Figures S1-S13}{2}{}
+\contentsline {subsection}{Supplementary Tables S1-S4}{15}{}
 \normalsize
 \newpage
 
 \hypertarget{supplementary-figures}{%
 \subsection{Supplementary Figures}\label{supplementary-figures}}
+
+
 
 
 
@@ -1482,7 +1492,9 @@ GitHub: \url{https://github.com/ScottClaessens/punishStrategies}
 \caption{\label{fig:plotModel1a}\emph{Posterior estimates of the probabilities of following
 different punishment strategies from the Bayesian latent state model fitted to
 the full dataset without pre-registered exclusions.} The model assumes an
-implementation error rate of 5\%. Points represent posterior medians, line ranges
+implementation error rate of 5\%. Figure \ref{fig:plotModel1b} in the main text
+shows the same result, but from a model fitted to the reduced dataset with
+pre-registered exclusions. Points represent posterior medians, line ranges
 represent 50\% and 95\% credible intervals. AI = advantageous inequity, DI =
 disadvantageous inequity.}
 \end{figure}
@@ -1531,17 +1543,23 @@ advantageous inequity, DI = disadvantageous inequity.}
 
 
 
+
+
 \begin{figure}
 \centering
 \includegraphics{manuscript_files/figure-latex/plotAllPers1-1.pdf}
 \caption{\label{fig:plotAllPers1}\emph{Posterior slopes from models including Big-6
 personality dimensions and Social Value Orientation, fitted to the full dataset
-without pre-registered exclusions.} Each row represents a separate model. Points
-represent posterior medians, line ranges represent 95\% credible intervals. AI =
+without pre-registered exclusions.} Each row represents a separate model. Figure
+\ref{fig:plotAllPers2} in the main text shows the same results, but from models
+fitted to the reduced dataset with pre-registered exclusions. Points represent
+posterior medians, line ranges represent 95\% credible intervals. AI =
 advantageous inequity, DI = disadvantageous inequity.}
 \end{figure}
 
 \newpage
+
+
 
 
 
@@ -1558,9 +1576,11 @@ advantageous inequity, DI = disadvantageous inequity.}
 ideology, views about social inequality, and religiosity, fitted to the full
 dataset without pre-registered exclusions.} Each row represents a separate model
 aside from Social Dominance Orientation and Right Wing Authoritarianism, which
-control for one another within the same model. Points represent posterior
-medians, line ranges represent 95\% credible intervals. AI = advantageous
-inequity, DI = disadvantageous inequity.}
+control for one another within the same model. Figure \ref{fig:plotAllPolRel2}
+in the main text shows the same results, but from models fitted to the reduced
+dataset with pre-registered exclusions. Points represent posterior medians, line
+ranges represent 95\% credible intervals. AI = advantageous inequity, DI =
+disadvantageous inequity.}
 \end{figure}
 
 \newpage
@@ -1611,10 +1631,10 @@ Boxplots represent medians and interquartile ranges.}
 self-reported strategy usage, fitted to the full dataset without pre-registered
 exclusions.} Each row represents a separate model. Highlighted estimates
 represent combinations where the self-report slider matched the behavioural
-strategy. Each strategy had an associated self-report slider except for the
-competitive strategy. Points represent posterior medians, line ranges represent
-95\% credible intervals. AI = advantageous inequity, DI = disadvantageous
-inequity.}
+strategy. Figure \ref{fig:plotAllSliders2} in the main text shows the same
+results, but from models fitted to the reduced dataset with pre-registered
+exclusions. Points represent posterior medians, line ranges represent 95\%
+credible intervals. AI = advantageous inequity, DI = disadvantageous inequity.}
 \end{figure}
 
 \newpage
@@ -1666,11 +1686,13 @@ ranges represent 50\% and 95\% credible intervals. AI = advantageous inequity, D
 
 
 
+
 \begin{figure}
 \centering
 \includegraphics{manuscript_files/figure-latex/plotTrace-1.pdf}
-\caption{\label{fig:plotTrace}\emph{Trace plots for parameter values from the Bayesian
-latent state model fitted to data with exclusions.}}
+\caption{\label{fig:plotTrace}\emph{MCMC trace plots for parameter values from the Bayesian
+latent state model fitted to data with exclusions.} These trace plots suggest
+that the different chains mixed well and the model converged normally.}
 \end{figure}
 
 \newpage

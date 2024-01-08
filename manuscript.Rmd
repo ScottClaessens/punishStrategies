@@ -204,7 +204,7 @@ strategy participants are employing. We then combine these behavioural patterns
 with data on demographics, personality, social preferences, political ideology,
 religiosity, and self-reported strategy usage.
 
-(ref:plotGamesCaption) *Visual summary of the six economic games.* In all
+(ref:plotGamesCaption) *Visual summary of the six economic games.* In the
 games, Player 2 either steals £0.20 from Player 1 (the focal player) or does 
 nothing. Player 1 is then given the option to punish by paying a certain amount 
 of money to remove money from Player 2 (this money is destroyed). The six games
@@ -224,11 +224,12 @@ the games employed in the current study (see Methods for more details). In each
 of the six games, participants are given the opportunity to punish players who 
 "steal" and those who do not, meaning that participants make twelve punishment 
 decisions in total. Each behavioural strategy implies a unique pattern of 
-punishment across all decisions. Green ticks reflect decisions to punish, red 
-crosses reflect decisions to not punish. In column headers, payoffs at the first 
-stage (above) and the second stage (below) are denoted as P1-P2 (or P2-P3 [P1] 
-for Game F) where participants take the role of P1 and P2 is the target of 
-punishment. AI = advantageous inequity, DI = disadvantageous inequity.*
+punishment across all decisions (see Methods for detailed explanation of 
+strategies). Green ticks reflect decisions to punish, red crosses reflect 
+decisions to not punish. In column headers, payoffs at the first stage (above) 
+and the second stage (below) are denoted as P1-P2 (or P2-P3 [P1] for Game F) 
+where participants take the role of P1 and P2 is the target of punishment. AI = 
+advantageous inequity, DI = disadvantageous inequity.*
 
 ```{r tableStrategies}
 apa_table(

@@ -9,10 +9,14 @@
 \setcounter{page}{1}
 \centering
 \noindent \hspace*{10mm} \small Why do people punish? Evidence for a range of strategic concerns \newline
-\hspace*{1cm} \small Scott Claessens\textsuperscript{1}, Quentin D. Atkinson\textsuperscript{1}, Nichola Raihani\textsuperscript{1,2} \newline
+\hspace*{1cm} \small Scott Claessens\textsuperscript{1}, Quentin D. Atkinson\textsuperscript{1}, & Nichola Raihani\textsuperscript{1,2} \newline
 \raggedright
 \noindent \footnotesize \textsuperscript{1} School of Psychology, University of Auckland, Auckland, New Zealand \newline
 \noindent \footnotesize \textsuperscript{2} Department of Experimental Psychology, University College London, London, United Kingdom \newline
+\par
+\noindent{\bfseries{Contents}}
+\contentsline {subsection}{Supplementary Figures S1-S13}{2}{}
+\contentsline {subsection}{Supplementary Tables S1-S4}{15}{}
 \normalsize
 \newpage
 
@@ -21,7 +25,9 @@
 (ref:plotModel1aCaption) *Posterior estimates of the probabilities of following
 different punishment strategies from the Bayesian latent state model fitted to
 the full dataset without pre-registered exclusions.* The model assumes an 
-implementation error rate of 5%. Points represent posterior medians, line ranges 
+implementation error rate of 5%. Figure \@ref(fig:plotModel1b) in the main text
+shows the same result, but from a model fitted to the reduced dataset with 
+pre-registered exclusions. Points represent posterior medians, line ranges 
 represent 50% and 95% credible intervals. AI = advantageous inequity, DI = 
 disadvantageous inequity.
 
@@ -57,8 +63,10 @@ tar_read(plotAllDems1)
 
 (ref:plotAllPers1Caption) *Posterior slopes from models including Big-6 
 personality dimensions and Social Value Orientation, fitted to the full dataset 
-without pre-registered exclusions.* Each row represents a separate model. Points 
-represent posterior medians, line ranges represent 95% credible intervals. AI = 
+without pre-registered exclusions.* Each row represents a separate model. Figure 
+\@ref(fig:plotAllPers2) in the main text shows the same results, but from models
+fitted to the reduced dataset with pre-registered exclusions. Points represent
+posterior medians, line ranges represent 95% credible intervals. AI = 
 advantageous inequity, DI = disadvantageous inequity.
 
 ```{r plotAllPers1, fig.width=7.5, fig.height=3.5, fig.cap="(ref:plotAllPers1Caption)", warning=FALSE}
@@ -71,9 +79,11 @@ tar_read(plotAllPers1)
 ideology, views about social inequality, and religiosity, fitted to the full 
 dataset without pre-registered exclusions.* Each row represents a separate model 
 aside from Social Dominance Orientation and Right Wing Authoritarianism, which 
-control for one another within the same model. Points represent posterior 
-medians, line ranges represent 95% credible intervals. AI = advantageous 
-inequity, DI = disadvantageous inequity.
+control for one another within the same model. Figure \@ref(fig:plotAllPolRel2)
+in the main text shows the same results, but from models fitted to the reduced
+dataset with pre-registered exclusions. Points represent posterior medians, line 
+ranges represent 95% credible intervals. AI = advantageous inequity, DI = 
+disadvantageous inequity.
 
 ```{r plotAllPolRel1, fig.width=7.5, fig.height=3.5, fig.cap="(ref:plotAllPolRel1Caption)", warning=FALSE}
 tar_read(plotAllPolRel1)
@@ -106,10 +116,10 @@ tar_read(plotSliders2)
 self-reported strategy usage, fitted to the full dataset without pre-registered 
 exclusions.* Each row represents a separate model. Highlighted estimates 
 represent combinations where the self-report slider matched the behavioural 
-strategy. Each strategy had an associated self-report slider except for the 
-competitive strategy. Points represent posterior medians, line ranges represent 
-95% credible intervals. AI = advantageous inequity, DI = disadvantageous 
-inequity.
+strategy. Figure \@ref(fig:plotAllSliders2) in the main text shows the same 
+results, but from models fitted to the reduced dataset with pre-registered 
+exclusions. Points represent posterior medians, line ranges represent 95% 
+credible intervals. AI = advantageous inequity, DI = disadvantageous inequity.
 
 ```{r plotAllSliders1, fig.width=7.5, fig.height=4, fig.cap="(ref:plotAllSliders1Caption)", warning=FALSE}
 tar_read(plotAllSliders1)
@@ -148,8 +158,9 @@ tar_read(plot5)
 
 \newpage
 
-(ref:plotTraceCaption) *Trace plots for parameter values from the Bayesian
-latent state model fitted to data with exclusions.*
+(ref:plotTraceCaption) *MCMC trace plots for parameter values from the Bayesian
+latent state model fitted to data with exclusions.* These trace plots suggest
+that the different chains mixed well and the model converged normally.
 
 ```{r plotTrace, fig.width=7, fig.height=6, fig.cap="(ref:plotTraceCaption)", warning=FALSE}
 tar_read(plotTrace1.2)
