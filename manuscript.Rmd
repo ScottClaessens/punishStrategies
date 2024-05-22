@@ -19,8 +19,6 @@ affiliation:
 abstract: |
  Costly punishment is thought to be a key mechanism sustaining human cooperation. However, the motives for punitive behaviour remain unclear. Although often assumed to be motivated by a desire to convert cheats into cooperators, punishment is also consistent with other functions, such as levelling payoffs or improving one’s relative position. We used six economic games to tease apart different motives for punishment and to explore whether different punishment strategies were associated with personality variables, political ideology, and religiosity. We used representative samples from the United Kingdom and the United States (N = 2010) to estimate the frequency of different punishment strategies in the population. The most common strategy was to never punish: prosocial individuals and those scoring high in honesty-humility were among the least punitive in our sample, while religious individuals and those scoring high for right-wing authoritarianism and social dominance orientation were more punitive. For people who did punish, strategy use was more consistent with egalitarian motives than behaviour-change motives. Nevertheless, different punishment strategies were also associated with personality, social preferences, political ideology, and religiosity. Self-reports of behaviour in the games suggested that people have some insight into their punishment strategy. These findings highlight the multipurpose nature of human punishment and show how the different motives underpinning punishment decisions are linked with core character traits.
 
-keywords          : "punishment; cooperation; economic games"
-wordcount         : "5657 words"
 bibliography      : ["r-references.bib"]
 floatsintext      : yes
 figurelist        : no
@@ -32,7 +30,7 @@ mask              : no
 draft             : no
 numbersections    : false
 documentclass     : "apa6"
-classoption       : "man"
+classoption       : "man, donotrepeattitle"
 output            : papaja::apa6_pdf
 header-includes: 
   - \usepackage{array}
@@ -60,34 +58,47 @@ header-includes:
   - \captionsetup[table]{font={stretch=1,small}}
   - \captionsetup[figure]{font={stretch=1,small}}
   - \nolinenumbers
-  - \note{\raggedright * Correspondence concerning this article should be addressed to Scott Claessens, Level 2, Building 302, 23 Symonds Street, Auckland, New Zealand. \text{E-mail:} \href{scott.claessens@gmail.com}{\nolinkurl{scott.claessens@gmail.com}} \par This working paper has not yet been peer-reviewed.}
+  - \note{\raggedright * Correspondence concerning this article should be addressed to Scott Claessens, Level 2, Building 302, 23 Symonds Street, Auckland, New Zealand. \text{E-mail:} \href{scott.claessens@gmail.com}{\nolinkurl{scott.claessens@gmail.com}} \par This manuscript has not yet been peer-reviewed. \par This manuscript was published as a pre-print on PsyArXiv under a CC BY 4.0 \text{license:} \url{https://doi.org/10.31234/osf.io/ys6rm} \par \text{Classification:} Social Sciences; Psychological and Cognitive Sciences \par \text{Keywords:} punishment; cooperation; economic games}
 appendix          : "appendix.Rmd"
-csl               : nature.csl
+csl               : pnas.csl
 ---
 
 ```{r options, echo=FALSE}
 opts_chunk$set(echo = FALSE)
 ```
 
-\nolinenumbers
+# Significance Statement
+
+Research has shown that humans are willing to punish others at a personal cost,
+but the motives for this behaviour remain unclear. Using a suite of economic 
+games, we show that punitive behaviour is consistent with a variety of strategic
+concerns. While most people choose not to punish in our games, people who do 
+punish tend to be motivated by egalitarianism rather than deterrence or 
+norm enforcement. We also find that different punishment strategies are linked 
+with different character traits, including personality, prosocial preferences, 
+and political and religious views. This research highlights the multifaceted
+nature of human punishment.
+
+\newpage
+\linenumbers
 
 # Introduction
 
 Humans cooperate on a scale that is unparalleled in the animal kingdom. One 
 mechanism thought to sustain this level of cooperation is costly punishment, 
-whereby individuals harm others at a personal cost[@CluttonBrock1995], 
-ostensibly encouraging cooperative behaviour from the target (or bystanders 
-[@DosSantos2011;@DosSantos2013;@Raihani2015]) in the future. Punishment offers a 
+whereby individuals harm others at a personal cost [@CluttonBrock1995], 
+ostensibly encouraging cooperative behaviour from the target, or bystanders 
+[@DosSantos2011;@DosSantos2013;@Raihani2015], in the future. Punishment offers a 
 route to maintaining or increasing cooperation by changing the payoff structure 
 of social interactions such that it no longer pays to cheat or exploit social 
-partners[@CluttonBrock1995;@Ostrom1990]. Yet, despite its theoretical 
+partners [@CluttonBrock1995;@Ostrom1990]. Yet, despite its theoretical 
 importance, the question of why people choose to punish others is still hotly 
-contested[@Raihani2019]. In this study, we use a battery of economic games to 
+contested [@Raihani2019]. In this study, we use a battery of economic games to 
 disentangle the different motives underpinning punishment and explore how these 
 motives vary across individuals.
 
 In humans, many studies of punishment have been carried out in laboratory 
-settings using economic games[@Balliet2011;@Balliet2013;@Chaudhuri2011;
+settings using economic games [@Balliet2011;@Balliet2013;@Chaudhuri2011;
 @Dreber2008;@Fehr2000;@Fehr2002;@Henrich2006;@Nikiforakis2008a;@Raihani2012a;
 @Raihani2019]. In these games, participants are usually given a sum of money 
 that they can use to invest in collective action or to help others. 
@@ -95,10 +106,10 @@ Alternatively, participants can 'cheat' by keeping the money for themselves or
 by exploiting the contributions of others. Punishment is introduced into such 
 games by giving participants the option to pay a small 'fee' to impose a greater 
 'fine' on their co-players. Several lines of experimental evidence indicate that 
-people use this punishment option[@Henrich2006], that they enjoy 
-punishing[@DeQuervain2004], and that they frequently, though not 
-always[@Herrmann2008], punish cheating or exploitative 
-co-players[@Fehr2000;@Fehr2002].
+people use this punishment option [@Henrich2006], that they enjoy 
+punishing [@DeQuervain2004], and that they frequently, though not 
+always [@Herrmann2008], punish cheating or exploitative 
+co-players [@Fehr2000;@Fehr2002].
 
 Evidence from these experiments suggests that the threat of costly punishment 
 plays an important role in promoting human cooperation. People tend to cooperate 
@@ -106,36 +117,36 @@ more in games where punishment is possible compared to those where it is not
 [@Balliet2011;@Balliet2013;@Raihani2019]. The effect that the threat of 
 punishment has on cooperation is also evident in the higher contributions 
 typically observed in the Ultimatum Game (where punishment is possible) compared 
-to the structurally-similar Dictator Game (where it is not)[@Camerer2003]. This 
+to the structurally-similar Dictator Game (where it is not) [@Camerer2003]. This 
 typical cooperation-enhancing effect of punishment has also been observed across 
-societies[@Balliet2013], leading some to suggest that costly punishment has 
+societies [@Balliet2013], leading some to suggest that costly punishment has 
 played a key role in the cultural evolution of cooperation in humans
 [@Bowles2013;@Boyd2003;@Chudek2011;@Henrich2017].
 
 Nevertheless, it remains unclear whether individuals playing economic games use
 punishment as a behaviour-change tool to enforce cooperation or as a means to 
 achieve other ends. Some have argued that punishment is primarily used to shape 
-future behaviour, either to deter personal harm[@Delton2017;@Dreber2008;
+future behaviour, either to deter personal harm [@Delton2017;@Dreber2008;
 @DosSantos2013] or to uphold normative standards of cooperative behaviour 
 [@Boyd2003;@Chudek2011;@Fehr2018;@Mathew2011;@Mathew2014;@Richerson2016]. 
 But while the _threat_ of punishment can have a cooperation-enhancing effect, 
 the _enactment_ of this punishment does not consistently deter targets from 
-cheating in the future[@Raihani2019]. This calls into question whether 
+cheating in the future [@Raihani2019]. This calls into question whether 
 punishment primarily operates as a behaviour-change tool or whether it is used 
 to achieve other goals.
 
 Beyond behaviour shaping concerns, there are a host of other reasons why people 
 may want to punish in economic games. Punishers might be motivated by a desire 
 for retribution rather than deterrence, punishing in proportion to the amount 
-of harm that was personally caused[@Carlsmith2002]. Punishment might be driven 
+of harm that was personally caused [@Carlsmith2002]. Punishment might be driven 
 by concerns about relative payoffs, such as disadvantageous inequity aversion 
-(i.e., avoiding having less than others[@Raihani2012b;@Raihani2019]) and/or 
+(i.e., avoiding having less than others) [@Raihani2012b;@Raihani2019] and/or 
 general egalitarian preferences (i.e., wanting all participants to receive the 
-same payoffs[@Dawes2007]). Such concerns about relative payoffs may be activated 
+same payoffs) [@Dawes2007]. Such concerns about relative payoffs may be activated 
 when participants earn less than cheats in economic games or when there are 
 income disparities in these settings. People might also use punishment for 
 competitive purposes, seeking advantageous inequity for themselves (i.e., having 
-more than others) and/or improving their relative position[@Raihani2019].
+more than others) and/or improving their relative position [@Raihani2019].
 
 Common economic game designs have been unable to tease apart these different 
 motives for punishment because participants who interact with cheats in these 
@@ -145,30 +156,30 @@ this setup, people can simultaneously use punishment to reciprocate losses, to
 deter others from cheating, and to reduce or reverse disparities in payoffs 
 between themselves and targets. To add to this complexity, it is evident that 
 people use punishment in seemingly disparate ways: punishing when no behaviour 
-change is possible, such as in one-shot games[@Bone2015;@Henrich2006;
+change is possible, such as in one-shot games [@Bone2015;@Henrich2006;
 @Raihani2012b;@Walker2004], on the very last round of repeated games
 [@Barclay2016], or in games where the target never learns about the 
-punishment[@Crockett2014]; punishing those who did not cheat or who 
-over-contributed to collective action (antisocial punishment
-[@Herrmann2008;@Sylwester2013]); punishing in scenarios where they were not 
-personally harmed (third-party punishment[@Fehr2004]); and punishing in 
+punishment [@Crockett2014]; punishing those who did not cheat or who 
+over-contributed to collective action (antisocial punishment) 
+[@Herrmann2008;@Sylwester2013]; punishing in scenarios where they were not 
+personally harmed (third-party punishment) [@Fehr2004]; and punishing in 
 scenarios where disparities in payoffs did not arise from participants' 
-actions[@Dawes2007;@Johnson2009;@Fowler2005].
+actions [@Dawes2007;@Johnson2009;@Fowler2005].
 
 The general conclusion from this research is that there is no one unifying 
 function of costly punishment in humans. Instead, punishment should be thought 
 of as a flexible behavioural tool that serves a variety of functions that are 
-not mutually exclusive[@Raihani2019]. Due to its multipurpose nature, we should 
+not mutually exclusive [@Raihani2019]. Due to its multipurpose nature, we should 
 therefore expect variation in punishment strategies in the population, much like 
-the observed variation in social learning strategies[@Molleman2014]. Some 
+the observed variation in social learning strategies [@Molleman2014]. Some 
 individuals may use punishment as a behaviour shaping tool, for example, while 
 others may use it to reduce or reverse payoff differentials.
 
 This insight raises several underexplored questions. First, which punishment 
 strategies are more frequent in human populations? Second, what traits predict 
 adherence to a particular strategy? Previous work has reported that personality 
-is related to cooperative behaviour[@Thielmann2020] and demographics, political 
-ideology, and religiosity are related to punitive behaviour[@Hofmann2018], but 
+is related to cooperative behaviour [@Thielmann2020] and demographics, political 
+ideology, and religiosity are related to punitive behaviour [@Hofmann2018], but 
 no research has related these variables to specific punishment strategies. 
 Third, do people have insight into their own punishment strategy? Previous work 
 has argued that people are often unaware of the underlying function of their 
@@ -184,11 +195,11 @@ punishment in the economic games that we considered, and the behavioural
 strategies they predict. Note that Table \@ref(tab:tableStrategies) is not 
 an exhaustive list of all possible punishment strategies: we do not include 
 reputational functions of punishment in this table, such as signalling 
-trustworthiness[@Barclay2006;@Batistoni2022;@Jordan2016;@Jordan2017;@Raihani2015], 
+trustworthiness [@Barclay2006;@Batistoni2022;@Jordan2016;@Jordan2017;@Raihani2015], 
 because our focus is on punishment strategies in anonymous economic games without 
-reputational incentives (but see ref[@Jordan2020]).
+reputational incentives [but see [@Jordan2020]].
 
-Building on previous designs[@Bone2015;@Deutchman2021;@Marczyk2017;
+Building on previous designs [@Bone2015;@Deutchman2021;@Marczyk2017;
 @Raihani2012b], we employ a suite of one-shot economic games where individuals 
 are given the opportunity to punish targets at a personal cost (Figure 
 \@ref(fig:plotGames)). In each game, targets either steal from another 
@@ -476,13 +487,13 @@ tar_read(plotAllSliders2)
 
 Using a suite of economic games measuring punishment in different situations, 
 we have shown that punishment does not serve just one function, but instead is 
-a flexible tool that can be and is used for different purposes[@Raihani2019]. 
+a flexible tool that can be and is used for different purposes [@Raihani2019]. 
 While some use punishment to enforce norms of cooperation, others use it to 
 reduce or even create inequality between individuals. We found that people's 
 punishment strategy can, to some extent, be predicted by individual differences 
 in personality, social preferences, and political and religious views. Moreover, 
 contrary to the view that people are often unable to articulate the reasons for 
-their punitive behaviour[@Carlsmith2002], people seem to have some degree of 
+their punitive behaviour [@Carlsmith2002], people seem to have some degree of 
 insight into the strategy they are using. Despite small differences, these 
 general patterns replicated in samples from both the United Kingdom and the 
 United States, providing further confidence in the results. 
@@ -502,7 +513,7 @@ follow the avoid disadvantageous inequity strategy, especially in the United
 States. Authoritarian participants in the United States were also more likely to 
 actively seek advantageous inequity with their punishment. These findings 
 provide insight into the motives that may have driven higher levels of peer 
-punishment among conservatives in previous work[@Hofmann2018].
+punishment among conservatives in previous work [@Hofmann2018].
 
 Behaviour shaping strategies, such as deterrence and norm-enforcement, were less 
 common than strategies sensitive to inequality in our set of games. This was 
@@ -512,19 +523,19 @@ reflected both in participants’ elicited punishment behaviour (Figure
 Although our design did not explicitly allow for behaviour shaping as the 
 interactions were all one-shot, we did manipulate whether the target's stealing 
 behaviour was intentional or not (Game C), an approach which has been used in 
-previous vignette studies to identify behaviour shaping motives[@Carlsmith2002].
+previous vignette studies to identify behaviour shaping motives [@Carlsmith2002].
 The lower prevalence of behaviour shaping strategies in our study is consistent 
 with prior work showing that punishment often continues to be used when 
 behaviour shaping is impossible, such as when the target will never find out 
-that they have been punished[@Crockett2014] or on the last round of repeated 
-interactions[@Barclay2016]. We found that demographic, personality, political, 
+that they have been punished [@Crockett2014] or on the last round of repeated 
+interactions [@Barclay2016]. We found that demographic, personality, political, 
 and religious variables tended to be unrelated to behaviour shaping strategies, 
 though this could reflect low power to detect such associations given the low 
 prevalence of these strategies in our sample. We also found that participants 
 accurately reported using the norm-enforcing strategy, but not the deterrent 
 strategy. This finding is in line with previous research showing that people 
 struggle to accurately report the deterrent motivations for their punitive 
-behaviour[@Carlsmith2002].
+behaviour [@Carlsmith2002].
 
 We defined antisocial punishment as occurring when a participant exclusively 
 punished those who did not steal. There were no participants in our sample who 
@@ -533,29 +544,29 @@ co-players. Harming non-stealing individuals was also consistent with the
 competitive strategies, which did appear in our sample albeit at low frequencies.
 The fact that no participants in our sample punished non-stealing across all 
 games suggests that the antisocial punishment that has been observed in other 
-studies[@Herrmann2008;@Pleasant2018] is not aimed at harming cooperators 
-specifically, as has been previously suggested[@Herrmann2008]. Instead, 
+studies [@Herrmann2008;@Pleasant2018] is not aimed at harming cooperators 
+specifically, as has been previously suggested [@Herrmann2008]. Instead, 
 antisocial punishment is more likely to be motivated by improving one's 
 relative position, which is in line with work showing that antisocial punishment 
 disappears when relative payoffs cannot be changed (e.g., when punishment is 
-only available with a 1:1 fee-fine ratio[@Sylwester2013]).
+only available with a 1:1 fee-fine ratio) [@Sylwester2013].
 
 The fact that people use punishment for many different reasons poses problems 
 for the way that punishment is operationalised in classic behavioural economic 
 game studies. In these studies, a common assumption is that participants punish 
-to change the behaviour of cheats[@Fehr2000;@Fehr2002]. But in reality, people 
+to change the behaviour of cheats [@Fehr2000;@Fehr2002]. But in reality, people 
 may be choosing the punishment option to achieve a variety of different goals. 
 This has implications for how people respond to being targeted by punishers in 
 these games. Targets of punishment in these studies may know that punishment 
 reflects different motives and can respond accordingly. For example, if targets
 interpret punishment as serving a competitive motive, it may elicit retaliation
-rather than encourage cooperation[@Dreber2008;@Nikiforakis2008b;@Raihani2019].
+rather than encourage cooperation [@Dreber2008;@Nikiforakis2008b;@Raihani2019].
 As punishers’ motives must be inferred (and such inferences likely depend on 
 character traits of the target, as well as the context in which punishment 
 occurs), there is likely to be some variation and error in attributing motives 
 to punishers. To the extent that inferred motives affect target responses, this 
 might help to explain the mixed findings in the field as to whether punishment 
-actually motivates cheating targets to cooperate in the future[@Raihani2019].
+actually motivates cheating targets to cooperate in the future [@Raihani2019].
 
 It is striking that the most common strategy in our dataset was to never punish. 
 This is partly because punishment in these games imposes an economic cost for no 
@@ -567,14 +578,14 @@ didn't want to pay to reduce anyone's bonus but would have done so if it were
 free. But the frequency of the never punish strategy perhaps also reflects a 
 more general aversion to peer punishment, an aversion that has been highlighted 
 in both WEIRD (Western, educated, industrialised, rich, and democratic) samples
-[@Balafoutas2014;@Balafoutas2016] and in small-scale societies[@Baumard2010]. 
+[@Balafoutas2014;@Balafoutas2016] and in small-scale societies [@Baumard2010]. 
 One reason that people may be averse to peer punishment is that, because it is 
 a fundamentally harmful act, punishment can reflect badly on the punisher and 
 people might therefore refrain from punishing others to avoid reputational 
-damage[@Raihani2015]. People frequently avoid taking actions that could harm 
+damage [@Raihani2015]. People frequently avoid taking actions that could harm 
 their reputation, even when they don’t know if reputation is at stake (as in the 
 one-shot anonymous settings used here). Another reason that people may be averse
-to peer punishment is that it can trigger retaliation[@Raihani2019]. This may be
+to peer punishment is that it can trigger retaliation [@Raihani2019]. This may be
 especially likely in situations that lack clear institutional norms to 
 legitimise punishment, such as our economic games. As with reputation damage, 
 people might abstain from peer punishment to avoid retaliation, regardless of 
@@ -582,8 +593,8 @@ whether retaliation is actually possible. By contrast, institutionalised
 punishment in small-scale societies often functions to compensate victims while 
 limiting the potential for feuds and cycles of retaliation
 [@Fitouchi2023;@Singh2022]. Future research should uncover whether people are 
-more willing to punish in these conventionalised contexts (e.g., see
-[@Molleman2019]).
+more willing to punish in these conventionalised contexts [e.g., see
+[@Molleman2019]].
 
 We finally highlight some key limitations that can guide future research. One 
 limitation with our design is that some strategies required more punishment than 
@@ -600,7 +611,7 @@ from a randomly chosen game instead of summed across all games.
 Another limitation is that our results may be contingent on the particular suite 
 of anonymous stealing games that we used. With our anonymous design, we were 
 unable to study other potential reputational strategies underlying punishment, 
-such as signalling trustworthiness[@Jordan2020]. Moreover, stealing may be 
+such as signalling trustworthiness [@Jordan2020]. Moreover, stealing may be 
 evaluated differently to other forms of cheating, such as not contributing to 
 public goods, and other negative behaviours, such as lying or breaking taboos. 
 Finally, we were unable to include all permutations of situational features in 
@@ -615,7 +626,7 @@ combinations of situational features elicit different punishment strategies.
 In sum, we have shown that while many people choose not to punish peers, those 
 who do are motivated by a variety of different concerns, including behaviour 
 shaping, egalitarianism, and competition. Much like the observed variation in 
-human social learning strategies[@Molleman2014], humans thus also exhibit 
+human social learning strategies [@Molleman2014], humans thus also exhibit 
 variation in their punishment strategies. These individual differences map onto 
 personality dimensions, social preferences, political and religious views, and 
 self-reports of behaviour. We hope that future work will continue to unpack the 
@@ -751,7 +762,7 @@ wordings of all questions, see Supplementary Table
   education level and self-reported socio-economic status (MacArthur ladder
   [@Adler2000]). We also collected additional demographic data from Prolific 
   (e.g., age, gender, student status).
-- *Personality*. We used the Mini-IPIP scale[@Sibley2011] to measure the Big 6 
+- *Personality*. We used the Mini-IPIP scale [@Sibley2011] to measure the Big 6 
   personality dimensions of agreeableness ($\alpha$ = 
   `r printnum(tar_read(alphaAgree)$alpha)`), conscientiousness ($\alpha$ = 
   `r printnum(tar_read(alphaConsc)$alpha)`), extraversion ($\alpha$ = 
@@ -761,23 +772,23 @@ wordings of all questions, see Supplementary Table
   `r printnum(tar_read(alphaNeur)$alpha)`). Four items were used for each 
   personality dimension.
 - *Social Value Orientation*. We used the Social Value Orientation Slider 
-  Measure to measure other-regarding preferences[@Murphy2011]. Across fifteen 
+  Measure to measure other-regarding preferences [@Murphy2011]. Across fifteen 
   items, participants made decisions on how to allocate different amounts of 
   money between themselves and another anonymous individual. From these 
   decisions, we calculated participants' Social Value Orientation "angle" as a 
   measure of their other-regarding preference, following the steps outlined in 
-  ref[@Murphy2011].
+  ref [@Murphy2011].
 - *Political ideology*. We included several measures of political ideology, 
-  including left-right conservatism, Social Dominance Orientation[@Ho2015] 
+  including left-right conservatism, Social Dominance Orientation [@Ho2015] 
   ($\alpha$ = `r printnum(tar_read(alphaSDO)$alpha)`; eight items), and Right 
-  Wing Authoritarianism[@Bizumic2018] ($\alpha$ = 
+  Wing Authoritarianism [@Bizumic2018] ($\alpha$ = 
   `r printnum(tar_read(alphaRWA)$alpha)`; six items). We also probed 
   participants' views on social inequality by asking them whether they would 
   like to bring people above (below) them on the MacArthur socio-economic status 
   ladder down (up) a peg or two.
 - *Religious views*. We asked participants how religious they consider 
   themselves and whether they believe that God or another spiritual non-human 
-  entity controls the events in the world[@Laurin2012].
+  entity controls the events in the world [@Laurin2012].
 
 ## Procedure
 
@@ -817,8 +828,8 @@ plus a bonus payment from the Social Value Orientation Slider Measure (between
 ## Statistical analysis
 
 We pre-registered that we would use a Bayesian latent state model to infer 
-unobserved punishment strategies from the observed data (for a similar version 
-of this model, see ref[@McElreath2020]). In this model, participants $i$ in 
+unobserved punishment strategies from the observed data [for a similar version 
+of this model, see ref [@McElreath2020]]. In this model, participants $i$ in 
 countries $c$ make binary punishment decisions across twelve decisions $j$. We 
 assume that the probability of the observed data $y_{i,j}$ is the weighted 
 average of the probability of the observed data conditional on each of the ten 
@@ -864,7 +875,7 @@ These models control for multiple comparisons across strategies by estimating
 the effects of the predictor on all strategies simultaneously.
 
 We estimated the posterior distributions of these models using Hamiltonian Monte 
-Carlo as implemented in Stan version 2.26.1[@Stan2020]. We ran each model for 
+Carlo as implemented in Stan version 2.26.1 [@Stan2020]. We ran each model for 
 2000 samples, with 1000 warmup samples. R-hat values and effective sample sizes 
 suggested that all models converged normally. Trace plots are reported in 
 Supplementary Figure \@ref(fig:plotTrace).
@@ -878,10 +889,10 @@ frequency of strategies from the simulated data (Supplementary Figure
 
 All data and code are accessible on GitHub: 
 https://github.com/ScottClaessens/punishStrategies. All analyses were conducted 
-in R version 4.2.1[@RCoreTeam]. Visualisations were created with the *ggplot2*
-[@Wickham2016] and *cowplot*[@Wilke2020] R packages. We used the *targets*
+in R version 4.2.1 [@RCoreTeam]. Visualisations were created with the *ggplot2*
+[@Wickham2016] and *cowplot* [@Wilke2020] R packages. We used the *targets*
 [@Landau2021] R package to create a reproducible data analysis pipeline and the 
-*papaja*[@Aust2022] R package to reproducibly generate the manuscript.
+*papaja* [@Aust2022] R package to reproducibly generate the manuscript.
 
 \newpage
 \nolinenumbers
