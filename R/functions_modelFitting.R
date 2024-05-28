@@ -32,7 +32,8 @@ fitModel1 <- function(d, compiledModel1, error = 0,
       warmup = warmup,
       chains = chains,
       cores = cores,
-      seed = 2113
+      seed = 2113,
+      pars = c("alpha","log_lik")
       )
   return(out)
 }
@@ -73,7 +74,8 @@ fitModel2 <- function(d, compiledModel2, predictor, error = 0,
       warmup = warmup,
       chains = chains,
       cores = cores,
-      seed = 2113
+      seed = 2113,
+      pars = c("alpha","beta","log_lik")
       )
   return(out)
 }
@@ -116,7 +118,8 @@ fitModel3 <- function(d, compiledModel3, predictor1, predictor2, error = 0,
       warmup = warmup,
       chains = chains,
       cores = cores,
-      seed = 2113
+      seed = 2113,
+      pars = c("alpha","beta1","beta2","log_lik")
     )
   return(out)
 }
@@ -159,7 +162,8 @@ fitModel4 <- function(d, compiledModel4, predictor, error = 0,
       warmup = warmup,
       chains = chains,
       cores = cores,
-      seed = 2113
+      seed = 2113,
+      pars = c("alpha","log_lik")
       )
   return(out)
 }
@@ -229,7 +233,8 @@ fitModel5 <- function(d, compiledModel5,
       warmup = warmup,
       chains = chains,
       cores = cores,
-      seed = 2113
+      seed = 2113,
+      pars = c("alpha","error","log_lik")
     )
   return(out)
 }

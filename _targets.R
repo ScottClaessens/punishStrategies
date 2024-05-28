@@ -69,7 +69,7 @@ list(
   tar_target(dSim, simulateData(n = 100, errorRate = 0, alphas = simAlphas, betas = simBetas)),
   # fit model to simulated data
   tar_target(fitSimModel, fitModel2(dSim, compiledModel2, predictor = "x"), deployment = "worker"),
-  tar_target(simPost, extract(fitSimModel)),
+  tar_target(simPost, extract(fitSimModel, pars = c("alpha","beta"))),
   # plot results
   tar_target(plotSim1, plotSimResults1(simAlphas, simPost)),
   tar_target(plotSim2, plotSimResults2(dSim, simPost)),
@@ -86,7 +86,7 @@ list(
   # load data
   tar_target(fileStudy1, "data/study1/study1_clean.csv", format = "file"),
   tar_target(fileStudy2, "data/study2/study2_clean.csv", format = "file"),
-  tar_target(d, loadData(fileStudy1, fileStudy2)),
+  tar_target(d, loadData(fileStudy1, fileStudy2) %>% sample_n(size = 100)),
   # data exclusions
   tar_target(dExc, excludeData(d)),
   # cronbach's alpha for scales
