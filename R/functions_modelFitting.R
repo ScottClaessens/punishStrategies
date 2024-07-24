@@ -168,40 +168,6 @@ fitModel4 <- function(d, compiledModel4, predictor, error = 0,
   return(out)
 }
 
-# fit multilevel model for raw data comparisons
-# take vs. not take
-fitMLM1 <- function(d) {
-  d %>%
-    pivot_longer(
-      starts_with("pun"),
-      names_to = "decision",
-      values_to = "pun"
-      ) %>%
-    mutate(otherTook = ifelse(str_ends(decision, "_1"), 1, 0)) %>%
-    glmer(
-      formula = pun ~ 1 + otherTook + (1 | ID) + (1 | decision),
-      data = .,
-      family = binomial
-    )
-}
-
-# fit multilevel model for raw data comparisons
-# target behaviour produced DI
-fitMLM2 <- function(d) {
-  d %>%
-    pivot_longer(
-      starts_with("pun"),
-      names_to = "decision",
-      values_to = "pun"
-    ) %>%
-    mutate(DI = ifelse(decision %in% c("pun5_1", "pun6_1"), 1, 0)) %>%
-    glmer(
-      formula = pun ~ 1 + DI + (1 | ID) + (1 | decision),
-      data = .,
-      family = binomial
-    )
-}
-
 # fit stan model without predictor (estimate implementation error)
 fitModel5 <- function(d, compiledModel5,
                       iter = 2000, warmup = 1000, chains = 4, cores = 4) {
@@ -237,4 +203,53 @@ fitModel5 <- function(d, compiledModel5,
       pars = c("alpha","error","log_lik")
     )
   return(out)
+}
+
+# fit multilevel model for raw data comparisons
+# take vs. not take
+fitMLM1 <- function(d) {
+  d %>%
+    pivot_longer(
+      starts_with("pun"),
+      names_to = "decision",
+      values_to = "pun"
+      ) %>%
+    mutate(otherTook = ifelse(str_ends(decision, "_1"), 1, 0)) %>%
+    glmer(
+      formula = pun ~ 1 + otherTook + (1 | ID) + (1 | decision),
+      data = .,
+      family = binomial
+    )
+}
+
+# fit multilevel model for raw data comparisons
+# target behaviour produced DI
+fitMLM2 <- function(d) {
+  d %>%
+    pivot_longer(
+      starts_with("pun"),
+      names_to = "decision",
+      values_to = "pun"
+    ) %>%
+    mutate(DI = ifelse(decision %in% c("pun5_1", "pun6_1"), 1, 0)) %>%
+    glmer(
+      formula = pun ~ 1 + DI + (1 | ID) + (1 | decision),
+      data = .,
+      family = binomial
+    )
+}
+
+# fit spline model to strategies data
+fitSplines <- function(dStrategiesAll) {
+  brm(
+    formula = bf(as.numeric(n - 1) ~ 0 + Country + s(cost, by = Country)),
+    data = dStrategiesAll,
+    family = poisson,
+    prior = c(
+      prior(normal(0, 1), class = b),
+      prior(exponential(1), class = sds)
+    ),
+    chains = 4,
+    cores = 4
+  )
 }

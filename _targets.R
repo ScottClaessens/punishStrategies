@@ -1,24 +1,4 @@
-library(targets)
-library(tarchetypes)
-options(tidyverse.quiet = TRUE)
-library(tidyverse)
-source("R/functions_modelFitting.R")
-source("R/functions_simulation.R")
-source("R/functions_powerAnalysis.R")
-source("R/functions_loadData.R")
-source("R/functions_summariseData.R")
-source("R/functions_modelResults.R")
-tar_option_set(
-  packages = c("ape", "cowplot", "ggcorrplot", "ggrepel", 
-               "ggridges", "knitr", "lme4", "ltm", "papaja", "phangorn", 
-               "rethinking", "rstan", "tanggle", "tidybayes", 
-               "tidytext", "tidyverse", "wordcloud"),
-  deployment = "main"
-)
-options(
-  clustermq.scheduler = "slurm", 
-  clustermq.template = "slurm_clustermq.tmpl"
-)
+targets::tar_source()
 
 ## power analysis static branching (see below)
 #powerMap <-
@@ -55,11 +35,11 @@ list(
   tar_target(fileModel4, "stan/punishStrat_withCategoricalPredictor.stan", format = "file"),
   tar_target(fileModel5, "stan/punishStrat_noPredictor_estimateError.stan", format = "file"),
   # compile models
-  tar_target(compiledModel1, stan_model(fileModel1), deployment = "worker"),
-  tar_target(compiledModel2, stan_model(fileModel2), deployment = "worker"),
-  tar_target(compiledModel3, stan_model(fileModel3), deployment = "worker"),
-  tar_target(compiledModel4, stan_model(fileModel4), deployment = "worker"),
-  tar_target(compiledModel5, stan_model(fileModel5), deployment = "worker"),
+  tar_target(compiledModel1, stan_model(fileModel1)),
+  tar_target(compiledModel2, stan_model(fileModel2)),
+  tar_target(compiledModel3, stan_model(fileModel3)),
+  tar_target(compiledModel4, stan_model(fileModel4)),
+  tar_target(compiledModel5, stan_model(fileModel5)),
   
   #### Simulation ####
   
@@ -68,8 +48,8 @@ list(
   tar_target(simBetas, c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)),
   tar_target(dSim, simulateData(n = 100, errorRate = 0, alphas = simAlphas, betas = simBetas)),
   # fit model to simulated data
-  tar_target(fitSimModel, fitModel2(dSim, compiledModel2, predictor = "x"), deployment = "worker"),
-  tar_target(simPost, extract(fitSimModel, pars = c("alpha","beta"))),
+  tar_target(fitSimModel, fitModel2(dSim, compiledModel2, predictor = "x")),
+  tar_target(simPost, rstan::extract(fitSimModel, pars = c("alpha","beta"))),
   # plot results
   tar_target(plotSim1, plotSimResults1(simAlphas, simPost)),
   tar_target(plotSim2, plotSimResults2(dSim, simPost)),
@@ -86,7 +66,7 @@ list(
   # load data
   tar_target(fileStudy1, "data/study1/study1_clean.csv", format = "file"),
   tar_target(fileStudy2, "data/study2/study2_clean.csv", format = "file"),
-  tar_target(d, loadData(fileStudy1, fileStudy2) %>% sample_n(size = 100)),
+  tar_target(d, loadData(fileStudy1, fileStudy2)),
   # data exclusions
   tar_target(dExc, excludeData(d)),
   # cronbach's alpha for scales
@@ -111,6 +91,8 @@ list(
   tar_target(plotSliders2, plotSliderRatings2(dExc)),
   # plot overall survey correlations
   tar_target(plotSurveyCor, plotSurveyCorrelations(dExc)),
+  # plot splits graph of behaviour patterns
+  tar_target(plotSplits, plotSplitsGraph(dExc)),
   # table of strategies
   tar_target(tableStrategies, makeStrategyTable()),
   # table of comprehension rates
@@ -123,8 +105,6 @@ list(
   tar_target(tableSliderWordings, makeSliderWordingTable()),
   # table of survey wordings
   tar_target(tableSurveyWordings, makeSurveyWordingTable()),
-  # plot splits graph of behaviour patterns
-  tar_target(plotSplits, plotSplitsGraph(dExc)),
   
   #### Fit multilevel models for raw data comparisons ####
   
@@ -132,14 +112,26 @@ list(
   tar_target(mlm1, fitMLM1(dExc)),
   tar_target(mlm2, fitMLM2(dExc)),
   
+  #### Fit splines to strategy frequencies by cost ####
+  
+  # wrangle strategies data
+  tar_target(dStrategiesAll, wrangleStrategyFreqData(d)),
+  # fit spline model to strategies data
+  tar_target(mSpline, fitSplines(dStrategiesAll)),
+  # plot splines to data
+  tar_target(plotSpline, plotSplines(dStrategiesAll, mSpline)),
+  
   #### Fit model of initial frequencies ####
   
   # model fitting
-  tar_target(m1.1, fitModel1(d,    compiledModel1, error = 0.05), deployment = "worker"),
-  tar_target(m1.2, fitModel1(dExc, compiledModel1, error = 0.05), deployment = "worker"),
+  tar_target(m1.1, fitModel1(d,    compiledModel1, error = 0.05)),
+  tar_target(m1.2, fitModel1(dExc, compiledModel1, error = 0.05)),
   # posterior samples
-  tar_target(post1.1, extract(m1.1)),
-  tar_target(post1.2, extract(m1.2)),
+  tar_target(post1.1, rstan::extract(m1.1)),
+  tar_target(post1.2, rstan::extract(m1.2)),
+  # loo
+  tar_target(loo1.1, loo(m1.1)),
+  tar_target(loo1.2, loo(m1.2)),
   # plot
   tar_target(plot1.1, plotModel1(post1.1, file = "figures/modelResults/completeData/model1.pdf")),
   tar_target(plot1.2, plotModel1(post1.2, file = "figures/modelResults/withExclusions/model1.pdf")),
@@ -187,11 +179,14 @@ list(
     ),
     names = "pred",
     # model fitting
-    tar_target(m2.1, fitModel2(d,    compiledModel2, error = 0.05, predictor = pred), deployment = "worker"),
-    tar_target(m2.2, fitModel2(dExc, compiledModel2, error = 0.05, predictor = pred), deployment = "worker"),
+    tar_target(m2.1, fitModel2(d,    compiledModel2, error = 0.05, predictor = pred)),
+    tar_target(m2.2, fitModel2(dExc, compiledModel2, error = 0.05, predictor = pred)),
     # posterior samples
-    tar_target(post2.1, extract(m2.1)),
-    tar_target(post2.2, extract(m2.2)),
+    tar_target(post2.1, rstan::extract(m2.1)),
+    tar_target(post2.2, rstan::extract(m2.2)),
+    # loo
+    tar_target(loo2.1, loo(m2.1)),
+    tar_target(loo2.2, loo(m2.2)),
     # plots
     tar_target(plot2.1, plotModel2(d, post2.1, pred, xlab, xBreaks,
                                    file = paste0("figures/modelResults/completeData/model2_", pred, ".pdf"))),
@@ -209,12 +204,15 @@ list(
     names = c("pred1","pred2"),
     # model fitting
     tar_target(m3.1, fitModel3(d,    compiledModel3, error = 0.05,
-                               predictor1 = pred1, predictor2 = pred2), deployment = "worker"),
+                               predictor1 = pred1, predictor2 = pred2)),
     tar_target(m3.2, fitModel3(dExc, compiledModel3, error = 0.05,
-                               predictor1 = pred1, predictor2 = pred2), deployment = "worker"),
+                               predictor1 = pred1, predictor2 = pred2)),
     # posterior samples
-    tar_target(post3.1, extract(m3.1)),
-    tar_target(post3.2, extract(m3.2))
+    tar_target(post3.1, rstan::extract(m3.1)),
+    tar_target(post3.2, rstan::extract(m3.2)),
+    # loo
+    tar_target(loo3.1, loo(m3.1)),
+    tar_target(loo3.2, loo(m3.2))
   ),
   
   #### Fit models with categorical predictor ####
@@ -226,11 +224,14 @@ list(
     ),
     names = "pred",
     # model fitting
-    tar_target(m4.1, fitModel4(d,    compiledModel4, error = 0.05, predictor = pred), deployment = "worker"),
-    tar_target(m4.2, fitModel4(dExc, compiledModel4, error = 0.05, predictor = pred), deployment = "worker"),
+    tar_target(m4.1, fitModel4(d,    compiledModel4, error = 0.05, predictor = pred)),
+    tar_target(m4.2, fitModel4(dExc, compiledModel4, error = 0.05, predictor = pred)),
     # posterior samples
-    tar_target(post4.1, extract(m4.1)),
-    tar_target(post4.2, extract(m4.2)),
+    tar_target(post4.1, rstan::extract(m4.1)),
+    tar_target(post4.2, rstan::extract(m4.2)),
+    # loo
+    tar_target(loo4.1, loo(m4.1)),
+    tar_target(loo4.2, loo(m4.2)),
     # plots
     tar_target(plot4.1, plotModel4(d, post4.1, pred, xlab, 
                                    file = paste0("figures/modelResults/completeData/model3_", pred, ".pdf"))),
@@ -241,9 +242,9 @@ list(
   #### Fit model of initial frequencies (with implementation error estimation) ####
   
   # model fitting
-  tar_target(m5, fitModel5(dExc, compiledModel5), deployment = "worker"),
+  tar_target(m5, fitModel5(dExc, compiledModel5)),
   # posterior samples
-  tar_target(post5, extract(m5)),
+  tar_target(post5, rstan::extract(m5)),
   # plot
   tar_target(plot5, plotModel1(post5, file = "figures/modelResults/withExclusions/model5.pdf")),
   

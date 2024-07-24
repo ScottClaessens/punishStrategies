@@ -479,3 +479,49 @@ plotTraceMCMC <- function(m1.2) {
   ggsave(out, filename = "figures/modelResults/trace.pdf", width = 7, height = 6)
   return(out)
 }
+
+# plot splines model
+plotSplines <- function(dStrategiesAll, mSpline) {
+  # get posterior predictions
+  costs <- seq(0, 1.20, by = 0.01)
+  newdata <- data.frame(
+    cost = rep(costs, times = 2),
+    Country = rep(unique(dStrategiesAll$Country), each = length(costs))
+  )
+  f <- cbind(newdata, fitted(mSpline, newdata = newdata))
+  # plot
+  out <-
+    ggplot() +
+    geom_jitter(
+      aes(x = cost, y = n),
+      data = dStrategiesAll,
+      width = 0,
+      height = 0.1
+    ) +
+    geom_ribbon(
+      aes(x = cost, ymin = Q2.5 + 1, ymax = Q97.5 + 1),
+      data = f,
+      alpha = 0.2
+    ) +
+    geom_line(
+      aes(x = cost, y = Estimate + 1),
+      data = f
+    ) +
+    facet_wrap(. ~ Country) +
+    scale_y_continuous(
+      name = "Number of participants\nfollowing strategy (logged axis)\n",
+      trans = scales::log1p_trans(),
+      breaks = c(1,2,5,10,20,40,80)
+    ) +
+    scale_x_continuous(
+      name = "Cost to implement strategy (GBP)",
+      limits = c(0, 1.21),
+      breaks = c(0.00, 0.50, 1.00),
+      labels = function(x) sprintf("%.2f", x)
+    ) +
+    theme_classic()
+  # save
+  ggsave(out, filename = "figures/dataSummaries/splines.pdf",
+         width = 6, height = 3.5)
+  return(out)
+}

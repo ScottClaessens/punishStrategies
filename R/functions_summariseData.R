@@ -287,6 +287,112 @@ plotSurveyCorrelations <- function(d) {
   return(out)
 }
 
+# plot splits graph of behavioural patterns
+plotSplitsGraph <- function(d) {
+  d <-
+    d %>%
+    # subset to behavioural decisions
+    dplyr::select(starts_with("pun"), strategy) %>%
+    # unite behavioural decisions
+    unite(
+      col = "pattern",
+      pun1_1:pun6_2,
+      sep = "",
+      remove = FALSE
+    ) %>%
+    # reduce to unique behavioural patterns with counts
+    group_by_at(vars(starts_with("pun"))) %>%
+    summarise(
+      count = n(),
+      pattern = unique(pattern),
+      strategy = unique(as.character(strategy)),
+      .groups = "drop"
+    ) %>%
+    # add tpp strategy
+    #mutate(strategy = ifelse(pattern == "000000000010", "Third-party", strategy)) %>%
+    # add antisocial strategy
+    bind_rows(
+      tibble(pun1_1 = 0, pun1_2 = 1, pun2_1 = 0, pun2_2 = 1, pun3_1 = 0, pun3_2 = 1,
+             pun4_1 = 0, pun4_2 = 1, pun5_1 = 0, pun5_2 = 1, pun6_1 = 0, pun6_2 = 1,
+             count = 0, pattern = "010101010101", strategy = "Antisocial")
+    ) %>%
+    # keep only other behavioural patterns with certain number of counts
+    filter(strategy != "N/A" | (strategy == "N/A" & count >= 3))
+  # n is number of unique patterns of behaviour
+  n <- nrow(d)
+  # calculate Hamming distance matrix for behavioural patterns
+  # (number of substitutions to get from one to another)
+  # e.g. 000000000000 -> 101000000000 = Hamming distance of 2
+  dist <- matrix(NA, nrow = n, ncol = n)
+  for (i in 1:n) {
+    for (j in 1:n) {
+      # how many elements of the behavioural pattern are different?
+      dist[i,j] <- sum(d[i,1:12] != d[j,1:12])
+    }
+  }
+  rownames(dist) <- colnames(dist) <- 1:n
+  # create neighbour net with phangorn package
+  net <- neighborNet(dist)
+  # plot splits graph
+  p <- 
+    ggsplitnet(
+      net,
+      colour = "grey70",
+      linewidth = 0.05
+    )
+  # labels for strategies
+  labelStrategies <- 
+    c(
+      "Never punish"   = "Never punish\n(000000000000)",
+      "Seek AI"        = "Seek AI\n(001010000000)",
+      "Egalitarian"    = "Egalitarian\n(000000001010)",
+      "Avoid DI"       = "Avoid DI\n(000000001000)",
+      "Retributive"    = "Retributive\n(101010101000)",
+      "Deterrent"      = "Deterrent\n(101000101000)",
+      "Norm-enforcing" = "Norm-enforcing\n(101000101010)",
+      "Competitive"    = "Competitive\n(111111001111)",
+      "Antisocial"     = "Antisocial\n(010101010101)"
+    )
+  # additional data for plot (counts, labels)
+  pd <- 
+    tibble(
+      tip = as.character(1:n),
+      Count = d$count,
+      strategy = ifelse(d$strategy == "N/A", "", labelStrategies[as.character(d$strategy)]),
+      exact = strategy != ""
+    ) %>%
+    left_join(p$data, by = c("tip" = "label"))
+  # final plot
+  out <-
+    p +
+    # add strategies as points
+    geom_point(
+      data = pd,
+      aes(
+        x = x,
+        y = y,
+        size = Count,
+        colour = exact
+      )
+    ) +
+    # add labels
+    geom_text_repel(
+      data = pd,
+      aes(label = strategy),
+      colour = "red",
+      size = 3,
+      seed = 1,
+      point.padding = unit(2, "cm")
+    ) +
+    scale_colour_discrete(type = c("black","red")) +
+    scale_size_continuous(breaks = c(10, 100, 500)) +
+    guides(colour = "none") +
+    theme(legend.position = c(0.9, 0.15))
+  # save plot
+  ggsave(out, filename = "figures/dataSummaries/splitsGraph.pdf", width = 7, height = 7)
+  return(out)
+}
+
 # table of comprehension rates
 makeCompTable <- function(d) {
   # games vector
@@ -450,112 +556,6 @@ makePatternsTable <- function(d) {
     dplyr::select(c(1,6,2,4,3,5))
   colnames(out)[c(3,5)] <- "N"
   colnames(out)[c(4,6)] <- "Prop"
-  return(out)
-}
-
-# plot splits graph of behavioural patterns
-plotSplitsGraph <- function(d) {
-  d <-
-    d %>%
-    # subset to behavioural decisions
-    dplyr::select(starts_with("pun"), strategy) %>%
-    # unite behavioural decisions
-    unite(
-      col = "pattern",
-      pun1_1:pun6_2,
-      sep = "",
-      remove = FALSE
-    ) %>%
-    # reduce to unique behavioural patterns with counts
-    group_by_at(vars(starts_with("pun"))) %>%
-    summarise(
-      count = n(),
-      pattern = unique(pattern),
-      strategy = unique(as.character(strategy)),
-      .groups = "drop"
-    ) %>%
-    # add tpp strategy
-    #mutate(strategy = ifelse(pattern == "000000000010", "Third-party", strategy)) %>%
-    # add antisocial strategy
-    bind_rows(
-      tibble(pun1_1 = 0, pun1_2 = 1, pun2_1 = 0, pun2_2 = 1, pun3_1 = 0, pun3_2 = 1,
-             pun4_1 = 0, pun4_2 = 1, pun5_1 = 0, pun5_2 = 1, pun6_1 = 0, pun6_2 = 1,
-             count = 0, pattern = "010101010101", strategy = "Antisocial")
-    ) %>%
-    # keep only other behavioural patterns with certain number of counts
-    filter(strategy != "N/A" | (strategy == "N/A" & count >= 3))
-  # n is number of unique patterns of behaviour
-  n <- nrow(d)
-  # calculate Hamming distance matrix for behavioural patterns
-  # (number of substitutions to get from one to another)
-  # e.g. 000000000000 -> 101000000000 = Hamming distance of 2
-  dist <- matrix(NA, nrow = n, ncol = n)
-  for (i in 1:n) {
-    for (j in 1:n) {
-      # how many elements of the behavioural pattern are different?
-      dist[i,j] <- sum(d[i,1:12] != d[j,1:12])
-    }
-  }
-  rownames(dist) <- colnames(dist) <- 1:n
-  # create neighbour net with phangorn package
-  net <- neighborNet(dist)
-  # plot splits graph
-  p <- 
-    ggsplitnet(
-      net,
-      colour = "grey70",
-      linewidth = 0.05
-    )
-  # labels for strategies
-  labelStrategies <- 
-    c(
-      "Never punish"   = "Never punish\n(000000000000)",
-      "Seek AI"        = "Seek AI\n(001010000000)",
-      "Egalitarian"    = "Egalitarian\n(000000001010)",
-      "Avoid DI"       = "Avoid DI\n(000000001000)",
-      "Retributive"    = "Retributive\n(101010101000)",
-      "Deterrent"      = "Deterrent\n(101000101000)",
-      "Norm-enforcing" = "Norm-enforcing\n(101000101010)",
-      "Competitive"    = "Competitive\n(111111001111)",
-      "Antisocial"     = "Antisocial\n(010101010101)"
-    )
-  # additional data for plot (counts, labels)
-  pd <- 
-    tibble(
-      tip = as.character(1:n),
-      Count = d$count,
-      strategy = ifelse(d$strategy == "N/A", "", labelStrategies[as.character(d$strategy)]),
-      exact = strategy != ""
-    ) %>%
-    left_join(p$data, by = c("tip" = "label"))
-  # final plot
-  out <-
-    p +
-    # add strategies as points
-    geom_point(
-      data = pd,
-      aes(
-        x = x,
-        y = y,
-        size = Count,
-        colour = exact
-      )
-    ) +
-    # add labels
-    geom_text_repel(
-      data = pd,
-      aes(label = strategy),
-      colour = "red",
-      size = 3,
-      seed = 1,
-      point.padding = unit(2, "cm")
-    ) +
-    scale_colour_discrete(type = c("black","red")) +
-    scale_size_continuous(breaks = c(10, 100, 500)) +
-    guides(colour = "none") +
-    theme(legend.position = c(0.9, 0.15))
-  # save plot
-  ggsave(out, filename = "figures/dataSummaries/splitsGraph.pdf", width = 7, height = 7)
   return(out)
 }
 

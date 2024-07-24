@@ -60,26 +60,14 @@ header-includes:
   - \nolinenumbers
   - \note{\raggedright * Correspondence concerning this article should be addressed to Scott Claessens, Level 2, Building 302, 23 Symonds Street, Auckland, New Zealand. \text{E-mail:} \href{scott.claessens@gmail.com}{\nolinkurl{scott.claessens@gmail.com}} \par This manuscript has not yet been peer-reviewed. \par This manuscript was published as a pre-print on PsyArXiv under a CC BY 4.0 \text{license:} \url{https://doi.org/10.31234/osf.io/ys6rm} \par \text{Classification:} Social Sciences; Psychological and Cognitive Sciences \par \text{Keywords:} punishment; cooperation; economic games}
 appendix          : "appendix.Rmd"
-csl               : pnas.csl
+csl               : nature.csl
+notes-after-punctuation: false
 ---
 
 ```{r options, echo=FALSE}
 opts_chunk$set(echo = FALSE)
 ```
 
-# Significance Statement
-
-Research has shown that humans are willing to punish others at a personal cost,
-but the motives for this behaviour remain unclear. Using a suite of economic 
-games, we show that punitive behaviour is consistent with a variety of strategic
-concerns. While most people choose not to punish in our games, people who do 
-punish tend to be motivated by egalitarianism rather than deterrence or 
-norm enforcement. We also find that different punishment strategies are linked 
-with different character traits, including personality, prosocial preferences, 
-and political and religious views. This research highlights the multifaceted
-nature of human punishment.
-
-\newpage
 \linenumbers
 
 # Introduction
@@ -197,7 +185,7 @@ an exhaustive list of all possible punishment strategies: we do not include
 reputational functions of punishment in this table, such as signalling 
 trustworthiness [@Barclay2006;@Batistoni2022;@Jordan2016;@Jordan2017;@Raihani2015], 
 because our focus is on punishment strategies in anonymous economic games without 
-reputational incentives [but see [@Jordan2020]].
+reputational incentives (but see ref[@Jordan2020]).
 
 Building on previous designs [@Bone2015;@Deutchman2021;@Marczyk2017;
 @Raihani2012b], we employ a suite of one-shot economic games where individuals 
@@ -467,10 +455,10 @@ self-report questions and the different punishment strategies, highlighting the
 combinations where the question matched the behavioural strategy. We found 
 positive relationships between the self-report questions and strategy usage for 
 the norm-enforcing, egalitarian, seek advantageous inequity, never punish, and 
-random choice  strategies. The 95% credible intervals for other estimates 
+random choice strategies. The 95% credible intervals for other estimates 
 included zero, though these estimates often trended in a positive direction. The 
 same pattern of results was found when analysing the full dataset without 
-exclusions  (Supplementary Figure \@ref(fig:plotAllSliders1)).
+exclusions (Supplementary Figure \@ref(fig:plotAllSliders1)).
 
 (ref:plotAllSliders2Caption) *Posterior slopes from models including 
 self-reported strategy usage.* Each row represents a separate model. All models 
@@ -593,35 +581,42 @@ whether retaliation is actually possible. By contrast, institutionalised
 punishment in small-scale societies often functions to compensate victims while 
 limiting the potential for feuds and cycles of retaliation
 [@Fitouchi2023;@Singh2022]. Future research should uncover whether people are 
-more willing to punish in these conventionalised contexts [e.g., see
-[@Molleman2019]].
+more willing to punish in these conventionalised contexts (e.g., see ref
+[@Molleman2019]).
 
-We finally highlight some key limitations that can guide future research. One 
-limitation with our design is that some strategies required more punishment than 
-others to be met. For example, the competitive strategy required punishment in 
-ten of twelve decisions, compared to the avoid disadvantageous inequity strategy
-which required only one instance of punishment (Table \@ref(tab:tableStrategies)). 
-Strategies thus differed in how "expensive" they were to implement, perhaps 
-explaining why some strategies were more common than others. This issue is 
-largely unavoidable in our design since strategies, by their very nature, differ 
-in how punitive they are. To partially mitigate this issue, we employed the 
-strategy method to incentivise participants, such that payoffs were calculated 
-from a randomly chosen game instead of summed across all games.
-
-Another limitation is that our results may be contingent on the particular suite 
-of anonymous stealing games that we used. With our anonymous design, we were 
-unable to study other potential reputational strategies underlying punishment, 
-such as signalling trustworthiness [@Jordan2020]. Moreover, stealing may be 
-evaluated differently to other forms of cheating, such as not contributing to 
-public goods, and other negative behaviours, such as lying or breaking taboos. 
-Finally, we were unable to include all permutations of situational features in 
-the games (e.g., second-party vs. third-party, equal vs. unequal) making it 
-difficult to interpret some patterns of behaviour. For example, many 
-participants punished only in the third-party game (Game F), but it is not clear 
-whether these participants were driven by the third-party nature of the game or 
-simply by the fact that stealing in that game generated inequality. Future work 
-should determine whether different reputational contexts, target behaviours, and 
-combinations of situational features elicit different punishment strategies.
+One potential limitation with our design is that some strategies required more 
+punishment than others, meaning that some strategies were more "expensive" to 
+implement. For example, the competitive strategy required punishment in ten of 
+twelve decisions, compared to the avoid disadvantageous inequity strategy which 
+required only one instance of punishment (Table \@ref(tab:tableStrategies)).
+We employed the strategy method to deal with this, calculating participant 
+payoffs from a randomly chosen game instead of accumulating the costs across 
+all games. This mitigates the concern that the total cost is the most salient
+feature determining participants' decisions. But even accounting for this, 
+one could still argue that the difference in overall costs explains why, for 
+example, the competitive strategy is less common in our dataset than the avoid 
+disadvantageous inequity strategy. We do not think this feature of our design 
+is a concern, however, for a number of reasons. First, we are interested in 
+measuring strategies underlying *costly* punishment. Some of these strategies,
+by their very nature, will be more costly to implement than others. This is 
+reflected in our design. It would not make theoretical sense to use an 
+alternative design where more or less punitive strategies are manipulated to 
+cost participants the same amount. Second, when we asked participants whether
+they would have punished if it were free to do so, we found low agreement 
+with this statement (Supplementary Figure \@ref(fig:plotSliders1)), 
+suggesting that participants were not particularly sensitive to the costs of 
+punishment. In line with this, when we plot the frequencies of different 
+strategies against their expected costs, we find that cost is not a perfect
+predictor of strategy frequency: many "cheap" strategies are rare in our 
+data and some "expensive" strategies are quite common (e.g., always punish;
+Supplementary Figure \@ref(fig:plotSpline)). Third, this argument implies 
+that the high frequency of the never punish strategy is merely an artefact
+of our design, since it is the only strategy that does not cost anything to
+implement. But as we have discussed, many other studies have found similar
+aversions to costly punishment in the lab [@Barclay2016;@Batistoni2022;
+@Bone2015;@Deutchman2021;@Raihani2012b] and in the real world
+[@Balafoutas2014;@Balafoutas2016;@Baumard2010] suggesting that this result is
+not an artefact of our design.
 
 In sum, we have shown that while many people choose not to punish peers, those 
 who do are motivated by a variety of different concerns, including behaviour 
@@ -928,7 +923,7 @@ GitHub: https://github.com/ScottClaessens/punishStrategies
 # References
 
 \begingroup
-
+\setlength\parindent{0pt}
 <div id="refs" custom-style="Bibliography"></div>
 \endgroup
 

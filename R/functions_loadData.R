@@ -423,3 +423,26 @@ excludeData <- function(d) {
       `3PP_Nothing` = ifelse(fail1, NA, `3PP_Nothing`) 
     )
 }
+
+# wrangle data for strategy frequencies
+wrangleStrategyFreqData <- function(d) {
+  d %>%
+    unite(
+      strategyAll,
+      pun1_1:pun6_2,
+      sep = "",
+      remove = FALSE
+      ) %>%
+    rowwise() %>%
+    mutate(
+      cost = 0.10 * sum(c_across(pun1_1:pun6_2))
+      ) %>%
+    group_by(strategyAll, Country) %>%
+    summarise(
+      n = n(),
+      cost = unique(cost),
+      .groups = "drop"
+      ) %>%
+    # remove never punish
+    filter(strategyAll != "000000000000")
+}

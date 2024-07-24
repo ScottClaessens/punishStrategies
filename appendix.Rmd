@@ -8,15 +8,15 @@
 
 \setcounter{page}{1}
 \centering
-\noindent \hspace*{10mm} \small Why do people punish? Evidence for a range of strategic concerns \newline
-\hspace*{1cm} \small Scott Claessens\textsuperscript{1}, Quentin D. Atkinson\textsuperscript{1}, & Nichola Raihani\textsuperscript{1,2} \newline
+\noindent \hspace*{25mm} \small Why do people punish? Evidence for a range of strategic concerns \newline
+\hspace*{30mm} \small Scott Claessens\textsuperscript{1}, Quentin D. Atkinson\textsuperscript{1}, & Nichola Raihani\textsuperscript{1,2} \newline
 \raggedright
 \noindent \footnotesize \textsuperscript{1} School of Psychology, University of Auckland, Auckland, New Zealand \newline
 \noindent \footnotesize \textsuperscript{2} Department of Experimental Psychology, University College London, London, United Kingdom \newline
 \par
 \noindent{\bfseries{Contents}}
-\contentsline {subsection}{Supplementary Figures S1-S13}{2}{}
-\contentsline {subsection}{Supplementary Tables S1-S4}{15}{}
+\contentsline {subsection}{Supplementary Figures S1-S14}{2}{}
+\contentsline {subsection}{Supplementary Tables S1-S4}{16}{}
 \normalsize
 \newpage
 
@@ -123,6 +123,19 @@ credible intervals. AI = advantageous inequity, DI = disadvantageous inequity.
 
 ```{r plotAllSliders1, fig.width=7.5, fig.height=4, fig.cap="(ref:plotAllSliders1Caption)", warning=FALSE}
 tar_read(plotAllSliders1)
+```
+
+\newpage
+
+(ref:plotSplineCaption) *The relationships between strategy frequencies and the
+overall costs of strategies across all twelve punishment decisions, in both
+countries.* Each point is a unique strategy that appears in our dataset at
+least once (for ease of presentation, the "never punish" strategy is excluded).
+Lines and shaded areas represent posterior predictions from splines fitted to
+the trend in each country separately.
+
+```{r plotSpline, fig.width=6, fig.height=3.5, fig.cap="(ref:plotSplineCaption)", warning=FALSE}
+tar_read(plotSpline)
 ```
 
 \newpage
@@ -236,7 +249,7 @@ apa_table(
   caption = "(ref:tableSurveyWordingsCaption)",
   booktabs = TRUE,
   placement = "H",
-  fontsize = "scriptsize"
+  font_size = "scriptsize"
 )
 ```
 
