@@ -60,8 +60,7 @@ header-includes:
   - \nolinenumbers
   - \note{\raggedright * Correspondence concerning this article should be addressed to Scott Claessens, Level 2, Building 302, 23 Symonds Street, Auckland, New Zealand. \text{E-mail:} \href{scott.claessens@gmail.com}{\nolinkurl{scott.claessens@gmail.com}} \par This manuscript has not yet been peer-reviewed. \par This manuscript was published as a pre-print on PsyArXiv under a CC BY 4.0 \text{license:} \url{https://doi.org/10.31234/osf.io/ys6rm} \par \text{Classification:} Social Sciences; Psychological and Cognitive Sciences \par \text{Keywords:} punishment; cooperation; economic games}
 appendix          : "appendix.Rmd"
-csl               : nature.csl
-notes-after-punctuation: false
+csl               : pnas.csl
 ---
 
 ```{r options, echo=FALSE}
