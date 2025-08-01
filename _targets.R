@@ -279,13 +279,9 @@ list(
   tar_target(plotAllDems2, plotAllDems(list(post2.2_Age, post2.2_SES, post4.2_Gender, post4.2_Student),
                                        file = "figures/modelResults/withExclusions/allDems.pdf")),
   
-  #### Render report ####
-  
-  tar_render(report, "report.Rmd"),
-  
   #### Render manuscript ####
   
-  tar_render(manuscript, "manuscript.Rmd"),
+  tar_quarto(manuscript, "quarto/manuscript.qmd", quiet = F),
   
   #### Session info ####
   

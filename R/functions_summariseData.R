@@ -447,8 +447,7 @@ makeStrategyCountTable <- function(d) {
     mutate(Prop = format(round(Prop, digits = 3), nsmall = 3)) %>%
     pivot_wider(names_from = Country, values_from = c(N, Prop)) %>%
     dplyr::select(c(1,2,4,3,5))
-  colnames(out)[c(2,4)] <- "N"
-  colnames(out)[c(3,5)] <- "Prop"
+  colnames(out)[2:5] <- letters[1:4]
   return(out)
 }
 
@@ -498,23 +497,23 @@ makeStrategyCountTable <- function(d) {
 makePatternsTable <- function(d) {
   # vector of explanations for common strategies
   explanations <- c(
-    "000000000000" = "\\textit{Never punish strategy (exact)}",
-    "000000001000" = "\\textit{Avoid DI strategy (exact)}",
-    "000000001010" = "\\textit{Egalitarian strategy (exact)}",
+    "000000000000" = "Never punish strategy (exact)",
+    "000000001000" = "Avoid DI strategy (exact)",
+    "000000001010" = "Egalitarian strategy (exact)",
     "000000000010" = "Punish when steal in Game F",
     "001000001000" = "Punish when steal in Games B and E",
     "101000001010" = "Punish when steal in Games A, B, E, and F",
     "100000000000" = "Punish when steal in Game A",
     "000000100000" = "Punish when steal in Game D",
     "001000001010" = "Punish when steal in Games B, E, and F",
-    "101000101000" = "\\textit{Deterrent strategy (exact)}",
+    "101000101000" = "Deterrent strategy (exact)",
     "101010101010" = "Punish when steal in all games",
-    "101000101010" = "\\textit{Norm-enforcing strategy (exact)}",
+    "101000101010" = "Norm-enforcing strategy (exact)",
     "001000000000" = "Punish when steal in Game B",
     "001010101000" = "Punish when steal in Games B, C, D, and E",
     "100000001000" = "Punish when steal in Games A and E",
     "101000001000" = "Punish when steal in Games A, B, and E",
-    "101010101000" = "\\textit{Retributive strategy (exact)}",
+    "101010101000" = "Retributive strategy (exact)",
     "111111111111" = "Always punish",
     "000000101000" = "Punish when steal in Games D and E",
     "000000101010" = "Punish when steal in Games D, E, and F",
@@ -554,8 +553,7 @@ makePatternsTable <- function(d) {
     mutate(Explanation = explanations[Pattern]) %>%
     # rearrange cols
     dplyr::select(c(1,6,2,4,3,5))
-  colnames(out)[c(3,5)] <- "N"
-  colnames(out)[c(4,6)] <- "Prop"
+  colnames(out)[3:6] <- letters[1:4]
   return(out)
 }
 
@@ -578,137 +576,137 @@ makeStrategyTable <- function() {
       "Punish exclusively those who do not cause harm",
       "Never punish others"
     ),
-    `\\thead{\\scriptsize Steal \\\\ 50-30}` = c(
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    a = c(
+      "\U2713",
+      "\U2713",
+      "\U2713",
+      "x",
+      "x",
+      "x",
+      "\U2713",
+      "x",
+      "x"
     ),
-    `\\thead{\\scriptsize No steal \\\\ 70-10}` = c(
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    b = c(
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "\U2713",
+      "\U2713",
+      "x"
     ),
-    `\\thead{\\scriptsize Steal \\\\ 50-50}` = c(
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    c = c(
+      "\U2713",
+      "\U2713",
+      "\U2713",
+      "x",
+      "x",
+      "\U2713",
+      "\U2713",
+      "x",
+      "x"
     ),
-    `\\thead{\\scriptsize No steal \\\\ 70-30}` = c(
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    d = c(
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "\U2713",
+      "\U2713",
+      "x"
     ),
-    `\\thead{\\scriptsize Steal \\\\ 50-50}` = c(
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    e = c(
+      "x",
+      "x",
+      "\U2713",
+      "x",
+      "x",
+      "\U2713",
+      "\U2713",
+      "x",
+      "x"
     ),
-    `\\thead{\\scriptsize No steal \\\\ 70-30}` = c(
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    f = c(
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "\U2713",
+      "\U2713",
+      "x"
     ),
-    `\\thead{\\scriptsize Steal \\\\ 50-50}` = c(
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    g = c(
+      "\U2713",
+      "\U2713",
+      "\U2713",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x"
     ),
-    `\\thead{\\scriptsize No steal \\\\ 70-30}` = c(
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    h = c(
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "\U2713",
+      "x"
     ),
-    `\\thead{\\scriptsize Steal \\\\ 50-70}` = c(
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    i = c(
+      "\U2713",
+      "\U2713",
+      "\U2713",
+      "\U2713",
+      "\U2713",
+      "x",
+      "\U2713",
+      "x",
+      "x"
     ),
-    `\\thead{\\scriptsize No steal \\\\ 70-50}` = c(
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    j = c(
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "\U2713",
+      "\U2713",
+      "x"
     ),
-    `\\thead{\\scriptsize Steal \\\\ 50-90 [100]}` = c(
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    k = c(
+      "x",
+      "\U2713",
+      "x",
+      "x",
+      "\U2713",
+      "x",
+      "\U2713",
+      "x",
+      "x"
     ),
-    `\\thead{\\scriptsize No steal \\\\ 70-70 [100]}` = c(
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{green} \\checkmark \\normalcolor \\scriptsize",
-      "\\Large \\color{red}         x     \\normalcolor \\scriptsize"
+    l = c(
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "\U2713",
+      "\U2713",
+      "x"
     ),
     .name_repair = "minimal"
   )

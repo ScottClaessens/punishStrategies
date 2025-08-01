@@ -1,0 +1,1021 @@
+---
+title: "Why Do People Punish? Evidence for a Range of Strategic Concerns"
+shorttitle: "Punishment strategies"
+author:
+  - name: Scott Claessens
+    corresponding: true
+    orcid: 0000-0002-3562-6981
+    email: scott.claessens@gmail.com
+    affiliations:
+      - name: University of Kent
+        department: School of Psychology
+        city: Canterbury
+        country: United Kingdom
+      - name: University of Auckland
+        department: School of Psychology
+        city: Auckland
+        country: New Zealand
+    role:
+      - conceptualization
+      - data curation
+      - formal analysis
+      - investigation
+      - methodology
+      - visualization
+      - writing
+      - editing
+  - name: Quentin D Atkinson
+    corresponding: false
+    orcid: 0000-0002-8499-7535
+    affiliations:
+      - name: University of Auckland
+        department: School of Psychology
+        city: Auckland
+        country: New Zealand
+    role:
+      - conceptualization
+      - funding acquisition
+      - methodology
+      - supervision
+      - writing
+      - editing
+  - name: Nichola J Raihani
+    corresponding: false
+    orcid: 0000-0003-2339-9889
+    affiliations:
+      - name: University of Auckland
+        department: School of Psychology
+        city: Auckland
+        country: New Zealand
+      - name: University College London
+        department: Department of Experimental Psychology
+        city: London
+        country: United Kingdom
+    role:
+      - conceptualization
+      - funding acquisition
+      - investigation
+      - methodology
+      - supervision
+      - writing
+      - editing
+author-note:
+  status-changes: 
+    affiliation-change: ~
+    deceased: ~
+  disclosures:
+    study-registration: "This manuscript was published as a pre-print on PsyArXiv under a CC BY 4.0 license: <https://doi.org/10.31234/osf.io/ys6rm>"
+    data-sharing: Word count (excluding abstract, figures, tables, and references) = 6065 words.
+    related-report: ~
+    conflict-of-interest: ~
+    financial-support: ~
+    gratitude: ~
+    authorship-agreements: ~
+abstract: "Costly punishment is thought to be a key mechanism sustaining human cooperation. However, the motives for punitive behaviour remain unclear. Although often assumed to be motivated by a desire to convert cheats into cooperators, punishment is also consistent with other functions, such as levelling payoffs or improving one’s relative position. We used six economic games to tease apart different motives for punishment and to explore whether different punishment strategies were associated with personality variables, political ideology, and religiosity. We used representative samples from the United Kingdom and the United States (N = 2010) to estimate the frequency of different punishment strategies in the population. The most common strategy was to never punish: prosocial individuals and those scoring high in honesty-humility were among the least punitive in our sample, while religious individuals and those scoring high for right-wing authoritarianism and social dominance orientation were more punitive. For people who did punish, strategy use was more consistent with egalitarian motives than behaviour-change motives. Nevertheless, different punishment strategies were also associated with personality, social preferences, political ideology, and religiosity. Self-reports of behaviour in the games suggested that people have some insight into their punishment strategy. These findings highlight the multipurpose nature of human punishment and show how the different motives underpinning punishment decisions are linked with core character traits."
+keywords: [punishment, cooperation, economic games]
+bibliography: bibliography.bib
+engine: knitr
+format:
+  apaquarto-docx:
+    fig-dpi: 300
+execute:
+  echo: false
+  warning: false
+  error: false
+crossref:
+  custom:
+    - kind: float
+      key: suppfig
+      latex-env: suppfig
+      reference-prefix: Supplementary Figure
+      space-before-numbering: true
+      latex-list-of-description: Supplementary Figure
+      caption-location: bottom
+    - kind: float
+      key: supptbl
+      latex-env: supptbl
+      reference-prefix: Supplementary Table
+      space-before-numbering: true
+      latex-list-of-description: Supplementary Table
+      caption-location: top
+floatsintext: true
+csl: nature.csl
+---
+
+```{r}
+library(flextable)
+library(knitr)
+library(targets)
+library(tidyverse)
+```
+
+Humans cooperate on a scale that is unparalleled in the animal kingdom. One 
+mechanism thought to sustain this level of cooperation is costly punishment, 
+whereby individuals harm others at a personal cost [@CluttonBrock1995], 
+ostensibly encouraging cooperative behaviour from the target or bystanders 
+[@DosSantos2011; @DosSantos2013; @Raihani2015]. Punishment offers a route to 
+maintaining or increasing cooperation by changing the payoff structure of social 
+interactions such that it no longer pays to cheat or exploit social partners 
+[@CluttonBrock1995; @Ostrom1990]. Yet, despite its theoretical importance, the 
+question of why people choose to punish others is still hotly contested 
+[@Raihani2019]. In this study, we use a battery of economic games to disentangle
+the different motives underpinning punishment and explore how these motives vary 
+across individuals.
+
+In humans, punishment is often studied in laboratory settings using economic 
+games [@Balliet2011; @Balliet2013; @Chaudhuri2011; @Dreber2008; @Fehr2000; 
+@Fehr2002; @Henrich2006; @Nikiforakis2008a; @Raihani2012a; @Raihani2019]. In 
+some of these games, participants are given a sum of money that they can use to 
+invest in collective action or to help others; conversely, they can 'cheat' by 
+keeping the money for themselves or by exploiting the contributions of others. 
+In other games, participants are endowed with sums of money and can then 'cheat'
+by destroying a partner's payoffs or stealing from them [@Abbink2009; 
+@Raihani2012b]. Punishment is introduced into such games by giving participants 
+the option to pay a small 'fee' to impose a greater 'fine' on their co-players. 
+Several lines of experimental evidence indicate that people use this punishment 
+option [@Henrich2006], that they enjoy punishing [@DeQuervain2004], and that 
+they frequently, though not always [@Herrmann2008], punish those who cheat,
+free-ride, or steal [@Fehr2000; @Fehr2002].
+
+Evidence from these experiments suggests that the threat of costly punishment 
+plays an important role in promoting human cooperation. People tend to cooperate 
+more in games where punishment is possible compared to those where it is not
+[@Balliet2011; @Balliet2013; @Raihani2019]. Similarly, people make higher offers 
+in the Ultimatum Game (where punishment is possible) compared to the 
+structurally-similar Dictator Game (where it is not) [@Camerer2003]. This 
+cooperation-enhancing effect of punishment has also been observed across 
+societies [@Balliet2013], leading some to suggest that costly punishment has 
+played a key role in the cultural evolution of cooperation in humans
+[@Bowles2013; @Boyd2003; @Chudek2011; @Henrich2017].
+
+Nevertheless, it remains unclear whether individuals playing economic games use
+punishment as a behaviour-change tool to enforce cooperation or to achieve other 
+ends. Some have argued that punishment is primarily used to shape behaviour, 
+either to deter personal harm [@Delton2017; @Dreber2008; @DosSantos2013] or to 
+uphold normative standards of cooperative behaviour [@Boyd2003; @Chudek2011; 
+@Fehr2018; @Mathew2011; @Mathew2014; @Richerson2016]. But while the _threat_ of 
+punishment can have a cooperation-enhancing effect, the _enactment_ of this 
+punishment does not consistently deter targets from cheating in the future 
+[@Raihani2019]. This calls into question whether punishment primarily operates 
+as a behaviour-change tool or whether it is used to achieve other goals.
+
+Beyond behaviour shaping concerns, there are other reasons why people punish in 
+economic games. Punishers might be motivated by a desire for retribution rather 
+than deterrence, punishing in proportion to the amount of harm that was 
+personally caused [@Carlsmith2002]. Punishment might be driven by concerns about 
+relative payoffs, such as disadvantageous inequity aversion (i.e., avoiding 
+having less than others) [@Raihani2012b; @Raihani2019] and/or general 
+egalitarian preferences (i.e., wanting all participants to receive the same 
+payoffs) [@Dawes2007]. Such concerns about relative payoffs may be activated 
+when participants earn less than cheats in economic games or when there are 
+income disparities in these settings. People might also use punishment for 
+competitive purposes, seeking advantageous inequity for themselves (i.e., having 
+more than others) and/or improving their relative position [@Raihani2019].
+
+Common economic game designs have been unable to tease apart these different 
+motives for punishment because participants who interact with cheats in these 
+games experience both losses _and_ lower relative payoffs. The typical 1:3 
+fee-fine ratio of punishment in economic games compounds this issue. With 
+this setup, people can simultaneously use punishment to reciprocate losses, to 
+deter others from cheating, and to reduce or reverse disparities in payoffs 
+between themselves and targets. To add to this complexity, it is evident that 
+people use punishment in seemingly disparate ways: punishing when no behaviour 
+change is possible, such as in one-shot games [@Bone2015; @Henrich2006;
+@Raihani2012b; @Walker2004], on the very last round of repeated games 
+[@Barclay2016], or in games where the target never learns about the punishment 
+[@Crockett2014]; punishing those who did not cheat or who over-contributed to 
+collective action (sometimes called 'antisocial punishment') [@Herrmann2008; 
+@Sylwester2013]; punishing in scenarios where they were not personally harmed 
+(third-party punishment) [@Fehr2004]; and punishing in scenarios where 
+disparities in payoffs did not arise from participants' actions [@Dawes2007; 
+@Johnson2009; @Fowler2005].
+
+The general conclusion from this research is that there is no one unifying 
+function of costly punishment in humans. Instead, punishment should be thought 
+of as a flexible behavioural tool that serves a variety of functions that are 
+not mutually exclusive [@Raihani2019]. Due to its multipurpose nature, we should 
+therefore expect variation in punishment strategies in the population, much like 
+the observed variation in social learning strategies [@Molleman2014]. Some 
+individuals may use punishment as a behaviour shaping tool, for example, while 
+others may use it to reduce or reverse payoff differentials.
+
+This insight raises several underexplored questions. First, which punishment 
+strategies are more frequent in human populations? Second, what traits predict 
+adherence to a particular strategy? Previous work has reported that personality 
+is related to cooperative behaviour [@Thielmann2020] and demographics, political 
+ideology, and religiosity are related to punitive behaviour [@Hofmann2018], but 
+no research has related these variables to specific punishment strategies. 
+Third, do people have insight into their own punishment strategy? Previous work 
+has argued that people are often unaware of the underlying function of their 
+punitive behaviour, yet they feel compelled to enact it anyway
+[@Carlsmith2002; @Nisbett1977].
+
+Here, we aim to delineate nine possible punishment strategies by asking 
+whether people punish in a manner consistent with a specific strategy and, if 
+so, what other characteristics (personality, social preferences, political 
+orientation, religious views) predict the use of different punishment 
+strategies. @tbl-strategies summarises the potential functions for costly 
+punishment in the economic games that we considered, and the behavioural 
+strategies they predict. Note that @tbl-strategies is not an exhaustive list of 
+all possible punishment strategies: we do not include reputational functions of 
+punishment in this table, such as signalling trustworthiness [@Barclay2006; 
+@Batistoni2022; @Jordan2016; @Jordan2017; @Raihani2015], because our focus is on 
+punishment strategies in anonymous economic games without reputational 
+incentives (but see ref [@Jordan2020]).
+
+Building on previous designs that have used one-shot economic games to explore 
+behaviour-shaping and egalitarian motives for punishment [@Bone2015; 
+@Crockett2014; @Deutchman2021; @Marczyk2017; @Raihani2012b], we employ a suite 
+of one-shot economic games where individuals are given the opportunity to punish 
+targets at a personal cost (@fig-games). In each game, targets either steal from 
+another individual or do nothing. Representative samples of participants from 
+the United Kingdom (*n* = `r sum(tar_read(dExc)$Country == "United Kingdom")`) 
+and the United States (*n* = `r sum(tar_read(dExc)$Country == "United States")`) 
+completed all six games on the online platform Prolific. We designed the suite 
+of games to tease apart the proposed punishment strategies in @tbl-strategies, 
+such that each strategy predicts a different pattern of behaviour across all the 
+games (see Methods for more detail about the six games). We use the resulting 
+behavioural patterns to discern which punishment strategy participants are 
+employing. We then combine these behavioural patterns with data on demographics, 
+personality, social preferences, political ideology, religiosity, and self-reported strategy usage.
+
+![Visual summary of the six economic games.](images/games.png){
+  #fig-games
+  width="80%"
+  apa-note="In the games, Player 2 either steals £0.20 from Player 1 (the focal player) or does nothing. Player 1 is then given the option to punish by paying a certain amount of money to remove money from Player 2 (this money is destroyed). The six games are variants on this general setup, creating situations where (A) Player 2 is still worse off after stealing, (B) Player 2 creates equality by stealing, (C) the computer 'decides' whether Player 2 steals, (D) the fee-fine ratio is 1:1, (E) Player 2 is better off after stealing, and (F) Player 2 steals instead from a third-party."
+  }
+
+::: {.landscape}
+
+```{r}
+#| label: tbl-strategies
+#| tbl-cap: Summary of the different functions for punishment and the behavioural strategies they predict.
+#| apa-note: Games A-F are the games employed in the current study (see Methods for more details). In each of the six games, participants are given the opportunity to punish players who 'steal' and those who do not, meaning that participants make twelve punishment decisions in total. Each behavioural strategy implies a unique pattern of punishment across all decisions (see Methods for detailed explanation of strategies). Ticks reflect decisions to punish, crosses reflect decisions to not punish. In column headers, payoffs at the first stage (above) and the second stage (below) are denoted as P1-P2 (or P2-P3 [P1] for Game F) where participants take the role of P1 and P2 is the target of punishment. AI = advantageous inequity, DI = disadvantageous inequity.
+
+tar_read(tableStrategies) %>%
+  flextable() %>%
+  set_header_labels(
+    Function = "Function",
+    `Behavioural strategy` = "Behavioural strategy",
+    a = "Steal \n 50-30",
+    b = "No steal \n 70-10",
+    c = "Steal \n 50-50",
+    d = "No steal \n 70-30",
+    e = "Steal \n 50-50",
+    f = "No steal \n 70-30",
+    g = "Steal \n 50-50",
+    h = "No steal \n 70-30",
+    i = "Steal \n 50-70",
+    j = "No steal \n 70-50",
+    k = "Steal \n 50-90 [100]",
+    l = "No steal \n 70-70 [100]"
+  ) %>%
+  add_header_row(
+    values = c(
+      "",
+      "Game A \n (AI) \n 70-10",
+      "Game B \n (Equal) \n 70-30",
+      "Game C \n (Computer) \n 70-30",
+      "Game D \n (1:1 Fee Fine) \n 70-30",
+      "Game E \n (DI) \n 70-50",
+      "Game F \n (Third Party) \n 70-70 [100]"
+    ),
+    colwidths = rep(2, 7)
+  ) %>%
+  theme_apa() %>%
+  width(width = c(1, 2, rep(0.6, 12))) %>%
+  fontsize(size = 9, part = "all") %>%
+  line_spacing(part = "all") %>%
+  align(i = NULL, j = 1:2, align = "left", part = "all")
+```
+
+:::
+
+# Results
+
+```{r MLMs}
+mlm1 <- coef(summary(tar_read(mlm1)))
+mlm2 <- coef(summary(tar_read(mlm2)))
+```
+
+The overall pattern of punitive behaviour in the six economic games was very 
+similar across both countries (@fig-decisions). Participants were generally more 
+likely to punish targets who stole compared to targets who did not steal 
+(multilevel logistic regression; _b_ = 
+`r papaja::printnum(mlm1["otherTook","Estimate"])`, standard error = 
+`r papaja::printnum(mlm1["otherTook","Std. Error"])`, _p_ 
+`r papaja::printp(mlm1["otherTook","Pr(>|z|)"])`). Participants were also more 
+likely to punish when targets' stealing behaviour generated inequalities, 
+specifically in Games E and F (_b_ = 
+`r papaja::printnum(mlm2["DI","Estimate"])`, SE = 
+`r papaja::printnum(mlm2["DI","Std. Error"])`, 
+_p_ `r papaja::printp(mlm2["DI","Pr(>|z|)"])`).
+
+```{r, fig.height=5, fig.width=8}
+#| label: fig-decisions
+#| fig-cap: Overall pattern of punitive behaviour across all six economic games, split by country.
+#| fig-align: center
+#| apa-note: AI = advantageous inequity, DI = disadvantageous inequity.
+
+tar_read(plotDecisions)
+```
+
+<br>
+
+We classified participants into a particular strategy if their behaviour across 
+all twelve decisions matched our behavioural predictions shown in 
+@tbl-strategies exactly. @tbl-strategycounts shows the proportion of 
+participants following each strategy, with N/A used to represent participants 
+who did not fit exactly into any particular strategy type. Overall, 
+`r papaja::printnum(mean(tar_read(dExc)$strategy != "N/A")*100, digits = 0)`%
+of our participants could be classified exactly into one of the strategies. The
+most common strategy in both countries was to never punish across any of the
+games. The next most common strategies were those that care about
+minimising payoff differences (avoid disadvantageous inequity, egalitarian). 
+Less common were the behaviour shaping strategies (deterrent, norm-enforcing),
+the retributive strategy, and the competitive strategies (seek advantageous 
+inequity, competitive). Although participants often punished targets who did not 
+steal in the six games (@fig-decisions), no participants followed the antisocial
+strategy by exclusively punishing targets who did not steal across _all_ games.
+
+```{r}
+#| label: tbl-strategycounts
+#| tbl-cap: Counts and proportions of participants following each punishment strategy exactly, split by country.
+#| apa-note: N/A implies that participants were unable to be classified exactly into any of the punishment strategies. AI = advantageous inequity, DI = disadvantageous inequity.
+
+tar_read(tableStrategyCounts) %>%
+  flextable() %>%
+  set_header_labels(
+    Strategy = "Strategy",
+    a = "N",
+    b = "Prop",
+    c = "N",
+    d = "Prop"
+  ) %>%
+  add_header_row(
+    values = c(
+      "",
+      "United Kingdom\n(N = 1014)",
+      "United States\n(N = 996)"
+    ),
+    colwidths = c(1, 2, 2)
+  ) %>%
+  autofit() %>%
+  theme_apa() %>%
+  line_spacing(part = "all") %>%
+  align(i = NULL, j = 1, align = "left", part = "all")
+```
+
+<br>
+
+To further investigate the strategies that participants were following, we 
+examined the most common patterns of punitive behaviour across all twelve 
+decisions. @supptbl-patterns shows the proportion of participants following the
+25 most common behavioural patterns, including, where appropriate, the 
+predetermined strategies from @tbl-strategies. In both countries, a common 
+pattern of behaviour not captured by any of the strategies was punishing only 
+when the target stole in the third-party game (Game F). Punishment in this game
+is consistent with an egalitarian motive, as stealing produces unequal outcomes,
+but third-party punishment here is also consistent with norm-enforcing and 
+competitive motives (see @tbl-strategies). Other common behavioural patterns not 
+captured by our strategies included punishing whenever the target stole across 
+all games and always punishing in every game irrespective of the targets' 
+behaviour.
+
+While it is useful to look at exact patterns of behaviour, participants may not 
+have implemented their chosen punishment strategy with exact precision.
+In reality, strategies may have been implemented probabilistically for each 
+punishment decision. There is also the possibility of implementation errors, 
+whereby participants occasionally "slip up" and make decisions that are 
+incongruent with a particular strategy. This may explain why some participants 
+were unable to be classified exactly into a single punishment strategy.
+
+To deal with this complexity and include all observed data in our frequency 
+estimates, we fitted a Bayesian latent state model to the data. This model 
+assumes that the nine strategies in @tbl-strategies (plus a "random choice" 
+strategy that chooses randomly for each decision) are the only latent strategies 
+and that these are instantiated into observed behaviour according to the logic 
+in @tbl-strategies with some probability of implementation error (i.e., an 
+intention to punish is implemented as non-punishment and vice versa). Averaging 
+over all strategies and incorporating the possibility of implementation errors,
+the model estimates the probability of participants following any particular 
+strategy, given the observed data.
+
+The posterior estimates from the model are presented in @fig-model1b. The 
+posterior probabilities for each strategy did not differ between the two 
+countries. In both countries, the never punish strategy had the highest 
+probability, followed by the egalitarian strategy. The norm-enforcing and seek 
+advantageous inequity strategies were the next most likely, with higher 
+posterior estimates than the competitive and antisocial strategies. None of the 
+other strategies differed in their posterior estimates. The same general pattern 
+emerged when we analysed the full dataset without pre-registered exclusions 
+(@suppfig-model1a).
+
+```{r, fig.height=5, fig.width=7}
+#| label: fig-model1b
+#| fig-cap: Posterior estimates of the probabilities of following different punishment strategies from the Bayesian latent state model.
+#| fig-align: center
+#| apa-note: The model assumes an implementation error rate of 5%. Points represent posterior medians, line ranges represent 50% and 95% credible intervals. AI = advantageous inequity, DI = disadvantageous inequity.
+
+tar_read(plot1.2)
+```
+
+<br>
+
+Next, we explored which traits predicted adherence to different punishment 
+strategies. To answer this question, we included variables capturing 
+demographics, personality, social preferences, political views, and religious 
+views as predictors in our Bayesian latent state model. We included each 
+variable in a separate model, predicting all ten punishment strategies 
+(the nine from @tbl-strategies, plus the 'random choice' strategy) 
+simultaneously.
+
+```{r sesSlope}
+ses <- tar_read(post2.2_SES)$beta[,2,10]
+```
+
+Demographic variables tended to be unrelated to strategy usage: age and gender
+did not predict adherence to a particular punishment strategy (Supplementary 
+Figures -@suppfig-allDems2 and -@suppfig-allDems1). In the United States, the 
+never punish strategy was slightly more common among participants lower in 
+socio-economic status (median posterior slope = 
+`r papaja::printnum(median(ses))`, 95% CI
+[`r papaja::printnum(quantile(ses, 0.025))` 
+`r papaja::printnum(quantile(ses, 0.975))`]) but this effect was small.
+
+Conversely, personality and social preferences were linked to variation in 
+punishment strategies. When including the Big-6 personality dimensions and 
+Social Value Orientation (SVO) in the model, we found associations with the 
+egalitarian, never punish, and random choice strategies, with small-to-medium 
+effect sizes (@fig-allPers2). More prosocial participants (those with higher SVO 
+scores) were more likely to follow the egalitarian and the never punish 
+strategies, while those with lower SVO scores were more likely to enact the 
+random choice strategy. The personality dimensions of honesty-humility and 
+openness to experience were both positively associated with following the never 
+punish strategy, while extraversion negatively predicted this strategy. The 
+effects were mostly similar across countries, but occasionally differed: for 
+example, in the United States, but not in the United Kingdom, honesty-humility 
+was positively associated with following the egalitarian strategy and negatively 
+associated with following the random choice strategy. Overall, the same pattern
+of results emerged when analysing the full dataset without exclusions 
+(@suppfig-allPers1).
+
+```{r, fig.height=3.5, fig.width=7.5, warning=FALSE}
+#| label: fig-allPers2
+#| fig-cap: Posterior slopes from Bayesian latent state models including Big-6 personality dimensions and Social Value Orientation.
+#| fig-align: center
+#| apa-note: Each row represents a separate model. All models assume an implementation error rate of 5%. Points represent posterior medians, line ranges represent 95% credible intervals. AI = advantageous inequity, DI = disadvantageous inequity.
+
+tar_read(plotAllPers2)
+```
+
+<br>
+
+Political and religious variables were also associated with punishment strategy 
+(@fig-allPolRel2). These effects were small-to-medium in size and tended to be 
+more pronounced in the United States. Controlling for Social Dominance 
+Orientation, American participants higher in Right Wing Authoritarianism were 
+more likely to follow the strategies avoiding disadvantageous inequity and 
+seeking advantageous inequity. Participants who stated that they would like to 
+"bring those below them [on the socio-economic status ladder] up a peg" were 
+more likely to follow the egalitarian strategy, while American participants 
+higher in Social Dominance Orientation, Right Wing Authoritarianism, and 
+believing that God controls events in the world were less likely to follow the 
+egalitarian strategy. In general, religious and conservative participants were 
+less likely to follow the never punish strategy. This general pattern of results 
+was replicated with the full dataset (@suppfig-allPolRel1).
+
+```{r, fig.height=3.5, fig.width=7.5, warning=FALSE}
+#| label: fig-allPolRel2
+#| fig-cap: Posterior slopes from Bayesian latent state models including political ideology, views about social inequality, and religiosity.
+#| fig-align: center
+#| apa-note: Each row represents a separate model aside from Social Dominance Orientation and Right Wing Authoritarianism, which control for one another within the same model. All models assume an implementation error rate of 5%. Points represent posterior medians, line ranges represent 95% credible intervals. AI = advantageous inequity, DI = disadvantageous inequity.
+
+tar_read(plotAllPolRel2)
+```
+
+<br>
+
+Finally, we asked whether participants had insight into their own punishment 
+strategy. In other words, could participants self-report the strategy that they 
+were following during the games? To answer this question, we included 
+participants' responses to post-game questions about their strategy as 
+predictors in the model. As before, each predictor was included in a separate 
+model, predicting all ten strategies simultaneously.
+
+In general, we found that self-reported strategy usage was positively associated
+with the behavioural strategy that participants employed, with effects ranging 
+from small to large in size (see Supplementary Figures -@suppfig-sliders1 and 
+-@suppfig-sliders2 for the distribution of responses to self-report questions).
+@fig-allSliders2 shows the relationships between self-report questions and the 
+different punishment strategies, highlighting the combinations where the 
+question matched the behavioural strategy. We found positive relationships 
+between the self-report questions and strategy usage for the norm-enforcing, 
+egalitarian, seek advantageous inequity, never punish, and random choice 
+strategies. The 95% credible intervals for other estimates included zero, though
+these estimates often trended in a positive direction. The same pattern of
+results was found when analysing the full dataset without exclusions
+(@suppfig-allSliders1).
+
+```{r, fig.height=4, fig.width=7.5, warning=FALSE}
+#| label: fig-allSliders2
+#| fig-cap: Posterior slopes from models including self-reported strategy usage.
+#| fig-align: center
+#| apa-note: Each row represents a separate model. All models assume an implementation error rate of 5%. Highlighted estimates represent combinations where the self-report question matched the behavioural strategy. Points represent posterior medians, line ranges represent 95% credible intervals. AI = advantageous inequity, DI = disadvantageous inequity.
+
+tar_read(plotAllSliders2)
+```
+
+<br>
+
+# Discussion
+
+Using a suite of economic games measuring punishment in different situations, 
+we have shown that punishment does not serve just one function, but instead is 
+a flexible tool that can be and is used for different purposes [@Raihani2019]. 
+While some use punishment to enforce norms of cooperation, others use it to 
+reduce or even create inequality between individuals. We found that people's 
+punishment strategy can, to some extent, be predicted by individual differences 
+in personality, social preferences, and political and religious views. Moreover, 
+contrary to the view that people are often unable to articulate the reasons for 
+their punitive behaviour [@Carlsmith2002], people seem to have some degree of 
+insight into the strategy they are using. Despite small differences, these 
+general patterns replicated in samples from both the United Kingdom and the 
+United States, providing further confidence in the results. 
+
+Among the punitive strategies, the most common were particularly sensitive to 
+inequality in payoffs, either from a self-referential perspective (i.e., avoid 
+disadvantageous inequity) or more generally (i.e., egalitarian). This is in 
+line with previous studies which have highlighted inequity aversion as an 
+important motivation for punishment in economic games [@Bone2015; @Bone2016; 
+@Dawes2007; @Deutchman2021; @Johnson2009; @Raihani2012b]. Personality, social 
+preferences, and political and religious views were related to these strategies.
+Traits associated with other-regarding concern, such as SVO and 
+honesty-humility, predicted following the egalitarian strategy. By contrast,
+religious and conservative individuals, including individuals higher in SDO and
+RWA, were less likely to follow the egalitarian strategy and more likely to 
+follow the avoid disadvantageous inequity strategy, especially in the United 
+States. Authoritarian participants in the United States were also more likely to 
+actively seek advantageous inequity with their punishment. These findings 
+provide insight into the motives that may have driven higher levels of peer 
+punishment among conservatives in previous work [@Hofmann2018].
+
+Behaviour shaping strategies, such as deterrence and norm-enforcement, were less 
+common than strategies sensitive to inequality in our set of games. This was 
+reflected both in participants’ elicited punishment behaviour (@fig-model1b)
+and in their self-reports of their own strategy (Supplementary Figures 
+-@suppfig-sliders1 and -@suppfig-sliders2). Although our design did not 
+explicitly allow for behaviour shaping as the interactions were all one-shot, we
+did manipulate whether the target's stealing behaviour was intentional or not 
+(Game C), an approach which has been used in previous vignette studies to 
+identify behaviour shaping motives [@Carlsmith2002]. The lower prevalence of 
+behaviour shaping strategies in our study is consistent with prior work showing
+that punishment often continues to be used when behaviour shaping is impossible,
+such as when the target will never find out that they have been punished 
+[@Crockett2014] or on the last round of repeated interactions [@Barclay2016]. We
+found that demographic, personality, political, and religious variables tended
+to be unrelated to behaviour shaping strategies, though this could reflect low
+power to detect such associations given the low prevalence of these strategies
+in our sample. We also found that participants accurately reported using the 
+norm-enforcing strategy, but not the deterrent strategy. This finding is in line
+with previous research showing that people struggle to accurately report the 
+deterrent motivations for their punitive behaviour [@Carlsmith2002].
+
+We defined antisocial punishment as occurring when a participant exclusively 
+punished those who did not steal. There were no participants in our sample who 
+followed this strategy, although some players did punish non-stealing
+co-players. Harming non-stealing individuals was also consistent with the 
+competitive strategies, which did appear in our sample albeit at low 
+frequencies. The fact that no participants in our sample punished non-stealing 
+across all games suggests that the antisocial punishment that has been observed
+in other studies [@Herrmann2008; @Pleasant2018] is not aimed at harming 
+cooperators specifically, as has been previously suggested [@Herrmann2008]. 
+Instead, antisocial punishment is more likely to be motivated by improving one's 
+relative position, which is in line with work showing that antisocial punishment 
+disappears when relative payoffs cannot be changed (e.g., when punishment is 
+only available with a 1:1 fee-fine ratio) [@Sylwester2013].
+
+The fact that people use punishment for many different reasons poses problems 
+for the way that punishment is operationalised in classic behavioural economic 
+game studies. In these studies, a common assumption is that participants punish 
+to change the behaviour of cheats [@Fehr2000; @Fehr2002]. But in reality, people 
+may be choosing the punishment option to achieve a variety of different goals. 
+This has implications for how people respond to being targeted by punishers in 
+these games. Targets of punishment in these studies may know that punishment 
+reflects different motives and can respond accordingly. For example, if targets
+interpret punishment as serving a competitive motive, it may elicit retaliation
+rather than encourage cooperation [@Dreber2008; @Nikiforakis2008b; 
+@Raihani2019]. As punishers’ motives must be inferred (and such inferences
+likely depend on character traits of the target, as well as the context in which 
+punishment occurs), there is likely to be some variation and error in 
+attributing motives to punishers. To the extent that inferred motives affect 
+target responses, this might help to explain the mixed findings in the field as
+to whether punishment actually motivates cheating targets to subsequently 
+cooperate [@Raihani2019].
+
+It is striking that the most common strategy in our dataset was to never punish. 
+This is partly because punishment in these games imposes an economic cost for no 
+tangible benefit. If the fee-fine ratio had been lower, such that it was cheaper 
+to punish, we may have seen more punishment from participants. Indeed, 
+`r papaja::printnum(mean(tar_read(dExc)$SelfRate10[tar_read(dExc)$strategy == "Never punish"] > 0, na.rm = TRUE)*100, digits = 0)`% 
+of participants following the never punish strategy positively stated that they 
+didn't want to pay to reduce anyone's bonus but would have done so if it were 
+free. But the frequency of the never punish strategy perhaps also reflects a 
+more general aversion to peer punishment, an aversion that has been highlighted 
+in both WEIRD (Western, educated, industrialised, rich, and democratic) samples
+[@Balafoutas2014; @Balafoutas2016] and in small-scale societies [@Baumard2010]. 
+One reason that people may be averse to peer punishment is that, because it is 
+a fundamentally harmful act, punishment can reflect badly on the punisher and 
+people might therefore refrain from punishing others to avoid reputational 
+damage [@Raihani2015]. People frequently avoid taking actions that could harm 
+their reputation, even when they don’t know if reputation is at stake (as in the 
+one-shot anonymous settings used here). Another reason that people may be averse
+to peer punishment is that it can trigger retaliation [@Raihani2019]. This may 
+be especially likely in situations that lack clear institutional norms to 
+legitimise punishment, such as our economic games. As with reputation damage, 
+people might abstain from peer punishment to avoid retaliation, regardless of 
+whether retaliation is actually possible. By contrast, institutionalised 
+punishment in small-scale societies often functions to compensate victims while 
+limiting the potential for feuds and cycles of retaliation
+[@Fitouchi2023; @Singh2022]. Future research should uncover whether people are 
+more willing to punish in these conventionalised contexts (e.g., see ref
+[@Molleman2019]).
+
+One potential limitation with our design is that some strategies required more 
+punishment than others, meaning that some strategies were more "expensive" to 
+implement. For example, the competitive strategy required punishment in ten of 
+twelve decisions, compared to the avoid disadvantageous inequity strategy which 
+required only one instance of punishment (@tbl-strategies). We employed the 
+strategy method to deal with this, calculating participant payoffs from a 
+randomly chosen game instead of accumulating the costs across all games. This 
+mitigates the concern that the total cost is the most salient feature 
+determining participants' decisions. But even accounting for this, one could 
+still argue that the difference in overall costs explains why, for example, the 
+competitive strategy is less common in our dataset than the avoid 
+disadvantageous inequity strategy. We do not think this feature of our design 
+is a concern, however, for a number of reasons. First, we are interested in 
+measuring strategies underlying *costly* punishment. Some of these strategies,
+by their very nature, will be more costly to implement than others. This is 
+reflected in our design. It would not make theoretical sense to use an 
+alternative design where more or less punitive strategies are manipulated to 
+cost participants the same amount. Second, when we asked participants whether
+they would have punished if it were free to do so, we found low agreement 
+with this statement (@suppfig-sliders1), suggesting that participants were not 
+particularly sensitive to the costs of punishment. In line with this, when we 
+plot the frequencies of different strategies against their expected costs, we 
+find that cost is not a perfect predictor of strategy frequency: many "cheap" 
+strategies are rare in our data and some "expensive" strategies are quite common
+(e.g., always punish; @suppfig-spline). Third, this argument implies that the 
+high frequency of the never punish strategy is merely an artefact of our design,
+since it is the only strategy that does not cost anything to implement. But as
+we have discussed, many other studies have found similar aversions to costly 
+punishment in the lab [@Barclay2016; @Batistoni2022; @Bone2015; @Deutchman2021; 
+@Raihani2012b] and in the real world [@Balafoutas2014; @Balafoutas2016; 
+@Baumard2010] suggesting that this result is not an artefact of our design.
+
+In sum, we have shown that while many people choose not to punish peers, those 
+who do are motivated by a variety of different concerns, including behaviour 
+shaping, egalitarianism, and competition. Much like the observed variation in 
+human social learning strategies [@Molleman2014], humans thus also exhibit 
+variation in their punishment strategies. These individual differences map onto 
+personality dimensions, social preferences, political and religious views, and 
+self-reports of behaviour. We hope that future work will continue to unpack the 
+multifaceted nature of human punishment.
+
+# Methods
+
+## Ethical approval
+
+This research was approved by the UCL Department of Psychology Ethics Committee 
+(project: 3720/002) and ratified by the University of Auckland Human 
+Participants Ethics Committee. The study was performed in accordance with all 
+the relevant guidelines and regulations. Informed consent was obtained from all 
+participants prior to the study and participation was voluntary.
+
+## Pre-registration
+
+We pre-registered the study on the Open Science Framework before collecting data 
+in the United Kingdom (11^th^ November 2022; <https://osf.io/k75fc>). We 
+submitted another pre-registration before collecting data in the United States 
+(20^th^ June 2023; <https://osf.io/q4hdy>). In the pre-registrations, we 
+outlined our study design, exclusion criteria, and analysis plan. As the study 
+was exploratory, we did not pre-register any explicit hypotheses. We did not 
+deviate from the pre-registrations.
+
+## Exclusion criteria
+
+We pre-registered that we would exclude participants who failed any of the 
+attention checks, sped through the surveys (i.e., two standard deviations below 
+the median duration), or flatlined (i.e., provided identical responses to matrix 
+questions). We also stated that we would exclude data for particular games if 
+participants failed the comprehension question for that game. We followed our 
+pre-registered plan of conducting analyses with and without these exclusions 
+(analyses without exclusions are reported in the Supplementary Material).
+
+## Participants
+
+```{r}
+tar_load(c(d, dExc))
+uk_n_full <- sum(d$Country == "United Kingdom")
+uk_n_rtrn <- sum(d$Country == "United Kingdom" & !is.na(d$StartDate_Part2))
+uk_n_excl <- sum(dExc$Country == "United Kingdom")
+us_n_full <- sum(d$Country == "United States")
+us_n_rtrn <- sum(d$Country == "United States" & !is.na(d$StartDate_Part2))
+us_n_excl <- sum(dExc$Country == "United States")
+```
+
+We collected a representative sample of `r papaja::printnum(uk_n_full)` 
+participants from the United Kingdom through the online platform Prolific 
+(<https://www.prolific.com/>). All of these participants completed the economic 
+games and `r papaja::printnum(uk_n_rtrn)` returned to complete the follow-up 
+survey a week later 
+(`r papaja::printnum((uk_n_rtrn / uk_n_full)*100, digits = 0)`% retention rate).
+After exclusions, we were left with `r papaja::printnum(uk_n_excl)` participants 
+overall (see @suppfig-sampleUK).
+
+We later collected a representative sample of `r papaja::printnum(us_n_full)` 
+participants from the United States through Prolific. All of these participants 
+completed the economic games and `r papaja::printnum(us_n_rtrn)` returned to 
+complete the follow-up survey 
+(`r papaja::printnum((us_n_rtrn / us_n_full) * 100, digits = 0)`% retention 
+rate). After exclusions, we were left with `r papaja::printnum(us_n_excl)` 
+participants overall (see @suppfig-sampleUS for sample characteristics).
+
+## Materials
+
+### Economic games
+
+In the first part of the study, participants completed six economic games, each 
+with slight variations. In all games, there are multiple players and the 
+participant takes the role of P1. P2 either (a) steals £0.20 from another player 
+and adds it to their payoff or (b) does nothing. For each of these cases, 
+participants are asked whether they would like to pay money to reduce P2's 
+payoff. Games A-E have two players and Game F has three players.
+
+The six games are as follows (variations bolded; see @fig-games for a visual 
+representation of the games):
+
+1. *Game A (Advantageous Inequity)*. P1 starts with £0.70 and P2 starts with 
+   £0.10. P2 is given the option to either steal £0.20 from P1 or do nothing. P1 
+   can then pay £0.10 to reduce P2’s payoff by £0.30.
+2. *Game B (Equal)*. P1 starts with £0.70 and P2 starts with **£0.30**. P2 is 
+   given the option to either steal £0.20 from P1 or do nothing. P1 can then pay 
+   £0.10 to reduce P2’s payoff by £0.30.
+3. *Game C (Computer)*. P1 starts with £0.70 and P2 starts with £0.30. 
+   Participants are told that **"the computer will decide"** whether P2 steals
+   £0.20 from P1 or does nothing. P1 can then pay £0.10 to reduce P2’s payoff by 
+   £0.30.
+4. *Game D (1:1 Fee-Fine)*. P1 starts with £0.70 and P2 starts with £0.30. P2 is 
+   given the option to either steal £0.20 from P1 or do nothing. P1 can then pay 
+   £0.10 to reduce P2’s payoff by **£0.10**.
+5. *Game E (Disadvantageous Inequity)*. P1 starts with £0.70 and P2 starts with 
+   **£0.50**. P2 is given the option to either steal £0.20 from P1 or do 
+   nothing. P1 can then pay £0.10 to reduce P2’s payoff by £0.30.
+6. *Game F (Third-Party)*. P1 starts with £1.00, P2 and P3 start with £0.70. P2 
+   is given the option to either steal £0.20 **from P3** or do nothing. P1 can 
+   then pay £0.10 to reduce P2’s payoff by £0.30.
+
+<br>
+
+We delineate nine punishment strategies that can be isolated based on players' 
+decisions across the six economic games (@tbl-strategies). In existing 
+literature, it is often unclear whether punishment decisions are sensitive to 
+the previous actions of others or to payoff sensitivity. This is because (*i*) 
+players' decisions typically introduce payoff differentials in economic games 
+and (*ii*) where fine > fee, punishment tools can be used to harm co-players and 
+to change relative payoffs [@Raihani2019]. Of the nine strategies we define, 
+*deterrent*, *norm-enforcing*, *retributive* and *antisocial* are strategies 
+that are only sensitive to the actions of others. Conversely, *avoid 
+disadvantageous inequity*, *egalitarian*, *seek advantageous inequity* and 
+*competitive* are strategies that are sensitive to payoffs. *Never punish* is an 
+unconditional strategy (i.e., no sensitivity to actions or payoffs). 
+
+Our strategy definitions sometimes differ from how these strategies are defined 
+and discussed in the literature (e.g., antisocial punishment). This is essential 
+because previous definitions permit many possible motives, while we are aiming 
+to isolate punishment motives. We define our strategies as follows:
+
+- *Deterrent*: Deter others who have harmed you from harming you again in the 
+future (when the target steals in Games A, B, D, and E). We note that while no 
+behaviour change is possible in our one-shot games, deterrent motives can be 
+isolated from retributive motives by asking whether participants are sensitive 
+to the intentionality behind cheating, as in previous work [@Carlsmith2002]. 
+- *Norm-enforcing*: Punish to enforce a shared anti-harm norm and encourage 
+future norm compliance (when the target steals in Games A, B, D, E and F). 
+Though we cannot measure future norm compliance in our one-shot games, these 
+non-repeated (and 'stranger design') games have been used to identify 
+norm-enforcing motives in many previous studies [@Fehr2000; @Fehr2002].
+- *Retributive*: Punish if doing so harms another who harmed you (when the 
+target steals in Games A-E). We note that retribution is also sometimes used to 
+describe punishment of those who harmed others [@Carlsmith2002]. We require this 
+tighter definition because our aim is to precisely identify punishment 
+strategies, and sensitivity to whether self or others were harmed may be an 
+important factor affecting the decision to punish (e.g., ref
+[@Feldmanhall2014]). 
+- *Avoid disadvantageous inequity*: Punish if doing so avoids disadvantageous 
+inequity for the self (when the target steals in Game E). 
+- *Egalitarian*: Punish if doing so makes payoffs for all more equal (when the 
+target steals in Games E and F) (c.f. ref [@Dawes2007]).
+- *Seek advantageous inequity*: Punish if doing so produces advantageous
+inequity for the self (when the target steals in Games B and C). This is one 
+possible motive underlying what others have previously called 'antisocial 
+punishment' or 'spite'; here we isolate it.
+- *Competitive*: Punish if doing so improves your relative position (all games 
+except Game D). 
+- *Antisocial*: Punish exclusively those who do not cause harm (punish 
+non-stealing target in all games). This definition differs from some previous 
+definitions of antisocial punishment, but this is essential to isolate the full 
+range of motives that could be driving punishment and which are not typically 
+disentangled in other settings. 
+- *Never punish*: A person who never incurs a personal cost to punish a 
+co-player (does not punish in any game).
+
+<br>
+
+For each game, participants saw the game instructions and answered a 
+comprehension question before providing their decisions. After completing all 
+the games, participants were asked to give an open-ended response explaining 
+their behaviour in the games, and then responded to several slider questions 
+capturing the different reasons for their decisions (for full wordings, see 
+@supptbl-sliderWordings).
+
+### Survey questions
+
+In a follow-up survey, we collected the following data on participants (for 
+wordings of all questions, see @supptbl-surveyWordings):
+
+- *Demographics*. In the survey, we collected information on participants' 
+  education level and self-reported socio-economic status (MacArthur ladder
+  [@Adler2000]). We also collected additional demographic data from Prolific 
+  (e.g., age, gender, student status).
+- *Personality*. We used the Mini-IPIP scale [@Sibley2011] to measure the Big 6 
+  personality dimensions of agreeableness ($\alpha$ = 
+  `r papaja::printnum(tar_read(alphaAgree)$alpha)`), conscientiousness ($\alpha$ = 
+  `r papaja::printnum(tar_read(alphaConsc)$alpha)`), extraversion ($\alpha$ = 
+  `r papaja::printnum(tar_read(alphaExtra)$alpha)`), honesty-humility ($\alpha$ = 
+  `r papaja::printnum(tar_read(alphaHonest)$alpha)`), openness to experience ($\alpha$ = 
+  `r papaja::printnum(tar_read(alphaOpen)$alpha)`), and neuroticism ($\alpha$ = 
+  `r papaja::printnum(tar_read(alphaNeur)$alpha)`). Four items were used for each 
+  personality dimension.
+- *Social Value Orientation*. We used the Social Value Orientation Slider 
+  Measure to measure other-regarding preferences [@Murphy2011]. Across fifteen 
+  items, participants made decisions on how to allocate different amounts of 
+  money between themselves and another anonymous individual. From these 
+  decisions, we calculated participants' Social Value Orientation "angle" as a 
+  measure of their other-regarding preference, following the steps outlined in 
+  ref [@Murphy2011].
+- *Political ideology*. We included several measures of political ideology, 
+  including left-right conservatism, Social Dominance Orientation [@Ho2015] 
+  ($\alpha$ = `r papaja::printnum(tar_read(alphaSDO)$alpha)`; eight items), and 
+  Right Wing Authoritarianism [@Bizumic2018] ($\alpha$ = 
+  `r papaja::printnum(tar_read(alphaRWA)$alpha)`; six items). We also probed 
+  participants' views on social inequality by asking them whether they would 
+  like to bring people above (below) them on the MacArthur socio-economic status 
+  ladder down (up) a peg or two.
+- *Religious views*. We asked participants how religious they consider 
+  themselves and whether they believe that God or another spiritual non-human 
+  entity controls the events in the world [@Laurin2012].
+  
+<br>
+
+## Procedure
+
+We began data collection in the United Kingdom on 28^th^ November 2022, with 
+participants returning to complete the follow-up survey on 5^th^ December 2022. 
+We then ran a second wave of data collection in the United States on 20^th^ June 
+2023, with participants returning to complete the follow-up survey on 27^th^ 
+June 2023. Our surveys were designed through the online survey platform 
+Qualtrics (<https://www.qualtrics.com/>).
+
+In the initial games survey, participants completed all six economic games in a 
+random order, with punishment decisions (whether to punish a stealing target and 
+whether to punish a target who did nothing) randomised within games. Responses 
+to comprehension questions suggested that participants understood the six 
+economic games (@supptbl-comp). In order to partially mitigate the fact that 
+some punishment strategies predict more punishment than others and are thus more 
+"expensive" to implement (@tbl-strategies), we used the strategy method to 
+incentivise the economic games, choosing a random game to determine bonus
+payments rather than summing participants' earnings across all games. After all
+games, 
+`r papaja::printnum((sum(dExc$DecisionConsequences == "Yes", na.rm = TRUE) / nrow(dExc)) * 100, digits = 0)`% 
+of participants stated that they believed that their decisions had real 
+consequences for others.
+
+In the follow-up survey, participants completed blocks of questions on 
+demographics, personality, Social Value Orientation, political ideology, and 
+religious views in a random order, with questions randomised within blocks. A 
+random decision from the Social Value Orientation Slider Measure was chosen to 
+determine bonus payment.
+
+Participants were paid £1.80 for completing the games survey, plus a bonus 
+payment from the six economic games (between £0.40 -- £0.70 depending on their 
+decisions). Participants were paid £1.50 for completing the follow-up survey, 
+plus a bonus payment from the Social Value Orientation Slider Measure (between 
+£0.50 -- £0.85 depending on their decisions).
+
+## Statistical analysis
+
+We pre-registered that we would use a Bayesian latent state model to infer 
+unobserved punishment strategies from the observed data (for a similar version 
+of this model, see ref [@McElreath2020]). In this model, participants $i$ in 
+countries $c$ make binary punishment decisions across twelve decisions $j$. We 
+assume that the probability of the observed data $y_{i,j}$ is the weighted 
+average of the probability of the observed data conditional on each of the ten 
+punishment strategies $s$. From this logic, the model estimates the probability 
+of each strategy $p_{s}$. The full model is as follows:
+
+$$
+\begin{align}
+y_{i,j} &\sim \text{Bernoulli}(\theta_{j}) \\
+\theta_{j} &= \sum_{s=1}^{10} p_{s} \text{Pr}(\text{punish}|s,j) \nonumber \\
+p &= \text{softmax}(\alpha_{c[i]}) \nonumber \\
+\alpha_{s,c} &\sim \text{Normal(0, 1)} \nonumber
+\end{align}
+$$
+
+```{r}
+error <- tar_read(post5)$error
+```
+
+The conditional probabilities $\text{Pr}(\text{punish}|s,j)$ are hard coded in 
+the model as outlined in @tbl-strategies. We incorporate an implementation error
+rate $\delta$ into these conditional probabilities by coding ticks in 
+@tbl-strategies with a conditional probability of $1 - \delta$ and coding 
+crosses with a conditional probability of $0 + \delta$. We set $\delta$ to 0.05
+in all models, which is similar to its value when we estimate it as a free 
+parameter in an additional model (median posterior $\delta$ = 
+`r papaja::printnum(median(error))`, 95% CI
+[`r papaja::printnum(quantile(error, 0.025))`
+`r papaja::printnum(quantile(error, 0.975))`]; @suppfig-model5). The random 
+choice strategy is consistently coded with a conditional probability of ½ across
+all decisions.
+
+To include a categorical predictor in the model, we estimate a different 
+$\alpha_{s,c}$ for each categorical level. To include a continuous predictor 
+$x$ in the model, we include a slope $\beta$ in the linear model for $p$:
+
+$$
+\begin{align}
+y_{i,j} &\sim \text{Bernoulli}(\theta_{j}) \\
+\theta_{j} &= \sum_{s=1}^{10} p_{s} \text{Pr}(\text{punish}|s,j) \nonumber \\
+p &= \text{softmax}(\alpha_{c[i]} + \beta_{c[i]}x_{i}) \nonumber \\
+\alpha_{s,c} &\sim \text{Normal(0, 1)} \nonumber \\
+\beta_{s,c} &\sim \text{Normal(0, 0.2)} \nonumber
+\end{align}
+$$
+
+These models control for multiple comparisons across strategies by estimating 
+the effects of the predictor on all strategies simultaneously.
+
+We estimated the posterior distributions of these models using Hamiltonian Monte 
+Carlo as implemented in Stan version 2.32.2 [@Stan2020]. We ran each model for 
+2000 samples, with 1000 warmup samples. R-hat values and effective sample sizes 
+suggested that all models converged normally. Trace plots are reported in 
+@suppfig-trace.
+
+We validated the model by simulating observed data (_n_ = 100) from a known 
+frequency of strategies. The model was successfully able to recover the known 
+frequency of strategies from the simulated data (@suppfig-sim).
+
+## Reproducibility
+
+All data and code are accessible on GitHub:
+<https://github.com/ScottClaessens/punishStrategies>. All analyses were 
+conducted in R version 4.4.2 [@RCoreTeam]. Visualisations were created with the
+*ggplot2* [@Wickham2016] and *cowplot* [@Wilke2020] R packages. We used the
+*targets* [@Landau2021] R package and *quarto* [@Allaire2024] to reproducibly 
+generate the manuscript.
+
+\newpage
+
+# Acknowledgements
+
+This work was supported by a Royal Society of New Zealand Catalyst Leaders Grant 
+to Q.D.A and N.R. (ref: ILFUOA2002).
+
+# Competing Interests
+
+The authors declare no competing interests.
+
+# Data Availability
+
+All data used in this study are publicly available on GitHub: 
+<https://github.com/ScottClaessens/punishStrategies>
+
+# Code Availability
+
+All code to reproduce the analyses in this study are publicly available on 
+GitHub: <https://github.com/ScottClaessens/punishStrategies>
+
+\newpage
+
+# References
+
+<!-- References will auto-populate in the refs div below -->
+
+::: {#refs}
+:::
+
+\newpage
+
+{{< include appendix.qmd >}}

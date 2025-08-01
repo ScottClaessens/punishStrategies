@@ -211,6 +211,8 @@ plotAllSliders <- function(postList, file) {
       }
     }
   }
+  # save memory
+  rm(post, postList)
   # plot
   out <-
     slopes %>%
@@ -291,6 +293,8 @@ plotAllPers <- function(postList, file) {
       }
     }
   }
+  # save memory
+  rm(post, postList)
   # plot
   out <-
     slopes %>%
@@ -361,6 +365,8 @@ plotAllPolRel <- function(postList, file) {
       }
     }
   }
+  # save memory
+  rm(post, postList)
   # plot
   out <-
     slopes %>%
@@ -426,6 +432,8 @@ plotAllDems <- function(postList, file) {
       }
     }
   }
+  # save memory
+  rm(post, postList)
   # plot
   out <-
     slopes %>%
@@ -463,6 +471,7 @@ plotTraceMCMC <- function(m1.2) {
   # plot
   out <-
     tidy_draws(m1.2, alpha) %>%
+    filter(.draw %% 10 == 0) %>% # get every tenth row
     pivot_longer(cols = starts_with("alpha"),
                  names_to = "parameter",
                  values_to = "value") %>%
@@ -477,6 +486,7 @@ plotTraceMCMC <- function(m1.2) {
           legend.position = "none")
   # save plot
   ggsave(out, filename = "figures/modelResults/trace.pdf", width = 7, height = 6)
+  rm(m1.2)
   return(out)
 }
 

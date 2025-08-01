@@ -1,0 +1,320 @@
+# Supplementary Materials
+
+## Supplementary Figures
+
+::: {#suppfig-model1a suppfig-pos="H"}
+
+```{r, fig.height=5, fig.width=7}
+tar_read(plot1.1)
+```
+
+Posterior estimates of the probabilities of following different punishment 
+strategies from the Bayesian latent state model fitted to the full dataset 
+without pre-registered exclusions. The model assumes an implementation error 
+rate of 5%. @fig-model1b in the main text shows the same result, but from a 
+model fitted to the reduced dataset with pre-registered exclusions. Points 
+represent posterior medians, line ranges represent 50% and 95% credible 
+intervals. AI = advantageous inequity, DI = disadvantageous inequity.
+
+:::
+
+\newpage
+
+::: {#suppfig-allDems2 suppfig-pos="H"}
+
+```{r, fig.height=3, fig.width=7.5, warning=FALSE}
+tar_read(plotAllDems2)
+```
+
+Posterior slopes from models including age, socio-economic status, gender, and 
+student status, fitted to the subsetted dataset with pre-registered exclusions.
+Each row represents a separate model. Points represent posterior medians, line 
+ranges represent 95% credible intervals. AI = advantageous inequity, DI = 
+disadvantageous inequity.
+
+:::
+
+\newpage
+
+::: {#suppfig-allDems1 suppfig-pos="H"}
+
+```{r, fig.height=3, fig.width=7.5, warning=FALSE}
+tar_read(plotAllDems1)
+```
+
+Posterior slopes from models including age, socio-economic status, gender, and 
+student status, fitted to the full dataset without pre-registered exclusions. 
+Each row represents a separate model. Points represent posterior medians, line 
+ranges represent 95% credible intervals. AI = advantageous inequity, DI = 
+disadvantageous inequity.
+
+:::
+
+\newpage
+
+::: {#suppfig-allPers1 suppfig-pos="H"}
+
+```{r, fig.height=3.5, fig.width=7.5, warning=FALSE}
+tar_read(plotAllPers1)
+```
+
+Posterior slopes from models including Big-6 personality dimensions and Social 
+Value Orientation, fitted to the full dataset without pre-registered exclusions. 
+Each row represents a separate model. @fig-allPers2 in the main text shows the 
+same results, but from models fitted to the reduced dataset with pre-registered 
+exclusions. Points represent posterior medians, line ranges represent 95% 
+credible intervals. AI = advantageous inequity, DI = disadvantageous inequity.
+
+:::
+
+\newpage
+
+::: {#suppfig-allPolRel1 suppfig-pos="H"}
+
+```{r, fig.height=3.5, fig.width=7.5, warning=FALSE}
+tar_read(plotAllPolRel1)
+```
+
+Posterior slopes from models including political ideology, views about social 
+inequality, and religiosity, fitted to the full dataset without pre-registered 
+exclusions. Each row represents a separate model aside from Social Dominance 
+Orientation and Right Wing Authoritarianism, which control for one another 
+within the same model. @fig-allPolRel2 in the main text shows the same results,
+but from models fitted to the reduced dataset with pre-registered exclusions. 
+Points represent posterior medians, line ranges represent 95% credible 
+intervals. AI = advantageous inequity, DI = disadvantageous inequity.
+
+:::
+
+\newpage
+
+::: {#suppfig-sliders1 suppfig-pos="H"}
+
+```{r, fig.height=4, fig.width=7, warning=FALSE}
+tar_read(plotSliders1)
+```
+
+Boxplots showing the distribution of responses to each self-report question 
+about the reasons for participants' behaviour in the games. Boxplots represent 
+medians and interquartile ranges.
+
+:::
+
+\newpage
+
+::: {#suppfig-sliders2 suppfig-pos="H"}
+
+```{r, fig.height=4, fig.width=7, warning=FALSE}
+tar_read(plotSliders2)
+```
+
+Boxplots showing the distribution of responses to each self-report question 
+about the reasons for participants' behaviour in the games, presented as 
+deviations from participants' average rating across all questions. Boxplots 
+represent medians and interquartile ranges.
+
+:::
+
+\newpage
+
+::: {#suppfig-allSliders1 suppfig-pos="H"}
+
+```{r, fig.height=4, fig.width=7.5, warning=FALSE}
+tar_read(plotAllSliders1)
+```
+
+Posterior slopes from models including self-reported strategy usage, fitted to 
+the full dataset without pre-registered exclusions. Each row represents a 
+separate model. Highlighted estimates represent combinations where the 
+self-report slider matched the behavioural strategy. @fig-allSliders2 in the 
+main text shows the same results, but from models fitted to the reduced dataset
+with pre-registered exclusions. Points represent posterior medians, line ranges
+represent 95% credible intervals. AI = advantageous inequity, DI = 
+disadvantageous inequity.
+
+:::
+
+\newpage
+
+::: {#suppfig-spline suppfig-pos="H"}
+
+```{r, fig.height=3.5, fig.width=6, warning=FALSE}
+tar_read(plotSpline)
+```
+
+The relationships between strategy frequencies and the overall costs of 
+strategies across all twelve punishment decisions, in both countries. Each point
+is a unique strategy that appears in our dataset at least once (for ease of 
+presentation, the "never punish" strategy is excluded). Lines and shaded areas
+represent posterior predictions from splines fitted to the trend in each country 
+separately.
+
+:::
+
+\newpage
+
+::: {#suppfig-sampleUK suppfig-pos="H"}
+
+```{r, fig.height=5, fig.width=7, warning=FALSE}
+tar_read(plotSample_UK)
+```
+
+Sample characteristics in the United Kingdom.
+
+:::
+
+\newpage
+
+::: {#suppfig-sampleUS suppfig-pos="H"}
+
+```{r, fig.height=5, fig.width=7, warning=FALSE}
+tar_read(plotSample_US)
+```
+
+Sample characteristics in the United States.
+
+:::
+
+\newpage
+
+::: {#suppfig-model5 suppfig-pos="H"}
+
+```{r, fig.height=5, fig.width=7, warning=FALSE}
+tar_read(plot5)
+```
+
+Posterior estimates of the probabilities of following different punishment 
+strategies from the Bayesian latent state model that estimates the 
+implementation error rate as a free parameter. The model estimated the 
+implementation error rate to be `r papaja::printnum(median(error))`
+(95% CI [`r papaja::printnum(quantile(error, 0.025))`
+`r papaja::printnum(quantile(error, 0.975))`]). Points represent posterior 
+medians, line ranges represent 50% and 95% credible intervals. AI = advantageous 
+inequity, DI = disadvantageous inequity.
+
+:::
+
+\newpage
+
+::: {#suppfig-trace suppfig-pos="H"}
+
+```{r, fig.height=6, fig.width=7, warning=FALSE}
+tar_read(plotTrace1.2)
+```
+
+MCMC trace plots for parameter values from the Bayesian latent state model 
+fitted to data with exclusions. These trace plots suggest that the different
+chains mixed well and the model converged normally.
+
+:::
+
+\newpage
+
+::: {#suppfig-sim suppfig-pos="H"}
+
+```{r, fig.height=5, fig.width=6, warning=FALSE}
+tar_read(plotSim1)
+```
+
+Results of Bayesian latent state model fitted to simulated data (n = 100) with 
+known strategy frequencies in the population. Blue points represent known 
+strategy frequencies, grey densities represent posterior estimates of strategy 
+frequencies. AI = advantageous inequity, DI = disadvantageous inequity.
+
+:::
+
+\newpage
+
+## Supplementary Tables
+
+::: {#supptbl-patterns supptbl-pos="H" layout-ncol="1"}
+
+```{r}
+tar_read(tablePatterns) %>%
+  flextable() %>%
+   set_header_labels(
+    Pattern = "Pattern",
+    Explanation = "Explanation",
+    a = "N",
+    b = "Prop",
+    c = "N",
+    d = "Prop"
+  ) %>%
+  add_header_row(
+    values = c(
+      "",
+      "United Kingdom\n(N = 1014)",
+      "United States\n(N = 996)"
+    ),
+    colwidths = c(2, 2, 2)
+  ) %>%
+  theme_apa() %>%
+  line_spacing(part = "all") %>%
+  align(i = NULL, j = 1:2, align = "left", part = "all") %>%
+  autofit() %>%
+  fontsize(size = 9.5, part = "all")
+```
+
+Counts and proportions of the 25 most common patterns of punitive behaviour 
+across all twelve decisions, split by country. Binary strings represent 
+punishment (1) or no punishment (0) in each decision, aligning with the order of
+game decision columns in @tbl-strategies.
+
+:::
+
+\newpage
+
+::: {#supptbl-sliderWordings supptbl-pos="H" layout-ncol="1"}
+
+```{r}
+tar_read(tableSliderWordings) %>%
+  flextable() %>%
+  theme_apa() %>%
+  autofit() %>%
+  align(i = NULL, j = 2, align = "left", part = "all") %>%
+  line_spacing(part = "all")
+```
+
+Wordings for 11 self-report slider questions asking participants to report the 
+reasons for their behaviour in the six games. Participants were prompted with 
+the following text: "We would now like you to answer a few questions about your
+main motivation in the games. Please answer truthfully - there is no right or 
+wrong answer and your first answer is probably best. Please rate the extent to
+which the following statements apply to your decisions to reduce or not to
+reduce other players' bonuses in the games."
+
+:::
+
+\newpage
+
+::: {#supptbl-surveyWordings supptbl-pos="H" layout-ncol="1"}
+
+```{r}
+tar_read(tableSurveyWordings) %>%
+  flextable() %>%
+  theme_apa() %>%
+  autofit() %>%
+  align(align = "left", part = "all") %>%
+  line_spacing(part = "all")
+```
+
+Wordings for survey questions in the study.
+
+:::
+
+\newpage
+
+::: {#supptbl-comp supptbl-pos="H" layout-ncol="1"}
+
+```{r}
+tar_read(tableComp) %>%
+  flextable() %>%
+  theme_apa() %>%
+  autofit() %>%
+  align(j = 1, align = "left", part = "all")
+```
+
+Proportions of correct answers to comprehension questions for all six economic 
+games, split by country.
+
+:::

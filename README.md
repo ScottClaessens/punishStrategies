@@ -1,12 +1,14 @@
 # Why do people punish? Evidence for a range of strategic concerns
 
-Using behavioural economic games to tease apart the strategies underlying punishment in humans.
+Using behavioural economic games to tease apart the strategies underlying 
+punishment in humans.
 
 ## Getting Started
 
 ### Installing
 
-To run this code, you will need to [install R](https://www.r-project.org/) and the following R packages:
+To run this code, you will need to [install R](https://www.r-project.org/) and 
+the following R packages:
 
 ```
 install.packages(c("ape", "cowplot", "ggcorrplot", "ggrepel", 
@@ -16,7 +18,8 @@ install.packages(c("ape", "cowplot", "ggcorrplot", "ggrepel",
                    "tidyverse", "wordcloud"))
 ```
 
-You will also need to install the `rethinking` package. See here for more details: [https://github.com/rmcelreath/rethinking](https://github.com/rmcelreath/rethinking)
+You will also need to install the `rethinking` package. See here for more 
+details: [https://github.com/rmcelreath/rethinking](https://github.com/rmcelreath/rethinking)
 
 ### Executing code
 

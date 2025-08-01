@@ -61,3 +61,6 @@ data/study1/study1_raw/
 
 # raw data from study 2 (US)
 data/study2/study2_raw/
+
+# submissions
+submissions/
